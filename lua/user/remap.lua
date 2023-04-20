@@ -12,6 +12,7 @@ keymap( "", "<Space>", "<Nop>", silent )
 keymap( "", "<Esc>",   "<Esc>", silent )
 
 
+
 --<< ALL MODES >>--
 
 --<< Yank and paste
@@ -59,10 +60,10 @@ keymap( "n", "<C-Down>",      "<Cmd>resize -1<CR>",          silent )
 --<< Tabs
 keymap( "n", "<Leader>.",     "<Cmd>tabnew<CR>",             silent )
 keymap( "n", "<Leader>,",     "<Cmd>tabclose<CR>",           silent )
-keymap( "n", "<C-[>",         "<Cmd>tabprevious<CR>",        silent )
-keymap( "n", "<C-]>",         "<Cmd>tabnext<CR>",            silent )
-keymap( "n", "<A-[>",         "<Cmd>-tabmove<CR>",           silent )
-keymap( "n", "<A-]>",         "<Cmd>+tabmove<CR>",           silent )
+keymap( "n", "<C-;>",         "<Cmd>tabprevious<CR>",        silent )
+keymap( "n", "<C-'>",         "<Cmd>tabnext<CR>",            silent )
+keymap( "n", "<A-;>",         "<Cmd>-tabmove<CR>",           silent )
+keymap( "n", "<A-'>",         "<Cmd>+tabmove<CR>",           silent )
 
 --<< Plugin
 keymap( "n", "<C-p>c",        "<Cmd>PackerCompile<CR>\
