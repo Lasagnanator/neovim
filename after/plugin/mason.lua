@@ -38,8 +38,8 @@ local on_attach = function(client, bufnr)
 
     -- Mappings
     keymap("n", "<Leader>le",  vim.diagnostic.open_float,                    bufopts)
-    keymap("n", "<C-,>",       vim.diagnostic.goto_prev,                     bufopts)
-    keymap("n", "<C-.>",       vim.diagnostic.goto_next,                     bufopts)
+    keymap("n", "<A-[>",       vim.diagnostic.goto_prev,                     bufopts)
+    keymap("n", "<A-]>",       vim.diagnostic.goto_next,                     bufopts)
     keymap("n", "<Leader>lr",  vim.lsp.buf.rename,                           bufopts)
     keymap("n", "<Leader>ld",  function ()
         vim.lsp.buf.definition({

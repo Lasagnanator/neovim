@@ -93,7 +93,8 @@ return require("packer").startup({
         --TODO: check which git plugins are really needed
 
         --<< Pairs and brackets
-        use "jiangmiao/auto-pairs" -- Generate final bracket automatically
+        -- use "jiangmiao/auto-pairs" -- Generate final bracket automatically
+        use "windwp/nvim-autopairs" -- Close pairs automatically
         use "tpope/vim-surround" -- Manipulate brackets and other delimiters
         use "tpope/vim-repeat" -- More advanced repeating with dot
         use "gpanders/nvim-parinfer" -- Manages parenthesis while editing LISP-like files

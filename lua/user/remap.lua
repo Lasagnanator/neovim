@@ -18,6 +18,7 @@ keymap( "", "<Esc>",   "<Esc>", silent )
 --<< Yank and paste
 keymap( { "n", "x" }, "<Leader>y", [["+y]], silent )
 keymap( { "n", "x" }, "<Leader>p", [["+p]], silent )
+keymap( { "n", "x" }, "<Leader>P", [["+P]], silent )
 
 
 
@@ -26,10 +27,10 @@ keymap( { "n", "x" }, "<Leader>p", [["+p]], silent )
 --<< Base
 keymap( "n", "<Leader>w",     "<Cmd>w<CR>",                  silent )
 keymap( "n", "<Leader>q",     "<Cmd>q!<CR>",                 silent )
--- keymap( "n", "<Leader>QW",    "<Cmd>wa<CR>\
---                                <Cmd>qa<CR>",                 silent )
 keymap( "n", "<Leader>W",     "<Cmd>wa<CR>",                 silent )
-keymap( "n", "<Leader>Q",    "<Cmd>qa!<CR>",                silent )
+keymap( "n", "<Leader>Q",     "<Cmd>qa!<CR>",                silent )
+keymap( "n", "<Leader>Z",     "<Cmd>wa<CR>\
+                               <Cmd>qa<CR>",                 silent )
 keymap( "n", "<Leader>@",     "<Cmd>set cursorcolumn!<CR>",  silent )
 keymap( "n", "<C-s>",         ":saveas ",                    nosilent )
 keymap( "n", "<S-k>",         "k<S-j>",                      silent )
@@ -60,10 +61,10 @@ keymap( "n", "<C-Down>",      "<Cmd>resize -1<CR>",          silent )
 --<< Tabs
 keymap( "n", "<Leader>.",     "<Cmd>tabnew<CR>",             silent )
 keymap( "n", "<Leader>,",     "<Cmd>tabclose<CR>",           silent )
-keymap( "n", "<C-;>",         "<Cmd>tabprevious<CR>",        silent )
-keymap( "n", "<C-'>",         "<Cmd>tabnext<CR>",            silent )
-keymap( "n", "<A-;>",         "<Cmd>-tabmove<CR>",           silent )
-keymap( "n", "<A-'>",         "<Cmd>+tabmove<CR>",           silent )
+keymap( "n", "<C-n>",         "<Cmd>tabprevious<CR>",        silent )
+keymap( "n", "<C-m>",         "<Cmd>tabnext<CR>",            silent )
+keymap( "n", "<A-n>",         "<Cmd>-tabmove<CR>",           silent )
+keymap( "n", "<A-m>",         "<Cmd>+tabmove<CR>",           silent )
 
 --<< Plugin
 keymap( "n", "<C-p>c",        "<Cmd>PackerCompile<CR>\
