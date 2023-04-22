@@ -41,16 +41,16 @@ keymap( "n", "<Leader><bar>", "<Cmd>wincmd <bar><CR>",       silent )
 keymap( "n", "<Leader>_",     "<Cmd>wincmd _<CR>",           silent )
 
 --<< Move between windows
-keymap( "n", "<C-h>",         "<Cmd>wincmd h<CR>",           silent )
-keymap( "n", "<C-j>",         "<Cmd>wincmd j<CR>",           silent )
-keymap( "n", "<C-k>",         "<Cmd>wincmd k<CR>",           silent )
-keymap( "n", "<C-l>",         "<Cmd>wincmd l<CR>",           silent )
+keymap( "n", "<A-h>",         "<Cmd>wincmd h<CR>",           silent )
+keymap( "n", "<A-j>",         "<Cmd>wincmd j<CR>",           silent )
+keymap( "n", "<A-k>",         "<Cmd>wincmd k<CR>",           silent )
+keymap( "n", "<A-l>",         "<Cmd>wincmd l<CR>",           silent )
 
 --<< Move windows                           
-keymap( "n", "<A-h>",         "<Cmd>wincmd H<CR>",           silent )
-keymap( "n", "<A-j>",         "<Cmd>wincmd J<CR>",           silent )
-keymap( "n", "<A-k>",         "<Cmd>wincmd K<CR>",           silent )
-keymap( "n", "<A-l>",         "<Cmd>wincmd L<CR>",           silent )
+keymap( "n", "<A-H>",         "<Cmd>wincmd H<CR>",           silent )
+keymap( "n", "<A-J>",         "<Cmd>wincmd J<CR>",           silent )
+keymap( "n", "<A-K>",         "<Cmd>wincmd K<CR>",           silent )
+keymap( "n", "<A-L>",         "<Cmd>wincmd L<CR>",           silent )
 
 --<< Resize windows
 keymap( "n", "<C-Left>",      "<Cmd>vertical resize -1<CR>", silent )
@@ -61,10 +61,10 @@ keymap( "n", "<C-Down>",      "<Cmd>resize -1<CR>",          silent )
 --<< Tabs
 keymap( "n", "<Leader>.",     "<Cmd>tabnew<CR>",             silent )
 keymap( "n", "<Leader>,",     "<Cmd>tabclose<CR>",           silent )
-keymap( "n", "<C-n>",         "<Cmd>tabprevious<CR>",        silent )
-keymap( "n", "<C-m>",         "<Cmd>tabnext<CR>",            silent )
-keymap( "n", "<A-n>",         "<Cmd>-tabmove<CR>",           silent )
-keymap( "n", "<A-m>",         "<Cmd>+tabmove<CR>",           silent )
+keymap( "n", "<A-,>",         "<Cmd>tabprevious<CR>",        silent )
+keymap( "n", "<A-.>",         "<Cmd>tabnext<CR>",            silent )
+keymap( "n", "<A-<>",         "<Cmd>-tabmove<CR>",           silent )
+keymap( "n", "<A->>",         "<Cmd>+tabmove<CR>",           silent )
 
 --<< Plugin
 keymap( "n", "<C-p>c",        "<Cmd>PackerCompile<CR>\
