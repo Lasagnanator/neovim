@@ -11,7 +11,7 @@ if not snip_status then
     return
 end
 
-local pairs_status, pairs = pcall(require, "nvim-autopairs.completion.cmp")
+local autopairs_status, autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 
 --<< Kind icons definition
 local kind_icons = {
@@ -155,8 +155,8 @@ cmp.setup.cmdline({ ":", "!" }, {
 })
 
 --<< Events
-if pairs_status then
-    cmp.event:on("confirm_done", pairs.on_confirm_done())
+if autopairs_status then
+    cmp.event:on("confirm_done", autopairs.on_confirm_done())
 end
 
 --<< Set up lspconfig (needed?)
