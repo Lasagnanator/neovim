@@ -12,14 +12,14 @@ keymap( "", "<Space>", "<Nop>", silent )
 keymap( "", "<Esc>",   "<Esc>", silent )
 
 
-
 --<< ALL MODES >>--
 
 --<< Yank and paste
 keymap( { "n", "x" }, "<Leader>y", [["+y]], silent )
 keymap( { "n", "x" }, "<Leader>p", [["+p]], silent )
 keymap( { "n", "x" }, "<Leader>P", [["+P]], silent )
-
+keymap( { "n", "x" }, "<Leader>d", [["+d]], silent )
+keymap( { "n", "x" }, "<Leader>D", [["+D]], silent )
 
 
 --<< NORMAL MODE >>--
