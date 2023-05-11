@@ -134,10 +134,19 @@ mason_lsp.setup_handlers({
         lspconfig.jsonls.setup({
             on_attach = on_attach,
             settings = {
-                schemas = require("schemastore").json.schemas({
-                    select = {}
-                }),
-                validate = { enable = true },
+                json = {
+                    schemas = require("schemastore").json.schemas(),
+                    validate = { enable = true },
+                },
+            },
+        })
+    end,
+    ["yamlls"] = function ()
+        lspconfig.yamlls.setup({
+            settings = {
+                yaml = {
+                    schemas = require('schemastore').yaml.schemas(),
+                },
             },
         })
     end,
