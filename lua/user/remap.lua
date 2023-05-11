@@ -31,6 +31,7 @@ keymap( "n", "<Leader>W",     "<Cmd>wa<CR>",                 silent )
 keymap( "n", "<Leader>Q",     "<Cmd>qa!<CR>",                silent )
 keymap( "n", "<Leader>Z",     "<Cmd>wa<CR>\
                                <Cmd>qa<CR>",                 silent )
+keymap( "n", "<Leader>r",     "<Cmd>e<CR>",                  silent )
 keymap( "n", "<Leader>@",     "<Cmd>set cursorcolumn!<CR>",  silent )
 keymap( "n", "<C-s>",         ":saveas ",                    nosilent )
 keymap( "n", "<S-k>",         "k<S-j>",                      silent )
