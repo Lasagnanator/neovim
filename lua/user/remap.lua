@@ -1,9 +1,9 @@
 --<< REMAPS >>--
 
 --<< Vars
-local nosilent = { noremap = true, silent = false }
-local silent   = { noremap = true, silent = true }
 local keymap   = vim.keymap.set
+local silent   = { noremap = true, silent = true }
+local nosilent = { noremap = true, silent = false }
 
 --<< Leader key
 vim.g.mapleader      = " "
@@ -34,7 +34,7 @@ keymap( "n", "<Leader>Z",     "<Cmd>wa<CR>\
 keymap( "n", "<Leader>r",     "<Cmd>w<CR>\
                                <Cmd>e<CR>",                  silent )
 keymap( "n", "<Leader>@",     "<Cmd>set cursorcolumn!<CR>",  silent )
-keymap( "n", "<C-s>",         ":saveas ",                    nosilent )
+keymap( "n", "<A-s>",         ":saveas ",                    nosilent )
 keymap( "n", "<S-k>",         "k<S-j>",                      silent )
 
 --<< Window management
