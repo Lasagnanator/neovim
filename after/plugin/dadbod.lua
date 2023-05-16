@@ -10,3 +10,8 @@ keymap( "n",          "<Leader>ldd", "<Cmd>DBUIToggle<CR>",             nsilent 
 keymap( "n",          "<Leader>ldw", "<Plug>(DBUI_SaveQuery)",          silent )
 keymap( "n",          "<Leader>lde", "<Plug>(DBUI_EditBindParameters)", silent )
 keymap( { "n", "x" }, "<Leader>lds", "<Plug>(DBUI_ExecuteQuery)",       silent )
+
+--<< Settings
+
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_win_position = "right"
