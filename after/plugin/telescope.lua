@@ -51,7 +51,7 @@ local file_browser = telescope.extensions.file_browser.file_browser
 
 --<< Keys
 keymap( "n", "<Leader>ff", builtin.find_files,     silent )
-keymap( "n", "<Leader>fl", builtin.live_grep,      silent )
+keymap( "n", "<Leader>fw", builtin.live_grep,      silent )
 keymap( "n", "<Leader>fb", builtin.buffers,        silent )
 keymap( "n", "<Leader>fh", builtin.help_tags,      silent )
 keymap( "n", "<Leader>fg", find_git_fallback,      silent )
