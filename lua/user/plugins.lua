@@ -73,6 +73,15 @@ return require("packer").startup({
         use "L3MON4D3/LuaSnip" -- Snippet engine
         use "rafamadriz/friendly-snippets" -- Additional snippets
 
+        --<< Database
+        use "tpope/vim-dadbod" -- Database engine
+        use { "kristijanhusak/vim-dadbod-ui", -- UI for interacting with databases
+            requires = "tpope/vim-dadbod",
+        }
+        use { "kristijanhusak/vim-dadbod-completion", -- Completion (needed outside of LSP?)
+            requires = { "tpope/vim-dadbod", "hrsh7th/nvim-cmp" },
+        }
+
         --<< Utilities
         use "akinsho/toggleterm.nvim" -- Neovim's terminal wrapper
         use { "Shatur/neovim-session-manager", -- Automatic session manager
