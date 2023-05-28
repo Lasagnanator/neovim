@@ -90,13 +90,14 @@ cmp.setup({
         format = function(entry, vim_item)
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind]) -- Kind icons
             vim_item.menu = ({ -- Menu items name
-                nvim_lsp      = "[LSP]",
-                luasnip       = "[Snippet]",
-                buffer        = "[Buffer]",
-                path          = "[Path]",
-                nerdfont      = "[NerdFont]",
-                emoji         = "[Emoji]",
-                latex_symbols = "[LaTeX]",
+                nvim_lsp                  = "[LSP]",
+                luasnip                   = "[Snip]",
+                buffer                    = "[Text]",
+                path                      = "[Path]",
+                nerdfont                  = "[NerdFont]",
+                emoji                     = "[Emoji]",
+                latex_symbols             = "[LaTeX]",
+                ["vim-dadbod-completion"] = "[DB]"
             })[entry.source.name]
             return vim_item
         end,
@@ -149,10 +150,37 @@ cmp.setup.cmdline({ ":", "!" }, {
     sources = cmp.config.sources({
         { name = "path" }
     }, {
-            { name = "cmdline" },
-            { name = "buffer" }
-        })
+        { name = "cmdline" },
+        { name = "buffer" }
+    })
 })
+
+-- cmp.setup.buffer({ ":", "!" }, {
+--     sources = cmp.config.sources({
+--         { name = "vim-dadbod-completion" }
+--     })
+-- })
+
+cmp.setup.filetype({ "sql", "mysql" }, {
+    sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "vim-dadbod-completion" },
+    -- }, {
+    --     { name = "buffer" },
+    })
+})
+
+cmp.setup.filetype({ "sql", "mysql" }, {
+    sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "orgmode" },
+    }, {
+        { name = "buffer" },
+    })
+})
+
 
 --<< Events
 if autopairs_status then
