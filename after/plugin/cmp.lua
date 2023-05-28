@@ -199,13 +199,13 @@ if autopairs_status then
 end
 
 --<< Set up lspconfig (needed?)
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig    = require("lspconfig")
-local mason        = require("mason-lspconfig")
-local servers      = mason.get_installed_servers()
-
-for _, server in ipairs(servers) do
-    lspconfig[server].setup({
-        capabilities = capabilities
-    })
-end
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local lspconfig    = require("lspconfig")
+-- local mason        = require("mason-lspconfig")
+-- local servers      = mason.get_installed_servers()
+--
+-- for _, server in ipairs(servers) do
+--     lspconfig[server].setup({
+--         capabilities = capabilities
+--     })
+-- end
