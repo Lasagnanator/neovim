@@ -113,27 +113,37 @@ cmp.setup({
 --<< Configuration for tex files
 cmp.setup.filetype({ "tex", "plaintex" }, {
     sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "latex_symbols" },
         { name = "nerdfont" },
         { name = "emoji" },
+    }, {
+        { name = "buffer" },
     })
 })
 
 --<< Configuration for markdown files
 cmp.setup.filetype("markdown", {
     sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "nerdfont" },
         { name = "emoji" },
+    }, {
+        { name = "buffer" },
     })
 })
 
 --<< Configuration for gitcommit files
 cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
     }, {
-            { name = "buffer" },
-        })
+        { name = "buffer" },
+    })
 })
 
 --<< Use buffer source for `/` and `?` (if you enabled `native_menu`, this won"t work anymore).

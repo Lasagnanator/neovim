@@ -92,6 +92,13 @@ return require("packer").startup({
         use "lambdalisue/suda.vim" -- Edit with su permission maintaining personal configuration
         use "norcalli/nvim-colorizer.lua" -- Colorful hex codes
         use "b0o/schemastore.nvim" -- JSON schemas downloader for JSON LSP
+        use { "ellisonleao/glow.nvim", -- Preview markdown files in editor
+            -- ft = { "markdown" },
+        }
+        use { "iamcco/markdown-preview.nvim", -- Preview markdown files in browser
+            run = "app/install.sh",
+            ft = { "markdown" },
+        }
 
         --<< Git
         use "tpope/vim-fugitive" -- Git tools inside neovim
