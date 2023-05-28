@@ -97,6 +97,7 @@ cmp.setup({
                 nerdfont                  = "[NerdFont]",
                 emoji                     = "[Emoji]",
                 latex_symbols             = "[LaTeX]",
+                orgmode                   = "[ORG]",
                 ["vim-dadbod-completion"] = "[DB]"
             })[entry.source.name]
             return vim_item
@@ -181,13 +182,13 @@ cmp.setup.filetype({ "sql", "mysql" }, {
     })
 })
 
-cmp.setup.filetype({ "sql", "mysql" }, {
+cmp.setup.filetype("org", {
     sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "orgmode" },
-    }, {
-        { name = "buffer" },
+    -- }, {
+    --     { name = "buffer" },
     })
 })
 

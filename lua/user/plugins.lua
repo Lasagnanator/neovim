@@ -92,6 +92,9 @@ return require("packer").startup({
         use "lambdalisue/suda.vim" -- Edit with su permission maintaining personal configuration
         use "norcalli/nvim-colorizer.lua" -- Colorful hex codes
         use "b0o/schemastore.nvim" -- JSON schemas downloader for JSON LSP
+        use { "nvim-orgmode/orgmode", -- Organizer, TODOs and calendar
+            requires = { "nvim-treesitter/nvim-treesitter" },
+        }
         use { "ellisonleao/glow.nvim", -- Preview markdown files in editor
             -- ft = { "markdown" },
         }

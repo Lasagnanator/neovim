@@ -8,10 +8,10 @@ end
 
 --<< Settings
 nvim_treesitter.setup {
-    ensure_installed = { "lua", "python", "bash" },
+    ensure_installed = { "lua", "python", "bash", "org" },
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = { "org" },
     },
     -- indent = {
     --     enable = true,
