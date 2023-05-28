@@ -73,7 +73,8 @@ mason_lsp.setup_handlers({
     -- Default handler
     function(server_name)
         lspconfig[server_name].setup({
-            on_attach = on_attach
+            on_attach = on_attach,
+            single_file_support = true
         })
     end,
 
