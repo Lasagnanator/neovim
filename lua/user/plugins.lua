@@ -97,6 +97,8 @@ return require("packer").startup({
         use { "nvim-orgmode/orgmode", -- Organizer, TODOs and calendar
             requires = { "nvim-treesitter/nvim-treesitter" },
         }
+
+        --<< LaTeX and markdown
         use { "ellisonleao/glow.nvim", -- Preview markdown files in editor
             -- ft = { "markdown" },
         }
@@ -104,6 +106,7 @@ return require("packer").startup({
             run = "app/install.sh",
             ft = { "markdown" },
         }
+        use "lervag/vimtex"
 
         --<< Git
         use "tpope/vim-fugitive" -- Git tools inside neovim
