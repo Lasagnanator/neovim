@@ -11,6 +11,7 @@ nvim_treesitter.setup {
     ensure_installed = { "lua", "python", "bash", "org" },
     highlight = {
         enable = true,
+        disable = { "yaml.ansible", "tex" },
         additional_vim_regex_highlighting = { "org" },
     },
     -- indent = {

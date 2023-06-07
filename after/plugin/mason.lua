@@ -146,6 +146,7 @@ mason_lsp.setup_handlers({
         lspconfig.yamlls.setup({
             settings = {
                 yaml = {
+                    schemaStore = { enable = false },
                     schemas = require('schemastore').yaml.schemas(),
                 },
             },
@@ -157,7 +158,7 @@ mason_lsp.setup_handlers({
             settings = {
                 ansible = {
                     validation = {
-                        lint = { enabled = false }
+                        -- lint = { enabled = false }
                     },
                 },
             },
