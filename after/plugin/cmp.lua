@@ -118,11 +118,9 @@ cmp.setup.filetype({ "tex", "plaintex" }, {
     sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        { name = "latex_symbols" },
-        -- { name = "nerdfont" },
-        -- { name = "emoji" },
     }, {
         { name = "buffer" },
+        { name = "latex_symbols" },
     })
 })
 
@@ -131,8 +129,6 @@ cmp.setup.filetype("markdown", {
     sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        -- { name = "nerdfont" },
-        -- { name = "emoji" },
     }, {
         { name = "buffer" },
     })
