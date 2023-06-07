@@ -21,9 +21,11 @@ keymap( "",           "<Leader>W", "<Cmd>wa<CR>",                 silent )
 keymap( "",           "<Leader>Q", "<Cmd>qa!<CR>",                silent )
 keymap( "",           "<Leader>Z", "<Cmd>wa<CR>\
                                     <Cmd>qa<CR>",                 silent )
-keymap( "",           "<Leader>r", "<Cmd>w<CR>\
+keymap( "",           "<Leader>r", "<Cmd>:redraw<CR>",            silent )
+keymap( "",           "<Leader>R", "<Cmd>w<CR>\
                                     <Cmd>e<CR>",                  silent )
 keymap( "",           "<Leader>@", "<Cmd>set cursorcolumn!<CR>",  silent )
+keymap( "",           "<Leader>#", "<Cmd>set wrap!<CR>",          silent )
 keymap( "",           "<A-s>",     ":saveas ",                    nosilent )
 
 --<< Yank and paste
