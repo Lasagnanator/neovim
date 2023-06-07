@@ -98,6 +98,7 @@ cmp.setup({
                 emoji                     = "[Emoji]",
                 latex_symbols             = "[LaTeX]",
                 orgmode                   = "[ORG]",
+                omni                      = "[Omni]",
                 ["vim-dadbod-completion"] = "[DB]"
             })[entry.source.name]
             return vim_item
@@ -106,9 +107,10 @@ cmp.setup({
     sources = cmp.config.sources({ -- Sources for all files
         { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "omni" },
     }, {
             { name = "buffer" },
-        })
+    })
 })
 
 --<< Configuration for tex files
@@ -117,8 +119,8 @@ cmp.setup.filetype({ "tex", "plaintex" }, {
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "latex_symbols" },
-        { name = "nerdfont" },
-        { name = "emoji" },
+        -- { name = "nerdfont" },
+        -- { name = "emoji" },
     }, {
         { name = "buffer" },
     })
@@ -129,8 +131,8 @@ cmp.setup.filetype("markdown", {
     sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        { name = "nerdfont" },
-        { name = "emoji" },
+        -- { name = "nerdfont" },
+        -- { name = "emoji" },
     }, {
         { name = "buffer" },
     })

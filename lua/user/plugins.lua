@@ -64,9 +64,10 @@ return require("packer").startup({
         use "hrsh7th/cmp-buffer" -- Completion for buffer
         use "hrsh7th/cmp-path" -- Completion for paths
         use "hrsh7th/cmp-cmdline" -- Completion for command line
+        use "hrsh7th/cmp-omni" -- Completion with omnifunc plugins
         use "kdheepak/cmp-latex-symbols" -- Completion for LaTeX symbols
-        use "chrisgrieser/cmp-nerdfont" -- Completion for Nerd Fonts characters
-        use "hrsh7th/cmp-emoji" -- Completion for emojis
+        -- use "chrisgrieser/cmp-nerdfont" -- Completion for Nerd Fonts characters
+        -- use "hrsh7th/cmp-emoji" -- Completion for emojis
         use "petertriho/cmp-git" -- Completion for git informations
         use "saadparwaiz1/cmp_luasnip" -- Luasnip integration
 
