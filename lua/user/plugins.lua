@@ -28,9 +28,17 @@ return require("packer").startup({
         use "folke/lsp-colors.nvim" -- Fills in the colors missing from TS servers
 
         --<< LSP and diagnostics
-        use "williamboman/mason.nvim" -- Automate installation of LSP servers
-        use "williamboman/mason-lspconfig.nvim" -- Bridges the two plugins
         use "neovim/nvim-lspconfig" -- Defaults for LSP
+        use "williamboman/mason.nvim" -- Automate installation of LSP servers
+        use { "williamboman/mason-lspconfig.nvim", -- Bridges the two plugins
+            requires = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+        }
+        use { "jose-elias-alvarez/null-ls.nvim", -- Enable linters and formatters to use the LSP client
+            requires = { "nvim-lua/plenary.nvim" },
+        }
+        use { "jay-babu/mason-null-ls.nvim", -- Bridge the gap between Mason and null-ls
+            requires = { "williamboman/mason.nvim", "jose-elias-alvarez/null-ls.nvim" },
+        }
         use "ray-x/lsp_signature.nvim"
         use { "folke/trouble.nvim", -- List of diagnostics
             requires = "kyazdani42/nvim-web-devicons",
