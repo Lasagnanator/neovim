@@ -203,6 +203,22 @@ end
 mason_null_ls.setup({
     ensure_installed = {},
     automatic_installation = false,
-    handlers = {},
+    handlers = {
+        mypy = function ()
+            null_ls.register(null_ls.builtins.diagnostics.mypy.with({
+                extra_args = { "--ignore-missing-imports", "--check-untyped-defs" }
+            }))
+        end,
+        pylint = function ()
+            null_ls.register(null_ls.builtins.diagnostics.pylint.with({
+                extra_args = { "--disable=import-error,too-few-public-methods" }
+            }))
+        end,
+        pydocstyle = function ()
+            null_ls.register(null_ls.builtins.diagnostics.pydocstyle.with({
+                extra_args = { "--ignore=D10,D203" }
+            }))
+        end,
+    },
     automatic_setup = true,
 })
