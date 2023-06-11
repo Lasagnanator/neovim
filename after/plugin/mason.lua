@@ -186,6 +186,15 @@ mason_lsp.setup_handlers({
     end,
 })
 
+local null_ls_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_ok then
+    return
+end
+
+null_ls.setup({
+    sources = {}
+})
+
 local mason_null_ls_ok, mason_null_ls = pcall(require, "mason-null-ls")
 if not mason_null_ls_ok then
     return
@@ -196,13 +205,4 @@ mason_null_ls.setup({
     automatic_installation = false,
     handlers = {},
     automatic_setup = true,
-})
-
-local null_ls_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_ok then
-    return
-end
-
-null_ls.setup({
-    sources = {}
 })
