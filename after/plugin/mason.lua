@@ -219,6 +219,11 @@ mason_null_ls.setup({
                 extra_args = { "--ignore=D10,D203" }
             }))
         end,
+        cpplint = function ()
+            null_ls.register(null_ls.builtins.diagnostics.cpplint.with({
+                args = { "--filter=-legal/copyright", "$FILENAME" }
+            }))
+        end,
     },
     automatic_setup = true,
 })
