@@ -1,10 +1,12 @@
 --<< VIMTEX FILETYPE CONFIGURATION >>--
 
---<< Set the previewers
-vim.g.vimtex_view_method = 'zathura_simple'
+--<< Set the engine
 vim.g.vimtex_compiler_latexmk_engines = {
     ["_"] = "-lualatex"
 }
+
+--<< Set the previewers
+vim.g.vimtex_view_method = 'zathura_simple'
 
 --<< For windows
 -- vim.g.vimtex_view_method = 'sioyek'
