@@ -220,6 +220,11 @@ mason_null_ls.setup({
                 args = { "--filter=-legal/copyright", "$FILENAME" }
             }))
         end,
+        clang_format = function ()
+            null_ls.register(null_ls.builtins.formatting.clang_format.with({
+                extra_args = { "--style", "{IndentWidth: 4}" }
+            }))
+        end,
     },
     automatic_setup = true,
 })
