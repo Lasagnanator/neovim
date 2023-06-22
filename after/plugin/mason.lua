@@ -158,7 +158,7 @@ mason_lsp.setup_handlers({
             settings = {
                 ansible = {
                     validation = {
-                        -- lint = { enabled = false }
+                        lint = { enabled = true }
                     },
                 },
             },
