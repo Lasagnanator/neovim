@@ -234,3 +234,14 @@ mason_null_ls.setup({
 null_ls.setup({
     sources = {}
 })
+
+
+-- Disable warning in C/C++ LSP
+local notify = vim.notify
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+end
