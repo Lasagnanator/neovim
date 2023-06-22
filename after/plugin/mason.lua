@@ -165,20 +165,22 @@ mason_lsp.setup_handlers({
         })
     end,
     ["sqlls"] = function()
-        lspconfig.ansiblels.setup({
+        lspconfig.sqlls.setup({
             on_attach = on_attach,
             single_file_support = true,
             filetypes = { "sql", "mysql" },
             settings = {
                 sqlLanguageServer = {
                     lint = {
-                        ["align-column-to-the-first"] = "error",
-                        ["column-new-line"] = "error",
-                        ["linebreak-after-clause-keyword"] = "off",
-                        ["reserved-word-case"] = { "error", "upper" },
-                        ["space-surrounding-operators"] = "error",
-                        ["where-clause-new-line"] = "off",
-                        ["align-where-clause-to-the-first"] = "error",
+                        rules = {
+                            ["align-column-to-the-first"] = "error",
+                            ["column-new-line"] = "off",
+                            ["linebreak-after-clause-keyword"] = "off",
+                            ["reserved-word-case"] = { "error", "upper" },
+                            ["space-surrounding-operators"] = "error",
+                            ["where-clause-new-line"] = "off",
+                            ["align-where-clause-to-the-first"] = "error",
+                        },
                     },
                 },
             },
