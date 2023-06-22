@@ -131,7 +131,7 @@ return require("packer").startup({
         use "tpope/vim-repeat" -- More advanced repeating with dot
         use "gpanders/nvim-parinfer" -- Manages parenthesis while editing LISP-like files
         use { "alvan/vim-closetag", -- Manipulate html tags
-            ft = { "html", "xhtml", "phtml", "markdown" }
+            ft = { "html", "xhtml", "phtml", "markdown", "php" }
         }
 
         --<< Theming and customizing
