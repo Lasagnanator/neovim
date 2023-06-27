@@ -237,7 +237,7 @@ mason_null_ls.setup({
         end,
         sql_formatter = function ()
             null_ls.register(null_ls.builtins.formatting.sql_formatter.with({
-                extra_args = { "-c", os.getenv("HOME").."/.config/nvim/files/sql_formatter.json" }
+                extra_args = { "-c", os.getenv("HOME").."/.config/nvim/files/sql-formatter.json" }
             }))
         end,
     },
