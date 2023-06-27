@@ -186,6 +186,14 @@ mason_lsp.setup_handlers({
             },
         })
     end,
+    ["clangd"] = function ()
+        lspconfig.clangd.setup({
+            on_attach = on_attach(),
+            capabilities = {
+                offsetEncoding = "UTF-16",
+            },
+        })
+    end
 })
 
 local null_ls_ok, null_ls = pcall(require, "null-ls")
@@ -224,7 +232,7 @@ mason_null_ls.setup({
         end,
         clang_format = function ()
             null_ls.register(null_ls.builtins.formatting.clang_format.with({
-                extra_args = { "--style", "{IndentWidth: 4}" }
+                extra_args = { "--style", "file:"..os.getenv("HOME").."/.config/nvim/files/clang-format" }
             }))
         end,
         sql_formatter = function ()

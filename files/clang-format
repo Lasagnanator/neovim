@@ -1,0 +1,5 @@
+# vim: set ft=yaml :
+# Clang formatter options
+
+BasedOnStyle: LLVM
+IndentWidth: 4
