@@ -40,4 +40,3 @@ autocmd("WinClosed", {
   end,
   nested = true
 })
-

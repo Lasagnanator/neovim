@@ -193,6 +193,24 @@ mason_lsp.setup_handlers({
                 offsetEncoding = "UTF-16",
             },
         })
+    end,
+    ["volar"] = function()
+        lspconfig.volar.setup({
+            on_attach = function()
+                on_attach()
+                vim.cmd(":LspStop tsserver")
+                vim.api.nvim_create_autocmd("LspAttach", {
+                    callback = function()
+                        local volar_status = vim.lsp.get_active_clients({ name = "volar" })
+                        if next(volar_status) then
+                            vim.cmd(":LspStop tsserver")
+                        end
+                    end
+                })
+            end,
+            root_dir = lspconfig.util.root_pattern("./**/*.vue"),
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+        })
     end
 })
 
