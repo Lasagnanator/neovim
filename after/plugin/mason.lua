@@ -235,7 +235,7 @@ mason_null_ls.setup({
         end,
         pylint = function ()
             null_ls.register(null_ls.builtins.diagnostics.pylint.with({
-                extra_args = { "--disable=import-error,too-few-public-methods" }
+                extra_args = { "--disable=import-error,too-few-public-methods,unused-import,unused-argument" }
             }))
         end,
         pydocstyle = function ()
