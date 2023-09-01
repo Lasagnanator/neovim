@@ -208,7 +208,7 @@ mason_lsp.setup_handlers({
                     end
                 })
             end,
-            root_dir = lspconfig.util.root_pattern("./**/*.vue"),
+            root_dir = lspconfig.util.root_pattern("**.vue"),
             filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
         })
     end
