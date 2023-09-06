@@ -99,6 +99,7 @@ cmp.setup({
                 latex_symbols             = "[LaTeX]",
                 orgmode                   = "[ORG]",
                 omni                      = "[Omni]",
+                neorg                     = "[Neorg]",
                 ["vim-dadbod-completion"] = "[DB]"
             })[entry.source.name]
             return vim_item
@@ -185,6 +186,16 @@ cmp.setup.filetype("org", {
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "orgmode" },
+    -- }, {
+    --     { name = "buffer" },
+    })
+})
+
+cmp.setup.filetype("norg", {
+    sources = cmp.config.sources({
+        { name = "neorg" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
     -- }, {
     --     { name = "buffer" },
     })
