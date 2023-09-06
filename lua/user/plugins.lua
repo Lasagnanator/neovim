@@ -22,7 +22,6 @@ local plugins = {
     },
     {
         "nvim-treesitter/playground", -- Treesitter informations in Neovim
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
         lazy = true,
     },
     {
@@ -64,35 +63,6 @@ local plugins = {
         config = function() require("user.configs.trouble") end,
     },
 
-    --<< Extra languages
-    "isobit/vim-caddyfile",                -- Caddyfile syntax highlighting
-    "fladson/vim-kitty",                   -- Kitty.conf file syntax highlighting
-    "elkowar/yuck.vim",                    -- .yuck file syntax highlighting
-    "theRealCarneiro/hyprland-vim-syntax", -- Hyprland configuration syntax highlighting
-    "khaveesh/vim-fish-syntax",            -- Fish LSP
-
-    --<< Navigation
-    {
-        "nvim-tree/nvim-tree.lua", -- File navigation
-        dependencies = { "kyazdani42/nvim-web-devicons" },
-        config = function() require("user.configs.nvim-tree") end,
-    },
-    {
-        "nvim-telescope/telescope.nvim", -- File finder with filters
-        dependencies = {
-            {
-                "nvim-telescope/telescope-fzf-native.nvim", -- fzf integration for Telescope
-                build =
-                "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-            },
-            "nvim-telescope/telescope-file-browser.nvim", -- File browser extension for Telescope
-            "nvim-telescope/telescope-ui-select.nvim",    -- Use Telescope
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons"
-        },
-        config = function() require("user.configs.telescope") end,
-    },
-
     --<< Snippets
     {
         "L3MON4D3/LuaSnip", -- Snippet engine
@@ -119,18 +89,67 @@ local plugins = {
         },
     },
 
+    --<< Navigation
+    {
+        "nvim-tree/nvim-tree.lua", -- File navigation
+        dependencies = { "kyazdani42/nvim-web-devicons" },
+        config = function() require("user.configs.nvim-tree") end,
+    },
+    {
+        "nvim-telescope/telescope.nvim", -- File finder with filters
+        dependencies = {
+            {
+                "nvim-telescope/telescope-fzf-native.nvim", -- fzf integration for Telescope
+                build =
+                "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+            },
+            -- TODO: Useful with nvim_tree?
+            "nvim-telescope/telescope-file-browser.nvim", -- File browser extension for Telescope
+            -- Not needed
+            "nvim-telescope/telescope-ui-select.nvim",    -- Use Telescope as a selector
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons"
+        },
+        config = function() require("user.configs.telescope") end,
+    },
+
+    --<< Extra languages
+    {
+        "isobit/vim-caddyfile", -- Caddyfile syntax highlighting
+        ft = { "caddy" }
+    },
+    {
+        "fladson/vim-kitty", -- Kitty.conf file syntax highlighting
+        ft = { "kitty" }
+    },
+    {
+        "elkowar/yuck.vim", -- .yuck file syntax highlighting
+        ft = { "yuck" }
+    },
+    {
+        "theRealCarneiro/hyprland-vim-syntax", -- Hyprland configuration syntax highlighting
+        ft = { "hypr" }
+    },
+    {
+        "khaveesh/vim-fish-syntax", -- Fish LSP
+        ft = { "fish" }
+    },
+
     --<< Database
     {
         "tpope/vim-dadbod",                         -- Database engine
         dependencies = {
             "kristijanhusak/vim-dadbod-ui",         -- UI for interacting with databases
+            -- TODO: useless?
             "kristijanhusak/vim-dadbod-completion", -- Completion (needed outside of LSP?)
         },
+        ft = { "sql", "mysql", "psql" },
         config = function() require("user.configs.dadbod") end,
     },
 
     --<< Utilities
     {
+        -- TODO: useless?
         "akinsho/toggleterm.nvim", -- Neovim's terminal wrapper
         config = function() require("user.configs.toggleterm") end,
     },
@@ -140,6 +159,7 @@ local plugins = {
         config = function() require("user.configs.neovim-session-manager") end,
     },
     {
+        -- TODO: evaluate (yes)
         "stevearc/dressing.nvim", -- Interface for input prompts
         config = function() require("user.configs.dressing") end,
     },
@@ -152,47 +172,50 @@ local plugins = {
         "norcalli/nvim-colorizer.lua", -- Colorful hex codes, alternative?
         config = function() require("user.configs.colorizer") end,
     },
-    "b0o/schemastore.nvim",     -- JSON schemas downloader for JSON LSP
-    {
-        "nvim-orgmode/orgmode", -- Organizer, TODOs and calendar
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
-        config = function() require("user.configs.orgmode") end,
-    },
+    "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
+    -- {
+    --     "nvim-orgmode/orgmode", -- Organizer, TODOs and calendar
+    --     dependencies = { "nvim-treesitter/nvim-treesitter" },
+    --     config = function() require("user.configs.orgmode") end,
+    -- },
     {
         "nvim-neorg/neorg",
         config = function() require("user.configs.neorg") end,
     },
 
     --<< LaTeX and markdown
-    {
-        "ellisonleao/glow.nvim", -- Preview markdown files in editor
-        ft = { "markdown" },
-    },
+    -- {
+    --     "ellisonleao/glow.nvim", -- Preview markdown files in editor
+    --     ft = { "markdown" },
+    -- },
     {
         "iamcco/markdown-preview.nvim", -- Preview markdown files in browser
         build = "app/install.sh",
+        config = function() require("user.configs.markdown-plugins") end,
         ft = { "markdown" },
     },
     {
-        "lervag/vimtex",
+        "lervag/vimtex", -- LaTeX utils
         config = function() require("user.configs.vimtex") end,
     },
 
     --<< Git
-    {
-        "tpope/vim-fugitive", -- Git tools inside neovim
-        config = function() require("user.configs.fugitive") end,
-    },
+    -- {
+    --     "tpope/vim-fugitive", -- Git tools inside neovim
+    --     config = function() require("user.configs.fugitive") end,
+    -- },
     {
         "lewis6991/gitsigns.nvim", -- Git decorations
         config = function() require("user.configs.gitsigns") end,
     },
     {
+        -- TODO: useful?
         "sindrets/diffview.nvim", -- Viewer for diffs and merge resolution
         dependencies = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons" },
         config = function() require("user.configs.diffview") end,
     },
     --TODO: check which git plugins are really needed
+    -- Probably only gitsigns
 
     --<< Pairs and brackets
     -- "jiangmiao/auto-pairs" -- Generate final bracket automatically
@@ -200,9 +223,14 @@ local plugins = {
         "windwp/nvim-autopairs", -- Close pairs automatically
         config = function() require("user.configs.nvim-autopairs") end,
     },
-    "tpope/vim-surround",     -- Manipulate brackets and other delimiters
-    "tpope/vim-repeat",       -- More advanced repeating with dot
-    "gpanders/nvim-parinfer", -- Manages parenthesis while editing LISP-like files
+    -- TODO: check for the existence of alternatives
+    "tpope/vim-surround", -- Manipulate brackets and other delimiters
+    "tpope/vim-repeat",   -- More advanced repeating with dot
+
+    {
+        "gpanders/nvim-parinfer", -- Manages parenthesis while editing LISP-like files
+        ft = { "yuck", "lisp" }
+    },
     {
         "alvan/vim-closetag", -- Manipulate html tags
         ft = { "html", "xhtml", "phtml", "markdown", "php" },
@@ -221,6 +249,7 @@ local plugins = {
         config = function() require("user.configs.lualine") end,
     },
     {
+        -- TODO: Find alternative
         "akinsho/bufferline.nvim", -- Custom bufferline/tagline written in lua
         dependencies = { "kyazdani42/nvim-web-devicons" },
         config = function() require("user.configs.bufferline") end,
