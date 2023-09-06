@@ -30,7 +30,7 @@ mason.setup({
 
 --<< On-attach function
 ---@diagnostic disable-next-line: unused-local
-local on_attach = function(client, bufnr)
+local on_attach = function (_, bufnr)
 
     -- Vars
     local keymap  = vim.keymap.set
@@ -71,7 +71,7 @@ mason_lsp.setup({
 mason_lsp.setup_handlers({
 
     -- Default handler
-    function(server_name)
+    function (server_name)
         lspconfig[server_name].setup({
             on_attach = on_attach,
             single_file_support = true
@@ -79,10 +79,10 @@ mason_lsp.setup_handlers({
     end,
 
     -- Personalized handlers
-    ["lua_ls"] = function()
+    ["lua_ls"] = function ()
         lspconfig.lua_ls.setup({
             on_attach = on_attach,
-            on_new_config = function(client)
+            on_new_config = function (client)
                 -- if vim.fn.expand('%:p'):match("/awesome/") then
                 if vim.api.nvim_buf_get_name(0):match("/awesome/") then
                     for _, val in ipairs({ "awesome", "client", "screen" }) do
@@ -102,7 +102,7 @@ mason_lsp.setup_handlers({
             },
         })
     end,
-    ["pyright"] = function()
+    ["pyright"] = function ()
         lspconfig.pyright.setup({
             on_attach = on_attach,
             settings = {
@@ -131,7 +131,7 @@ mason_lsp.setup_handlers({
             }
         })
     end,
-    ["jsonls"] = function()
+    ["jsonls"] = function ()
         lspconfig.jsonls.setup({
             on_attach = on_attach,
             settings = {
@@ -152,7 +152,7 @@ mason_lsp.setup_handlers({
             },
         })
     end,
-    ["ansiblels"] = function()
+    ["ansiblels"] = function ()
         lspconfig.ansiblels.setup({
             on_attach = on_attach,
             settings = {
@@ -164,7 +164,7 @@ mason_lsp.setup_handlers({
             },
         })
     end,
-    ["sqlls"] = function()
+    ["sqlls"] = function ()
         lspconfig.sqlls.setup({
             on_attach = on_attach,
             single_file_support = true,
@@ -194,19 +194,24 @@ mason_lsp.setup_handlers({
             },
         })
     end,
-    ["volar"] = function()
+    ["volar"] = function ()
         lspconfig.volar.setup({
-            on_attach = function()
-                on_attach()
-                vim.cmd(":LspStop tsserver")
+            on_attach = function (_, bufnr)
+                local clients = vim.lsp.get_active_clients()
+                for _, client in pairs(clients) do
+                    if client.name == "tsserver" then
+                        vim.lsp.get_client_by_id(client.id).stop()
+                    end
+                end
                 vim.api.nvim_create_autocmd("LspAttach", {
-                    callback = function()
-                        local volar_status = vim.lsp.get_active_clients({ name = "volar" })
-                        if next(volar_status) then
-                            vim.cmd(":LspStop tsserver")
+                    callback = function (args)
+                        local new_client = vim.lsp.get_client_by_id(args.data.client_id)
+                        if new_client.name == "tsserver" then
+                            new_client.stop()
                         end
                     end
                 })
+                on_attach(_, bufnr)
             end,
             root_dir = lspconfig.util.root_pattern("**.vue"),
             single_file_support = false,
