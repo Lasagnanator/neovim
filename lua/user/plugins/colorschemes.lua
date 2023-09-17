@@ -1,6 +1,7 @@
 return {
     {
-        "folke/tokyonight.nvim",    -- Tokyonight Neovim theme
+        "folke/tokyonight.nvim", -- Tokyonight Neovim theme
+        enabled = false,
         opts = {
             style = "night",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
             light_style = "storm",  -- The theme is used when the background is set to light
@@ -24,12 +25,26 @@ return {
             lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
         },
         init = function()
-            vim.cmd("colorscheme tokyonight")
+            vim.cmd("colorscheme catppuccin")
         end,
-        priority = 1000
+        priority = 1000,
+    },
+    {
+        "catppuccin/nvim",
+        enabled  = true,
+        name = "catppuccin",
+        opts = {
+            flavour = "macchiato",
+            transparent_background = true,
+        },
+        init = function()
+            vim.cmd("colorscheme catppuccin")
+        end,
+        priority = 1000,
     },
     {
         "Mofiqul/dracula.nvim", -- Dracula Neovim theme
+        enabled = false,
         init = function()
             vim.g.dracula_colors = {
                 bg = "#282A36",
@@ -62,10 +77,10 @@ return {
             vim.cmd("colorscheme dracula")
         end,
         priority = 1000,
-        enabled = false,
     },
     {
         "lunarvim/synthwave84.nvim", -- Synthwave '84 Neovim theme
+        enabled = false,
         opts = {
             glow = {
                 error_msg = true,
@@ -78,10 +93,9 @@ return {
                 buffer_inactive_target = true,
             }
         },
-        init = function ()
+        init = function()
             vim.cmd("colorscheme synthwave84")
         end,
         priority = 1000,
-        enabled = false,
     },
 }
