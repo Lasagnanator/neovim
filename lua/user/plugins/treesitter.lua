@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter", -- Syntax highlighting
         -- TODO: set priority
         opts = {
-            ensure_installed = { "lua", "python", "bash" },
+            ensure_installed = { "lua", "bash" },
             highlight = {
                 enable = true,
                 disable = { "yaml.ansible", "tex" },
