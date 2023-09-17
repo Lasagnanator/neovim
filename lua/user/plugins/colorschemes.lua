@@ -1,37 +1,24 @@
 return {
     {
         "folke/tokyonight.nvim", -- Tokyonight Neovim theme
-        enabled = false,
+        enabled = true,
         opts = {
-            style = "night",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-            light_style = "storm",  -- The theme is used when the background is set to light
-            transparent = true,     -- Enable this to disable setting the background color
-            terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+            style = "night",
+            transparent = true,
             styles = {
-                -- Style to be applied to different syntax groups
-                -- Value is any valid attr-list value for `:help nvim_set_hl`
-                comments = { italic = true },
-                keywords = { italic = true },
-                functions = {},
-                variables = {},
-                -- Background styles. Can be "dark", "transparent" or "normal"
-                sidebars = "normal",          -- style for sidebars, see below
-                floats = "dark",              -- style for floating windows
+                sidebars = "normal",
+                floats = "normal",
             },
-            sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer", "help"]`
-            day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-            hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-            dim_inactive = false,             -- dims inactive windows
-            lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
+            sidebars = { "qf", "help" },
         },
         init = function()
-            vim.cmd("colorscheme catppuccin")
+            vim.cmd("colorscheme tokyonight")
         end,
         priority = 1000,
     },
     {
         "catppuccin/nvim",
-        enabled  = true,
+        enabled = false,
         name = "catppuccin",
         opts = {
             flavour = "macchiato",
@@ -81,18 +68,7 @@ return {
     {
         "lunarvim/synthwave84.nvim", -- Synthwave '84 Neovim theme
         enabled = false,
-        opts = {
-            glow = {
-                error_msg = true,
-                type2 = true,
-                func = true,
-                keyword = true,
-                operator = false,
-                buffer_current_target = true,
-                buffer_visible_target = true,
-                buffer_inactive_target = true,
-            }
-        },
+        config = true,
         init = function()
             vim.cmd("colorscheme synthwave84")
         end,
