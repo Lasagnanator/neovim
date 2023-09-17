@@ -1,9 +1,9 @@
 --<< MARKDOWN FILETYPE CONFIG >>--
 
 --<< Settings
-vim.opt["wrap"] = true
-vim.opt["linebreak"] = true
-vim.opt["breakindent"] = true
+vim.opt_local["wrap"] = true
+vim.opt_local["linebreak"] = true
+vim.opt_local["breakindent"] = true
 
 --<< Keybinds
 vim.keymap.set( "", "<Leader>lql", "<Cmd>Glow<CR>",                  { noremap = true, silent = true, buffer = true } )
