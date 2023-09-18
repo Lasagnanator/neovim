@@ -20,11 +20,11 @@ return {
                 ["core.completion"] = {
                     config = {
                         engine = "nvim-cmp",
-                        name = "[Neorg]"
+                        -- name = "[Neorg]"
                     },
                 },
                 ["core.export"] = {},
-                ["core.export.markdown"] = {},
+                -- ["core.export.markdown"] = {},
                 ["core.summary"] = {},
             }
         }
