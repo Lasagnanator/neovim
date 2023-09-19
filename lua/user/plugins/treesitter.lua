@@ -4,7 +4,15 @@ return {
         priority = Priority.treesitter,
         main = "nvim-treesitter.configs",
         opts = {
-            ensure_installed = { "lua", "bash" },
+            ensure_installed = {
+                "lua",
+                "bash",
+                "comment",
+                "gitcommit",
+                "gitignore",
+                "gitattributes",
+                "git_config",
+                "git_rebase" },
             highlight = {
                 enable = true,
                 disable = { "yaml.ansible", "tex" },
