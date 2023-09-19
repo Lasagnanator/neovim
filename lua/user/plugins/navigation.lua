@@ -106,8 +106,8 @@ return {
         dependencies = {
             {
                 "nvim-telescope/telescope-fzf-native.nvim", -- fzf integration for Telescope
-                build =
-                "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+                build = "make",
+                -- "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
             },
             -- TODO: Useful with nvim_tree?
             "nvim-telescope/telescope-file-browser.nvim", -- File browser extension for Telescope
