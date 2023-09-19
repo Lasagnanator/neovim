@@ -1,7 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig", -- Defaults for LSP
-        priority = 100,
+        priority = Priority.lsp,
         dependencies = {
             { import = "user.plugins.lsp.mason"},
             { import = "user.plugins.lsp.null-ls" },

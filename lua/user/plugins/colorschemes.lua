@@ -14,7 +14,7 @@ return {
         init = function()
             vim.cmd("colorscheme tokyonight")
         end,
-        priority = 1000,
+        priority = Priority.colorscheme,
     },
     {
         "catppuccin/nvim",
@@ -27,7 +27,7 @@ return {
         init = function()
             vim.cmd("colorscheme catppuccin")
         end,
-        priority = 1000,
+        priority = Priority.colorscheme,
     },
     {
         "Mofiqul/dracula.nvim", -- Dracula Neovim theme
@@ -63,7 +63,7 @@ return {
             vim.g.dracula_italic_comment = true        -- set italic comment
             vim.cmd("colorscheme dracula")
         end,
-        priority = 1000,
+        priority = Priority.colorscheme,
     },
     {
         "lunarvim/synthwave84.nvim", -- Synthwave '84 Neovim theme
@@ -72,6 +72,6 @@ return {
         init = function()
             vim.cmd("colorscheme synthwave84")
         end,
-        priority = 1000,
+        priority = Priority.colorscheme,
     },
 }

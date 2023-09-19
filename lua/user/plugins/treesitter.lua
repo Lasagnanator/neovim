@@ -1,8 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter", -- Syntax highlighting
-        -- TODO: set priority
-        -- priority = 900,
+        priority = Priority.treesitter,
         main = "nvim-treesitter.configs",
         opts = {
             ensure_installed = { "lua", "bash" },
