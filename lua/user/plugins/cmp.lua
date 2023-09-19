@@ -1,37 +1,11 @@
-local kind_icons = {
-    Text          = " ",
-    Method        = "m ",
-    Function      = " ",
-    Constructor   = " ",
-    Field         = " ",
-    Variable      = " ",
-    Class         = " ",
-    Interface     = " ",
-    Module        = " ",
-    Property      = " ",
-    Unit          = " ",
-    Value         = " ",
-    Enum          = " ",
-    Keyword       = " ",
-    Snippet       = " ",
-    Color         = " ",
-    File          = " ",
-    Reference     = " ",
-    Folder        = " ",
-    EnumMember    = " ",
-    Constant      = " ",
-    Struct        = " ",
-    Event         = " ",
-    Operator      = " ",
-    TypeParameter = " ",
-}
-
 return {
     {
         "hrsh7th/nvim-cmp", -- Completion plugin
+        event = "InsertEnter",
         config = function()
             local cmp = require("cmp")
             local luasnip = require("luasnip")
+            local lspkind = require("lspkind")
 
             cmp.setup({
                 snippet = { -- Snippet engine call
@@ -39,22 +13,12 @@ return {
                         luasnip.lsp_expand(args.body)
                     end,
                 },
-                window = { -- Borders
-                    -- completion    = cmp.config.window.bordered("single"),
-                    -- documentation = cmp.config.window.bordered("single"),
-                },
                 mapping = cmp.mapping.preset.insert({ -- Keybinds
                     ["<C-k>"]     = cmp.mapping.select_prev_item(),
                     ["<C-j>"]     = cmp.mapping.select_next_item(),
                     ["<C-b>"]     = cmp.mapping.scroll_docs(-2),
                     ["<C-f>"]     = cmp.mapping.scroll_docs(2),
-                    ["<C-Space>"] = cmp.mapping(function()
-                        if cmp.visible() then
-                            cmp.abort()
-                        else
-                            cmp.complete()
-                        end
-                    end, { "i", "s" }),
+                    ["<C-Space>"] = cmp.mapping.abort(),
                     ["<CR>"]      = cmp.mapping.confirm({ select = false }), -- False requires selection, true autoselects first result
                     ["<Tab>"]     = cmp.mapping(function(fallback)
                         if cmp.visible() then
@@ -76,83 +40,85 @@ return {
                     end, { "i", "s" }),
                 }),
                 formatting = {
-                    fields = { "kind", "abbr", "menu" },
-                    format = function(entry, vim_item)
-                        vim_item.kind = string.format("%s", kind_icons[vim_item.kind]) -- Kind icons
-                        vim_item.menu = ({                                             -- Menu items name
-                            nvim_lsp                  = "[LSP]",
-                            luasnip                   = "[Snip]",
-                            buffer                    = "[Text]",
-                            path                      = "[Path]",
-                            nerdfont                  = "[NerdFont]",
-                            emoji                     = "[Emoji]",
-                            latex_symbols             = "[LaTeX]",
-                            orgmode                   = "[ORG]",
-                            omni                      = "[Omni]",
-                            neorg                     = "[Neorg]",
-                            ["vim-dadbod-completion"] = "[DB]"
-                        })[entry.source.name]
-                        return vim_item
-                    end,
+                    format = lspkind.cmp_format({
+                        mode = "symbol_text"
+                    }),
                 },
                 sources = cmp.config.sources({ -- Sources for all files
-                    { name = "luasnip" },
                     { name = "nvim_lsp" },
+                    { name = "luasnip" },
                     { name = "omni" },
                 }, {
                     { name = "buffer" },
                 })
             })
+
             --<< PER-FILES CONFIGURATION
 
-            --<< Configuration for tex files
+            --<< Neorg
+            cmp.setup.filetype("norg", {
+                sources = cmp.config.sources({
+                    { name = "neorg" },
+                    { name = "luasnip" },
+                }, {
+                    { name = "buffer" },
+                })
+            })
+            --<< Tex
             cmp.setup.filetype({ "tex", "plaintex" }, {
                 sources = cmp.config.sources({
-                    { name = "luasnip" },
                     { name = "nvim_lsp" },
+                    { name = "luasnip" },
                 }, {
                     { name = "buffer" },
                     { name = "latex_symbols" },
                 })
             })
-            --<< Configuration for markdown files
+            --<< Markdown
             cmp.setup.filetype("markdown", {
                 sources = cmp.config.sources({
-                    { name = "luasnip" },
                     { name = "nvim_lsp" },
+                    { name = "luasnip" },
                 }, {
                     { name = "buffer" },
                 })
             })
-            --<< Configuration for gitcommit files
+            --<< Gitcommit
             cmp.setup.filetype("gitcommit", {
                 sources = cmp.config.sources({
-                    { name = "luasnip" },
+                    { name = "cmp_git" },
                     { name = "nvim_lsp" },
-                    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+                    { name = "luasnip" },
                 }, {
                     { name = "buffer" },
                 })
             })
-            --<< Use buffer source for `/` and `?` (if you enabled `native_menu`, this won"t work anymore).
+            --<< Use buffer source for `/` and `?`
             cmp.setup.cmdline({ "/", "?" }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = "buffer" }
                 }
             })
-            --<< Use cmdline & path source for ":" (if you enabled `native_menu`, this won"t work anymore).
+            --<< Use cmdline & path source for ":"
             cmp.setup.cmdline({ ":", "!" }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
                     { name = "path" }
                 }, {
                     { name = "cmdline" },
-                    { name = "buffer" }
                 })
             })
         end,
         dependencies = {
+            "onsails/lspkind.nvim",
+            "kyazdani42/nvim-web-devicons",
+            "hrsh7th/cmp-buffer",         -- Completion for buffer
+            "hrsh7th/cmp-path",           -- Completion for paths
+            "hrsh7th/cmp-cmdline",        -- Completion for command line
+            "hrsh7th/cmp-omni",           -- Completion with omnifunc plugins
+            "kdheepak/cmp-latex-symbols", -- Completion for LaTeX symbols
+            "petertriho/cmp-git",       -- Completion for git informations
             {
                 "L3MON4D3/LuaSnip", -- Snippet engine
                 config = function()
@@ -161,19 +127,9 @@ return {
                 end,
                 dependencies = {
                     "rafamadriz/friendly-snippets", -- Additional snippets
+                    "saadparwaiz1/cmp_luasnip", -- Luasnip integration
                 },
             },
-            "kyazdani42/nvim-web-devicons",
-            -- "hrsh7th/cmp-nvim-lsp",       -- Completion integration with LSP
-            "hrsh7th/cmp-buffer",         -- Completion for buffer
-            "hrsh7th/cmp-path",           -- Completion for paths
-            "hrsh7th/cmp-cmdline",        -- Completion for command line
-            "hrsh7th/cmp-omni",           -- Completion with omnifunc plugins
-            "kdheepak/cmp-latex-symbols", -- Completion for LaTeX symbols
-            -- "chrisgrieser/cmp-nerdfont"   -- Completion for Nerd Fonts characters
-            -- "hrsh7th/cmp-emoji"           -- Completion for emojis
-            "petertriho/cmp-git",       -- Completion for git informations
-            "saadparwaiz1/cmp_luasnip", -- Luasnip integration
         },
     },
 }
