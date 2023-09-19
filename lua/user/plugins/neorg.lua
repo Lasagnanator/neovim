@@ -14,17 +14,16 @@ return {
                         workspaces = {
                             work = "~/notes/work",
                             home = "~/notes/home",
-                        }
+                        },
+                        default_workspace = "home",
                     }
                 },
                 ["core.completion"] = {
                     config = {
                         engine = "nvim-cmp",
-                        -- name = "[Neorg]"
                     },
                 },
                 ["core.export"] = {},
-                -- ["core.export.markdown"] = {},
                 ["core.summary"] = {},
             }
         }
