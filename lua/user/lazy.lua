@@ -13,6 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+Priority = {
+    colorscheme = 1000,
+    lsp = 800,
+    treesitter = 900
+}
+
 local plugins = "user.plugins"
 
 local opts = {}
