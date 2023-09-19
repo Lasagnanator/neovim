@@ -1,6 +1,5 @@
 --<< SETTINGS >>--
 
-
 --<< Options
 local settings = {
     number         = true,
@@ -30,15 +29,8 @@ local settings = {
     splitbelow     = true,
     splitright     = true,
     undofile       = true,
-    -- iskeyword       = "-+",         -- not sure this is the correct syntax
 }
 
 for k, v in pairs(settings) do
     vim.opt[k] = v
 end
-
---<< Variables
-vim.g.suda_smart_edit = 1
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
--- vim.g.AutoPairsShortcutJump = [['<Nop>']]
