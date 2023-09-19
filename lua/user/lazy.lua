@@ -13,19 +13,34 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-Priority = {
-    colorscheme = 1000,
-    lsp = 800,
-    treesitter = 900
-}
-
-local plugins = "user.plugins"
-
-local opts = {}
-
+--<< Protected call on Lazy
 local ok, lazy = pcall(require, "lazy")
 if not ok then
     return
 end
 
-lazy.setup(plugins, opts)
+--<< Variables
+Colorscheme = "tokyonight"
+Priority = {
+    colorscheme = 1000,
+    treesitter = 900,
+    lsp = 800,
+    completion = 700,
+}
+
+--<< Keybind
+vim.keymap.set( "", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true } )
+
+--<< Setup
+lazy.setup("user.plugins", {
+   install = {
+       colorscheme = { Colorscheme },
+   },
+   checker = {
+       enabled = true,
+       notify = false,
+   },
+   change_detection = {
+       notify = false,
+   },
+})
