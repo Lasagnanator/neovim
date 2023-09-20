@@ -15,7 +15,14 @@ return {
                 "git_rebase" },
             highlight = {
                 enable = true,
-                disable = { "yaml.ansible", "tex" },
+                disable = {
+                    "yaml.ansible",
+                    "tex",
+                    "caddy",
+                    "kitty",
+                    "yuck",
+                    "hypr",
+                },
             },
         },
     },
