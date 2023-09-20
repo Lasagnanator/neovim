@@ -23,6 +23,7 @@ local settings = {
     breakindent    = true,
     modeline       = true,
     showmode       = false,
+    showtabline    = 2,
     hlsearch       = false,
     termguicolors  = true,
     mouse          = "a",

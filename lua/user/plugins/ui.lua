@@ -52,78 +52,60 @@ return {
         dependencies = { "kyazdani42/nvim-web-devicons" },
     },
     {
-        -- TODO: Find alternative
-        "akinsho/bufferline.nvim", -- Custom bufferline/tagline written in lua
-        opts = {
-            options = {
-                mode = "tabs",
-                numbers = "none",
-                indicator = {
-                    style = "none",
-                },
-                max_name_length = 20,
-                max_prefix_length = 15,   -- prefix used when a buffer is de-duplicated
-                tab_size = 20,
-                diagnostics = "nvim_lsp", -- false or "nvim_lsp"
-                diagnostics_update_in_insert = false,
-                -- diagnostics_indicator = function(count, level)
-                --     local icon = level:match("error") and " " or " " -- Equivalent to a if with the match as a condition
-                --     return " " .. count .. icon
-                ---@diagnostic disable-next-line: unused-local
-                diagnostics_indicator = function(count, level, diagnostics_dict, context)
-                    local s = " "
-                    for e, n in pairs(diagnostics_dict) do
-                        local sym = e == "error" and " "
-                            or (e == "warning" and " " or "")
-                        s = s .. n .. sym
-                    end
-                    return s
-                end,
-                name_formatter = function(buf)
-                    return " " .. buf.name
-                end,
-                custom_filter = function(buffer_number)
-                    local ft = vim.bo[buffer_number].filetype
-                    if ft ~= "NvimTree"
-                        and ft ~= "TelescopePrompt"
-                        and ft ~= "DressingInput"
-                        and ft ~= "Trouble"
-                        and ft ~= "mason"
-                        and ft ~= "packer"
-                        and ft ~= "help"
-                        and ft ~= "wiki"
-                        and ft ~= "DiffviewFiles"
-                        and ft ~= "qf"
-                        and ft ~= "toggleterm"
-                    then
-                        return true
-                    end
-                end,
-                offsets = {
-                    {
-                        filetype = "NvimTree",
-                        text = "Explorer",
-                        highlight = "TabLineSel",
-                        text_align = "center",
-                        separator = true,
-                    },
-                },
-                color_icons = true,       -- whether or not to add the filetype icon highlights
-                show_buffer_icons = true, -- disable filetype icons for buffers
-                show_buffer_close_icons = false,
-                -- show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
-                -- get_element_icon = function(buf) return require('nvim-web-devicons').get_icon(buf, {default = false}) end,
-                -- buffer_close_icon = '',
-                show_close_icon = false,
-                -- show_tab_indicators = true,
-                separator_style = { "", "" },
-                enforce_regular_tabs = false,
-                always_show_bufferline = true,
-                hover = { enabled = true, reveal = { "close" } },
-                sort_by = "tabs",
+        "nanozuki/tabby.nvim",
+        config = function()
+            local theme = {
+                fill = 'TabLineFill',
+                head = 'lualine_a_visual',
+                current_tab = 'lualine_a_normal',
+                tab = 'lualine_b_normal',
+                current_win = 'lualine_a_normal',
+                win = 'lualine_b_normal',
+                tail = 'lualine_a_visual',
             }
-        },
-        dependencies = { "kyazdani42/nvim-web-devicons" },
+
+            require('tabby.tabline').set(function(line)
+                return {
+                    {
+                        { ' 󰮯 ', hl = theme.head },
+                        line.sep('', theme.head, theme.fill),
+                    },
+                    line.tabs().foreach(function(tab)
+                        local hl = tab.is_current() and theme.current_tab or theme.tab
+                        return {
+                            line.sep('', hl, theme.fill),
+                            tab.is_current() and '' or '󰆣',
+                            tab.number(),
+                            tab.name(),
+                            line.sep('', hl, theme.fill),
+                            hl = hl,
+                            margin = ' ',
+                        }
+                    end),
+                    line.spacer(),
+                    line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+                        local hl = win.is_current() and theme.current_win or theme.tab
+                        return {
+                            line.sep('', hl, theme.fill),
+                            win.is_current() and '' or '',
+                            win.buf_name(),
+                            line.sep('', hl, theme.fill),
+                            hl = hl,
+                            margin = ' ',
+                        }
+                    end),
+                    {
+                        line.sep('', theme.tail, theme.fill),
+                        { '   ', hl = theme.tail },
+                    },
+                    hl = theme.fill,
+                }
+            end, {
+            buf_name = {
+                mode = "unique"
+            },
+        })
+        end,
     },
     {
         "glepnir/dashboard-nvim", -- Customize the opening screen
