@@ -119,6 +119,12 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-context", -- Shows which function are you editing on the first line of the screen
-        config = true
+        opts = {
+            enable = true,
+            max_lines = 3,
+            multiline_threshold = 20,
+            trim_scope = 'outer',
+            mode = 'cursor', -- or "topline"
+        }
     },
 }
