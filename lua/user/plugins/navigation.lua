@@ -117,4 +117,8 @@ return {
             "kyazdani42/nvim-web-devicons"
         },
     },
+    {
+        "nvim-treesitter/nvim-treesitter-context", -- Shows which function are you editing on the first line of the screen
+        config = true
+    },
 }
