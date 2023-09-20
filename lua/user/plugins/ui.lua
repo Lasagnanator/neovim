@@ -22,15 +22,19 @@ return {
                     },
                 },
                 lualine_x = {
-                    "encoding",
                     {
-                        "fileformat",
-                        symbols = {
-                            unix = " ", -- e712
-                            dos = " ", -- e70f
-                            mac = " ", -- e711
-                        },
+                        require("lazy.status").updates,
+                        cond = require("lazy.status").has_updates,
                     },
+                    "encoding",
+                    -- {
+                    --     "fileformat",
+                    --     symbols = {
+                    --         unix = " ", -- e712
+                    --         dos = " ", -- e70f
+                    --         mac = " ", -- e711
+                    --     },
+                    -- },
                     "filetype",
                 },
                 lualine_y = { "progress" },
