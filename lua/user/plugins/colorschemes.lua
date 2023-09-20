@@ -4,7 +4,7 @@ local function isChosenColorscheme(colorscheme)
 end
 
 local function isNeovide()
-    return not vim.g.neovide == nil
+    return not vim.g.neovide == true -- Negation should handle undefined case better
 end
 
 return {
