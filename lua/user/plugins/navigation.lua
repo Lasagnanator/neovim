@@ -51,7 +51,14 @@ return {
     {
         "nvim-telescope/telescope.nvim", -- File finder with filters
         opts = {
-            defaults = {},
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<C-k>"] = "move_selection_previous",
+                        ["<C-j>"] = "move_selection_next",
+                    },
+                },
+            },
             pickers = {
                 find_files = {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
@@ -60,10 +67,10 @@ return {
                     --TODO: check if a better map is possible
                     mappings = {
                         i = {
-                            ["<C-k>"] = "delete_buffer",
+                            ["<C-q>"] = "delete_buffer",
                         },
                         n = {
-                            ["<C-k>"] = "delete_buffer",
+                            ["<C-q>"] = "delete_buffer",
                         },
                     }
                 }
@@ -71,37 +78,35 @@ return {
         },
         init = function()
             local telescope = require("telescope")
-            local keymap  = vim.keymap.set
-            local silent  = { noremap = true, silent = true }
             local builtin = require("telescope.builtin")
 
             telescope.load_extension("fzf")
-            telescope.load_extension("file_browser")
+            -- telescope.load_extension("file_browser")
             telescope.load_extension("ui-select")
 
-            local find_git_fallback = function()
-                vim.fn.system('git rev-parse --is-inside-work-tree')
-                if vim.v.shell_error == 0 then
-                    builtin.git_files()
-                else
-                    builtin.find_files()
-                end
-            end
+            -- local find_git_fallback = function()
+            --     vim.fn.system('git rev-parse --is-inside-work-tree')
+            --     if vim.v.shell_error == 0 then
+            --         builtin.git_files()
+            --     else
+            --         builtin.find_files()
+            --     end
+            -- end
 
-            local file_browser = telescope.extensions.file_browser.file_browser
+            -- local file_browser = telescope.extensions.file_browser.file_browser
 
             --<< Keys
-            keymap("n", "<Leader>ff", builtin.find_files, silent)
-            keymap("n", "<Leader>fw", builtin.live_grep, silent)
-            keymap("n", "<Leader>fb", builtin.buffers, silent)
-            keymap("n", "<Leader>fh", builtin.help_tags, silent)
-            keymap("n", "<Leader>fg", find_git_fallback, silent)
-            keymap("n", "<Leader>fe", file_browser, silent)
-            keymap("n", "<Leader>ls", function()
+            vim.keymap.set("n", "<Leader>ff", builtin.find_files, { noremap = true, silent = true })
+            vim.keymap.set("n", "<Leader>fw", builtin.live_grep, { noremap = true, silent = true })
+            vim.keymap.set("n", "<Leader>fb", builtin.buffers, { noremap = true, silent = true })
+            vim.keymap.set("n", "<Leader>fh", builtin.help_tags, { noremap = true, silent = true })
+            -- vim.keymap.set("n", "<Leader>fg", find_git_fallback, { noremap = true, silent = true })
+            -- vim.keymap.set("n", "<Leader>fe", file_browser, { noremap = true, silent = true })
+            vim.keymap.set("n", "<Leader>ls", function()
                 builtin.lsp_references({
                     include_current_line = true,
                 })
-            end, silent)
+            end, { noremap = true, silent = true })
         end,
         dependencies = {
             {
@@ -109,10 +114,9 @@ return {
                 build = "make",
                 -- "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
             },
-            -- TODO: Useful with nvim_tree?
-            "nvim-telescope/telescope-file-browser.nvim", -- File browser extension for Telescope
+            -- "nvim-telescope/telescope-file-browser.nvim", -- File browser extension for Telescope
             -- Not needed
-            "nvim-telescope/telescope-ui-select.nvim",    -- Use Telescope as a selector
+            "nvim-telescope/telescope-ui-select.nvim", -- Use Telescope as a selector
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons"
         },
