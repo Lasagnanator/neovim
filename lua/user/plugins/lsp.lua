@@ -38,7 +38,7 @@ return {
                     -- },
                     use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
                 },
-                dependencies = { "kyazdani42/nvim-web-devicons" },
+                dependencies = { "nvim-tree/nvim-web-devicons" },
             },
             "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
             "hrsh7th/cmp-nvim-lsp", -- Completion integration with LSP

@@ -112,7 +112,7 @@ return {
         end,
         dependencies = {
             "onsails/lspkind.nvim",
-            "kyazdani42/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons",
             "hrsh7th/cmp-buffer",         -- Completion for buffer
             "hrsh7th/cmp-path",           -- Completion for paths
             "hrsh7th/cmp-cmdline",        -- Completion for command line

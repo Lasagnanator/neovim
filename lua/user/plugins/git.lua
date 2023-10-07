@@ -120,7 +120,7 @@ return {
             vim.keymap.set('n', '<Leader>lhd', '<Cmd>DiffviewFileHistory<CR>', { noremap = true, silent = true })
             vim.keymap.set('n', '<Leader>lhf', '<Cmd>DiffviewFileHistory %<CR>', { noremap = true, silent = true })
         end,
-        dependencies = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons" },
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
     },
     --TODO: check which git plugins are really needed
 }

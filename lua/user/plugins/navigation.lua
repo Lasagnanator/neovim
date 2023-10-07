@@ -1,7 +1,7 @@
 return {
     {
         "nvim-tree/nvim-tree.lua", -- File navigation
-        dependencies = { "kyazdani42/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             local nvim_tree          = require("nvim-tree")
             local api                = require("nvim-tree.api")
@@ -114,7 +114,7 @@ return {
             -- Not needed
             "nvim-telescope/telescope-ui-select.nvim",    -- Use Telescope as a selector
             "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons"
+            "nvim-tree/nvim-web-devicons"
         },
     },
     {
