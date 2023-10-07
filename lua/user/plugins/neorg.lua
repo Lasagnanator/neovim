@@ -25,7 +25,9 @@ return {
                 },
                 ["core.export"] = {},
                 ["core.summary"] = {},
-            }
-        }
+                ["external.context"] = {},
+            },
+        },
+        dependencies = { "max397574/neorg-contexts" },
     },
 }
