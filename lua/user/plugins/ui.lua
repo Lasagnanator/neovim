@@ -59,11 +59,21 @@ return {
                             "DiffviewFiles",
                             "qf",
                             "toggleterm",
+                            "alpha",
                         },
                     }
                 },
             }
         },
+        init = function ()
+            vim.keymap.set("n", "gr", function ()
+                vim.ui.input({ prompt = "Tab name" }, function (input)
+                    if input ~= nil then
+                        vim.cmd("LualineRenameTab " .. input)
+                    end
+                end)
+            end)
+        end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
