@@ -36,9 +36,14 @@ return {
                     --     information = " ",
                     --     other = "﫠"
                     -- },
-                    use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+                    use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
                 },
                 dependencies = { "nvim-tree/nvim-web-devicons" },
+            },
+            {
+                "folke/todo-comments.nvim",
+                dependencies = { "nvim-lua/plenary.nvim" },
+                config = true,
             },
             "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
             "hrsh7th/cmp-nvim-lsp", -- Completion integration with LSP
