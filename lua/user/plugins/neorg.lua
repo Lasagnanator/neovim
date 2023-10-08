@@ -23,6 +23,11 @@ return {
                         engine = "nvim-cmp",
                     },
                 },
+                ["core.qol.toc"] = {
+                    config = {
+                        close_after_use = true,
+                    }
+                },
                 ["core.export"] = {},
                 ["core.summary"] = {},
                 ["external.context"] = {},
