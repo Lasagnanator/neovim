@@ -3,6 +3,14 @@ return {
         "tpope/vim-fugitive", -- Git tools inside neovim
     },
     {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "ibhagwan/fzf-lua",
+        },
+        config = true
+    },
+    {
         "lewis6991/gitsigns.nvim", -- Git decorations
         opts = {
             signs      = {
