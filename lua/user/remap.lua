@@ -28,6 +28,12 @@ keymap( "",           "<Leader>@", "<Cmd>set cursorcolumn!<CR>",  silent )
 keymap( "",           "<Leader>#", "<Cmd>set wrap!<CR>",          silent )
 keymap( "",           "<A-s>",     ":saveas ",                    nosilent )
 
+--<< Center after movement
+keymap( { "n", "x" }, "<C-d>",     "<C-d>zz",                     silent )
+keymap( { "n", "x" }, "<C-u>",     "<C-u>zz",                     silent )
+keymap( { "n", "x" }, "<C-f>",     "<C-f>zz",                     silent )
+keymap( { "n", "x" }, "<C-b>",     "<C-b>zz",                     silent )
+
 --<< Yank and paste
 keymap( { "n", "x" }, "<Leader>y", [["+y]],                       silent )
 keymap( { "n", "x" }, "<Leader>p", [["+p]],                       silent )
