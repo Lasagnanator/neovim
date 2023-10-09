@@ -12,10 +12,10 @@ return {
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
-                            work = "~/notes/work",
-                            home = "~/notes/home",
+                            notes = "~/neorg/notes",
+                            logbook = "~/neorg/logbook",
                         },
-                        default_workspace = "home",
+                        default_workspace = "notes",
                     }
                 },
                 ["core.completion"] = {
@@ -26,6 +26,12 @@ return {
                 ["core.qol.toc"] = {
                     config = {
                         close_after_use = true,
+                    }
+                },
+                ["core.journal"] = {
+                    config = {
+                        journal_folder = ".",
+                        workspace = "logbook"
                     }
                 },
                 ["core.export"] = {},
