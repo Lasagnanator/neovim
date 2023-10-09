@@ -14,8 +14,7 @@ return {
                     move_cursor_key      = "<A-m>", -- imap, use nvim_set_current_win to move cursor between current win and floating
                     max_height           = 5,       -- max height of signature floating_window
                     max_width            = 80,      -- max_width of signature floating_window
-                    -- hint_enable          = true,
-                    -- hint_prefix          = "Hint: ",
+                    hint_enable          = false,
                     bind                 = true, -- Mandatory for window borders
                     handler_opts         = {
                         border = "none",
