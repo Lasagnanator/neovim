@@ -174,7 +174,8 @@ return {
                 val = {
                     button("", "Files", "f", "Telescope find_files"),
                     button("", "Session", "s", "SessionManager load_current_dir_session"),
-                    button("󰠮", "Notes", "n", "Neorg index"),
+                    button("󰴓", "Notes", "n", "Neorg index"),
+                    button("󰠮", "Logbook", "l", "Neorg journal toc open"),
                     button("", "Quit", "q", "q!")
                 },
             }
