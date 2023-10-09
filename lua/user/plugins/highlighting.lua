@@ -7,7 +7,6 @@ return {
             ensure_installed = {
                 "lua",
                 "bash",
-                "comment",
                 "gitcommit",
                 "gitignore",
                 "gitattributes",
