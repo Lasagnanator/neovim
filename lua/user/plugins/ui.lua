@@ -194,7 +194,6 @@ return {
                 val = function()
                     local height = vim.api.nvim_win_get_height(0)
                     local occupied = #header.val() + #info.val + #buttons.val + 1 + padding.val * 3
-                    print(occupied)
                     local value = math.floor((height - occupied) / 2)
                     return value >= 0 and value or 0
                 end
