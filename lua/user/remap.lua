@@ -26,6 +26,7 @@ keymap( "",           "<Leader>R", "<Cmd>w<CR>\
                                     <Cmd>e<CR>",                  silent )
 keymap( "",           "<Leader>@", "<Cmd>set cursorcolumn!<CR>",  silent )
 keymap( "",           "<Leader>#", "<Cmd>set wrap!<CR>",          silent )
+keymap( "",           "<Leader>$", "<Cmd>set hls!<CR>",           silent )
 keymap( "",           "<A-s>",     ":saveas ",                    nosilent )
 
 --<< Center after movement
