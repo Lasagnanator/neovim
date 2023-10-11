@@ -40,3 +40,10 @@ autocmd("WinClosed", {
   end,
   nested = true
 })
+
+autocmd("TextYankPost", {
+    callback = function ()
+        vim.cmd("silent!")
+        vim.highlight.on_yank({ timeout = 150 })
+    end
+})
