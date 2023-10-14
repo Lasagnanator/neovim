@@ -1,7 +1,6 @@
 return {
     {
         "jay-babu/mason-null-ls.nvim", -- Bridge the gap between Mason and null-ls
-        lazy = false,
         opts = {
             ensure_installed = {},
             automatic_installation = false,
@@ -51,7 +50,6 @@ return {
     },
     {
         "jose-elias-alvarez/null-ls.nvim", -- Enable linters and formatters to use the LSP client
-        lazy = false,
         config = true,
         dependencies = { "nvim-lua/plenary.nvim" },
     }

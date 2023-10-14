@@ -49,7 +49,6 @@ end
 return {
     {
         "williamboman/mason.nvim", -- Automate installation of LSP servers
-        lazy = false,
         opts = {
             ui = {
                 -- border = "single",
@@ -63,7 +62,6 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",               -- Bridges the two plugins
-        lazy = false,
         opts = {
             ensure_installed = { "bashls", "lua_ls" },     -- If not found, download and install declared LSPs; Python uses "pylsp" "pyright"
         },
