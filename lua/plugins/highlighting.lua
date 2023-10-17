@@ -11,7 +11,10 @@ return {
                 "gitignore",
                 "gitattributes",
                 "git_config",
-                "git_rebase" },
+                "git_rebase",
+                "norg",
+                "norg_meta"
+            },
             highlight = {
                 enable = true,
                 disable = {
