@@ -15,7 +15,7 @@ return {
                     max_height           = 5,       -- max height of signature floating_window
                     max_width            = 80,      -- max_width of signature floating_window
                     hint_enable          = false,
-                    bind                 = true, -- Mandatory for window borders
+                    bind                 = true,    -- Mandatory for window borders
                     handler_opts         = {
                         border = "none",
                     },
@@ -28,13 +28,6 @@ return {
                         jump = { "<cr>", "<tab>" },
                     },
                     -- auto_preview = false,
-                    -- signs = {
-                    --     error = " ",
-                    --     warning = " ",
-                    --     hint = " ",
-                    --     information = " ",
-                    --     other = "﫠"
-                    -- },
                     use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
                 },
                 dependencies = { "nvim-tree/nvim-web-devicons" },

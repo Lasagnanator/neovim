@@ -204,6 +204,7 @@ M.lsp = function(args)
             },
             { mode = "n", map = "<Leader>li",  action = vim.lsp.buf.hover,                   opts = args },
             { mode = "n", map = "<Leader>lc",  action = vim.lsp.buf.code_action,             opts = args },
+            -- TODO: move Trouble to appropriate section
             { mode = "n", map = "<Leader>lt",  action = "<Cmd>Trouble<CR>",                  opts = args },
             { mode = "n", map = "<Leader>lwa", action = vim.lsp.buf.add_workspace_folder,    opts = args },
             { mode = "n", map = "<Leader>lwr", action = vim.lsp.buf.remove_workspace_folder, opts = args },
