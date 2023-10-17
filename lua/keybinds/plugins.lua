@@ -325,19 +325,19 @@ M.terminal = function()
 end
 
 M.session = function()
-    local keymaps = {
+    local keybinds = {
         { mode = "n", map = "<Leader>sl", action = ":SessionManager load_last_session<CR>",        opts = silent },
         { mode = "n", map = "<Leader>sd", action = ":SessionManager load_current_dir_session<CR>", opts = silent },
         { mode = "n", map = "<Leader>ss", action = ":SessionManager load_session<CR>",             opts = silent },
         { mode = "n", map = "<Leader>sr", action = ":SessionManager delete_session<CR>",           opts = silent },
     }
-    return keymaps
+    return keybinds
 end
 
 
 -- NOTE: right now unusued
 M.comment = function()
-    local keymaps = {
+    local keybinds = {
         toggler = {        -- LHS of toggle mappings in NORMAL mode
             line = 'gcc',  -- Line-comment toggle keymap
             block = 'gbc', -- Block-comment toggle keymap
@@ -352,7 +352,7 @@ M.comment = function()
             eol = 'gca',   -- Add comment at the end of line, maybe useless
         },
     }
-    return keymaps
+    return keybinds
 end
 
 
