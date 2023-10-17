@@ -402,11 +402,11 @@ M.neorg = function()
 end
 
 
-M.todo = function ()
+M.todo = function()
     local keybinds = {
-        { mode = "n", map = "<Leader>ut", action = "<Cmd>TodoTrouble<CR>", opts = silent },
+        { mode = "n", map = "<Leader>ut", action = "<Cmd>TodoTrouble<CR>",   opts = silent },
         { mode = "n", map = "<Leader>uf", action = "<Cmd>TodoTelescope<CR>", opts = silent },
-        { mode = "n", map = "<Leader>uq", action = "<Cmd>TodoQuickFix<CR>", opts = silent },
+        { mode = "n", map = "<Leader>uq", action = "<Cmd>TodoQuickFix<CR>",  opts = silent },
     }
     return keybinds
 end
