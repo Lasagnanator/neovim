@@ -364,4 +364,41 @@ M.neogit = function()
 end
 
 
+M.neorg = function()
+    local keybinds = {
+        {
+            mode = "n",
+            map = "<Leader>ni",
+            action = "<Cmd>Neorg index<CR>",
+            opts = silent
+        },
+        {
+            mode = "n",
+            map = "<Leader>nr",
+            action = "<Cmd>Neorg return<CR>",
+            opts = silent
+        },
+        {
+            mode = "n",
+            map = "<Leader>nj",
+            action = "<Cmd>Neorg journal<CR>",
+            opts = silent
+        },
+        {
+            mode = "n",
+            map = "<Leader>nt",
+            action = "<Cmd>Neorg toc<CR>",
+            opts = silent
+        },
+        {
+            mode = "n",
+            map = "<Leader>nc",
+            action = "<Cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>",
+            opts = silent
+        },
+    }
+    return keybinds
+end
+
+
 return M

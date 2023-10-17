@@ -38,9 +38,10 @@ return {
                 },
                 ["core.export"] = {},
                 ["core.summary"] = {},
-                ["external.context"] = {},
+                -- ["external.context"] = {},
             },
         },
-        dependencies = { "max397574/neorg-contexts" },
+        init = function() Utils.set_keybinds(Keybinds.neorg()) end
+        -- dependencies = { "max397574/neorg-contexts" },
     },
 }
