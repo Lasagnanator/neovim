@@ -356,4 +356,12 @@ M.comment = function()
 end
 
 
+M.neogit = function()
+    local keybinds = {
+        { mode = "n", map = "<Leader>lg", action = "<Cmd>Neogit<CR>", opts = silent }
+    }
+    return keybinds
+end
+
+
 return M

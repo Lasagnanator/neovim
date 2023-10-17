@@ -6,11 +6,14 @@ return {
     },
     {
         "NeogitOrg/neogit",
+        config = true,
+        init = function ()
+            Utils.set_keybinds(Keybinds.neogit())
+        end,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "ibhagwan/fzf-lua",
-        },
-        config = true
+        }
     },
     {
         "lewis6991/gitsigns.nvim", -- Git decorations
