@@ -43,6 +43,7 @@ return {
                 "folke/todo-comments.nvim",
                 dependencies = { "nvim-lua/plenary.nvim" },
                 config = true,
+                init = function() Utils.set_keybinds(Keybinds.todo()) end,
             },
             "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
             "hrsh7th/cmp-nvim-lsp", -- Completion integration with LSP
