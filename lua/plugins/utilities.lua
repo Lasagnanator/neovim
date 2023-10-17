@@ -7,18 +7,7 @@ return {
             shade_terminals = false, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
         },
         init = function()
-            --<< Custom terminals
-            local terminal = require("toggleterm.terminal").Terminal
-            local floating = terminal:new({ direction = "float" })
-            local toggle_floating = function()
-                floating:toggle()
-            end
-            --<< Keys
-            vim.keymap.set("x", "<Leader>tl", "<CMD>ToggleTermSendVisualSelection<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>tl", "<CMD>ToggleTermSendCurrentLine<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>tf", toggle_floating, { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>tn", "<CMD>ToggleTermSetName<CR>", { noremap = true, silent = true })
-            vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+            Utils.set_keybinds(Keybinds.terminal())
         end,
     },
     {
@@ -39,43 +28,29 @@ return {
             max_path_length            = 80,    -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
         },
         init = function()
-            vim.keymap.set("n", "<Leader>sl", ":SessionManager load_last_session<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>sd", ":SessionManager load_current_dir_session<CR>",
-                { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>ss", ":SessionManager load_session<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>sr", ":SessionManager delete_session<CR>", { noremap = true, silent = true })
+            Utils.set_keybinds(Keybinds.session())
         end,
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
-        -- TODO: evaluate (yes)
         "stevearc/dressing.nvim", -- Interface for input prompts
         config = true,
     },
     {
         "numToStr/Comment.nvim", -- Easier commenting
+        event = { "BufReadPre", "BufNewFile" },
         opts = {
-            padding = true,      -- Add a space b/w comment and the line
-            sticky = true,       -- Whether the cursor should stay at its position
-            ignore = nil,        -- Lines to be ignored while (un)comment
-            toggler = {          -- LHS of toggle mappings in NORMAL mode
-                line = 'gcc',    -- Line-comment toggle keymap
-                block = 'gbc',   -- Block-comment toggle keymap
-            },
-            opleader = {         -- LHS of operator-pending mappings in NORMAL and VISUAL mode
-                line = 'gc',     -- Line-comment keymap
-                block = 'gb',    -- Block-comment keymap
-            },
-            extra = {            -- LHS of extra mappings
-                above = 'gcO',   -- Add comment on the line above
-                below = 'gco',   -- Add comment on the line below
-                eol = 'gcA',     -- Add comment at the end of line
-            },
+            padding = true,    -- Add a space b/w comment and the line
+            sticky = true,     -- Whether the cursor should stay at its position
+            ignore = nil,      -- Lines to be ignored while (un)comment
+            -- toggler = Keybinds.comment().toggler,
+            -- opleader = Keybinds.comment().opleader,
+            -- extra = Keybinds.comment().extra,
             -- Enable keybindings
             -- NOTE: If given `false` then the plugin won't create any mappings
             mappings = {
                 basic = true, -- Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-                extra = true, -- Extra mapping; `gco`, `gcO`, `gcA`
+                -- extra = true, -- Extra mapping; `gco`, `gcO`, `gcA`
             },
             pre_hook = nil,   -- Function to call before (un)comment
             post_hook = nil,  -- Function to call after (un)comment
@@ -85,17 +60,18 @@ return {
         "norcalli/nvim-colorizer.lua", -- Colorful hex codes, alternative?
         opts = {
             ['*'] = {
-                RGB      = true,     -- #RGB hex codes
-                RRGGBB   = true,     -- #RRGGBB hex codes
-                names    = true,     -- "Name" codes like Blue
-                RRGGBBAA = true,     -- #RRGGBBAA hex codes
-                rgb_fn   = false,    -- CSS rgb() and rgba() functions
-                hsl_fn   = false,    -- CSS hsl() and hsla() functions
-                css      = false,    -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                css_fn   = true,     -- Enable all CSS *functions*: rgb_fn, hsl_fn
+                RGB      = true,         -- #RGB hex codes
+                RRGGBB   = true,         -- #RRGGBB hex codes
+                names    = true,         -- "Name" codes like Blue
+                RRGGBBAA = true,         -- #RRGGBBAA hex codes
+                rgb_fn   = false,        -- CSS rgb() and rgba() functions
+                hsl_fn   = false,        -- CSS hsl() and hsla() functions
+                css      = false,        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                css_fn   = true,         -- Enable all CSS *functions*: rgb_fn, hsl_fn
                 -- Available modes: foreground, background
                 mode     = "background", -- Set the display mode.
-            }
+            },
+            ['!lazy'] = {}
         }
     },
     {

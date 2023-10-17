@@ -3,8 +3,8 @@ return {
         "neovim/nvim-lspconfig", -- Defaults for LSP
         priority = Priority.lsp,
         dependencies = {
-            require("user.plugins.lsp.mason"),
-            require("user.plugins.lsp.null-ls"),
+            require("plugins.lsp.mason"),
+            require("plugins.lsp.null-ls"),
             {
                 "ray-x/lsp_signature.nvim", -- Shows signature of function while typing
                 opts = {

@@ -5,11 +5,8 @@ return {
         config = function()
             local nvim_tree          = require("nvim-tree")
             local api                = require("nvim-tree.api")
-            local keymap             = vim.keymap.set
-            local keymap_remove      = vim.keymap.del
-            local silent             = { noremap = true, silent = true }
             --<< Settings
-            vim.g.loaded_netrw       = 1
+           vim.g.loaded_netrw       = 1
             vim.g.loaded_netrwPlugin = 1
             --<< Function
             local function on_attach(bufnr)
@@ -20,14 +17,13 @@ return {
                 api.config.mappings.default_on_attach(bufnr)
 
                 -- Remove from defaults
-                keymap('n', '<C-[>', '', { buffer = bufnr })
-                keymap('n', '<C-]>', '', { buffer = bufnr })
-                keymap_remove('n', '<C-[>', { buffer = bufnr })
-                keymap_remove('n', '<C-]>', { buffer = bufnr })
+                vim.keymap.set('n', '<C-[>', '', { buffer = bufnr })
+                vim.keymap.set('n', '<C-]>', '', { buffer = bufnr })
+                vim.keymap.del('n', '<C-[>', { buffer = bufnr })
+                vim.keymap.del('n', '<C-]>', { buffer = bufnr })
 
                 -- Set keybinds
-                keymap('n', '}', api.tree.change_root_to_node, opts('CD'))
-                keymap('n', '{', api.tree.change_root_to_parent, opts('Up'))
+                Utils.set_keybinds(Keybinds.nvimtree(bufnr).on_attach)
             end
             nvim_tree.setup({
                 on_attach = on_attach,
@@ -40,12 +36,7 @@ return {
                 },
             })
             --<< Keys
-            keymap("n", "<Leader>ee", function()
-                api.tree.toggle({
-                    focus = false
-                })
-            end, silent)
-            keymap("n", "<Leader>ew", api.tree.focus, silent)
+            Utils.set_keybinds(Keybinds.nvimtree().common)
         end,
     },
     {
@@ -64,7 +55,7 @@ return {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
                 },
                 buffers = {
-                    --TODO: check if a better map is possible
+                    -- TODO: check if a better map is possible
                     mappings = {
                         i = {
                             ["<C-q>"] = "delete_buffer",
@@ -78,44 +69,15 @@ return {
         },
         init = function()
             local telescope = require("telescope")
-            local builtin = require("telescope.builtin")
-
             telescope.load_extension("fzf")
-            -- telescope.load_extension("file_browser")
             telescope.load_extension("ui-select")
-
-            -- local find_git_fallback = function()
-            --     vim.fn.system('git rev-parse --is-inside-work-tree')
-            --     if vim.v.shell_error == 0 then
-            --         builtin.git_files()
-            --     else
-            --         builtin.find_files()
-            --     end
-            -- end
-
-            -- local file_browser = telescope.extensions.file_browser.file_browser
-
-            --<< Keys
-            vim.keymap.set("n", "<Leader>ff", builtin.find_files, { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>fw", builtin.live_grep, { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>fb", builtin.buffers, { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>fh", builtin.help_tags, { noremap = true, silent = true })
-            -- vim.keymap.set("n", "<Leader>fg", find_git_fallback, { noremap = true, silent = true })
-            -- vim.keymap.set("n", "<Leader>fe", file_browser, { noremap = true, silent = true })
-            vim.keymap.set("n", "<Leader>ls", function()
-                builtin.lsp_references({
-                    include_current_line = true,
-                })
-            end, { noremap = true, silent = true })
+            Utils.set_keybinds(Keybinds.telescope().common)
         end,
         dependencies = {
             {
                 "nvim-telescope/telescope-fzf-native.nvim", -- fzf integration for Telescope
                 build = "make",
-                -- "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
             },
-            -- "nvim-telescope/telescope-file-browser.nvim", -- File browser extension for Telescope
-            -- Not needed
             "nvim-telescope/telescope-ui-select.nvim", -- Use Telescope as a selector
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons"

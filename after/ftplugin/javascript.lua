@@ -1,4 +1,4 @@
 --<< JAVASCRIPT FILETYPE CONFIG >>--
 
 --<< Settings
-require("user.filetypes.web")
+require("filetypes.web")

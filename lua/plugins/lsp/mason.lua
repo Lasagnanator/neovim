@@ -1,32 +1,6 @@
 local function on_attach(_, bufnr)
-    -- Vars
-    local keymap  = vim.keymap.set
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-    -- Mappings
-    keymap("n", "<Leader>le", vim.diagnostic.open_float, bufopts)
-    keymap("n", "<A-[>", vim.diagnostic.goto_prev, bufopts)
-    keymap("n", "<A-]>", vim.diagnostic.goto_next, bufopts)
-    keymap("n", "<Leader>lr", vim.lsp.buf.rename, bufopts)
-    keymap("n", "<Leader>ld", function()
-        vim.lsp.buf.definition({
-            reuse_win = true,
-        })
-    end, bufopts)
-    keymap("n", "<Leader>li", vim.lsp.buf.hover, bufopts)
-    keymap("n", "<Leader>lc", vim.lsp.buf.code_action, bufopts)
-    -- keymap("n", "<Leader>ls",  vim.lsp.buf.references,                       bufopts)
-    keymap("n", "<Leader>lt", "<Cmd>Trouble<CR>", bufopts)
-    keymap("n", "<Leader>lwa", vim.lsp.buf.add_workspace_folder, bufopts)
-    keymap("n", "<Leader>lwr", vim.lsp.buf.remove_workspace_folder, bufopts)
-    keymap("n", "<Leader>lwl", function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    keymap("n", "<Leader>lpp", function()
-        vim.lsp.buf.format({
-            async = true
-        })
-    end, bufopts)
+    Utils.set_keybinds(Keybinds.lsp(bufopts).on_attach)
 end
 
 local function exclude_client(client_name)

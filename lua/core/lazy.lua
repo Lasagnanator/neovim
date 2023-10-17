@@ -22,17 +22,20 @@ end
 --<< Variables
 Colorscheme = "tokyonight"
 Priority = {
+    legendary = 1500,
     colorscheme = 1000,
     treesitter = 900,
     lsp = 800,
     completion = 700,
 }
+Keybinds = require("keybinds.plugins")
+Utils = require("core.utils")
 
 --<< Keybind
 vim.keymap.set( "", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true } )
 
 --<< Setup
-lazy.setup("user.plugins", {
+lazy.setup("plugins", {
    install = {
        colorscheme = { Colorscheme },
    },

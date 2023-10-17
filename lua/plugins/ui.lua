@@ -8,7 +8,7 @@ return {
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = {},
-                always_divide_middle = true,
+                always_divide_middle = false,
                 globalstatus = true,
             },
             sections = {
@@ -66,13 +66,7 @@ return {
             }
         },
         init = function ()
-            vim.keymap.set("n", "gr", function ()
-                vim.ui.input({ prompt = "Tab name" }, function (input)
-                    if input ~= nil then
-                        vim.cmd("LualineRenameTab " .. input)
-                    end
-                end)
-            end)
+            Utils.set_keybinds(Keybinds.ui().lualine)
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
