@@ -47,4 +47,8 @@ return {
         "khaveesh/vim-fish-syntax", -- Fish LSP
         ft = { "fish" }
     },
+    {
+        "pprovost/vim-ps1",
+        ft = { "ps1" }
+    }
 }
