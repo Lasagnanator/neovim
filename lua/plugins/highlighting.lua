@@ -12,8 +12,7 @@ return {
                 "gitattributes",
                 "git_config",
                 "git_rebase",
-                "norg",
-                "norg_meta"
+                "norg"
             },
             highlight = {
                 enable = true,
