@@ -72,13 +72,14 @@ return {
             -- auto_preview = false,
             use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
         },
+        keys = Utils.lazy_keybinds(Keybinds.trouble()),
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = true,
-        init = function() Utils.set_keybinds(Keybinds.todo()) end,
+        keys = Utils.lazy_keybinds(Keybinds.todo()),
     },
     "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
     "hrsh7th/cmp-nvim-lsp", -- Completion integration with LSP

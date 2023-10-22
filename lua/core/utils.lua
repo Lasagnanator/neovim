@@ -1,5 +1,6 @@
 local utils = {}
 
+-- TODO: find better function
 utils.dump_table = function(node)
     local cache, stack, output = {}, {}, {}
     local depth = 1
@@ -78,6 +79,7 @@ utils.dump_table = function(node)
     print(output_str)
 end
 
+
 --[[ NOTE: Stricter type check (not working):
      if type(keybind) == "table"
          and (type(keybind.mode) == "string" or type(keybind.mode) == "table")
@@ -87,7 +89,6 @@ end
      then
          exec...
 --]]
-
 utils.is_keybind = function(keybind)
     local result = false
     if type(keybind) == "table"
@@ -101,9 +102,28 @@ utils.is_keybind = function(keybind)
     return result
 end
 
+
+-- PERF: not utilized
 utils.unpack_keybind = function(keybind)
     return keybind.mode, keybind.map, keybind.action, keybind.opts
 end
+
+
+utils.lazy_keybinds = function(keybinds)
+    local lazybinds = {}
+    if type(keybinds) ~= "table" then
+        return
+    end
+    for _, keybind in pairs(keybinds) do
+        local lazybind = { keybind.map, keybind.action, mode = keybind.mode }
+        for opt, value in pairs(keybind.opts) do
+            lazybind[opt] = value
+        end
+        table.insert(lazybinds, lazybind)
+    end
+    return lazybinds
+end
+
 
 utils.index_keybinds = function(node)
     local indexed = {}
@@ -147,7 +167,7 @@ utils.set_keybinds_debug = function(keybinds)
     end
 end
 
-
+-- PERF: not utilized
 -- NOTE: discarded this approach since prone to errors
 utils.set_keymaps_indexed = function(keybinds)
     local is_mappable = function(key_definition)

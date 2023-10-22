@@ -415,6 +415,14 @@ M.neorg = function()
 end
 
 
+M.trouble = function()
+    local keybinds = {
+        { mode = "n", map = "<Leader>lt", action = "<Cmd>Trouble<CR>", opts = silent },
+    }
+    return keybinds
+end
+
+
 M.todo = function()
     local keybinds = {
         { mode = "n", map = "<Leader>ut", action = "<Cmd>TodoTrouble<CR>",   opts = silent },
