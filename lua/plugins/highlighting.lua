@@ -1,3 +1,13 @@
+local excluded_langs = {
+    "yaml.ansible",
+    "tex",
+    "caddy",
+    "kitty",
+    "yuck",
+    "hypr",
+    "ps1"
+}
+
 return {
     {
         "nvim-treesitter/nvim-treesitter", -- Syntax highlighting
@@ -16,39 +26,41 @@ return {
             },
             highlight = {
                 enable = true,
-                disable = {
-                    "yaml.ansible",
-                    "tex",
-                    "caddy",
-                    "kitty",
-                    "yuck",
-                    "hypr",
-                },
+                disable = excluded_langs,
+            },
+            indent = {
+                enable = true,
+                disable = excluded_langs,
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = Keybinds.treesitter().incremental_selection,
+                disable = excluded_langs,
             },
         },
     },
     {
         "isobit/vim-caddyfile", -- Caddyfile syntax highlighting
-        ft = { "caddy" }
+        ft = { "caddy" },
     },
     {
         "fladson/vim-kitty", -- Kitty.conf file syntax highlighting
-        ft = { "kitty" }
+        ft = { "kitty" },
     },
     {
         "elkowar/yuck.vim", -- .yuck file syntax highlighting
-        ft = { "yuck" }
+        ft = { "yuck" },
     },
     {
         "theRealCarneiro/hyprland-vim-syntax", -- Hyprland configuration syntax highlighting
-        ft = { "hypr" }
+        ft = { "hypr" },
     },
     {
         "khaveesh/vim-fish-syntax", -- Fish LSP
-        ft = { "fish" }
+        ft = { "fish" },
     },
     {
         "pprovost/vim-ps1",
-        ft = { "ps1" }
+        ft = { "ps1" },
     }
 }
