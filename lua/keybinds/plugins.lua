@@ -388,7 +388,7 @@ M.neorg = function()
         },
         {
             mode = "n",
-            map = "<Leader>nr",
+            map = "<Leader>nq",
             action = "<Cmd>Neorg return<CR>",
             opts = silent
         },
