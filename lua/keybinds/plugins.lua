@@ -185,7 +185,7 @@ end
 M.treesitter = function()
     local keybinds = {
         incremental_selection = {
-            init_selection = '<C-CR>',
+            init_selection = 'gv',
             scope_incremental = '<CR>',
             node_incremental = '<TAB>',
             node_decremental = '<S-TAB>',
