@@ -30,7 +30,7 @@ return {
         }
     },
     {
-        "jose-elias-alvarez/null-ls.nvim", -- Enable linters and formatters to use the LSP client
+        "nvimtools/none-ls.nvim", -- Enable linters and formatters to use the LSP client
         config = true,
         dependencies = {
             {
