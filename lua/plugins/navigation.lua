@@ -37,6 +37,21 @@ return {
         end,
     },
     {
+        "stevearc/oil.nvim",
+        lazy = false,
+        config = true,
+        keys = Utils.lazy_keybinds(Keybinds.oil()),
+        dependencies = { "nvim-tree/nvim-web-devicons" }
+    },
+    {
+        "ThePrimeagen/harpoon",
+        config = function ()
+            require("harpoon").setup()
+            Utils.set_keybinds(Keybinds.harpoon())
+        end,
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
+    {
         "nvim-telescope/telescope.nvim", -- File finder with filters
         opts = {
             defaults = {

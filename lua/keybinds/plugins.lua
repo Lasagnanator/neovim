@@ -243,6 +243,26 @@ M.lsp = function(args)
 end
 
 
+M.oil = function()
+    local keybinds = {
+        { mode = "n", map = "<Leader>eo", action = "<Cmd>Oil --float<CR>", opts = silent },
+    }
+    return keybinds
+end
+
+
+M.harpoon = function()
+    local mark = require("harpoon.mark")
+    local ui = require("harpoon.ui")
+    -- local term = require("harpoon.term") -- NOTE: useless?
+    local keybinds = {
+        { mode = "n", map = "<Leader>ha", action = mark.add_file,        opts = silent },
+        { mode = "n", map = "<Leader>hf", action = ui.toggle_quick_menu, opts = silent },
+    }
+    return keybinds
+end
+
+
 M.telescope = function()
     local builtin = require("telescope.builtin")
     local keybinds = {
