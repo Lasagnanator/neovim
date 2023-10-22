@@ -173,9 +173,9 @@ M.diffview = function()
             },
         },
         common = {
-            { mode = 'n', map = '<Leader>lf',  action = '<Cmd>DiffviewOpen<CR>',          opts = silent },
-            { mode = 'n', map = '<Leader>lhd', action = '<Cmd>DiffviewFileHistory<CR>',   opts = silent },
-            { mode = 'n', map = '<Leader>lhf', action = '<Cmd>DiffviewFileHistory %<CR>', opts = silent },
+            { mode = 'n', map = '<Leader>gd',  action = '<Cmd>DiffviewOpen<CR>',          opts = silent },
+            { mode = 'n', map = '<Leader>ghd', action = '<Cmd>DiffviewFileHistory<CR>',   opts = silent },
+            { mode = 'n', map = '<Leader>ghf', action = '<Cmd>DiffviewFileHistory %<CR>', opts = silent },
         }
     }
     return keybinds
@@ -217,8 +217,6 @@ M.lsp = function(args)
             },
             { mode = "n", map = "<Leader>li",  action = vim.lsp.buf.hover,                   opts = args },
             { mode = "n", map = "<Leader>lc",  action = vim.lsp.buf.code_action,             opts = args },
-            -- TODO: move Trouble to appropriate section
-            { mode = "n", map = "<Leader>lt",  action = "<Cmd>Trouble<CR>",                  opts = args },
             { mode = "n", map = "<Leader>lwa", action = vim.lsp.buf.add_workspace_folder,    opts = args },
             { mode = "n", map = "<Leader>lwr", action = vim.lsp.buf.remove_workspace_folder, opts = args },
             {
@@ -372,7 +370,7 @@ end
 
 M.neogit = function()
     local keybinds = {
-        { mode = "n", map = "<Leader>lg", action = "<Cmd>Neogit<CR>", opts = silent }
+        { mode = "n", map = "<Leader>gg", action = "<Cmd>Neogit<CR>", opts = silent }
     }
     return keybinds
 end
