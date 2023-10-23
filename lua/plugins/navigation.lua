@@ -98,13 +98,43 @@ return {
         },
     },
     {
-        "nvim-treesitter/nvim-treesitter-context", -- Shows which function are you editing on the first line of the screen
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        event = { "LspAttach" },
         opts = {
-            enable = true,
-            max_lines = 3,
-            multiline_threshold = 20,
-            trim_scope = 'outer',
-            mode = 'cursor', -- or "topline"
-        }
+            show_dirname = false,
+            exclude_filetypes = {
+                "NvimTree",
+                "TelescopePrompt",
+                "DressingInput",
+                "Trouble",
+                "mason",
+                "packer",
+                "help",
+                "wiki",
+                "DiffviewFiles",
+                "qf",
+                "toggleterm",
+                "alpha",
+            }
+        },
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
     },
+    {
+        "SmiteshP/nvim-navbuddy",
+        opts = {
+            lsp = {
+                auto_attach = true
+            }
+        },
+        event = { "LspAttach" },
+        keys = Utils.lazy_keybinds(Keybinds.navbuddy()),
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim"
+        },
+    }
 }

@@ -295,6 +295,14 @@ M.telescope = function()
 end
 
 
+M.navbuddy = function()
+    local keybinds = {
+        { mode = "n", map = "<Leader>en", action = "<Cmd>Navbuddy<CR>", opts = silent },
+    }
+    return keybinds
+end
+
+
 M.nvimtree = function(bufnr)
     bufnr = bufnr or 0
     local api = require("nvim-tree.api")
