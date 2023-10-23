@@ -26,7 +26,7 @@ return {
                     }
                 },
                 init = function() Utils.set_keybinds(Keybinds.lsp().mason) end
-            }
+            },
         }
     },
     {
@@ -72,6 +72,7 @@ return {
             -- auto_preview = false,
             use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
         },
+        event = { "BufReadPre", "BufNewFile" },
         keys = Utils.lazy_keybinds(Keybinds.trouble()),
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
@@ -79,6 +80,7 @@ return {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = true,
+        event = { "BufReadPre", "BufNewFile" },
         keys = Utils.lazy_keybinds(Keybinds.todo()),
     },
     "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
