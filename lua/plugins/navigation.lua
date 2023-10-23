@@ -45,9 +45,11 @@ return {
     },
     {
         "ThePrimeagen/harpoon",
-        config = function ()
+        config = function()
             require("harpoon").setup()
             Utils.set_keybinds(Keybinds.harpoon())
+            vim.api.nvim_set_hl(0, "HarpoonBorder", { link = "TelescopeBorder" })
+            vim.api.nvim_set_hl(0, "HarpoonWindow", { link = "TelescopeNormal" })
         end,
         dependencies = { "nvim-lua/plenary.nvim" }
     },

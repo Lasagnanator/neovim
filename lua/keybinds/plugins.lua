@@ -251,13 +251,19 @@ M.oil = function()
 end
 
 
+-- TODO: add terminals
 M.harpoon = function()
     local mark = require("harpoon.mark")
     local ui = require("harpoon.ui")
     -- local term = require("harpoon.term") -- NOTE: useless?
     local keybinds = {
-        { mode = "n", map = "<Leader>ha", action = mark.add_file,        opts = silent },
-        { mode = "n", map = "<Leader>hf", action = ui.toggle_quick_menu, opts = silent },
+        { mode = "n", map = "<Leader>ha", action = mark.add_file,                 opts = silent },
+        { mode = "n", map = "<Leader>hf", action = ui.toggle_quick_menu,          opts = silent },
+        { mode = "n", map = "<Leader>h1", action = function() ui.nav_file(1) end, opts = silent },
+        { mode = "n", map = "<Leader>h2", action = function() ui.nav_file(2) end, opts = silent },
+        { mode = "n", map = "<Leader>h3", action = function() ui.nav_file(3) end, opts = silent },
+        { mode = "n", map = "<Leader>h4", action = function() ui.nav_file(4) end, opts = silent },
+        { mode = "n", map = "<Leader>h5", action = function() ui.nav_file(5) end, opts = silent },
     }
     return keybinds
 end
