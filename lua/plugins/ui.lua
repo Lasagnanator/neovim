@@ -33,13 +33,14 @@ return {
                 lualine_z = { "location" }
             },
             tabline = {
-                lualine_a = {
+                lualine_b = {
                     {
                         "tabs",
-                        mode = 2,
+                        mode = 0,
                         use_mode_colors = true,
                         max_lenght = 20,
                     }
+
                 },
                 lualine_y = {
                     {
