@@ -100,7 +100,6 @@ return {
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
-        event = { "LspAttach" },
         opts = {
             show_dirname = false,
             exclude_filetypes = {
@@ -118,7 +117,9 @@ return {
                 "alpha",
             }
         },
+        event = { "LspAttach" },
         dependencies = {
+            "neovim/nvim-lspconfig",
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
@@ -133,6 +134,7 @@ return {
         event = { "LspAttach" },
         keys = Utils.lazy_keybinds(Keybinds.navbuddy()),
         dependencies = {
+            "neovim/nvim-lspconfig",
             "SmiteshP/nvim-navic",
             "MunifTanjim/nui.nvim"
         },
