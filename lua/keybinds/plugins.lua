@@ -243,6 +243,24 @@ M.lsp = function(args)
 end
 
 
+M.dap = function()
+    local keybinds = {
+        dap = {
+            { mode = { "n", "x" }, map = "<Leader>db", action = "<Cmd>DapToggleBreakpoint<CR>", opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>dc", action = "<Cmd>DapContinue<CR>",         opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>di", action = "<Cmd>DapStepInto<CR>",         opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>du", action = "<Cmd>DapStepOut<CR>",          opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>do", action = "<Cmd>DapStepOver<CR>",         opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>dq", action = "<Cmd>DapTerminate<CR>",        opts = silent },
+        },
+        ui = {
+            { mode = { "n", "x" }, map = "<Leader>dt", action = function() require("dapui").toggle() end, opts = silent },
+        }
+    }
+    return keybinds
+end
+
+
 M.oil = function()
     local keybinds = {
         { mode = "n", map = "<Leader>eo", action = "<Cmd>Oil --float<CR>", opts = silent },

@@ -3,6 +3,11 @@ return {
         "neovim/nvim-lspconfig", -- Defaults for LSP
     },
     {
+        "mfussenegger/nvim-dap", -- Debug adapter
+        event = { "LspAttach" },
+        keys = Utils.set_keybinds(Keybinds.dap().dap),
+    },
+    {
         "williamboman/mason-lspconfig.nvim", -- Bridges the two plugins
         config = function()
             local mason_lsp = require("mason-lspconfig")
@@ -45,6 +50,35 @@ return {
             },
             { "nvim-lua/plenary.nvim" },
         },
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        opts = {
+            icons = {
+                collapsed = "",
+                current_frame = "",
+                expanded = ""
+            },
+        },
+        event = { "LspAttach" },
+        keys = Utils.set_keybinds(Keybinds.dap().ui),
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        }
+    },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = {
+            handlers = {
+                function(config) -- catch all
+                    require('mason-nvim-dap').default_setup(config)
+                end,
+            },
+        },
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "williamboman/mason.nvim",
+        }
     },
     {
         "ray-x/lsp_signature.nvim", -- Shows signature of function while typing
