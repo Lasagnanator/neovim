@@ -188,7 +188,7 @@ M.treesitter = function()
             init_selection = 'gv',
             scope_incremental = '<CR>',
             node_incremental = '<TAB>',
-            node_decremental = '<S-TAB>',
+            node_decremental = '<BS>',
         }
     }
     return keybinds
