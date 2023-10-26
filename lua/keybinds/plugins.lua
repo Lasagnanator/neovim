@@ -229,7 +229,7 @@ M.lsp = function(args)
             },
             {
                 mode = "n",
-                map = "<Leader>lpp",
+                map = "<Leader>lf",
                 action = function()
                     vim.lsp.buf.format({
                         async = true
