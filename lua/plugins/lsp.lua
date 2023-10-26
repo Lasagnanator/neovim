@@ -10,7 +10,6 @@ return {
                 ensure_installed = { "bashls", "lua_ls" }, -- If not found, download and install declared LSPs; Python uses "pylsp" "pyright"
             })
             mason_lsp.setup_handlers(require("plugins.lsp.mason").set_handlers())
-            -- mason_lsp.setup_handlers(require("plugins.lsp.mason")())
         end,
         dependencies = {
             {
