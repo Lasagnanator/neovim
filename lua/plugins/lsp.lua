@@ -55,9 +55,9 @@ return {
         "rcarriga/nvim-dap-ui",
         opts = {
             icons = {
-                collapsed = "",
-                current_frame = "",
-                expanded = ""
+                collapsed = "",
+                current_frame = "",
+                expanded = ""
             },
         },
         event = { "LspAttach" },
