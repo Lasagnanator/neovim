@@ -246,12 +246,13 @@ end
 M.dap = function()
     local keybinds = {
         dap = {
-            { mode = { "n", "x" }, map = "<Leader>db", action = "<Cmd>DapToggleBreakpoint<CR>", opts = silent },
-            { mode = { "n", "x" }, map = "<Leader>dc", action = "<Cmd>DapContinue<CR>",         opts = silent },
-            { mode = { "n", "x" }, map = "<Leader>di", action = "<Cmd>DapStepInto<CR>",         opts = silent },
-            { mode = { "n", "x" }, map = "<Leader>du", action = "<Cmd>DapStepOut<CR>",          opts = silent },
-            { mode = { "n", "x" }, map = "<Leader>do", action = "<Cmd>DapStepOver<CR>",         opts = silent },
-            { mode = { "n", "x" }, map = "<Leader>dq", action = "<Cmd>DapTerminate<CR>",        opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>db", action = "<Cmd>DapToggleBreakpoint<CR>",          opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>dc", action = "<Cmd>DapContinue<CR>",                  opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>di", action = "<Cmd>DapStepInto<CR>",                  opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>du", action = "<Cmd>DapStepOut<CR>",                   opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>do", action = "<Cmd>DapStepOver<CR>",                  opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>dq", action = "<Cmd>DapTerminate<CR>",                 opts = silent },
+            { mode = { "n", "x" }, map = "<Leader>dr", action = function() require("dap").restart() end, opts = silent },
         },
         ui = {
             { mode = { "n", "x" }, map = "<Leader>dt", action = function() require("dapui").toggle() end, opts = silent },
