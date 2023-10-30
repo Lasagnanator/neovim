@@ -40,6 +40,33 @@ return {
         },
     },
     {
+        "kevinhwang91/nvim-ufo",
+        config = function()
+            local filetypes = {
+                norg  = { "treesitter", "indent" },
+                harpoon = "",
+                oil = "",
+                caddy = "indent",
+                kitty = "indent",
+                yuck  = "indent",
+                hypr  = "indent",
+                fish  = "indent",
+                ps1   = "indent"
+            }
+            Utils.set_keybinds(Keybinds.ufo())
+            require('ufo').setup({
+                open_fold_hl_timeout = 150,
+                provider_selector = function(bufnr, filetype, _)
+                    if vim.bo[bufnr].bt == "nofile" then
+                        return ""
+                    end
+                    return filetypes[filetype] or { "lsp", "treesitter" }
+                end
+            })
+        end,
+        dependencies = { "kevinhwang91/promise-async" }
+    },
+    {
         "isobit/vim-caddyfile", -- Caddyfile syntax highlighting
         ft = { "caddy" },
     },

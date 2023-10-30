@@ -483,4 +483,25 @@ M.todo = function()
 end
 
 
+M.ufo = function()
+    local keybinds = {
+        { mode = "n", map = "zR", action = function() require('ufo').openAllFolds() end,  opts = silent },
+        { mode = "n", map = "zM", action = function() require('ufo').closeAllFolds() end, opts = silent },
+        -- TODO: evaluate utility, if useful change background colors
+        {
+            mode = "n",
+            map = "zK",
+            action = function()
+                local winid = require('ufo').peekFoldedLinesUnderCursor()
+                if not winid then
+                    vim.lsp.buf.hover()
+                end
+            end,
+            opts = silent
+        },
+    }
+    return keybinds
+end
+
+
 return M
