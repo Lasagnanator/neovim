@@ -171,7 +171,8 @@ return {
                     button("", "Session", "s", "SessionManager load_current_dir_session"),
                     button("󰴓", "Notes", "n", "Neorg index"),
                     button("󰠮", "Logbook", "l", "Neorg journal toc open"),
-                    button("󰠮", "Word", "w", "Telescope live_grep"),
+                    button("󰏇", "Explorer", "e", "Oil"),
+                    button("", "Word", "w", "Telescope live_grep"),
                     button("", "Quit", "q", "q!")
                 },
             }
