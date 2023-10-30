@@ -28,7 +28,6 @@ local settings = {
     showtabline    = 2,
     hlsearch       = false,
     termguicolors  = true,
-    -- mouse          = "a",
     splitbelow     = true,
     splitright     = true,
     undofile       = true,
