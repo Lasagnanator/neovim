@@ -39,7 +39,15 @@ return {
     {
         "stevearc/oil.nvim",
         lazy = false,
-        config = true,
+        config = function ()
+            require("oil").setup({
+                columns = {
+                    "icon",
+                    "permissions",
+                    "size"
+                }
+            })
+        end,
         keys = Utils.lazy_keybinds(Keybinds.oil()),
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
