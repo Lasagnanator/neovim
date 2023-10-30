@@ -59,6 +59,8 @@ return {
     {
         "norcalli/nvim-colorizer.lua", -- Colorful hex codes, alternative?
         opts = {
+            ['!lazy'] = {},
+            ['!mason'] = {},
             ['*'] = {
                 RGB      = true,         -- #RGB hex codes
                 RRGGBB   = true,         -- #RRGGBB hex codes
@@ -70,8 +72,7 @@ return {
                 css_fn   = true,         -- Enable all CSS *functions*: rgb_fn, hsl_fn
                 -- Available modes: foreground, background
                 mode     = "background", -- Set the display mode.
-            },
-            ['!lazy'] = {}
+            }
         }
     },
     {
