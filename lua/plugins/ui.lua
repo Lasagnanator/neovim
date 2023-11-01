@@ -1,3 +1,18 @@
+local excluded_types = {
+    "NvimTree",
+    "TelescopePrompt",
+    "DressingInput",
+    "Trouble",
+    "mason",
+    "lazy",
+    "help",
+    "wiki",
+    "DiffviewFiles",
+    "qf",
+    "toggleterm",
+    "alpha",
+}
+
 return {
     {
         "nvim-lualine/lualine.nvim", -- Custom statusline written in Lua
@@ -33,40 +48,36 @@ return {
                 lualine_z = { "location" }
             },
             tabline = {
+                lualine_a = { { function() return "" end } },
                 lualine_b = {
+                    {
+                        "windows",
+                        use_mode_colors = true,
+                        max_lenght = vim.o.columns * 2 / 3,
+                        filetype_names = {
+                            NvimTree = "Tree",
+                            TelescopePrompt = "Prompt",
+                            lazy = "Lazy",
+                            mason = "Mason",
+                            DressingInput = "Input",
+                            alpha = "Alpha"
+                        },
+                    }
+                },
+                lualine_y = {
                     {
                         "tabs",
                         mode = 0,
                         use_mode_colors = true,
                         max_lenght = 20,
                     }
-
                 },
-                lualine_y = {
-                    {
-                        "windows",
-                        use_mode_colors = true,
-                        max_lenght = 20,
-                        filetype_names = {},
-                        disabled_filetypes = {
-                            "NvimTree",
-                            "TelescopePrompt",
-                            "DressingInput",
-                            "Trouble",
-                            "mason",
-                            "packer",
-                            "help",
-                            "wiki",
-                            "DiffviewFiles",
-                            "qf",
-                            "toggleterm",
-                            "alpha",
-                        },
-                    }
-                },
+                lualine_z = {
+                    { function() return "󰓩" end }
+                }
             }
         },
-        init = function ()
+        init = function()
             Utils.set_keybinds(Keybinds.ui().lualine)
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
