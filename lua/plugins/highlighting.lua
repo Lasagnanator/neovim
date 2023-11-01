@@ -43,21 +43,25 @@ return {
         "kevinhwang91/nvim-ufo",
         config = function()
             local filetypes = {
-                norg  = { "treesitter", "indent" },
+                norg    = { "treesitter", "indent" },
                 harpoon = "",
-                oil = "",
-                caddy = "indent",
-                kitty = "indent",
-                yuck  = "indent",
-                hypr  = "indent",
-                fish  = "indent",
-                ps1   = "indent"
+                oil     = "",
+                tex     = "",
+                caddy   = "indent",
+                kitty   = "indent",
+                yuck    = "indent",
+                hypr    = "indent",
+                fish    = "indent",
+                ps1     = "indent",
+                new     = ""
             }
             Utils.set_keybinds(Keybinds.ufo())
             require('ufo').setup({
                 open_fold_hl_timeout = 150,
                 provider_selector = function(bufnr, filetype, _)
-                    if vim.bo[bufnr].bt == "nofile" then
+                    if vim.bo[bufnr].bt == "nofile"
+                        or vim.bo[bufnr].bt == ""
+                    then
                         return ""
                     end
                     return filetypes[filetype] or { "lsp", "treesitter" }
