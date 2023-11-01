@@ -270,19 +270,25 @@ M.oil = function()
 end
 
 
--- TODO: add terminals
 M.harpoon = function()
     local mark = require("harpoon.mark")
     local ui = require("harpoon.ui")
-    -- local term = require("harpoon.term") -- NOTE: useless?
+    local term = require("harpoon.term")
+    local cmd = require("harpoon.cmd-ui")
     local keybinds = {
-        { mode = "n", map = "<Leader>ha", action = mark.add_file,                 opts = silent },
-        { mode = "n", map = "<Leader>hf", action = ui.toggle_quick_menu,          opts = silent },
-        { mode = "n", map = "<Leader>h1", action = function() ui.nav_file(1) end, opts = silent },
-        { mode = "n", map = "<Leader>h2", action = function() ui.nav_file(2) end, opts = silent },
-        { mode = "n", map = "<Leader>h3", action = function() ui.nav_file(3) end, opts = silent },
-        { mode = "n", map = "<Leader>h4", action = function() ui.nav_file(4) end, opts = silent },
-        { mode = "n", map = "<Leader>h5", action = function() ui.nav_file(5) end, opts = silent },
+        { mode = "n", map = "<Leader>ha", action = mark.add_file,                          opts = silent },
+        { mode = "n", map = "<Leader>hf", action = ui.toggle_quick_menu,                   opts = silent },
+        { mode = "n", map = "<Leader>h1", action = function() ui.nav_file(1) end,          opts = silent },
+        { mode = "n", map = "<Leader>h2", action = function() ui.nav_file(2) end,          opts = silent },
+        { mode = "n", map = "<Leader>h3", action = function() ui.nav_file(3) end,          opts = silent },
+        { mode = "n", map = "<Leader>h4", action = function() ui.nav_file(4) end,          opts = silent },
+        { mode = "n", map = "<Leader>h5", action = function() ui.nav_file(5) end,          opts = silent },
+        { mode = "n", map = "<Leader>tf", action = function() cmd.toggle_quick_menu() end, opts = silent },
+        { mode = "n", map = "<Leader>t1", action = function() term.gotoTerminal(1) end,    opts = silent },
+        { mode = "n", map = "<Leader>t2", action = function() term.gotoTerminal(2) end,    opts = silent },
+        { mode = "n", map = "<Leader>t3", action = function() term.gotoTerminal(3) end,    opts = silent },
+        { mode = "n", map = "<Leader>t4", action = function() term.gotoTerminal(4) end,    opts = silent },
+        { mode = "n", map = "<Leader>t5", action = function() term.gotoTerminal(5) end,    opts = silent },
     }
     return keybinds
 end
