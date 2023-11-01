@@ -25,6 +25,28 @@ local function exclude_client(client_name)
 end
 
 
+local function set_capabilities(overwrite)
+    local overwrite_capabilities = overwrite or {}
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = {}
+    local function merge_capabilities(original, merge)
+       local merged = original
+        for cap_key, cap_value in pairs(merge) do
+            merged[cap_key] = cap_value
+        end
+        return merged
+    end
+    local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities = merge_capabilities(capabilities, cmp_capabilities)
+    capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+    }
+    capabilities = merge_capabilities(capabilities, overwrite_capabilities)
+    return capabilities
+end
+
+
 M.set_handlers = function()
     local lspconfig = require("lspconfig")
     local handlers  = {
@@ -32,13 +54,15 @@ M.set_handlers = function()
         function(server_name)
             lspconfig[server_name].setup({
                 on_attach = on_attach,
-                single_file_support = true
+                capabilities = set_capabilities(),
+                -- single_file_support = true
             })
         end,
         -- Personalized handlers
         ["lua_ls"] = function()
             lspconfig.lua_ls.setup({
                 on_attach = on_attach,
+                capabilities = set_capabilities(),
                 on_new_config = function(client)
                     -- if vim.fn.expand('%:p'):match("/awesome/") then
                     if vim.api.nvim_buf_get_name(0):match("/awesome/") then
@@ -62,6 +86,7 @@ M.set_handlers = function()
         ["pyright"] = function()
             lspconfig.pyright.setup({
                 on_attach = on_attach,
+                capabilities = set_capabilities(),
                 settings = {
                     python = {
                         analysis = {
@@ -77,6 +102,7 @@ M.set_handlers = function()
         ["pylsp"] = function()
             lspconfig.pylsp.setup({
                 on_attach = on_attach,
+                capabilities = set_capabilities(),
                 settings = {
                     pylsp = {
                         plugins = {
@@ -91,6 +117,7 @@ M.set_handlers = function()
         ["jsonls"] = function()
             lspconfig.jsonls.setup({
                 on_attach = on_attach,
+                capabilities = set_capabilities(),
                 settings = {
                     json = {
                         schemas = require("schemastore").json.schemas(),
@@ -112,6 +139,7 @@ M.set_handlers = function()
         ["ansiblels"] = function()
             lspconfig.ansiblels.setup({
                 on_attach = on_attach,
+                capabilities = set_capabilities(),
                 settings = {
                     ansible = {
                         validation = {
@@ -124,6 +152,7 @@ M.set_handlers = function()
         ["sqlls"] = function()
             lspconfig.sqlls.setup({
                 on_attach = on_attach,
+                capabilities = set_capabilities(),
                 single_file_support = true,
                 filetypes = { "sql", "mysql" },
                 settings = {
@@ -146,9 +175,9 @@ M.set_handlers = function()
         ["clangd"] = function()
             lspconfig.clangd.setup({
                 on_attach = on_attach(),
-                capabilities = {
+                capabilities = set_capabilities({
                     offsetEncoding = "UTF-16",
-                },
+                }),
             })
         end,
         ["volar"] = function()
@@ -157,6 +186,7 @@ M.set_handlers = function()
                     exclude_client("tsserver")
                     on_attach(_, bufnr)
                 end,
+                capabilities = set_capabilities(),
                 root_dir = lspconfig.util.root_pattern("**.vue"),
                 single_file_support = false,
                 filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue",
