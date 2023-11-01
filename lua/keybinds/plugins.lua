@@ -377,8 +377,7 @@ M.ui = function()
     return keybinds
 end
 
--- TODO: utilities
-
+-- TODO: Clean keybinds
 M.terminal = function()
     local terminal = require("toggleterm.terminal").Terminal
     local floating = terminal:new({ direction = "float" })
@@ -394,6 +393,7 @@ M.terminal = function()
     }
     return keybinds
 end
+
 
 M.session = function()
     local keybinds = {
