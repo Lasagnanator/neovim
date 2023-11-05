@@ -13,7 +13,7 @@ return {
         enabled = isChosenColorscheme("tokyonight"),
         opts = {
             style = "night",
-            transparent = isNeovide(),
+            -- transparent = isNeovide(),
             styles = {
                 sidebars = "normal",
                 floats = "normal",
@@ -31,7 +31,7 @@ return {
         name = "catppuccin",
         opts = {
             flavour = "macchiato",
-            transparent_background = isNeovide(),
+            -- transparent_background = isNeovide(),
         },
         init = function()
             vim.cmd("colorscheme catppuccin")
@@ -67,7 +67,7 @@ return {
                 nontext = "#3B4048",
             }
             vim.g.dracula_show_end_of_buffer = true    -- show the '~' characters after the end of buffers
-            vim.g.dracula_transparent_bg = isNeovide()        -- use transparent background
+            vim.g.dracula_transparent_bg = isNeovide() -- use transparent background
             vim.g.dracula_lualine_bg_color = "#44475a" -- set custom lualine background color
             vim.g.dracula_italic_comment = true        -- set italic comment
             vim.cmd("colorscheme dracula")
