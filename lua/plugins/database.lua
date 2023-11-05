@@ -1,6 +1,7 @@
 return {
     "tpope/vim-dadbod", -- Database engine
     ft = { "sql", "mysql", "psql" },
+    cmd = { "DBUI", "DBUIToggle" },
     config = function()
         -- TODO: move to DadbodUI
 
