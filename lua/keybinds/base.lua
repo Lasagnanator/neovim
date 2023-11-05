@@ -79,12 +79,13 @@ local normal = {
     }
 }
 
+
 local visual = {
     -- TODO: adapt the move commands to <Cmd> instead of :
     base = {
         { mode = "v", map = ">",     action = ">gv",             opts = silent },
         { mode = "v", map = "<",     action = "<gv",             opts = silent },
-        { mode = "v", map = "p",     action = '"_dp',            opt = silent },
+        { mode = "v", map = "p",     action = '"_dP',            opt = silent },
         { mode = "v", map = "<A-j>", action = ":move .+1<CR>==", opts = silent },
         { mode = "v", map = "<A-k>", action = ":move .-1<CR>==", opts = silent },
     },
