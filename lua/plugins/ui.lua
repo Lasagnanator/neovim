@@ -15,6 +15,13 @@ local excluded_types = {
 
 return {
     {
+        "nvim-tree/nvim-web-devicons",
+        opt = {
+            default = true,
+            color_icons = true,
+        }
+    },
+    {
         "nvim-lualine/lualine.nvim", -- Custom statusline written in Lua
         opts = {
             options = {
