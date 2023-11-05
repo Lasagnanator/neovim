@@ -53,14 +53,14 @@ return {
                 hypr    = "indent",
                 fish    = "indent",
                 ps1     = "indent",
-                new     = ""
+                new     = "", -- TODO: useless?
+                [""]    = ""
             }
             Utils.set_keybinds(Keybinds.ufo())
             require('ufo').setup({
                 open_fold_hl_timeout = 150,
                 provider_selector = function(bufnr, filetype, _)
                     if vim.bo[bufnr].bt == "nofile"
-                        or vim.bo[bufnr].bt == ""
                     then
                         return ""
                     end
