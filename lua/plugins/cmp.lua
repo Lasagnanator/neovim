@@ -69,6 +69,13 @@ return {
                     { name = "buffer" },
                 })
             })
+            cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "vim-dadbod-completion" },
+                })
+            })
             --<< Use buffer source for `/` and `?`
             cmp.setup.cmdline({ "/", "?" }, {
                 mapping = cmp.mapping.preset.cmdline(),
