@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: unused-local
 local excluded_types = {
     "NvimTree",
     "TelescopePrompt",
@@ -54,39 +55,92 @@ return {
                 lualine_y = { "progress" },
                 lualine_z = { "location" }
             },
-            tabline = {
-                lualine_a = { { function() return "" end } },
-                lualine_b = {
-                    {
-                        "windows",
-                        use_mode_colors = true,
-                        max_lenght = vim.o.columns * 2 / 3,
-                        filetype_names = {
-                            NvimTree = "Tree",
-                            TelescopePrompt = "Prompt",
-                            lazy = "Lazy",
-                            mason = "Mason",
-                            DressingInput = "Input",
-                            alpha = "Alpha"
-                        },
-                    }
-                },
-                lualine_y = {
-                    {
-                        "tabs",
-                        mode = 0,
-                        use_mode_colors = true,
-                        max_lenght = 20,
-                    }
-                },
-                lualine_z = {
-                    { function() return "󰓩" end }
-                }
-            }
         },
         init = function()
             Utils.set_keybinds(Keybinds.ui().lualine)
         end,
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        "akinsho/bufferline.nvim",
+        opts = {
+            options = {
+                mode = "tabs",
+                tab_size = 25,
+                max_name_length = 20,
+                diagnostics = "nvim_lsp",
+                diagnostics_update_in_insert = false,
+                ---@diagnostic disable-next-line: unused-local
+                diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                    local s = " "
+                    for e, n in pairs(diagnostics_dict) do
+                        local sym = e == "error" and " "
+                            or (e == "warning" and " " or "")
+                        s = s .. n .. sym
+                    end
+                    return s
+                end,
+                name_formatter = function(buf)
+                    local superscript = {
+                        [0] = "⁰",
+                        [1] = "¹",
+                        [2] = "²",
+                        [3] = "³",
+                        [4] = "⁴",
+                        [5] = "⁵",
+                        [6] = "⁶",
+                        [7] = "⁷",
+                        [8] = "⁸",
+                        [9] = "⁹",
+                    }
+                    return " " .. buf.name .. superscript[#buf.buffers]
+                end,
+                custom_filter = function(buffer_number)
+                    local ft = vim.bo[buffer_number].filetype
+                    if ft ~= "NvimTree"
+                        and ft ~= "TelescopePrompt"
+                        and ft ~= "DressingInput"
+                        and ft ~= "Trouble"
+                        and ft ~= "mason"
+                        and ft ~= "packer"
+                        and ft ~= "help"
+                        and ft ~= "wiki"
+                        and ft ~= "DiffviewFiles"
+                        and ft ~= "qf"
+                        and ft ~= "toggleterm"
+                        and ft ~= "Alpha"
+                        and ft ~= "dbui"
+                        and ft ~= "dbout"
+                    then
+                        return true
+                    end
+                end,
+                offsets = {
+                    {
+                        filetype = "NvimTree",
+                        text = "Explorer",
+                        highlight = "TabLineSel",
+                        text_align = "center",
+                        -- separator = true,
+                    },
+                    {
+                        filetype = "dbui",
+                        text = "Dadbod UI",
+                        highlight = "TabLineSel",
+                        text_align = "center",
+                        -- separator = true,
+                    },
+                },
+                show_buffer_icons = true,
+                get_element_icon = function(buf) return require('nvim-web-devicons').get_icon(buf, { default = true }) end,
+                show_buffer_close_icons = false,
+                show_close_icon = false,
+                separator_style = "slant",
+                always_show_bufferline = true,
+                enforce_regular_tabs = true,
+                sort_by = "tabs",
+            }
+        },
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
