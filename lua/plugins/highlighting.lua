@@ -44,9 +44,14 @@ return {
         config = function()
             local filetypes = {
                 norg    = { "treesitter", "indent" },
+                sql     = { "treesitter", "indent" },
+                mysql   = { "treesitter", "indent" },
+                plsql   = { "treesitter", "indent" },
                 harpoon = "",
                 oil     = "",
                 tex     = "",
+                dbui    = "",
+                dbout   = "",
                 caddy   = "indent",
                 kitty   = "indent",
                 yuck    = "indent",

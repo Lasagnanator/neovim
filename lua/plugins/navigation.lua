@@ -127,6 +127,8 @@ return {
                 "qf",
                 "toggleterm",
                 "alpha",
+                "dbui",
+                "dbout",
             }
         },
         event = { "LspAttach" },
