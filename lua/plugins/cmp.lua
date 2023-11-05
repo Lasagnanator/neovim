@@ -101,16 +101,16 @@ return {
             "hrsh7th/cmp-cmdline",        -- Completion for command line
             "hrsh7th/cmp-omni",           -- Completion with omnifunc plugins
             "kdheepak/cmp-latex-symbols", -- Completion for LaTeX symbols
-            "petertriho/cmp-git",       -- Completion for git informations
+            "petertriho/cmp-git",         -- Completion for git informations
             {
-                "L3MON4D3/LuaSnip", -- Snippet engine
+                "L3MON4D3/LuaSnip",       -- Snippet engine
                 config = function()
                     local luasnip = require("luasnip.loaders.from_vscode")
                     luasnip.lazy_load()
                 end,
                 dependencies = {
                     "rafamadriz/friendly-snippets", -- Additional snippets
-                    "saadparwaiz1/cmp_luasnip", -- Luasnip integration
+                    "saadparwaiz1/cmp_luasnip",     -- Luasnip integration
                 },
             },
         },
