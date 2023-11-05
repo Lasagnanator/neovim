@@ -1,15 +1,18 @@
 --<< REMAPS >>--
 
+
 --<< Vars
 local silent         = { noremap = true, silent = true }
 local nosilent       = { noremap = true, silent = false }
 local utils          = require("core.utils")
+
 
 --<< Leader key
 vim.g.mapleader      = " "
 vim.g.maplocalleader = " "
 -- vim.keymap.set("", "<Space>", "<Nop>", silent)
 -- vim.keymap.set("", "<Esc>", "<Esc>", silent)
+
 
 --<< Table keys
 local common = {
@@ -69,6 +72,7 @@ local common = {
     },
 }
 
+
 local normal = {
     base = {
         { mode = "n", map = "<S-k>", action = "k<S-j>", opts = silent },
@@ -95,9 +99,11 @@ local visual = {
     }
 }
 
+
 utils.set_keybinds(common)
 utils.set_keybinds(normal)
 utils.set_keybinds(visual)
+
 
 --<< ALTERNATIVES >>--
 
