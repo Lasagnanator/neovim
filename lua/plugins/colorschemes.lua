@@ -39,6 +39,18 @@ return {
         priority = Priority.colorscheme,
     },
     {
+        "maxmx03/fluoromachine.nvim",
+        enabled = isChosenColorscheme("fluoromachine"),
+        opts = {
+            glow = false,
+            theme = "fluoromachine"
+        },
+        init = function()
+            vim.cmd("colorscheme fluoromachine")
+        end,
+        priority = Priority.colorscheme,
+    },
+    {
         "Mofiqul/dracula.nvim", -- Dracula Neovim theme
         enabled = isChosenColorscheme("dracula"),
         init = function()
