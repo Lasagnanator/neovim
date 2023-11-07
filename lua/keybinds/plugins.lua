@@ -202,8 +202,8 @@ M.lsp = function(args)
         },
         on_attach = {
             { mode = "n", map = "<Leader>le", action = vim.diagnostic.open_float, opts = args },
-            { mode = "n", map = "[d",      action = vim.diagnostic.goto_prev,  opts = args },
-            { mode = "n", map = "]d",      action = vim.diagnostic.goto_next,  opts = args },
+            { mode = "n", map = "[d",         action = vim.diagnostic.goto_prev,  opts = args },
+            { mode = "n", map = "]d",         action = vim.diagnostic.goto_next,  opts = args },
             { mode = "n", map = "<Leader>lr", action = vim.lsp.buf.rename,        opts = args },
             {
                 mode = "n",
@@ -432,6 +432,7 @@ end
 
 M.session = function()
     local keybinds = {
+        { mode = "n", map = "<Leader>sn", action = ":SessionManager save_current_session<CR>",     opts = silent },
         { mode = "n", map = "<Leader>sl", action = ":SessionManager load_last_session<CR>",        opts = silent },
         { mode = "n", map = "<Leader>sd", action = ":SessionManager load_current_dir_session<CR>", opts = silent },
         { mode = "n", map = "<Leader>ss", action = ":SessionManager load_session<CR>",             opts = silent },
