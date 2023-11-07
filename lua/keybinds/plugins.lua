@@ -95,7 +95,7 @@ M.diffview = function()
             -- { mode = "n", map = "g<C-x>",     action = actions.cycle_layout, opts = { desc = "Cycle through available layouts." } },
             {
                 mode = "n",
-                map = "<Leader>k",
+                map = "[m",
                 action = actions.prev_conflict,
                 opts = {
                     desc = "In the merge-tool: jump to the previous conflict"
@@ -103,7 +103,7 @@ M.diffview = function()
             },
             {
                 mode = "n",
-                map = "<Leader>j",
+                map = "]m",
                 action = actions.next_conflict,
                 opts = {
                     desc = "In the merge-tool: jump to the next conflict"
