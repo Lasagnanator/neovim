@@ -43,23 +43,24 @@ return {
         "kevinhwang91/nvim-ufo",
         config = function()
             local filetypes = {
-                norg    = { "treesitter", "indent" },
-                sql     = { "treesitter", "indent" },
-                mysql   = { "treesitter", "indent" },
-                plsql   = { "treesitter", "indent" },
-                harpoon = "",
-                oil     = "",
-                tex     = "",
-                dbui    = "",
-                dbout   = "",
-                caddy   = "indent",
-                kitty   = "indent",
-                yuck    = "indent",
-                hypr    = "indent",
-                fish    = "indent",
-                ps1     = "indent",
-                new     = "", -- TODO: useless?
-                [""]    = ""
+                norg             = { "treesitter", "indent" },
+                sql              = { "treesitter", "indent" },
+                mysql            = { "treesitter", "indent" },
+                plsql            = { "treesitter", "indent" },
+                ["yaml.ansible"] = "indent",
+                yaml             = "indent",
+                caddy            = "indent",
+                kitty            = "indent",
+                yuck             = "indent",
+                hypr             = "indent",
+                fish             = "indent",
+                ps1              = "indent",
+                harpoon          = "",
+                oil              = "",
+                tex              = "",
+                dbui             = "",
+                dbout            = "",
+                [""]             = ""
             }
             Utils.set_keybinds(Keybinds.ufo())
             require('ufo').setup({
@@ -69,7 +70,7 @@ return {
                     then
                         return ""
                     end
-                    return filetypes[filetype] or { "lsp", "treesitter" }
+                    return filetypes[filetype] or { "lsp", "indent" }
                 end
             })
         end,
