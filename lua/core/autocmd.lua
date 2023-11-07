@@ -47,3 +47,10 @@ autocmd("TextYankPost", {
         vim.highlight.on_yank({ timeout = 150 })
     end
 })
+
+autocmd("TermOpen", {
+    callback = function ()
+        vim.opt_local["number"] = false
+        vim.opt_local["relativenumber"] = false
+    end
+})
