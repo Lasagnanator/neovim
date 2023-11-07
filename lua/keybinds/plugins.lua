@@ -202,8 +202,8 @@ M.lsp = function(args)
         },
         on_attach = {
             { mode = "n", map = "<Leader>le", action = vim.diagnostic.open_float, opts = args },
-            { mode = "n", map = "<A-[>",      action = vim.diagnostic.goto_prev,  opts = args },
-            { mode = "n", map = "<A-]>",      action = vim.diagnostic.goto_next,  opts = args },
+            { mode = "n", map = "[d",      action = vim.diagnostic.goto_prev,  opts = args },
+            { mode = "n", map = "]d",      action = vim.diagnostic.goto_next,  opts = args },
             { mode = "n", map = "<Leader>lr", action = vim.lsp.buf.rename,        opts = args },
             {
                 mode = "n",
