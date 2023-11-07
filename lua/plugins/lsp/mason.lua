@@ -128,6 +128,8 @@ M.set_handlers = function()
         end,
         ["yamlls"] = function()
             lspconfig.yamlls.setup({
+                on_attach = on_attach,
+                capabilities = set_capabilities(),
                 settings = {
                     yaml = {
                         schemaStore = { enable = false },
@@ -138,12 +140,18 @@ M.set_handlers = function()
         end,
         ["ansiblels"] = function()
             lspconfig.ansiblels.setup({
-                on_attach = on_attach,
+                on_attach = function(_, bufnr)
+                    vim.cmd("TSBufDisable indent")
+                    vim.cmd("TSBufDisable highlight")
+                    vim.cmd("TSBufDisable incremental_selection")
+                    exclude_client("yamlls")
+                    on_attach(_, bufnr)
+                end,
                 capabilities = set_capabilities(),
                 settings = {
                     ansible = {
                         validation = {
-                            lint = { enabled = true }
+                            lint = { enabled = false }
                         },
                     },
                 },
