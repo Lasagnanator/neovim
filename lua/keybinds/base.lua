@@ -23,6 +23,7 @@ local common = {
     base = {
         { mode = "", map = "<Leader>w", action = "<Cmd>w<CR>",                 opts = silent },
         { mode = "", map = "<Leader>q", action = "<Cmd>q!<CR>",                opts = silent },
+        { mode = "", map = "<Leader>b", action = "<Cmd>bd<CR>",                opts = silent },
         { mode = "", map = "<Leader>W", action = "<Cmd>wa<CR>",                opts = silent },
         { mode = "", map = "<Leader>Q", action = "<Cmd>qa!<CR>",               opts = silent },
         { mode = "", map = "<Leader>Z", action = "<Cmd>wa<CR><Cmd>qa<CR>",     opts = silent },
