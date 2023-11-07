@@ -67,7 +67,7 @@ return {
             options = {
                 mode = "tabs",
                 tab_size = 25,
-                max_name_length = 20,
+                max_name_length = 25,
                 diagnostics = "nvim_lsp",
                 diagnostics_update_in_insert = false,
                 ---@diagnostic disable-next-line: unused-local
@@ -81,6 +81,7 @@ return {
                     return s
                 end,
                 name_formatter = function(buf)
+                    -- TODO: Proper superscript function and window filtering
                     local superscript = {
                         [0] = "⁰",
                         [1] = "¹",
@@ -93,7 +94,7 @@ return {
                         [8] = "⁸",
                         [9] = "⁹",
                     }
-                    return " " .. buf.name .. superscript[#buf.buffers]
+                    return " " .. superscript[#buf.buffers] .. buf.name
                 end,
                 custom_filter = function(buffer_number)
                     local ft = vim.bo[buffer_number].filetype
