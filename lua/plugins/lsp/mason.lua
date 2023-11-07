@@ -30,7 +30,7 @@ local function set_capabilities(overwrite)
     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = {}
     local function merge_capabilities(original, merge)
-       local merged = original
+        local merged = original
         for cap_key, cap_value in pairs(merge) do
             merged[cap_key] = cap_value
         end
