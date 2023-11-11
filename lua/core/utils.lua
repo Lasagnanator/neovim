@@ -193,7 +193,6 @@ utils.set_keymaps_indexed = function(keybinds)
             vim.keymap.set(keybind[1], keybind[2], keybind[3], keybind[4])
             print("Set keybind")
         else
-            -- TODO: check for infinite recursion
             print("Recurse into table")
             utils.set_keymaps_indexed(keybind)
         end
