@@ -511,10 +511,33 @@ end
 
 
 M.todo = function()
+    local signs = {
+        FIX = "FIX,FIXME,BUG,FIXIT,ISSUE",
+        TODO = "TODO",
+        HACK = "HACK",
+        WARN = "WARN, WARNING, XXX",
+        PERF = "PERF,PERFORMANCE,OPTIM,OPTIMIZE",
+        NOTE = "NOTE,INFO",
+        TEST = "TEST,TESTING,PASSED,FAILED"
+    }
+    -- complete list: { "FIX", "FIXME", "BUG", "FIXIT", "ISSUE", "TODO", "HACK", "WARN", "WARNING", "XXX", "PERF", "PERFORMANCE", "OPTIM", "OPTIMIZE", "NOTE", "INFO", "TEST", "TESTING", "PASSED", "FAILED" }
     local keybinds = {
-        { mode = "n", map = "<Leader>ut", action = "<Cmd>TodoTrouble<CR>",   opts = silent },
-        { mode = "n", map = "<Leader>uf", action = "<Cmd>TodoTelescope<CR>", opts = silent },
-        { mode = "n", map = "<Leader>uq", action = "<Cmd>TodoQuickFix<CR>",  opts = silent },
+        { mode = "n", map = "<Leader>fd", action = "<Cmd>TodoTelescope<CR>", opts = silent },
+        { mode = "n", map = "<Leader>ud", action = "<Cmd>TodoTrouble<CR>",   opts = silent },
+        {
+            mode = "n",
+            map = "<Leader>cd",
+            action = function()
+                vim.ui.select({ "FIX", "TODO", "HACK", "WARN", "PERF", "NOTE", "TEST", "ALL" }, {}, function(input)
+                    if input == "ALL" then
+                        vim.cmd("TodoQuickFix")
+                    elseif input ~= nil then
+                        vim.cmd("TodoQuickFix keywords=" .. signs[input])
+                    end
+                end)
+            end,
+            opts = silent
+        },
     }
     return keybinds
 end
