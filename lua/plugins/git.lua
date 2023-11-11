@@ -83,5 +83,4 @@ return {
         end,
         dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
     },
-    -- TODO: check which git plugins are really needed
 }
