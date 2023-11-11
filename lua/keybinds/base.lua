@@ -21,7 +21,6 @@ local common = {
     base = {
         { mode = "", map = "<Leader>w", action = "<Cmd>w<CR>",                 opts = silent },
         { mode = "", map = "<Leader>q", action = "<Cmd>q!<CR>",                opts = silent },
-        { mode = "", map = "<Leader>b", action = "<Cmd>bd<CR>",                opts = silent },
         { mode = "", map = "<Leader>W", action = "<Cmd>wa<CR>",                opts = silent },
         { mode = "", map = "<Leader>Q", action = "<Cmd>qa!<CR>",               opts = silent },
         { mode = "", map = "<Leader>Z", action = "<Cmd>wa<CR><Cmd>qa<CR>",     opts = silent },
@@ -68,6 +67,24 @@ local common = {
         { mode = "", map = "<A-.>",     action = "<Cmd>tabnext<CR>",     opts = silent },
         { mode = "", map = "<A-<>",     action = "<Cmd>-tabmove<CR>",    opts = silent },
         { mode = "", map = "<A->>",     action = "<Cmd>+tabmove<CR>",    opts = silent },
+    },
+    buffers = {
+        { mode = "", map = "]b",        action = "<Cmd>bnext<CR>",       opts = silent },
+        { mode = "", map = "[b",        action = "<Cmd>bprev<CR>",       opts = silent },
+        { mode = "", map = "<Leader>b", action = "<Cmd>bd<CR>",          opts = silent },
+        {
+            mode = "",
+            map = "<Leader>B",
+            action = function()
+                local buffers = vim.fn.getbufinfo()
+                for _, buffer in pairs(buffers) do
+                    if #buffer.windows < 1 then
+                        vim.api.nvim_buf_delete(buffer.bufnr, {})
+                    end
+                end
+            end,
+            opts = silent
+        },
     },
 }
 
