@@ -415,20 +415,8 @@ M.ui = function()
     return keybinds
 end
 
--- TODO: Clean keybinds
-M.terminal = function()
-    local terminal = require("toggleterm.terminal").Terminal
-    local floating = terminal:new({ direction = "float" })
-    local toggle_floating = function()
-        floating:toggle()
-    end
-    local keybinds = {
-        { mode = "x", map = "<Leader>tl", action = "<CMD>ToggleTermSendVisualSelection<CR>", opts = silent },
-        { mode = "n", map = "<Leader>tl", action = "<CMD>ToggleTermSendCurrentLine<CR>",     opts = silent },
-        { mode = "n", map = "<Leader>tf", action = toggle_floating,                          opts = silent },
-        { mode = "n", map = "<Leader>tn", action = "<CMD>ToggleTermSetName<CR>",             opts = silent },
-        { mode = "t", map = "<esc>",      action = [[<C-\><C-n>]],                           opts = silent },
-    }
+M.toggleterm = function()
+    local keybinds = {}
     return keybinds
 end
 
