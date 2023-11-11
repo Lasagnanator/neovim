@@ -95,7 +95,12 @@ M.diffview = function()
                     desc = "Toggle the file panel."
                 }
             },
-            -- { mode = "n", map = "g<C-x>",     action = actions.cycle_layout, opts = { desc = "Cycle through available layouts." } },
+            -- {
+            --     mode = "n",
+            --     map = "g<C-x>",
+            --     action = actions.cycle_layout,
+            --     opts = { desc = "Cycle through available layouts." }
+            -- },
             {
                 mode = "n",
                 map = "[m",
