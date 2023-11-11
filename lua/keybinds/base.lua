@@ -86,6 +86,12 @@ local common = {
             opts = silent
         },
     },
+    quickfix = {
+        { mode = "", map = "<Leader>co", action = "<Cmd>copen<CR>",              opts = silent },
+        { mode = "", map = "<Leader>cc", action = "<Cmd>call setqflist([])<CR>", opts = silent },
+        { mode = "", map = "]q",         action = "<Cmd>cnext<CR>",              opts = silent },
+        { mode = "", map = "[q",         action = "<Cmd>cprev<CR>",              opts = silent },
+    }
 }
 
 
