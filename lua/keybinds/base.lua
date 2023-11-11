@@ -111,7 +111,7 @@ local visual = {
     base = {
         { mode = "v", map = ">",     action = ">gv",             opts = silent },
         { mode = "v", map = "<",     action = "<gv",             opts = silent },
-        { mode = "v", map = "p",     action = '"_dP',            opt = silent },
+        { mode = "v", map = "p",     action = '"_dP',            opts = silent }, -- TODO: add conditional use for last line and last character
         { mode = "v", map = "<A-j>", action = ":move .+1<CR>==", opts = silent },
         { mode = "v", map = "<A-k>", action = ":move .-1<CR>==", opts = silent },
     },
