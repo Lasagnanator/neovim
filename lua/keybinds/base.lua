@@ -2,16 +2,14 @@
 
 
 --<< Vars
-local silent         = { noremap = true, silent = true }
-local nosilent       = { noremap = true, silent = false }
-local utils          = require("core.utils")
+local silent   = { noremap = true, silent = true }
+local nosilent = { noremap = true, silent = false }
+local utils    = require("core.utils")
 
 
 --<< Leader key
 vim.g.mapleader      = " "
 vim.g.maplocalleader = " "
--- vim.keymap.set("", "<Space>", "<Nop>", silent)
--- vim.keymap.set("", "<Esc>", "<Esc>", silent)
 
 
 --<< Table keys
