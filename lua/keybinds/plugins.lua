@@ -39,6 +39,7 @@ end
 M.gitsigns = function()
     local keybinds = {
         common = {
+            { mode = "n", map = "<Leader>gb",  action = "<CMD>Gitsigns toggle_current_line_blame<CR>",  opts = silent },
             { mode = "n", map = "<Leader>gss", action = "<CMD>Gitsigns toggle_signs<CR>",               opts = silent },
             { mode = "n", map = "<Leader>gsn", action = "<CMD>Gitsigns toggle_numhl<CR>",               opts = silent },
             { mode = "n", map = "<Leader>gsl", action = "<CMD>Gitsigns toggle_linehl<CR>",              opts = silent },
