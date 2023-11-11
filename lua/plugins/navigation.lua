@@ -70,9 +70,17 @@ return {
         opts = {
             defaults = {
                 mappings = {
+                    n = {
+                        ["<C-k>"] = "move_selection_previous",
+                        ["<C-j>"] = "move_selection_next",
+                        ["<C-q>"] = "smart_add_to_qflist",
+                        ["<C-s>"] = "smart_send_to_qflist",
+                    },
                     i = {
                         ["<C-k>"] = "move_selection_previous",
                         ["<C-j>"] = "move_selection_next",
+                        ["<C-q>"] = "smart_add_to_qflist",
+                        ["<C-s>"] = "smart_send_to_qflist",
                     },
                 },
             },
@@ -81,13 +89,12 @@ return {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
                 },
                 buffers = {
-                    -- TODO: check if a better map is possible
                     mappings = {
                         i = {
-                            ["<C-q>"] = "delete_buffer",
+                            ["<C-b>"] = "delete_buffer",
                         },
                         n = {
-                            ["<C-q>"] = "delete_buffer",
+                            ["<C-b>"] = "delete_buffer",
                         },
                     }
                 }
