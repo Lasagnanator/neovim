@@ -117,35 +117,6 @@ return {
         },
     },
     {
-        "utilyre/barbecue.nvim",
-        name = "barbecue",
-        opts = {
-            show_dirname = false,
-            exclude_filetypes = {
-                "NvimTree",
-                "TelescopePrompt",
-                "DressingInput",
-                "Trouble",
-                "mason",
-                "packer",
-                "help",
-                "wiki",
-                "DiffviewFiles",
-                "qf",
-                "toggleterm",
-                "alpha",
-                "dbui",
-                "dbout",
-            }
-        },
-        event = { "LspAttach" },
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-    },
-    {
         "SmiteshP/nvim-navbuddy",
         opts = {
             lsp = {

@@ -62,6 +62,35 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        opts = {
+            show_dirname = false,
+            exclude_filetypes = {
+                "NvimTree",
+                "TelescopePrompt",
+                "DressingInput",
+                "Trouble",
+                "mason",
+                "packer",
+                "help",
+                "wiki",
+                "DiffviewFiles",
+                "qf",
+                "toggleterm",
+                "alpha",
+                "dbui",
+                "dbout",
+            }
+        },
+        event = { "LspAttach" },
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
+    {
         "akinsho/bufferline.nvim",
         opts = {
             options = {
