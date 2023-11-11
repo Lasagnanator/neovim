@@ -501,7 +501,10 @@ end
 
 M.trouble = function()
     local keybinds = {
-        { mode = "n", map = "<Leader>lt", action = "<Cmd>Trouble<CR>", opts = silent },
+        { mode = "n", map = "<Leader>uu", action = "<Cmd>TroubleToggle<CR>",                       opts = silent },
+        { mode = "n", map = "<Leader>ul", action = "<Cmd>TroubleToggle workspace_diagnostics<CR>", opts = silent },
+        { mode = "n", map = "<Leader>uq", action = "<Cmd>TroubleToggle quickfix<CR>",              opts = silent },
+        { mode = "n", map = "<Leader>us", action = "<Cmd>TroubleToggle lsp_references<CR>",        opts = silent },
     }
     return keybinds
 end
