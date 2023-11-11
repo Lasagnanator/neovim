@@ -421,7 +421,9 @@ M.ui = function()
 end
 
 M.toggleterm = function()
-    local keybinds = {}
+    local keybinds = {
+        { mode = "t", map = "<esc>",      action = [[<C-\><C-n>]],                           opts = silent },
+    }
     return keybinds
 end
 
