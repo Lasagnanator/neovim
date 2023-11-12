@@ -223,6 +223,16 @@ M.lsp = function(args)
                 end,
                 opts = args
             },
+            {
+                mode = "n",
+                map = "<Leader>lD",
+                action = function()
+                    vim.lsp.buf.declaration({
+                        reuse_win = true,
+                    })
+                end,
+                opts = args
+            },
             { mode = "n", map = "<Leader>li",  action = vim.lsp.buf.hover,                   opts = args },
             { mode = "n", map = "<Leader>lc",  action = vim.lsp.buf.code_action,             opts = args },
             { mode = "n", map = "<Leader>lwa", action = vim.lsp.buf.add_workspace_folder,    opts = args },
