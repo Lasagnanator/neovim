@@ -349,14 +349,14 @@ end
 
 M.telescope = function()
     local builtin = require("telescope.builtin")
+    local extensions = require("telescope").extensions
     local keybinds = {
         common = {
-            { mode = "n", map = "<Leader>ff", action = builtin.find_files, opts = silent },
-            { mode = "n", map = "<Leader>fw", action = builtin.live_grep,  opts = silent },
-            { mode = "n", map = "<Leader>fb", action = builtin.buffers,    opts = silent },
-            { mode = "n", map = "<Leader>fh", action = builtin.help_tags,  opts = silent },
-            -- { mode = "n", map = "<Leader>fg", action = find_git_fallback,  opts = { noremap = true, silent = true } },
-            -- { mode = "n", map = "<Leader>fe", action = file_browser,       opts = { noremap = true, silent = true } },
+            { mode = "n", map = "<Leader>ff", action = builtin.find_files,                       opts = silent },
+            -- { mode = "n", map = "<Leader>fw", action = builtin.live_grep,                        opts = silent },
+            { mode = "n", map = "<Leader>fw", action = extensions.live_grep_args.live_grep_args, opts = silent },
+            { mode = "n", map = "<Leader>fb", action = builtin.buffers,                          opts = silent },
+            { mode = "n", map = "<Leader>fh", action = builtin.help_tags,                        opts = silent },
             {
                 mode = "n",
                 map = "<Leader>ls",

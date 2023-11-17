@@ -112,6 +112,7 @@ return {
                 build = "make",
             },
             "nvim-telescope/telescope-ui-select.nvim", -- Use Telescope as a selector
+            "nvim-telescope/telescope-live-grep-args.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons"
         },
