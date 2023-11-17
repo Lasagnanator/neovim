@@ -94,7 +94,7 @@ return {
         "akinsho/bufferline.nvim",
         opts = {
             options = {
-                mode = "tabs",
+                mode = "buffers",
                 tab_size = 25,
                 max_name_length = 25,
                 diagnostics = "nvim_lsp",
@@ -110,24 +110,18 @@ return {
                     return s
                 end,
                 name_formatter = function(buf)
-                    -- TODO: Proper superscript function and window filtering
-                    local superscript = {
-                        [0] = "⁰",
-                        [1] = "¹",
-                        [2] = "²",
-                        [3] = "³",
-                        [4] = "⁴",
-                        [5] = "⁵",
-                        [6] = "⁶",
-                        [7] = "⁷",
-                        [8] = "⁸",
-                        [9] = "⁹",
-                    }
-                    return " " .. superscript[#buf.buffers] .. buf.name
+                    return " " .. buf.name
                 end,
                 custom_filter = function(buffer_number)
+                    local in_tab = false
+                    for _, buffer in pairs(vim.fn.tabpagebuflist()) do
+                        if buffer == buffer_number then
+                            in_tab = true
+                        end
+                    end
                     local ft = vim.bo[buffer_number].filetype
-                    if ft ~= "NvimTree"
+                    if in_tab
+                        and ft ~= "NvimTree"
                         and ft ~= "TelescopePrompt"
                         and ft ~= "DressingInput"
                         and ft ~= "Trouble"
