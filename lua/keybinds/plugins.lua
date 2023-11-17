@@ -430,13 +430,6 @@ M.ui = function()
     return keybinds
 end
 
-M.toggleterm = function()
-    local keybinds = {
-        { mode = "t", map = "<esc>",      action = [[<C-\><C-n>]],                           opts = silent },
-    }
-    return keybinds
-end
-
 
 M.session = function()
     local keybinds = {

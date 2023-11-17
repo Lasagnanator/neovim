@@ -6,9 +6,6 @@ return {
             open_mapping = [[<c-\>]],
             shade_terminals = false, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
         },
-        -- init = function()
-        --     Utils.set_keybinds(Keybinds.toggleterm())
-        -- end,
     },
     {
         "Shatur/neovim-session-manager", -- Automatic session manager

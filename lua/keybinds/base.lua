@@ -122,9 +122,17 @@ local visual = {
 }
 
 
+local terminal = {
+    base = {
+        { mode = "t", map = "<esc>",      action = [[<C-\><C-n>]],                           opts = silent },
+    }
+}
+
+
 utils.set_keybinds(common)
 utils.set_keybinds(normal)
 utils.set_keybinds(visual)
+utils.set_keybinds(terminal)
 
 
 --<< ALTERNATIVES >>--
