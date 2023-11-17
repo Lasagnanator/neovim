@@ -307,5 +307,9 @@ return {
                 },
             })
         end
+    },
+    {
+        "folke/which-key.nvim",
+        config = true
     }
 }
