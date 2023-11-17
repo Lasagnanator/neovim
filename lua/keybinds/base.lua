@@ -71,7 +71,7 @@ local common = {
     buffers = {
         { mode = "", map = "]b",        action = "<Cmd>bnext<CR>",       opts = silent },
         { mode = "", map = "[b",        action = "<Cmd>bprev<CR>",       opts = silent },
-        { mode = "", map = "<Leader>b", action = "<Cmd>bd<CR>",          opts = silent },
+        { mode = "", map = "<Leader>b", action = "<Cmd>bd!<CR>",          opts = silent },
         {
             mode = "",
             map = "<Leader>B",
