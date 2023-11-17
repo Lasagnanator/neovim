@@ -123,7 +123,7 @@ return {
                 auto_attach = true
             }
         },
-        event = { "LspAttach" },
+        event = { "BufReadPre", "BufNewFile" },
         keys = Utils.lazy_keybinds(Keybinds.navbuddy()),
         dependencies = {
             "neovim/nvim-lspconfig",

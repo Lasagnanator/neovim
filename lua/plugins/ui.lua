@@ -83,7 +83,7 @@ return {
                 "dbout",
             }
         },
-        event = { "LspAttach" },
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "neovim/nvim-lspconfig",
             "SmiteshP/nvim-navic",
