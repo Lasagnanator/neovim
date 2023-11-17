@@ -196,8 +196,7 @@ M.set_handlers = function()
                 capabilities = set_capabilities(),
                 root_dir = lspconfig.util.root_pattern("**.vue"),
                 single_file_support = false,
-                filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue",
-                    "json" },
+                filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
             })
         end
     }
