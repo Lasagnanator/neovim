@@ -144,7 +144,6 @@ M.set_handlers = function()
                     vim.cmd("TSBufDisable indent")
                     vim.cmd("TSBufDisable highlight")
                     vim.cmd("TSBufDisable incremental_selection")
-                    exclude_client("yamlls")
                     on_attach(_, bufnr)
                 end,
                 capabilities = set_capabilities(),
