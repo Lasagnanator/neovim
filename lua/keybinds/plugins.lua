@@ -357,6 +357,7 @@ M.telescope = function()
             { mode = "n", map = "<Leader>fw", action = extensions.live_grep_args.live_grep_args, opts = silent },
             { mode = "n", map = "<Leader>fb", action = builtin.buffers,                          opts = silent },
             { mode = "n", map = "<Leader>fh", action = builtin.help_tags,                        opts = silent },
+            { mode = "n", map = "<Leader>fe", action = extensions.file_browser.file_browser,     opts = silent },
             {
                 mode = "n",
                 map = "<Leader>ls",

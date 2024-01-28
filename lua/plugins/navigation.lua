@@ -83,6 +83,9 @@ return {
                         ["<C-s>"] = "smart_send_to_qflist",
                     },
                 },
+                layout_config = {
+                    prompt_position = "top"
+                }
             },
             pickers = {
                 find_files = {
@@ -99,11 +102,18 @@ return {
                     }
                 }
             },
+            extensions = {
+                file_browser = {
+                    theme = "ivy",
+                    previewer = false
+                }
+            }
         },
         init = function()
             local telescope = require("telescope")
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
+            telescope.load_extension("file_browser")
             Utils.set_keybinds(Keybinds.telescope().common)
         end,
         dependencies = {
@@ -113,6 +123,7 @@ return {
             },
             "nvim-telescope/telescope-ui-select.nvim", -- Use Telescope as a selector
             "nvim-telescope/telescope-live-grep-args.nvim",
+            "nvim-telescope/telescope-file-browser.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons"
         },
