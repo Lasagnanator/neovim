@@ -1,5 +1,4 @@
----@diagnostic disable-next-line: unused-local
-local excluded_types = {
+local excluded_buffers = {
     "NvimTree",
     "TelescopePrompt",
     "DressingInput",
@@ -12,6 +11,9 @@ local excluded_types = {
     "qf",
     "toggleterm",
     "alpha",
+    "dbui",
+    "dbout",
+    "norg"
 }
 
 return {
@@ -30,9 +32,9 @@ return {
                 theme = "auto",
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
-                disabled_filetypes = {},
-                always_divide_middle = false,
-                globalstatus = true,
+                disabled_filetypes = excluded_buffers,
+                always_divide_middle = true,
+                globalstatus = false,
             },
             sections = {
                 lualine_a = { "mode" },
@@ -45,11 +47,12 @@ return {
                     },
                 },
                 lualine_x = {
+                    "searchcount",
+                    "selectioncount",
                     {
                         require("lazy.status").updates,
                         cond = require("lazy.status").has_updates,
                     },
-                    "encoding",
                     "filetype",
                 },
                 lualine_y = { "progress" },
@@ -66,22 +69,7 @@ return {
         name = "barbecue",
         opts = {
             show_dirname = false,
-            exclude_filetypes = {
-                "NvimTree",
-                "TelescopePrompt",
-                "DressingInput",
-                "Trouble",
-                "mason",
-                "packer",
-                "help",
-                "wiki",
-                "DiffviewFiles",
-                "qf",
-                "toggleterm",
-                "alpha",
-                "dbui",
-                "dbout",
-            }
+            exclude_filetypes = excluded_buffers,
         },
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
@@ -177,12 +165,12 @@ return {
 
             vim.api.nvim_create_autocmd("User", {
                 pattern = "AlphaReady",
-                command = "set showtabline=0 | set laststatus=0"
+                command = "set showtabline=0"
             })
 
             vim.api.nvim_create_autocmd("User", {
                 pattern = "AlphaClosed",
-                command = "set showtabline=2 | set laststatus=3"
+                command = "set showtabline=2"
             })
 
             local padding = {
