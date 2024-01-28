@@ -12,7 +12,7 @@ return {
         "folke/tokyonight.nvim", -- Tokyonight Neovim theme
         enabled = isChosenColorscheme("tokyonight"),
         opts = {
-            style = "night",
+            style = "storm",
             -- transparent = isNeovide(),
             styles = {
                 sidebars = "normal",
@@ -39,6 +39,14 @@ return {
         priority = Priority.colorscheme,
     },
     {
+        "ellisonleao/gruvbox.nvim",
+        enabled = isChosenColorscheme("gruvbox"),
+        init = function()
+            vim.cmd("colorscheme gruvbox")
+        end,
+        priority = Priority.colorscheme,
+    },
+    {
         "maxmx03/fluoromachine.nvim",
         enabled = isChosenColorscheme("fluoromachine"),
         opts = {
@@ -47,6 +55,22 @@ return {
         },
         init = function()
             vim.cmd("colorscheme fluoromachine")
+        end,
+        priority = Priority.colorscheme,
+    },
+    {
+        "shaunsingh/moonlight.nvim",
+        enabled = isChosenColorscheme("moonlight"),
+        init = function()
+            vim.cmd("colorscheme moonlight")
+        end,
+        priority = Priority.colorscheme,
+    },
+    {
+        "wilmanbarrios/palenight.nvim",
+        enabled = isChosenColorscheme("palenight"),
+        init = function()
+            vim.cmd("colorscheme palenight")
         end,
         priority = Priority.colorscheme,
     },
