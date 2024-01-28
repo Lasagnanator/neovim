@@ -14,21 +14,21 @@ vim.g.maplocalleader = " "
 
 --<< Table keys
 local common = {
-    unbind = {
-        { mode = "", map = "<Space>", action = "<Nop>", opts = silent },
-        { mode = "", map = "<Esc>",   action = "<Esc>", opts = silent }, -- NOTE: probably useless
-    },
+    -- unbind = {
+    --     { mode = "", map = "<Space>", act"ion = "<Nop>", opts = silent },
+    --     { mode = "", map = "<Esc>",   action = "<Esc>", opts = silent }, -- NOTE: probably useless
+    -- },
     base = {
-        { mode = "", map = "<Leader>w", action = "<Cmd>w<CR>",                 opts = silent },
-        { mode = "", map = "<Leader>q", action = "<Cmd>q!<CR>",                opts = silent },
-        { mode = "", map = "<Leader>W", action = "<Cmd>wa<CR>",                opts = silent },
-        { mode = "", map = "<Leader>Q", action = "<Cmd>qa!<CR>",               opts = silent },
-        { mode = "", map = "<Leader>Z", action = "<Cmd>wa<CR><Cmd>qa<CR>",     opts = silent },
-        { mode = "", map = "<Leader>r", action = "<Cmd>:redraw<CR>",           opts = silent },
-        { mode = "", map = "<Leader>R", action = "<Cmd>w<CR><Cmd>e<CR>",       opts = silent },
-        { mode = "", map = "<Leader>@", action = "<Cmd>set cursorcolumn!<CR>", opts = silent },
-        { mode = "", map = "<Leader>#", action = "<Cmd>set wrap!<CR>",         opts = silent },
-        { mode = "", map = "<Leader>$", action = "<Cmd>set hls!<CR>",          opts = silent },
+        -- { mode = "", map = "<Leader>w", action = "<Cmd>w<CR>",                 opts = silent },
+        -- { mode = "", map = "<Leader>q", action = "<Cmd>q!<CR>",                opts = silent },
+        -- { mode = "", map = "<Leader>W", action = "<Cmd>wa<CR>",                opts = silent },
+        -- { mode = "", map = "<Leader>Q", action = "<Cmd>qa!<CR>",               opts = silent },
+        -- { mode = "", map = "<Leader>Z", action = "<Cmd>wa<CR><Cmd>qa<CR>",     opts = silent },
+        -- { mode = "", map = "<Leader>r", action = "<Cmd>:redraw<CR>",           opts = silent },
+        -- { mode = "", map = "<Leader>R", action = "<Cmd>w<CR><Cmd>e<CR>",       opts = silent },
+        -- { mode = "", map = "<Leader>@", action = "<Cmd>set cursorcolumn!<CR>", opts = silent },
+        -- { mode = "", map = "<Leader>#", action = "<Cmd>set wrap!<CR>",         opts = silent },
+        -- { mode = "", map = "<Leader>$", action = "<Cmd>set hls!<CR>",          opts = silent },
         { mode = "", map = "<A-s>",     action = ":saveas ",                   opts = nosilent },
     },
     center_move = {
@@ -57,8 +57,8 @@ local common = {
         { mode = "",           map = "<C-Right>", action = "<Cmd>vertical resize +1<CR>", opts = silent },
         { mode = "",           map = "<C-Up>",    action = "<Cmd>resize +1<CR>",          opts = silent },
         { mode = "",           map = "<C-Down>",  action = "<Cmd>resize -1<CR>",          opts = silent },
-        { mode = { "n", "x" }, map = "<Leader>x", action = "<Cmd>sp<CR>",                 opts = silent },
-        { mode = { "n", "x" }, map = "<Leader>v", action = "<Cmd>vs<CR>",                 opts = silent },
+        -- { mode = { "n", "x" }, map = "<Leader>x", action = "<Cmd>sp<CR>",                 opts = silent },
+        -- { mode = { "n", "x" }, map = "<Leader>v", action = "<Cmd>vs<CR>",                 opts = silent },
     },
     tabs = {
         { mode = "", map = "<Leader>.", action = "<Cmd>tabnew<CR>",      opts = silent },
@@ -68,24 +68,24 @@ local common = {
         { mode = "", map = "<A-<>",     action = "<Cmd>-tabmove<CR>",    opts = silent },
         { mode = "", map = "<A->>",     action = "<Cmd>+tabmove<CR>",    opts = silent },
     },
-    buffers = {
-        { mode = "", map = "]b",        action = "<Cmd>bnext<CR>",       opts = silent },
-        { mode = "", map = "[b",        action = "<Cmd>bprev<CR>",       opts = silent },
-        { mode = "", map = "<Leader>b", action = "<Cmd>bd!<CR>",          opts = silent },
-        {
-            mode = "",
-            map = "<Leader>B",
-            action = function()
-                local buffers = vim.fn.getbufinfo()
-                for _, buffer in pairs(buffers) do
-                    if #buffer.windows < 1 then
-                        vim.api.nvim_buf_delete(buffer.bufnr, {})
-                    end
-                end
-            end,
-            opts = silent
-        },
-    },
+    -- buffers = {
+    --     { mode = "", map = "]b",        action = "<Cmd>bnext<CR>",       opts = silent },
+    --     { mode = "", map = "[b",        action = "<Cmd>bprev<CR>",       opts = silent },
+    --     { mode = "", map = "<Leader>b", action = "<Cmd>bd!<CR>",          opts = silent },
+    --     {
+    --         mode = "",
+    --         map = "<Leader>B",
+    --         action = function()
+    --             local buffers = vim.fn.getbufinfo()
+    --             for _, buffer in pairs(buffers) do
+    --                 if #buffer.windows < 1 then
+    --                     vim.api.nvim_buf_delete(buffer.bufnr, {})
+    --                 end
+    --             end
+    --         end,
+    --         opts = silent
+    --     },
+    -- },
     quickfix = {
         { mode = "", map = "<Leader>co", action = "<Cmd>copen<CR>",              opts = silent },
         { mode = "", map = "<Leader>cc", action = "<Cmd>call setqflist([])<CR>", opts = silent },
@@ -99,10 +99,10 @@ local normal = {
     base = {
         { mode = "n", map = "<S-k>", action = "k<S-j>", opts = silent },
     },
-    windows = {
-        { mode = "n", map = "<Leader>`", action = "<Cmd>wincmd o<CR>", opts = silent },
-        { mode = "n", map = "<Leader>=", action = "<Cmd>wincmd =<CR>", opts = silent },
-    }
+    -- windows = {
+    --     { mode = "n", map = "<Leader>`", action = "<Cmd>wincmd o<CR>", opts = silent },
+    --     { mode = "n", map = "<Leader>=", action = "<Cmd>wincmd =<CR>", opts = silent },
+    -- }
 }
 
 
