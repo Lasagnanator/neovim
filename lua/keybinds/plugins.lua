@@ -317,7 +317,7 @@ end
 
 M.oil = function()
     local keybinds = {
-        { mode = "n", map = "<Leader>eo", action = "<Cmd>Oil --float<CR>", opts = silent },
+        { mode = "n", map = "<Leader>eo", action = function() require("oil").open() end, opts = silent },
     }
     return keybinds
 end

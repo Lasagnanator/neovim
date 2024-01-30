@@ -45,7 +45,8 @@ return {
                     "icon",
                     "permissions",
                     "size"
-                }
+                },
+                constrain_cursor = "name",
             })
         end,
         keys = Utils.lazy_keybinds(Keybinds.oil()),
