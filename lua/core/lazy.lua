@@ -35,7 +35,12 @@ Utils = require("core.utils")
 vim.keymap.set( "", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true } )
 
 --<< Setup
-lazy.setup("plugins", {
+lazy.setup({
+    spec = {
+        { import = "plugins" },
+        { import = "langs" }
+    }
+}, {
    install = {
        colorscheme = { Colorscheme },
    },

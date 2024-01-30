@@ -1,3 +1,9 @@
+Langs = {
+    go = false,
+    nvim = false,
+    rust = false
+}
+
 require("core.settings")
 -- require("core.remap")
 require("keybinds.base")
