@@ -36,7 +36,8 @@ wk.register({
         },
         q = {
             name = "Quit",
-            q = { "<Cmd>qa!<CR>", "Quit all windows"}
+            d = { "<Cmd>qa!<CR>", "Quit all windows"},
+            q = { "<Cmd>wqa<CR>", "Quit all windows"}
         },
         w = {
             name = "Window",
