@@ -12,7 +12,7 @@ return {
         "folke/tokyonight.nvim", -- Tokyonight Neovim theme
         enabled = isChosenColorscheme("tokyonight"),
         opts = {
-            style = "storm",
+            style = "night",
             -- transparent = isNeovide(),
             styles = {
                 sidebars = "normal",
