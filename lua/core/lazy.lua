@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 --<< Protected call on Lazy
 local ok, lazy = pcall(require, "lazy")
 if not ok then
+    print("Could not load Lazy, please check what went wrong.")
     return
 end
 
