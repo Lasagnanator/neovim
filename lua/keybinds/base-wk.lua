@@ -46,7 +46,9 @@ wk.register({
             r = { "<Cmd>redraw<CR>", "Redraw current buffer" },
             R = { "<Cmd>w<CR><Cmd>e<CR>", "Reload current buffer" },
             v = { "<Cmd>vs<CR>", "Split window vertically", mode = { "n", "x" } },
+            V = { "<Cmd>set splitright! | vs | set splitright!<CR>", "Split window vertically without moving", mode = { "n", "x" } },
             x = { "<Cmd>sp<CR>", "Split window horizontally", mode = { "n", "x" } },
+            X = { "<Cmd>set splitbelow! | sp | set splitbelow!<CR>", "Split window horizontally without moving", mode = { "n", "x" } },
             -- TODO: Change bindings for the next three
             ["@"] = { "<Cmd>set cursorcolumn!<CR>", "Toggle column highlight" },
             ["#"] = { "<Cmd>set wrap!<CR>", "Toggle line wrap" },
