@@ -34,25 +34,24 @@ Utils = require("core.utils")
 Mason = {}
 
 --<< Keybind
-vim.keymap.set( "", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true } )
+vim.keymap.set("", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true })
 
 --<< Setup
 lazy.setup({
     spec = {
         { import = "plugins" },
         { import = "langs" }
-    }
-}, {
-   install = {
-       colorscheme = { Colorscheme },
-   },
-   checker = {
-       enabled = true,
-       notify = false,
-   },
-   change_detection = {
-       notify = false,
-   },
+    },
+    install = {
+        colorscheme = { Colorscheme },
+    },
+    checker = {
+        enabled = true,
+        notify = false,
+    },
+    change_detection = {
+        notify = false,
+    },
 })
 
 require("core.utils").mason_install_missing(Mason)
