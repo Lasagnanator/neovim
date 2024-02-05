@@ -39,3 +39,7 @@ end
 
 --<< Variables
 vim.opt.fillchars:append { diff = "╱" }
+
+--<< Fix for missing highlight groups
+vim.api.nvim_set_hl(0, "@text.emphasis", { link = "Italic" })
+vim.api.nvim_set_hl(0, "@text.strong", { link = "Bold" })
