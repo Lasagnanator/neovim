@@ -80,6 +80,9 @@ utils.dump_table = function(node)
 end
 
 
+--<< KEYBINDS
+
+
 --[[ NOTE: Stricter type check (not working):
      if type(keybind) == "table"
          and (type(keybind.mode) == "string" or type(keybind.mode) == "table")
@@ -167,36 +170,108 @@ utils.set_keybinds_debug = function(keybinds)
     end
 end
 
--- PERF: not utilized
--- NOTE: discarded this approach since prone to errors
-utils.set_keymaps_indexed = function(keybinds)
-    local is_mappable = function(key_definition)
-        if (type(key_definition[1]) == "string" or type(key_definition[1]) == "table")
-            and type(key_definition[2]) == "string"
-            and type(key_definition[3]) == "string"
-            and type(key_definition[4]) == "table"
-        then
-            return true
-        else
-            return false
+
+--<< MASON
+
+
+local insert_nodups = function(arg_list, arg_element)
+    local list
+    if type(arg_list) == "table" then
+        for _, val in pairs(arg_list) do
+            if val == arg_element then
+                return arg_list
+            end
+        end
+        list = arg_list
+        table.insert(list, arg_element)
+    else
+        list = { arg_element }
+    end
+    return list
+end
+
+
+utils.list_append = function(arg_list, arg_element)
+    local list = arg_list
+    local element = arg_element
+    if type(element) == "string" then
+        list = insert_nodups(list, element)
+    elseif type(element) == "table" then
+        for _, unpack_elem in pairs(element) do
+            list = insert_nodups(list, unpack_elem)
+        end
+    else
+        print("Cannot add element " .. element .. " to the list")
+    end
+    return list
+end
+
+
+utils.mason_install_missing = function(packs)
+    local mason = require("mason-registry")
+    local install_list
+    for _, pack in pairs(packs) do
+        if not mason.is_installed(pack) then
+            if type(install_list) ~= "nil" then
+                install_list = install_list .. " " .. pack
+            else
+                install_list = " " .. pack
+            end
         end
     end
-    print("Function called on " .. type(keybinds))
-    if type(keybinds) ~= "table" then
-        print("fail")
-        return
-    end
-    for index, keybind in pairs(keybinds) do
-        print(index)
-        print(keybind)
-        if is_mappable(keybind) then
-            vim.keymap.set(keybind[1], keybind[2], keybind[3], keybind[4])
-            print("Set keybind")
-        else
-            print("Recurse into table")
-            utils.set_keymaps_indexed(keybind)
-        end
+    if type(install_list) ~= "nil" then
+        vim.cmd("MasonInstall " .. install_list)
     end
 end
+
+
+utils.on_attach = function(_, bufnr)
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    utils.set_keybinds(Keybinds.lsp(bufopts).on_attach)
+end
+
+
+--<< LSP
+
+
+utils.exclude_client = function(client_name)
+    local clients = vim.lsp.get_active_clients()
+    for _, client in pairs(clients) do
+        if client.name == client_name then
+            vim.lsp.get_client_by_id(client.id).stop()
+        end
+    end
+    vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+            local new_client = vim.lsp.get_client_by_id(args.data.client_id)
+            if new_client.name == client_name then
+                new_client.stop()
+            end
+        end
+    })
+end
+
+
+utils.set_capabilities = function(overwrite)
+    local overwrite_capabilities = overwrite or {}
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = {}
+    local function merge_capabilities(original, merge)
+        local merged = original
+        for cap_key, cap_value in pairs(merge) do
+            merged[cap_key] = cap_value
+        end
+        return merged
+    end
+    local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities = merge_capabilities(capabilities, cmp_capabilities)
+    capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+    }
+    capabilities = merge_capabilities(capabilities, overwrite_capabilities)
+    return capabilities
+end
+
 
 return utils

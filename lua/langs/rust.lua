@@ -1,3 +1,8 @@
 if not Langs.rust then return {} end
 
-return {}
+return {
+    {
+        "mrcjkb/rustaceanvim",
+        ft = "rust"
+    }
+}

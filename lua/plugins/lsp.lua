@@ -8,29 +8,27 @@ return {
         keys = Utils.set_keybinds(Keybinds.dap().dap),
     },
     {
+        "williamboman/mason.nvim",         -- Automate installation of LSP servers
+        opts = {
+            ui = {
+                -- border = "single",
+                icons = {
+                    package_installed = "",
+                    package_pending = "➜",
+                    package_uninstalled = ""
+                }
+            }
+        },
+        init = function() Utils.set_keybinds(Keybinds.lsp().mason) end
+    },
+    {
         "williamboman/mason-lspconfig.nvim", -- Bridges the two plugins
-        config = function()
-            local mason_lsp = require("mason-lspconfig")
-            mason_lsp.setup({
-                ensure_installed = { "bashls", "lua_ls" }, -- If not found, download and install declared LSPs; Python uses "pylsp" "pyright"
-            })
-            mason_lsp.setup_handlers(require("plugins.lsp.mason").set_handlers())
-        end,
+        -- opts = {
+        --     ensure_installed = Mason
+        -- },
+        config = true,
         dependencies = {
-            {
-                "williamboman/mason.nvim", -- Automate installation of LSP servers
-                opts = {
-                    ui = {
-                        -- border = "single",
-                        icons = {
-                            package_installed = "",
-                            package_pending = "➜",
-                            package_uninstalled = ""
-                        }
-                    }
-                },
-                init = function() Utils.set_keybinds(Keybinds.lsp().mason) end
-            },
+            "williamboman/mason.nvim"
         }
     },
     {

@@ -1,3 +1,8 @@
 if not Langs.nvim then return {} end
 
-return {}
+return {
+    {
+        "folke/neodev.nvim",
+        config = true,
+    }
+}
