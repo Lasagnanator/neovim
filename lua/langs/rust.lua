@@ -4,5 +4,8 @@ return {
     {
         "mrcjkb/rustaceanvim",
         ft = "rust"
-    }
+    },
+    {
+        'saecki/crates.nvim'
+    },
 }
