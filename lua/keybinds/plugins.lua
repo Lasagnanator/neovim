@@ -3,6 +3,16 @@ local silent   = { noremap = true, silent = true }
 local nosilent = { noremap = true, silent = false }
 
 
+M.alpha = function()
+    local keybinds = {
+        common = {
+            { mode = "n", map = "<Leader>wd", action = "<CMD>Alpha<CR>", opts = silent },
+        }
+    }
+    return Keybinds
+end
+
+
 M.cmp = function()
     local cmp      = require("cmp")
     local luasnip  = require("luasnip")

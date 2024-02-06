@@ -294,6 +294,7 @@ return {
                     footer
                 },
             })
+            Utils.set_keybinds(Keybinds.ui().alpha)
         end
     },
     {
