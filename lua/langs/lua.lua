@@ -2,8 +2,7 @@ if not Langs.lua then return {} end
 
 local utils = require("core.utils")
 
--- table.insert(Mason, "lua_ls")
-Mason = utils.list_append(Mason, "lua-language-server")
+Mason:update("lua-language-server")
 
 require("lspconfig").lua_ls.setup({
     on_attach = utils.on_attach,

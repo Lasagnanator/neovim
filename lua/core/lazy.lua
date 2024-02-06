@@ -31,7 +31,7 @@ Priority = {
 }
 Keybinds = require("keybinds.plugins")
 Utils = require("core.utils")
-Mason = {}
+Mason = Utils.Tools_list:create()
 
 --<< Keybind
 vim.keymap.set("", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true })
@@ -53,5 +53,3 @@ lazy.setup({
         notify = false,
     },
 })
-
-require("core.utils").mason_install_missing(Mason)

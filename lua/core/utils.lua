@@ -191,7 +191,7 @@ local insert_nodups = function(arg_list, arg_element)
 end
 
 
-utils.list_append = function(arg_list, arg_element)
+utils.update_list = function(arg_list, arg_element)
     local list = arg_list
     local element = arg_element
     if type(element) == "string" then
@@ -205,6 +205,21 @@ utils.list_append = function(arg_list, arg_element)
     end
     return list
 end
+
+
+utils.Tools_list = {
+    tools = {},
+    create = function (self, obj, tools)
+        obj = obj or {}
+        setmetatable(obj, self)
+        self.__index = self
+        obj.tools = tools or {}
+        return obj
+    end,
+    update = function (self, element)
+        self.tools = utils.update_list(self.tools, element)
+    end
+}
 
 
 utils.mason_install_missing = function(packs)
@@ -225,13 +240,13 @@ utils.mason_install_missing = function(packs)
 end
 
 
+--<< LSP
+
+
 utils.on_attach = function(_, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     utils.set_keybinds(Keybinds.lsp(bufopts).on_attach)
 end
-
-
---<< LSP
 
 
 utils.exclude_client = function(client_name)

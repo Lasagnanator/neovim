@@ -2,7 +2,7 @@ if not Langs.ansible then return {} end
 
 local utils = require("core.utils")
 
-table.insert(Mason, "ansible-language-server")
+Mason:update("ansible-language-server")
 
 require("lspconfig").ansiblels.setup({
     on_attach = function(_, bufnr)

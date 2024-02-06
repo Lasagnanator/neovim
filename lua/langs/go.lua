@@ -1,5 +1,9 @@
 if not Langs.go then return {} end
 
+local utils = require("core.utils")
+
+Mason:update({ "gopls", "delve" })
+
 return {
     {
         'ray-x/go.nvim',

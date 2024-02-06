@@ -6,6 +6,7 @@ return {
         ft = "rust"
     },
     {
-        'saecki/crates.nvim'
+        "saecki/crates.nvim",
+        ft = "toml"
     },
 }

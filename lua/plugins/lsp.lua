@@ -23,6 +23,9 @@ return {
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim", -- Automate the installation of language tools from Mason
+        opts = {
+            ensure_installed = Mason.tools
+        },
         dependencies = { "williamboman/mason.nvim" }
     },
     {
