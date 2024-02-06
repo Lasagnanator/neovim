@@ -8,7 +8,7 @@ return {
         keys = Utils.set_keybinds(Keybinds.dap().dap),
     },
     {
-        "williamboman/mason.nvim",         -- Automate installation of LSP servers
+        "williamboman/mason.nvim",         -- Frontend for tools like LSPs, debuggers, linters and formatters
         opts = {
             ui = {
                 -- border = "single",
@@ -22,14 +22,8 @@ return {
         init = function() Utils.set_keybinds(Keybinds.lsp().mason) end
     },
     {
-        "williamboman/mason-lspconfig.nvim", -- Bridges the two plugins
-        -- opts = {
-        --     ensure_installed = Mason
-        -- },
-        config = true,
-        dependencies = {
-            "williamboman/mason.nvim"
-        }
+        "WhoIsSethDaniel/mason-tool-installer.nvim", -- Automate the installation of language tools from Mason
+        dependencies = { "williamboman/mason.nvim" }
     },
     {
         "nvimtools/none-ls.nvim", -- Enable linters and formatters to use the LSP client
