@@ -21,4 +21,9 @@ require("lspconfig").ansiblels.setup({
     },
 })
 
-return {}
+return {
+    {
+        "mfussenegger/nvim-ansible",
+        ft = { "yaml", "yaml.ansible" }
+    }
+}
