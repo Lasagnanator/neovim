@@ -24,7 +24,6 @@ Langs = {
 }
 
 require("core.settings")
--- require("core.remap")
 require("keybinds.base")
 require("core.lazy")
 require("keybinds.base-wk")
