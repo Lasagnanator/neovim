@@ -21,6 +21,7 @@ require("lspconfig").ansiblels.setup({
     },
 })
 
+
 return {
     {
         "mfussenegger/nvim-ansible",
