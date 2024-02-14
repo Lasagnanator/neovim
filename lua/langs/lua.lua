@@ -4,6 +4,8 @@ local utils = require("core.utils")
 
 Mason:update("lua-language-server")
 
+if Langs.nvim then require("neodev").setup() end
+
 require("lspconfig").lua_ls.setup({
     on_attach = utils.on_attach,
     capabilities = utils.set_capabilities(),

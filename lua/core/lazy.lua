@@ -23,9 +23,9 @@ end
 --<< Variables
 Colorscheme = "tokyonight"
 Priority = {
-    legendary = 1500,
     colorscheme = 1000,
     treesitter = 900,
+    neodev = 850,
     lsp = 800,
     completion = 700,
 }

@@ -1,5 +1,13 @@
 return {
     {
+        "folke/neoconf.nvim",
+    },
+    {
+        "folke/neodev.nvim",
+        enable = Langs.nvim,
+        opts = {}
+    },
+    {
         "neovim/nvim-lspconfig", -- Defaults for LSP
     },
     {
@@ -8,7 +16,7 @@ return {
         keys = Utils.set_keybinds(Keybinds.dap().dap),
     },
     {
-        "williamboman/mason.nvim",         -- Frontend for tools like LSPs, debuggers, linters and formatters
+        "williamboman/mason.nvim", -- Frontend for tools like LSPs, debuggers, linters and formatters
         opts = {
             ui = {
                 -- border = "single",
