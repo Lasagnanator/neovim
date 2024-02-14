@@ -1,7 +1,8 @@
-local utils = {}
+local M = {}
 
--- TODO: find better function
-utils.dump_table = function(node)
+---Print recursively the contents of a table in key/value pairs
+---@param node table
+M.dump_table = function(node)
     local cache, stack, output = {}, {}, {}
     local depth = 1
     local output_str = "{\n"
@@ -33,26 +34,26 @@ utils.dump_table = function(node)
                 end
 
                 if (type(v) == "number" or type(v) == "boolean") then
-                    output_str = output_str .. string.rep('\t', depth) .. key .. " = " .. tostring(v)
+                    output_str = output_str .. string.rep('  ', depth) .. key .. " = " .. tostring(v)
                 elseif (type(v) == "table") then
-                    output_str = output_str .. string.rep('\t', depth) .. key .. " = {\n"
+                    output_str = output_str .. string.rep('  ', depth) .. key .. " = {\n"
                     table.insert(stack, node)
                     table.insert(stack, v)
                     cache[node] = cur_index + 1
                     break
                 else
-                    output_str = output_str .. string.rep('\t', depth) .. key .. " = '" .. tostring(v) .. "'"
+                    output_str = output_str .. string.rep('  ', depth) .. key .. " = '" .. tostring(v) .. "'"
                 end
 
                 if (cur_index == size) then
-                    output_str = output_str .. "\n" .. string.rep('\t', depth - 1) .. "}"
+                    output_str = output_str .. "\n" .. string.rep('  ', depth - 1) .. "}"
                 else
                     output_str = output_str .. ","
                 end
             else
                 -- close the table
                 if (cur_index == size) then
-                    output_str = output_str .. "\n" .. string.rep('\t', depth - 1) .. "}"
+                    output_str = output_str .. "\n" .. string.rep('  ', depth - 1) .. "}"
                 end
             end
 
@@ -60,7 +61,7 @@ utils.dump_table = function(node)
         end
 
         if (size == 0) then
-            output_str = output_str .. "\n" .. string.rep('\t', depth - 1) .. "}"
+            output_str = output_str .. "\n" .. string.rep('  ', depth - 1) .. "}"
         end
 
         if (#stack > 0) then
@@ -92,13 +93,16 @@ end
      then
          exec...
 --]]
-utils.is_keybind = function(keybind)
+---Check if a given table is a valid keybind.
+---@param tested any
+---@return boolean
+M.is_keybind = function(tested)
     local result = false
-    if type(keybind) == "table"
-        and keybind.mode ~= nil
-        and keybind.map ~= nil
-        and keybind.action ~= nil
-        and keybind.opts ~= nil
+    if type(tested) == "table"
+        and tested.mode ~= nil
+        and tested.map ~= nil
+        and tested.action ~= nil
+        and tested.opts ~= nil
     then
         result = true
     end
@@ -106,16 +110,23 @@ utils.is_keybind = function(keybind)
 end
 
 
--- PERF: not utilized
-utils.unpack_keybind = function(keybind)
-    return keybind.mode, keybind.map, keybind.action, keybind.opts
+M.is_keybind_class = function(tested)
+    Class = require("core.classes")
+    if getmetatable(tested) == Class.Keybind then
+        return true
+    else
+        return false
+    end
 end
 
 
-utils.lazy_keybinds = function(keybinds)
+---Convert a keybind table in a lazy-compatible keybind array
+---@param keybinds table<Keybind>
+---@return table
+M.lazy_keybinds = function(keybinds)
     local lazybinds = {}
     if type(keybinds) ~= "table" then
-        return
+        return {}
     end
     for _, keybind in pairs(keybinds) do
         local lazybind = { keybind.map, keybind.action, mode = keybind.mode }
@@ -127,10 +138,12 @@ utils.lazy_keybinds = function(keybinds)
     return lazybinds
 end
 
-
-utils.index_keybinds = function(node)
+---Turns a keybind in a normal list with parameters
+---@param node Keybind
+---@return table
+M.index_keybinds = function(node)
     local indexed = {}
-    if utils.is_keybind(node) then
+    if M.is_keybind(node) then
         indexed = { node.mode, node.map, node.action, node.opts }
     elseif type(node) == "table" then
         for _, keybind in pairs(node) do
@@ -141,31 +154,31 @@ utils.index_keybinds = function(node)
 end
 
 
-utils.set_keybinds = function(keybinds)
+M.set_keybinds = function(keybinds)
     if type(keybinds) ~= "table" then
         return
     end
     for _, keybind in pairs(keybinds) do
-        if utils.is_keybind(keybind) then
+        if M.is_keybind(keybind) then
             vim.keymap.set(keybind.mode, keybind.map, keybind.action, keybind.opts)
         else
-            utils.set_keybinds(keybind)
+            M.set_keybinds(keybind)
         end
     end
 end
 
 
-utils.set_keybinds_debug = function(keybinds)
+M.set_keybinds_debug = function(keybinds)
     if type(keybinds) ~= "table" then
         return
     end
     for _, keybind in pairs(keybinds) do
-        if utils.is_keybind(keybind) then
+        if M.is_keybind(keybind) then
             vim.keymap.set(keybind.mode, keybind.map, keybind.action, keybind.opts)
             print("Keybind set")
         else
             print("Recursing into table")
-            utils.set_keybinds(keybind)
+            M.set_keybinds(keybind)
         end
     end
 end
@@ -191,7 +204,7 @@ local insert_nodups = function(arg_list, arg_element)
 end
 
 
-utils.update_list = function(arg_list, arg_element)
+M.update_list = function(arg_list, arg_element)
     local list = arg_list
     local element = arg_element
     if type(element) == "string" then
@@ -207,7 +220,7 @@ utils.update_list = function(arg_list, arg_element)
 end
 
 
-utils.Tools_list = {
+M.Tools_list = {
     tools = {},
     create = function (self, obj, tools)
         obj = obj or {}
@@ -217,12 +230,12 @@ utils.Tools_list = {
         return obj
     end,
     update = function (self, element)
-        self.tools = utils.update_list(self.tools, element)
+        self.tools = M.update_list(self.tools, element)
     end
 }
 
 
-utils.mason_install_missing = function(packs)
+M.mason_install_missing = function(packs)
     local mason = require("mason-registry")
     local install_list
     for _, pack in pairs(packs) do
@@ -243,13 +256,13 @@ end
 --<< LSP
 
 
-utils.on_attach = function(_, bufnr)
+M.on_attach = function(_, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    utils.set_keybinds(Keybinds.lsp(bufopts).on_attach)
+    M.set_keybinds(Keybinds.lsp(bufopts).on_attach)
 end
 
 
-utils.exclude_client = function(client_name)
+M.exclude_client = function(client_name)
     local clients = vim.lsp.get_active_clients()
     for _, client in pairs(clients) do
         if client.name == client_name then
@@ -267,7 +280,7 @@ utils.exclude_client = function(client_name)
 end
 
 
-utils.set_capabilities = function(overwrite)
+M.set_capabilities = function(overwrite)
     local overwrite_capabilities = overwrite or {}
     -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = {}
@@ -289,4 +302,4 @@ utils.set_capabilities = function(overwrite)
 end
 
 
-return utils
+return M
