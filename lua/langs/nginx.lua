@@ -1,4 +1,4 @@
-if not Langs.nginx then return end
+if not Langs.nginx then return {} end
 
 local utils = require("core.utils")
 
