@@ -13,6 +13,7 @@ return {
     nginx = false,
     php = false,
     python = false,
+    ruby = false,
     rust = false,
     shell = false,
     sql = false,
