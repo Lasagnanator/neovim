@@ -7,6 +7,7 @@ Mason:update({ "solargraph", "rubocop" })
 require("lspconfig").solargraph.setup({
     on_attach = utils.on_attach,
     capabilities = utils.set_capabilities(),
+    single_file_support = true
 })
 
 require("lint").linters_by_ft.ruby = { "rubocop" }
