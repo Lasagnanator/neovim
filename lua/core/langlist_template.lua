@@ -17,6 +17,7 @@ return {
     rust = false,
     shell = false,
     sql = false,
+    terraform = false,
     tex = false,
     typescript = false,
     vue = false,
