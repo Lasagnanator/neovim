@@ -26,10 +26,6 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
-        "stevearc/dressing.nvim", -- Interface for input prompts
-        config = true,
-    },
-    {
         "numToStr/Comment.nvim", -- Easier commenting
         event = { "BufReadPre", "BufNewFile" },
         opts = {
