@@ -37,24 +37,6 @@ return {
         dependencies = { "williamboman/mason.nvim" }
     },
     {
-        "nvimtools/none-ls.nvim", -- Enable linters and formatters to use the LSP client
-        config = true,
-        dependencies = {
-            {
-                "jay-babu/mason-null-ls.nvim", -- Bridge the gap between Mason and null-ls
-                config = function()
-                    require("mason-null-ls").setup({
-                        ensure_installed = {},
-                        automatic_installation = false,
-                        automatic_setup = true,
-                        handlers = require("plugins.lsp.null-ls").set_handlers()
-                    })
-                end,
-            },
-            { "nvim-lua/plenary.nvim" },
-        },
-    },
-    {
         "rcarriga/nvim-dap-ui",
         opts = {
             icons = {
