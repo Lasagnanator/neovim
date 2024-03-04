@@ -33,7 +33,6 @@ Keybinds = require("keybinds.plugins")
 Utils = require("core.utils")
 Class = require("core.classes")
 Mason = Utils.Tools_list:create()
-Langservers = Class.Lsp:new()
 
 --<< Keybind
 vim.keymap.set("", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true })
