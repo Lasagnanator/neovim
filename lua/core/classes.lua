@@ -1,6 +1,32 @@
 local M = {}
 
 
+--<< Treesitter parsers
+
+---@class Treesitter_parsers
+---@field parsers string[]
+M.Treesitter_parsers = {
+    parsers = {}
+}
+
+---Create new instance of class *Treesitter_parsers*
+---@param parsers? string[] List of tools to install
+---@return Treesitter_parsers
+function M.Treesitter_parsers:new(parsers)
+    local obj = {}
+    setmetatable(obj, self)
+    self.__index = self
+    obj.parsers = parsers or {}
+    return obj
+end
+
+---Add a new parser to the list
+---@param element string
+function M.Treesitter_parsers:update(element)
+    self.parsers = require("core.utils").update_list(self.parsers, element)
+end
+
+
 --<< List of tools that Mason needs to install
 
 ---@class Language_tools
@@ -90,6 +116,5 @@ M.Lsp = {
         end
     end,
 }
-
 
 return M

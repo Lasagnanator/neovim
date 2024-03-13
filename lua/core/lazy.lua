@@ -32,6 +32,17 @@ Priority = {
 Keybinds = require("keybinds.plugins")
 Utils = require("core.utils")
 Class = require("core.classes")
+Treesitter = Class.Treesitter_parsers:new({
+    -- TODO: move languages to appropriate language files
+    "lua",
+    "bash",
+    "gitcommit",
+    "gitignore",
+    "gitattributes",
+    "git_config",
+    "git_rebase",
+    "norg"
+})
 Mason = Utils.Tools_list:create()
 
 --<< Keybind

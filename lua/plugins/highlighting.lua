@@ -14,16 +14,7 @@ return {
         priority = Priority.treesitter,
         main = "nvim-treesitter.configs",
         opts = {
-            ensure_installed = {
-                "lua",
-                "bash",
-                "gitcommit",
-                "gitignore",
-                "gitattributes",
-                "git_config",
-                "git_rebase",
-                "norg"
-            },
+            ensure_installed = Treesitter.parsers,
             highlight = {
                 enable = true,
                 disable = excluded_langs,
