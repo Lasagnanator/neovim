@@ -2,6 +2,7 @@ if not Langs.web then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update({ "html", "css" })
 Mason:update({ "css-lsp", "html-lsp" })
 
 require("lspconfig").cssls.setup({

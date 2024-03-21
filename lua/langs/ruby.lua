@@ -2,6 +2,7 @@ if not Langs.ruby then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update("ruby")
 -- NOTE: ruby-lsp should be better, but right now is broken (does not install or start, not clear)
 Mason:update({ "solargraph" })
 
