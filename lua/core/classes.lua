@@ -21,7 +21,7 @@ function M.Treesitter_parsers:new(parsers)
 end
 
 ---Add a new parser to the list
----@param element string
+---@param element string|string[]
 function M.Treesitter_parsers:update(element)
     self.parsers = require("core.utils").update_list(self.parsers, element)
 end
@@ -47,7 +47,7 @@ function M.Language_tools:new(tools)
 end
 
 ---Add a new tool to the list
----@param element string
+---@param element string|string[]
 function M.Language_tools:update(element)
     self.tools = require("core.utils").update_list(self.tools, element)
 end
