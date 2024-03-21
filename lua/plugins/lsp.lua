@@ -49,6 +49,7 @@ return {
         keys = Utils.set_keybinds(Keybinds.dap().ui),
         dependencies = {
             "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio"
         }
     },
     {
