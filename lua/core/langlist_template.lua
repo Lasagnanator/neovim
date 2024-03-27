@@ -19,6 +19,7 @@ return {
     sql = false,
     terraform = false,
     tex = false,
+    -- TODO: remove typescript conf and key, maybe change name to include both
     typescript = false,
     vue = false,
     web = false,
