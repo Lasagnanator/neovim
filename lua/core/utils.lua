@@ -81,6 +81,18 @@ M.dump_table = function(node)
 end
 
 
+--<< WSL
+
+
+function M.is_wsl ()
+    if os.getenv("WSLENV") or os.getenv("WSL_INTEROP") or os.getenv("WSL_DISTRO_NAME") then
+        return true
+    else
+        return false
+    end
+end
+
+
 --<< KEYBINDS
 
 
@@ -256,9 +268,14 @@ end
 --<< LSP
 
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     M.set_keybinds(Keybinds.lsp(bufopts).on_attach)
+    require("lsp-inlayhints").on_attach(client, bufnr)
+    -- local ok, inlayhints = pcall(require, "lsp-inlayhints")
+    -- if not ok then return end
+    -- inlayhints.on_attach(client, bufnr)
+    -- inlayhints.show()
 end
 
 
