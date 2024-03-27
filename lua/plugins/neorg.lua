@@ -41,7 +41,7 @@ return {
                 -- ["external.context"] = {},
             },
         },
-        init = function() Utils.set_keybinds(Keybinds.neorg()) end
-        -- dependencies = { "max397574/neorg-contexts" },
+        init = function() Utils.set_keybinds(Keybinds.neorg()) end,
+        dependencies = "vhyrro/luarocks.nvim",
     },
 }
