@@ -7,7 +7,12 @@ Mason:update("lua-language-server")
 if Langs.nvim then require("neodev").setup() end
 
 require("lspconfig").lua_ls.setup({
-    on_attach = utils.on_attach,
+    -- on_attach = utils.on_attach,
+    on_attach = function(client, bufnr)
+        utils.on_attach(client, bufnr)
+        require("lsp-inlayhints").on_attach(client, bufnr)
+        require("lsp-inlayhints").show()
+    end,
     capabilities = utils.set_capabilities(),
     on_new_config = function(client)
         -- if vim.fn.expand('%:p'):match("/awesome/") then
