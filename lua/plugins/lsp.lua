@@ -10,6 +10,11 @@ return {
     {
         "neovim/nvim-lspconfig", -- Defaults for LSP
     },
+    -- NOTE: remove with update to 0.10
+    {
+        "lvimuser/lsp-inlayhints.nvim",
+        config = true
+    },
     {
         "mfussenegger/nvim-dap", -- Debug adapter
         event = { "LspAttach" },
