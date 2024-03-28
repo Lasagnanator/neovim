@@ -27,6 +27,9 @@ require("lspconfig").lua_ls.setup({
             telemetry = {
                 enable = false,
             },
+            hint = {
+                enable = true
+            }
         },
     },
 })
