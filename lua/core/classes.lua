@@ -53,7 +53,8 @@ function M.Language_tools:update(element)
 end
 
 
---<< Keybind
+--<< Keybinds
+
 ---@class Keybind
 ---@field mode string The modes where to bind the key
 ---@field map string The key or the chord to bind
@@ -68,12 +69,12 @@ M.Keybind = {
     opts = {}
 }
 
----Creates new instance of a keymap
----@param mode string
+---Creates new instance of class *keymap*
+---@param mode string|table
 ---@param map string
 ---@param action string|function
 ---@param desc string
----@param opts table
+---@param opts? table
 ---@return Keybind
 function M.Keybind:new(mode, map, action, desc, opts)
     local obj = {}
@@ -83,8 +84,56 @@ function M.Keybind:new(mode, map, action, desc, opts)
     obj.map = map
     obj.action = action
     obj.desc = desc
-    obj.opts = opts
+    obj.opts = opts or { silent = true, noremap = true }
     return obj
+end
+
+---Set a keybind
+function M.Keybind:set()
+   local opts = self.opts
+    opts.desc = self.desc
+    vim.keymap.set(self.mode, self.map, self.action, opts)
+end
+
+
+-- NOTE: not sure if the group of keybinds is gonna be useful, but whatever
+
+---@class Binds_group
+---@field group_key string The key to access the group after leader
+---@field group_desc string The description of the group
+---@field keybinds Keybind[] List of keybinds inside the group
+M.Binds_group = {
+    group_key = "",
+    group_desc = "",
+    keybinds = {}
+}
+
+---Creates new instance of a *group of keybinds*
+---@param group_key string
+---@param group_desc string
+---@param keybinds Keybind[]
+---@return Binds_group
+function M.Binds_group:new(group_key, group_desc, keybinds)
+    local obj = {}
+    setmetatable(obj, self)
+    self.__index = self
+    obj.group_key = group_key
+    obj.group_desc = group_desc
+    obj.keybinds = keybinds
+    return obj
+end
+
+---Set a group description and all the keys declared with it
+function M.Binds_group:set()
+    local ok, wk = pcall(require, "which-key")
+    if not ok then
+        print("Problem with which key, aborting.")
+        return
+    end
+    wk.register({ [self.group_key] = { name = self.group_desc } })
+    for _, keybind in pairs(self.keybinds) do
+        keybind:set()
+    end
 end
 
 

@@ -5,11 +5,16 @@
 local silent   = { noremap = true, silent = true }
 local nosilent = { noremap = true, silent = false }
 local utils    = require("core.utils")
+local class    = require("core.classes")
 
 
 --<< Leader key
 vim.g.mapleader      = " "
 vim.g.maplocalleader = " "
+
+
+local testbind = class.Keybind:new("", "<A-s>", ":saveas ", "Save buffer as file", nosilent)
+testbind:set()
 
 
 --<< Table keys
@@ -18,7 +23,7 @@ local common = {
     --     { mode = "", map = "<Space>", act"ion = "<Nop>", opts = silent },
     --     { mode = "", map = "<Esc>",   action = "<Esc>", opts = silent }, -- NOTE: probably useless
     -- },
-    base = {
+    -- base = {
         -- { mode = "", map = "<Leader>w", action = "<Cmd>w<CR>",                 opts = silent },
         -- { mode = "", map = "<Leader>q", action = "<Cmd>q!<CR>",                opts = silent },
         -- { mode = "", map = "<Leader>W", action = "<Cmd>wa<CR>",                opts = silent },
@@ -29,8 +34,8 @@ local common = {
         -- { mode = "", map = "<Leader>@", action = "<Cmd>set cursorcolumn!<CR>", opts = silent },
         -- { mode = "", map = "<Leader>#", action = "<Cmd>set wrap!<CR>",         opts = silent },
         -- { mode = "", map = "<Leader>$", action = "<Cmd>set hls!<CR>",          opts = silent },
-        { mode = "", map = "<A-s>",     action = ":saveas ",                   opts = nosilent },
-    },
+        -- { mode = "", map = "<A-s>",     action = ":saveas ",                   opts = nosilent },
+    -- },
     center_move = {
         { mode = { "n", "x" }, map = "<C-d>", action = "<C-d>zz", opts = silent },
         { mode = { "n", "x" }, map = "<C-u>", action = "<C-u>zz", opts = silent },

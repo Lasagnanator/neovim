@@ -1,5 +1,5 @@
 require("core.settings")
-require("keybinds.base")
+require("keybinds.base-old")
 require("core.langs")
 require("core.lazy")
 require("keybinds.base-wk")
