@@ -42,6 +42,9 @@ return {
             },
         },
         init = function() Utils.set_keybinds(Keybinds.neorg()) end,
-        dependencies = "vhyrro/luarocks.nvim",
+        dependencies = {
+            "vhyrro/luarocks.nvim",
+            config = true
+        },
     },
 }
