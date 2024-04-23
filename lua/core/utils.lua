@@ -156,7 +156,7 @@ end
 M.index_keybinds = function(node)
     local indexed = {}
     if M.is_keybind(node) then
-        indexed = { node.mode, node.map, node.command, node.opts }
+        indexed = { node.mode, node.map, node.action, node.opts }
     elseif type(node) == "table" then
         for _, keybind in pairs(node) do
             table.insert(indexed, { keybind.mode, keybind.map, keybind.action, keybind.opts })
