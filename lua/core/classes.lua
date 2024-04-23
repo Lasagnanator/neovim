@@ -88,11 +88,30 @@ function M.Keybind:new(mode, map, action, desc, opts)
     return obj
 end
 
+---Return the type of the object
+function M.Keybind:type()
+    return "Keybind"
+end
+
 ---Set a keybind
 function M.Keybind:set()
-   local opts = self.opts
+    local opts = self.opts
     opts.desc = self.desc
     vim.keymap.set(self.mode, self.map, self.action, opts)
+end
+
+---Return a table formatted for a lazy keybind
+function M.Keybind:to_lazy()
+    local lazy_keybind = { self.map, self.action, mode = self.mode }
+    for opt, value in pairs(self.opts) do
+        lazy_keybind[opt] = value
+    end
+    return lazy_keybind
+end
+
+---Return a table formatted as a normal keymap
+function M.Keybind:to_list()
+    return { self.mode, self.map, self.action, self.opts}
 end
 
 
@@ -101,7 +120,7 @@ end
 ---@class Binds_group
 ---@field group_key string The key to access the group after leader
 ---@field group_desc string The description of the group
----@field keybinds Keybind[] List of keybinds inside the group
+---@field keybinds Keybind[]|Binds_group List of keybinds inside the group
 M.Binds_group = {
     group_key = "",
     group_desc = "",
@@ -121,6 +140,11 @@ function M.Binds_group:new(group_key, group_desc, keybinds)
     obj.group_desc = group_desc
     obj.keybinds = keybinds
     return obj
+end
+
+---Return the type of the object
+function M.Binds_group:type()
+    return "Binds_group"
 end
 
 ---Set a group description and all the keys declared with it
