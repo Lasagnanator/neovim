@@ -1,12 +1,4 @@
 return {
-    {
-        "iamcco/markdown-preview.nvim", -- Preview markdown files in browser
-        build = "app/install.sh",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
     -- {
     --     "lervag/vimtex", -- LaTeX utils
     --     ft = { "tex" },
