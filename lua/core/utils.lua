@@ -122,6 +122,7 @@ M.is_keybind = function(tested)
 end
 
 
+-- TODO: why
 M.is_keybind_class = function(tested)
     Class = require("core.classes")
     if getmetatable(tested) == Class.Keybind then
