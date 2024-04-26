@@ -2,6 +2,7 @@ if not Langs.yaml then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update("yaml")
 Mason:update("yaml-language-server")
 
 return {
