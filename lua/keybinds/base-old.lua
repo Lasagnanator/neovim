@@ -36,20 +36,20 @@ local common = {
         -- { mode = "", map = "<Leader>$", action = "<Cmd>set hls!<CR>",          opts = silent },
         -- { mode = "", map = "<A-s>",     action = ":saveas ",                   opts = nosilent },
     -- },
-    center_move = {
+    center_move = { -- Done
         { mode = { "n", "x" }, map = "<C-d>", action = "<C-d>zz", opts = silent },
         { mode = { "n", "x" }, map = "<C-u>", action = "<C-u>zz", opts = silent },
         { mode = { "n", "x" }, map = "<C-f>", action = "<C-f>zz", opts = silent },
         { mode = { "n", "x" }, map = "<C-b>", action = "<C-b>zz", opts = silent },
     },
-    yankpaste = {
+    yankpaste = { -- Done
         { mode = { "n", "x" }, map = "<Leader>y", action = [["+y]], opts = silent },
         { mode = { "n", "x" }, map = "<Leader>p", action = [["+p]], opts = silent },
         { mode = { "n", "x" }, map = "<Leader>P", action = [["+P]], opts = silent },
         { mode = { "n", "x" }, map = "<Leader>d", action = [["+d]], opts = silent },
         { mode = { "n", "x" }, map = "<Leader>D", action = [["+D]], opts = silent },
     },
-    windows = {
+    windows = {  -- Done
         { mode = "",           map = "<A-h>",     action = "<Cmd>wincmd h<CR>",           opts = silent },
         { mode = "",           map = "<A-j>",     action = "<Cmd>wincmd j<CR>",           opts = silent },
         { mode = "",           map = "<A-k>",     action = "<Cmd>wincmd k<CR>",           opts = silent },
@@ -65,7 +65,7 @@ local common = {
         -- { mode = { "n", "x" }, map = "<Leader>x", action = "<Cmd>sp<CR>",                 opts = silent },
         -- { mode = { "n", "x" }, map = "<Leader>v", action = "<Cmd>vs<CR>",                 opts = silent },
     },
-    tabs = {
+    tabs = { -- Done
         { mode = "", map = "<Leader>.", action = "<Cmd>tabnew<CR>",      opts = silent },
         { mode = "", map = "<Leader>,", action = "<Cmd>tabclose<CR>",    opts = silent },
         { mode = "", map = "<A-,>",     action = "<Cmd>tabprevious<CR>", opts = silent },
@@ -91,7 +91,7 @@ local common = {
     --         opts = silent
     --     },
     -- },
-    quickfix = {
+    quickfix = { -- Done
         { mode = "", map = "<Leader>co", action = "<Cmd>copen<CR>",              opts = silent },
         { mode = "", map = "<Leader>cc", action = "<Cmd>call setqflist([])<CR>", opts = silent },
         { mode = "", map = "]q",         action = "<Cmd>cnext<CR>",              opts = silent },
@@ -101,7 +101,7 @@ local common = {
 
 
 local normal = {
-    base = {
+    base = { -- Done
         { mode = "n", map = "<S-k>", action = "k<S-j>", opts = silent },
     },
     -- windows = {
@@ -111,7 +111,7 @@ local normal = {
 }
 
 
-local visual = {
+local visual = { -- Done
     -- TODO: adapt the move commands to <Cmd> instead of :
     base = {
         { mode = "v", map = ">",     action = ">gv",             opts = silent },
@@ -128,7 +128,7 @@ local visual = {
 
 
 local terminal = {
-    base = {
+    base = { -- Done
         { mode = "t", map = "<esc>",      action = [[<C-\><C-n>]],                           opts = silent },
     }
 }
