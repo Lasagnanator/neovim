@@ -37,8 +37,8 @@ local keys = {
     -- Tabs
     key:new("", "<Leader><Tab>n", "<Cmd>tabnew<CR>", "New", silent),
     key:new("", "<Leader><Tab>q", "<Cmd>tabclose<CR>", "Close", silent),
-    key:new("", "<Leader><Tab>>", "<Cmd>-tabmove<CR>", "Move left", silent),
-    key:new("", "<Leader><Tab><", "<Cmd>+tabmove<CR>", "Move right", silent),
+    key:new("", "<Leader><Tab>,", "<Cmd>-tabmove<CR>", "Move left", silent),
+    key:new("", "<Leader><Tab>.", "<Cmd>+tabmove<CR>", "Move right", silent),
     key:new("", "]<Tab>", "<Cmd>tabnext<CR>", "Tab", silent),
     key:new("", "[<Tab>", "<Cmd>tabprevious<CR>", "Tab", silent),
 
