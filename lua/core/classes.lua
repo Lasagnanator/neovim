@@ -117,11 +117,11 @@ end
 
 -- NOTE: not sure if the group of keybinds is gonna be useful, but whatever
 
----@class Binds_group
+---@class Keybinds_group
 ---@field group_key string The key to access the group after leader
 ---@field group_desc string The description of the group
----@field keybinds Keybind[]|Binds_group List of keybinds inside the group
-M.Binds_group = {
+---@field keybinds Keybind[]|Keybinds_group List of keybinds inside the group
+M.Keybinds_group = {
     group_key = "",
     group_desc = "",
     keybinds = {}
@@ -130,9 +130,9 @@ M.Binds_group = {
 ---Creates new instance of a *group of keybinds*
 ---@param group_key string
 ---@param group_desc string
----@param keybinds Keybind[]
----@return Binds_group
-function M.Binds_group:new(group_key, group_desc, keybinds)
+---@param keybinds Keybind[]|Keybinds_group[]
+---@return Keybinds_group
+function M.Keybinds_group:new(group_key, group_desc, keybinds)
     local obj = {}
     setmetatable(obj, self)
     self.__index = self
@@ -143,12 +143,12 @@ function M.Binds_group:new(group_key, group_desc, keybinds)
 end
 
 ---Return the type of the object
-function M.Binds_group:type()
+function M.Keybinds_group:type()
     return "Binds_group"
 end
 
 ---Set a group description and all the keys declared with it
-function M.Binds_group:set()
+function M.Keybinds_group:set()
     local ok, wk = pcall(require, "which-key")
     if not ok then
         print("Problem with which key, aborting.")
