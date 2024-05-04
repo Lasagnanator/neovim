@@ -126,26 +126,18 @@ end
 -- NOTE: not sure if the group of keybinds is gonna be useful, but whatever
 
 ---@class Keybinds_group
----@field group_key string The key to access the group after leader
----@field group_desc string The description of the group
 ---@field keybinds Keybind[]|Keybinds_group List of keybinds inside the group
 M.Keybinds_group = {
-    group_key = "",
-    group_desc = "",
     keybinds = {}
 }
 
 ---Creates new instance of a *group of keybinds*
----@param group_key string
----@param group_desc string
 ---@param keybinds Keybind[]|Keybinds_group[]
 ---@return Keybinds_group
-function M.Keybinds_group:new(group_key, group_desc, keybinds)
+function M.Keybinds_group:new(keybinds)
     local obj = {}
     setmetatable(obj, self)
     self.__index = self
-    obj.group_key = group_key
-    obj.group_desc = group_desc
     obj.keybinds = keybinds
     return obj
 end
@@ -155,17 +147,27 @@ function M.Keybinds_group:type()
     return "Binds_group"
 end
 
----Set a group description and all the keys declared with it
+---Set all the keys declared in the group
 function M.Keybinds_group:set()
-    local ok, wk = pcall(require, "which-key")
-    if not ok then
-        print("Problem with which key, aborting.")
-        return
-    end
-    wk.register({ [self.group_key] = { name = self.group_desc } })
     for _, keybind in pairs(self.keybinds) do
         keybind:set()
     end
+end
+
+---Set all the keys declared in the group for the current buffer
+function M.Keybinds_group:bufset()
+    for _, keybind in pairs(self.keybinds) do
+        keybind:bufset()
+    end
+end
+
+---Return a list of tables formatted for a lazy keybind
+function M.Keybinds_group:to_lazy()
+    local lazy_keybinds = {}
+    for _, keybind in pairs(self.keybinds) do
+        table:insert(keybind:to_lazy())
+    end
+    return lazy_keybinds
 end
 
 
