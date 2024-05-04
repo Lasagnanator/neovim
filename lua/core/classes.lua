@@ -100,6 +100,14 @@ function M.Keybind:set()
     vim.keymap.set(self.mode, self.map, self.action, opts)
 end
 
+---Set a keybind for the current buffer
+function M.Keybind:bufset()
+    local opts = self.opts
+    opts.desc = self.desc
+    opts.buffer = true
+    vim.keymap.set(self.mode, self.map, self.action, opts)
+end
+
 ---Return a table formatted for a lazy keybind
 function M.Keybind:to_lazy()
     local lazy_keybind = { self.map, self.action, mode = self.mode }
