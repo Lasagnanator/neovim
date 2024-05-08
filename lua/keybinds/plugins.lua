@@ -392,6 +392,7 @@ M.navbuddy = function()
 end
 
 
+-- TODO: check if it can be converted to a table
 M.nvimtree = function(bufnr)
     bufnr = bufnr or 0
     local api = require("nvim-tree.api")
