@@ -9,7 +9,7 @@ M.alpha = function()
             { mode = "n", map = "<Leader>wd", action = "<CMD>Alpha<CR>", opts = silent },
         }
     }
-    return Keybinds
+    return keybinds
 end
 
 
