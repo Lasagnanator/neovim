@@ -25,7 +25,7 @@ return {
             },
             incremental_selection = {
                 enable = true,
-                keymaps = Keybinds.treesitter().incremental_selection,
+                keymaps = require("keybinds.plugins.treesitter").incremental_selection,
                 disable = excluded_langs,
             },
         },
@@ -53,8 +53,8 @@ return {
                 dbout            = "",
                 [""]             = ""
             }
-            Utils.set_keybinds(Keybinds.ufo())
-            require('ufo').setup({
+            require("keybinds.plugins.ufo"):set()
+            require("ufo").setup({
                 open_fold_hl_timeout = 150,
                 provider_selector = function(bufnr, filetype, _)
                     if vim.bo[bufnr].bt == "nofile"
@@ -67,6 +67,7 @@ return {
         end,
         dependencies = { "kevinhwang91/promise-async" }
     },
+    -- TODO: move the following plugins to appropriate language files
     {
         "isobit/vim-caddyfile", -- Caddyfile syntax highlighting
         ft = { "caddy" },

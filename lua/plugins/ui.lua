@@ -60,7 +60,7 @@ return {
             },
         },
         init = function()
-            Utils.set_keybinds(Keybinds.ui().lualine)
+            require("keybinds.plugins.lualine"):set()
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
@@ -294,7 +294,7 @@ return {
                     footer
                 },
             })
-            Utils.set_keybinds(Keybinds.ui().alpha)
+            require("keybinds.plugins.alpha"):set()
         end
     },
     {

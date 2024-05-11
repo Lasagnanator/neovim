@@ -49,7 +49,7 @@ return {
                 constrain_cursor = "name",
             })
         end,
-        keys = Utils.lazy_keybinds(Keybinds.oil()),
+        keys = require("keybinds.plugins.oil"):to_lazy(),
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
     {
@@ -60,7 +60,7 @@ return {
                     enter_on_sendcmd = true
                 }
             })
-            Utils.set_keybinds(Keybinds.harpoon())
+            require("keybinds.plugins.harpoon"):set()
             vim.api.nvim_set_hl(0, "HarpoonBorder", { link = "TelescopeBorder" })
             vim.api.nvim_set_hl(0, "HarpoonWindow", { link = "TelescopeNormal" })
         end,
@@ -116,7 +116,7 @@ return {
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
             telescope.load_extension("file_browser")
-            Utils.set_keybinds(Keybinds.telescope().common)
+            require("keybinds.plugins.telescope"):set()
         end,
         dependencies = {
             {
@@ -138,7 +138,7 @@ return {
             }
         },
         event = { "BufReadPre", "BufNewFile" },
-        keys = Utils.lazy_keybinds(Keybinds.navbuddy()),
+        keys = require("keybinds.plugins.navbuddy"):to_lazy(),
         dependencies = {
             "neovim/nvim-lspconfig",
             "SmiteshP/nvim-navic",

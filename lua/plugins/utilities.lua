@@ -20,9 +20,7 @@ return {
             autosave_ignore_buftypes  = {},
             autosave_only_in_session  = true,
         },
-        init = function()
-            Utils.set_keybinds(Keybinds.session())
-        end,
+        init = function() require("keybinds.plugins.session"):set() end,
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {

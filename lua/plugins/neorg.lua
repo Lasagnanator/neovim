@@ -41,7 +41,7 @@ return {
                 -- ["external.context"] = {},
             },
         },
-        init = function() Utils.set_keybinds(Keybinds.neorg()) end,
+        init = function() require("keybinds.plugins.neorg"):set() end,
         dependencies = {
             "vhyrro/luarocks.nvim",
             config = true

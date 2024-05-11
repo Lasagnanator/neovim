@@ -18,7 +18,7 @@ return {
     {
         "mfussenegger/nvim-dap", -- Debug adapter
         event = { "LspAttach" },
-        keys = Utils.set_keybinds(Keybinds.dap().dap),
+        keys = require("keybinds.plugins.dap"):to_lazy()
     },
     {
         "williamboman/mason.nvim", -- Frontend for tools like LSPs, debuggers, linters and formatters
@@ -32,7 +32,7 @@ return {
                 }
             }
         },
-        init = function() Utils.set_keybinds(Keybinds.lsp().mason) end
+        init = function() require("keybinds.plugins.mason"):set() end
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim", -- Automate the installation of language tools from Mason
@@ -97,7 +97,7 @@ return {
             use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
         },
         event = { "BufReadPre", "BufNewFile" },
-        keys = Utils.lazy_keybinds(Keybinds.trouble()),
+        keys = require("keybinds.plugins.trouble"):to_lazy(),
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
@@ -105,7 +105,7 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         config = true,
         event = { "BufReadPre", "BufNewFile" },
-        keys = Utils.lazy_keybinds(Keybinds.todo()),
+        keys = require("keybinds.plugins.todo"):to_lazy()
     },
     "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
     "hrsh7th/cmp-nvim-lsp", -- Completion integration with LSP
