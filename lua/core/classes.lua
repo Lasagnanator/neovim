@@ -165,7 +165,7 @@ end
 function M.Keybinds_group:to_lazy()
     local lazy_keybinds = {}
     for _, keybind in pairs(self.keybinds) do
-        table:insert(keybind:to_lazy())
+        table.insert(lazy_keybinds, keybind:to_lazy())
     end
     return lazy_keybinds
 end
