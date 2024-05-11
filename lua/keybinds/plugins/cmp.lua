@@ -1,3 +1,4 @@
+-- WARN: this probably wont work
 local cmp     = require("cmp")
 local luasnip = require("luasnip")
 
