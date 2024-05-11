@@ -119,7 +119,9 @@ end
 
 ---Return a table formatted as a normal keymap
 function M.Keybind:to_list()
-    return { self.mode, self.map, self.action, self.opts}
+    local opts = self.opts
+    opts.desc = self.desc
+    return { self.mode, self.map, self.action, opts}
 end
 
 
@@ -168,6 +170,14 @@ function M.Keybinds_group:to_lazy()
         table.insert(lazy_keybinds, keybind:to_lazy())
     end
     return lazy_keybinds
+end
+
+function M.Keybinds_group:to_list()
+    local list_keybinds = {}
+    for _, keybind in pairs(self.keybinds) do
+        table.insert(list_keybinds, keybind:to_list())
+    end
+    return list_keybinds
 end
 
 
