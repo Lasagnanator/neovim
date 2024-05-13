@@ -26,7 +26,6 @@ function M.Treesitter_parsers:update(element)
     self.parsers = require("core.utils").update_list(self.parsers, element)
 end
 
-
 --<< List of tools that Mason needs to install
 
 ---@class Language_tools
@@ -51,7 +50,6 @@ end
 function M.Language_tools:update(element)
     self.tools = require("core.utils").update_list(self.tools, element)
 end
-
 
 --<< Keybinds
 
@@ -121,9 +119,8 @@ end
 function M.Keybind:to_list()
     local opts = self.opts
     opts.desc = self.desc
-    return { self.mode, self.map, self.action, opts}
+    return { self.mode, self.map, self.action, opts }
 end
-
 
 -- NOTE: not sure if the group of keybinds is gonna be useful, but whatever
 
@@ -179,7 +176,6 @@ function M.Keybinds_group:to_list()
     end
     return list_keybinds
 end
-
 
 ---@deprecated
 M.Lsp = {
