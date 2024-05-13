@@ -2,8 +2,7 @@ local key = require("core.classes").Keybind
 local keys = require("core.classes").Keybinds_group
 local M = {}
 
--- TODO: check if args change between lsps or are static
-function M.generate_lsp_keys(args)
+function M.on_attach(args)
     return keys:new({
         key:new("n", "<Leader>ce", vim.diagnostic.open_float, "Open description", args),
         key:new("n", "<Leader>cr", vim.lsp.buf.rename, "Rename symbol", args),
