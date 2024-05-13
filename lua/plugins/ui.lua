@@ -299,6 +299,7 @@ return {
     },
     {
         "folke/which-key.nvim",
-        config = true
+        config = true,
+        -- TODO: configure keys with which-key
     }
 }
