@@ -3,26 +3,22 @@ return {
         "nvim-tree/nvim-tree.lua", -- File navigation
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            local nvim_tree          = require("nvim-tree")
-            local api                = require("nvim-tree.api")
             --<< Settings
             vim.g.loaded_netrw       = 1
             vim.g.loaded_netrwPlugin = 1
             --<< Function
             local function on_attach(bufnr)
                 -- Set defaults
-                api.config.mappings.default_on_attach(bufnr)
-
+                require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
                 -- Remove from defaults
                 vim.keymap.set('n', '<C-[>', '', { buffer = bufnr })
                 vim.keymap.set('n', '<C-]>', '', { buffer = bufnr })
                 vim.keymap.del('n', '<C-[>', { buffer = bufnr })
                 vim.keymap.del('n', '<C-]>', { buffer = bufnr })
-
                 -- Set keybinds
-                Utils.set_keybinds(Keybinds.nvimtree(bufnr).on_attach)
+                require("keybinds.plugins.nvimtree").on_attach(bufnr):set()
             end
-            nvim_tree.setup({
+            require("nvim-tree").setup({
                 on_attach = on_attach,
                 tab = {
                     sync = {
@@ -33,7 +29,7 @@ return {
                 },
             })
             --<< Keys
-            Utils.set_keybinds(Keybinds.nvimtree().common)
+            require("keybinds.plugins.nvimtree").global:set()
         end,
     },
     {
