@@ -14,7 +14,7 @@ local signs  = {
 return keys:new({
     key:new("n", "<Leader>fd", "<Cmd>TodoTelescope<CR>", "To-do", silent),
     key:new("n", "<Leader>ud", "<Cmd>TodoTrouble<CR>", "To-do", silent),
-    key:new("n", "<Leader>cd", function()
+    key:new("n", "<Leader>ld", function()
         vim.ui.select({ "FIX", "TODO", "HACK", "WARN", "PERF", "NOTE", "TEST", "ALL" }, {}, function(input)
             if input == "ALL" then
                 vim.cmd("TodoQuickFix")

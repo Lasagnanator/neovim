@@ -74,10 +74,11 @@ local keys = {
     key:new("", "<C-Down>", "<Cmd>resize -1<CR>", "Decrease horizontal size by one line", silent),
 
     -- Quickfix
-    key:new("", "<Leader>co", "<Cmd>copen<CR>", "Open", silent),
-    key:new("", "<Leader>cc", "<Cmd>call setqflist([])<CR>", "Clear", silent),
-    key:new("", "]q", "<Cmd>cnext<CR>", "Next", silent),
-    key:new("", "[q", "<Cmd>cprev<CR>", "Previous", silent),
+    -- TODO: find better combo for quickfix list
+    key:new("", "<Leader>lo", "<Cmd>copen<CR>", "Open", silent),
+    key:new("", "<Leader>lc", "<Cmd>call setqflist([])<CR>", "Clear", silent),
+    key:new("", "]l", "<Cmd>cnext<CR>", "Next", silent),
+    key:new("", "[l", "<Cmd>cprev<CR>", "Previous", silent),
 
     -- Buffer actions
     key:new("n", "<S-k>", "k<S-j>", "Join with line above", silent),
