@@ -299,7 +299,10 @@ return {
     },
     {
         "folke/which-key.nvim",
-        config = true,
-        -- TODO: configure keys with which-key
+        config = function()
+            local wk = require("which-key")
+            wk.setup()
+            wk.register(require("keybinds.whichkey"))
+        end
     }
 }
