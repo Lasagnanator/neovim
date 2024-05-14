@@ -108,7 +108,7 @@ end
 
 ---Return a table formatted for a lazy keybind
 function M.Keybind:to_lazy()
-    local lazy_keybind = { self.map, self.action, mode = self.mode }
+    local lazy_keybind = { self.map, self.action, mode = self.mode, desc = self.desc }
     for opt, value in pairs(self.opts) do
         lazy_keybind[opt] = value
     end
