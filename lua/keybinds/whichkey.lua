@@ -2,7 +2,10 @@ return {
     ["<Leader>"] = {
         name = "Leader keys",
         b = { name = "Buffer" },
-        c = { name = "Code" },
+        c = {
+            name = "Code",
+            w = { name = "Workspace"},
+        },
         e = { name = "Explore" },
         f = { name = "Find" },
         g = {
