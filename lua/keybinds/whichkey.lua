@@ -9,9 +9,12 @@ return {
         h = { name = "Harpoon" },
         m = { name = "Language" },
         n = { name = "Neorg" },
+        o = { name = "Open" },
         q = { name = "Quit" },
+        t = { name = "Terminal" },
         u = { name = "Trouble" },
         w = { name = "Window" },
+        ["<Tab>"] = { name = "Tabs" }
     },
     ["]"] = {
         name = "Next"
