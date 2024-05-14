@@ -29,7 +29,6 @@ Priority = {
     lsp = 800,
     completion = 700,
 }
-Keybinds = require("keybinds.plugins")
 Utils = require("core.utils")
 Class = require("core.classes")
 Treesitter = Class.Treesitter_parsers:new({
@@ -43,10 +42,10 @@ Treesitter = Class.Treesitter_parsers:new({
     "git_rebase",
     "norg"
 })
-Mason = Utils.Tools_list:create()
+Mason = Class.Language_tools:new()
 
 --<< Keybind
-vim.keymap.set("", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true })
+require("keybinds.lazy"):set()
 
 --<< Setup
 lazy.setup({

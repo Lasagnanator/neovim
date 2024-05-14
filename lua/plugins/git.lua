@@ -2,13 +2,14 @@ local Utils = require("core.utils")
 
 return {
     {
+        -- TODO: evaluate, since I've not used in a year
         "tpope/vim-fugitive", -- Git tools inside neovim
     },
     {
         "NeogitOrg/neogit",
         config = true,
-        init = function ()
-            Utils.set_keybinds(Keybinds.neogit())
+        init = function()
+            require("keybinds.plugins.neogit"):set()
         end,
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -19,36 +20,12 @@ return {
         "lewis6991/gitsigns.nvim", -- Git decorations
         opts = {
             signs = {
-                add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-                change = {
-                    hl = "GitSignsChange",
-                    text = "~",
-                    numhl = "GitSignsChangeNr",
-                    linehl =
-                    "GitSignsChangeLn"
-                },
-                delete = {
-                    hl = "GitSignsDelete",
-                    text = "-",
-                    numhl = "GitSignsDeleteNr",
-                    linehl =
-                    "GitSignsDeleteLn"
-                },
-                topdelete = {
-                    hl = "GitSignsDelete",
-                    text = "-",
-                    numhl = "GitSignsDeleteNr",
-                    linehl =
-                    "GitSignsDeleteLn"
-                },
-                changedelete = {
-                    hl = "GitSignsChange",
-                    text = "~",
-                    numhl = "GitSignsChangeNr",
-                    linehl =
-                    "GitSignsChangeLn"
-                },
-                untracked = { hl = "GitSignsAdd", text = "┆", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+                add          = { hl = "GitSignsAdd",    text = "+", numhl = "GitSignsAddNr",    linehl = "GitSignsAddLn" },
+                change       = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+                delete       = { hl = "GitSignsDelete", text = "-", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+                topdelete    = { hl = "GitSignsDelete", text = "-", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+                changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+                untracked    = { hl = "GitSignsAdd",    text = "┆", numhl = "GitSignsAddNr",    linehl = "GitSignsAddLn" },
             },
             signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
             numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -56,7 +33,7 @@ return {
             word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
         },
         init = function()
-            Utils.set_keybinds(Keybinds.gitsigns().common)
+            require("keybinds.plugins.gitsigns"):set()
         end,
     },
     {
@@ -74,12 +51,10 @@ return {
                 },
                 keymaps = {
                     disable_defaults = false, -- Disable the default keymaps
-                    view = Utils.index_keybinds(Keybinds.diffview().view),
+                    view = require("keybinds.plugins.diffview").view:to_list()
                 },
             })
-        end,
-        init = function()
-            Utils.set_keybinds(Keybinds.diffview().common)
+            require("keybinds.plugins.diffview").global:set()
         end,
         dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
     },

@@ -14,7 +14,7 @@ return {
                         luasnip.lsp_expand(args.body)
                     end,
                 },
-                mapping = cmp.mapping.preset.insert(Keybinds.cmp()),
+                mapping = cmp.mapping.preset.insert(require("keybinds.plugins.cmp")),
                 formatting = {
                     format = lspkind.cmp_format({
                         mode = "symbol_text"

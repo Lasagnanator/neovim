@@ -3,26 +3,22 @@ return {
         "nvim-tree/nvim-tree.lua", -- File navigation
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            local nvim_tree          = require("nvim-tree")
-            local api                = require("nvim-tree.api")
             --<< Settings
             vim.g.loaded_netrw       = 1
             vim.g.loaded_netrwPlugin = 1
             --<< Function
             local function on_attach(bufnr)
                 -- Set defaults
-                api.config.mappings.default_on_attach(bufnr)
-
+                require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
                 -- Remove from defaults
                 vim.keymap.set('n', '<C-[>', '', { buffer = bufnr })
                 vim.keymap.set('n', '<C-]>', '', { buffer = bufnr })
                 vim.keymap.del('n', '<C-[>', { buffer = bufnr })
                 vim.keymap.del('n', '<C-]>', { buffer = bufnr })
-
                 -- Set keybinds
-                Utils.set_keybinds(Keybinds.nvimtree(bufnr).on_attach)
+                require("keybinds.plugins.nvimtree").on_attach(bufnr):set()
             end
-            nvim_tree.setup({
+            require("nvim-tree").setup({
                 on_attach = on_attach,
                 tab = {
                     sync = {
@@ -33,7 +29,7 @@ return {
                 },
             })
             --<< Keys
-            Utils.set_keybinds(Keybinds.nvimtree().common)
+            require("keybinds.plugins.nvimtree").global:set()
         end,
     },
     {
@@ -49,7 +45,7 @@ return {
                 constrain_cursor = "name",
             })
         end,
-        keys = Utils.lazy_keybinds(Keybinds.oil()),
+        keys = require("keybinds.plugins.oil"):to_lazy(),
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
     {
@@ -60,7 +56,7 @@ return {
                     enter_on_sendcmd = true
                 }
             })
-            Utils.set_keybinds(Keybinds.harpoon())
+            require("keybinds.plugins.harpoon"):set()
             vim.api.nvim_set_hl(0, "HarpoonBorder", { link = "TelescopeBorder" })
             vim.api.nvim_set_hl(0, "HarpoonWindow", { link = "TelescopeNormal" })
         end,
@@ -116,7 +112,7 @@ return {
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
             telescope.load_extension("file_browser")
-            Utils.set_keybinds(Keybinds.telescope().common)
+            require("keybinds.plugins.telescope"):set()
         end,
         dependencies = {
             {
@@ -138,7 +134,7 @@ return {
             }
         },
         event = { "BufReadPre", "BufNewFile" },
-        keys = Utils.lazy_keybinds(Keybinds.navbuddy()),
+        keys = require("keybinds.plugins.navbuddy"):to_lazy(),
         dependencies = {
             "neovim/nvim-lspconfig",
             "SmiteshP/nvim-navic",

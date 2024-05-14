@@ -60,7 +60,7 @@ return {
             },
         },
         init = function()
-            Utils.set_keybinds(Keybinds.ui().lualine)
+            require("keybinds.plugins.lualine"):set()
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
@@ -294,11 +294,26 @@ return {
                     footer
                 },
             })
-            Utils.set_keybinds(Keybinds.ui().alpha)
+            require("keybinds.plugins.alpha"):set()
         end
     },
     {
         "folke/which-key.nvim",
-        config = true
+        config = function()
+            local wk = require("which-key")
+            wk.setup({
+                plugins = {
+                    marks = true,
+                    registers = false,
+                    spelling = {
+                        enabled = false
+                    },
+                    presets = {
+                        enabled = false
+                    }
+                },
+            })
+            wk.register(require("keybinds.whichkey"))
+        end
     }
 }
