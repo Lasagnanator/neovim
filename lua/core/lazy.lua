@@ -46,7 +46,7 @@ Treesitter = Class.Treesitter_parsers:new({
 Mason = Utils.Tools_list:create()
 
 --<< Keybind
-vim.keymap.set("", "<Leader>ll", "<Cmd>Lazy<CR>", { noremap = true, silent = true })
+require("keybinds.lazy"):set()
 
 --<< Setup
 lazy.setup({
