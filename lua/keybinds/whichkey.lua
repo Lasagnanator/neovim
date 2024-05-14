@@ -11,6 +11,7 @@ return {
         n = { name = "Neorg" },
         o = { name = "Open" },
         q = { name = "Quit" },
+        s = { name = "Session" },
         t = { name = "Terminal" },
         u = { name = "Trouble" },
         w = { name = "Window" },
