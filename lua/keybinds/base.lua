@@ -102,7 +102,7 @@ local keys = {
     -- key:new( "x", "<A-k>", ":move '<-2<CR>gv-gv", "Move block selection left", silent),
 
     -- Terminal
-    key:new( "t", "<esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
+    key:new("t", "<esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
 }
 
 -- TODO: Refactor loop key name
