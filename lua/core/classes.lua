@@ -177,33 +177,5 @@ function M.Keybinds_group:to_list()
     return list_keybinds
 end
 
----@deprecated
-M.Lsp = {
-
-    servers = {},
-
-    new = function(self, obj, servers)
-        obj = obj or {}
-        setmetatable(obj, self)
-        self.__index = self
-        obj.servers = servers or {}
-        return obj
-    end,
-
-    add = function(self, name, opts)
-        self.servers[name] = opts
-    end,
-
-    configure = function(self)
-        local ok, lspconfig = pcall(require, "lspconfig")
-        if not ok then
-            print("LSPConfig could not be loaded, aborting setup.")
-            return
-        end
-        for lsp, config in pairs(self.servers) do
-            lspconfig[lsp].setup(config)
-        end
-    end,
-}
 
 return M
