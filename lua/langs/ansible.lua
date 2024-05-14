@@ -2,6 +2,7 @@ if not Langs.ansible then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update("yaml")
 Mason:update("ansible-language-server")
 
 require("lspconfig").ansiblels.setup({

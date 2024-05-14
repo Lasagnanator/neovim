@@ -2,6 +2,7 @@ if not Langs.lua then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update("lua")
 Mason:update("lua-language-server")
 
 if Langs.nvim then require("neodev").setup() end

@@ -1,5 +1,7 @@
 if not Langs.markdown then return {} end
 
+Treesitter:update({ "markdown", "markdown_inline" })
+
 return {
     {
         "iamcco/markdown-preview.nvim", -- Preview markdown files in browser
