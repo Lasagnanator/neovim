@@ -54,10 +54,10 @@ local keys = {
     key:new({ "n", "x" }, "<Leader>wX", "<Cmd>set splitbelow! | sp | set splitbelow!<CR>",
         "Split window horizontally without moving", silent),
     -- TODO: Change bindings for the next three
-    key:new("", "<Leader>wq", "<Cmd>set cursorcolumn!<CR>", "Toggle column highlight", silent),
-    key:new("", "<Leader>wq", "<Cmd>set wrap!<CR>", "Toggle line wrap", silent),
-    key:new("", "<Leader>wq", "<Cmd>set hls!<CR>", "Toggle search highlight", silent),
-    key:new("n", "<Leader>wq", "<Cmd>wincmd =<CR>", "Divide space evenly", silent),
+    key:new("", "<Leader>w@", "<Cmd>set cursorcolumn!<CR>", "Toggle column highlight", silent),
+    key:new("", "<Leader>w#", "<Cmd>set wrap!<CR>", "Toggle line wrap", silent),
+    key:new("", "<Leader>w$", "<Cmd>set hls!<CR>", "Toggle search highlight", silent),
+    key:new("n", "<Leader>w=", "<Cmd>wincmd =<CR>", "Divide space evenly", silent),
 
     -- Window movement and managment
     key:new("", "<A-h>", "<Cmd>wincmd h<CR>", "Focus left window", silent),
