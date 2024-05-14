@@ -18,7 +18,7 @@ return {
     {
         "mfussenegger/nvim-dap", -- Debug adapter
         event = { "LspAttach" },
-        keys = require("keybinds.plugins.dap"):to_lazy()
+        keys = require("keybinds.plugins.dap").debug:to_lazy()
     },
     {
         "williamboman/mason.nvim", -- Frontend for tools like LSPs, debuggers, linters and formatters
@@ -51,7 +51,7 @@ return {
             },
         },
         event = { "LspAttach" },
-        keys = Utils.set_keybinds(Keybinds.dap().ui),
+        keys = require("keybinds.plugins.dap").ui:to_lazy(),
         dependencies = {
             "mfussenegger/nvim-dap",
             "nvim-neotest/nvim-nio"
