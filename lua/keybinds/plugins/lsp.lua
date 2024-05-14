@@ -14,6 +14,7 @@ function M.on_attach(args)
         key:new("n", "<Leader>cwr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder", args),
         key:new("n", "<Leader>cwl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders", args),
         key:new("n", "<Leader>cf", function() vim.lsp.buf.format({ async = true }) end, "Format file", args),
+        key:new("n", "<Leader>cs", function() require("telescope.builtin").lsp_references({ include_current_line = true }) end, "LSP references", args),
         key:new("n", "[e", vim.diagnostic.goto_prev, "Diagnostic", args),
         key:new("n", "]e", vim.diagnostic.goto_next, "Diagnostic", args),
     })

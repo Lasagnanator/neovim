@@ -9,5 +9,4 @@ return keys:new({
     key:new("n", "<Leader>fb", require("telescope.builtin").buffers, "Buffers", silent),
     key:new("n", "<Leader>fh", require("telescope.builtin").help_tags, "Help", silent),
     key:new("n", "<Leader>fe", require("telescope").extensions.file_browser.file_browser, "Explorer", silent),
-    key:new("n", "<Leader>cs", function() require("telescope.builtin").lsp_references({ include_current_line = true }) end, "LSP references", silent)
 })
