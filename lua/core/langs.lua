@@ -13,11 +13,12 @@ if r_list == nil then
         w_list:close()
         template:close()
     end
-    return
+else
+    r_list:close()
 end
 
-local local_config = require("core.langlist")
 local default_config = require("core.langlist_template")
+local local_config = require("core.langlist")
 
 local updated = false
 
@@ -49,4 +50,4 @@ if updated then
     end
 end
 
-Langs = local_config
+Langs = local_config or default_config

@@ -1,6 +1,6 @@
 require("core.settings")
-require("keybinds.base")
 require("core.langs")
+require("keybinds.base")
 require("core.lazy")
 require("core.autocmd")
 
