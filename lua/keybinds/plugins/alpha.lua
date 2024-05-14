@@ -3,5 +3,5 @@ local keys = require("core.classes").Keybinds_group
 local silent   = { noremap = true, silent = true }
 
 return keys:new({
-    key:new("n", "<Leader>wd", "<CMD>Alpha<CR>", "Open dashboard", silent)
+    key:new("n", "<Leader>od", "<CMD>Alpha<CR>", "Open dashboard", silent)
 })
