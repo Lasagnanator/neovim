@@ -31,8 +31,8 @@ local keys = {
     key:new("", "[b", "<Cmd>bprev<CR>", "Buffer", silent),
 
     -- Quit
-    key:new("", "<Leader>qq", "<Cmd>qa!<CR>", "Quit all windows", silent),
-    key:new("", "<Leader>qd", "<Cmd>wqa<CR>", "Quit all windows", silent),
+    key:new("", "<Leader>qd", "<Cmd>qa!<CR>", "Quit whitout saving", silent),
+    key:new("", "<Leader>qq", "<Cmd>wqa<CR>", "Quit and save", silent),
 
     -- Tabs
     key:new("", "<Leader><Tab>n", "<Cmd>tabnew<CR>", "New", silent),
