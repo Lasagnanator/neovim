@@ -17,6 +17,7 @@ return {
     rust = false,
     shell = false,
     sql = false,
+    svelte = false,
     terraform = false,
     tex = false,
     -- TODO: remove typescript conf and key, maybe change name to include both
