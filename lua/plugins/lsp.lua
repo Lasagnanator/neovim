@@ -30,7 +30,11 @@ return {
                     package_pending = "➜",
                     package_uninstalled = ""
                 }
-            }
+            },
+            registries = {
+                "github:nvim-java/mason-registry",
+                "github:mason-org/mason-registry",
+            },
         },
         init = function() require("keybinds.plugins.mason"):set() end
     },
