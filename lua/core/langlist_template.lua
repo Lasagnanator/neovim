@@ -6,7 +6,7 @@ return {
     go = false,
     json = false,
     java = false,
-    javascript = false,
+    jsts = false,
     lua = false,
     markdown = false,
     nvim = false,
@@ -20,8 +20,6 @@ return {
     svelte = false,
     terraform = false,
     tex = false,
-    -- TODO: remove typescript conf and key, maybe change name to include both
-    typescript = false,
     vue = false,
     web = false,
     yaml = false,
