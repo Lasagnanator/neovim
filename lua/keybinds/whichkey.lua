@@ -20,7 +20,12 @@ return {
         o = { name = "Open" },
         q = { name = "Quit" },
         s = { name = "Session" },
-        t = { name = "Terminal" },
+        t = {
+            name = "Terminal",
+            t = { name = "New tab" },
+            v = { name = "Vertical" },
+            x = { name = "Horizontal" },
+        },
         u = { name = "Trouble" },
         w = { name = "Window" },
         ["<Tab>"] = { name = "Tabs" }
