@@ -27,8 +27,6 @@ require("lspconfig").sqlls.setup({
     },
 })
 
-require("lint").linters_by_ft.python = { "pylint" }
-
 require("conform").formatters.sql_formatter = {
     prepend_args = { "-c", os.getenv("HOME") .. "/.config/nvim/files/sql-formatter.json" }
 }
