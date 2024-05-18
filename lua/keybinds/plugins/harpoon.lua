@@ -2,7 +2,7 @@ local key    = require("core.classes").Keybind
 local keys   = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
 
-local function term_move(cmd, term)
+local function term_wincmd(cmd, term)
     vim.cmd(cmd)
     require("harpoon.term").gotoTerminal(term)
 end
@@ -25,21 +25,21 @@ return keys:new({
     key:new("n", "<Leader>t4", function() require("harpoon.term").gotoTerminal(4) end, "Open 4th terminal", silent),
     key:new("n", "<Leader>t5", function() require("harpoon.term").gotoTerminal(5) end, "Open 5th terminal", silent),
     -- Horizontal split
-    key:new("n", "<Leader>tx1", function() term_move("split", 1) end, "Open 1st terminal", silent),
-    key:new("n", "<Leader>tx2", function() term_move("split", 2) end, "Open 2nd terminal", silent),
-    key:new("n", "<Leader>tx3", function() term_move("split", 3) end, "Open 3rd terminal", silent),
-    key:new("n", "<Leader>tx4", function() term_move("split", 4) end, "Open 4th terminal", silent),
-    key:new("n", "<Leader>tx5", function() term_move("split", 5) end, "Open 5th terminal", silent),
+    key:new("n", "<Leader>tx1", function() term_wincmd("split", 1) end, "Open 1st terminal", silent),
+    key:new("n", "<Leader>tx2", function() term_wincmd("split", 2) end, "Open 2nd terminal", silent),
+    key:new("n", "<Leader>tx3", function() term_wincmd("split", 3) end, "Open 3rd terminal", silent),
+    key:new("n", "<Leader>tx4", function() term_wincmd("split", 4) end, "Open 4th terminal", silent),
+    key:new("n", "<Leader>tx5", function() term_wincmd("split", 5) end, "Open 5th terminal", silent),
     -- Vertical split
-    key:new("n", "<Leader>tv1", function() term_move("vsplit", 1) end, "Open 1st terminal", silent),
-    key:new("n", "<Leader>tv2", function() term_move("vsplit", 2) end, "Open 2nd terminal", silent),
-    key:new("n", "<Leader>tv3", function() term_move("vsplit", 3) end, "Open 3rd terminal", silent),
-    key:new("n", "<Leader>tv4", function() term_move("vsplit", 4) end, "Open 4th terminal", silent),
-    key:new("n", "<Leader>tv5", function() term_move("vsplit", 5) end, "Open 5th terminal", silent),
+    key:new("n", "<Leader>tv1", function() term_wincmd("vsplit", 1) end, "Open 1st terminal", silent),
+    key:new("n", "<Leader>tv2", function() term_wincmd("vsplit", 2) end, "Open 2nd terminal", silent),
+    key:new("n", "<Leader>tv3", function() term_wincmd("vsplit", 3) end, "Open 3rd terminal", silent),
+    key:new("n", "<Leader>tv4", function() term_wincmd("vsplit", 4) end, "Open 4th terminal", silent),
+    key:new("n", "<Leader>tv5", function() term_wincmd("vsplit", 5) end, "Open 5th terminal", silent),
     -- New tab
-    key:new("n", "<Leader>tt1", function() term_move("tabnew", 1) end, "Open 1st terminal", silent),
-    key:new("n", "<Leader>tt2", function() term_move("tabnew", 2) end, "Open 2nd terminal", silent),
-    key:new("n", "<Leader>tt3", function() term_move("tabnew", 3) end, "Open 3rd terminal", silent),
-    key:new("n", "<Leader>tt4", function() term_move("tabnew", 4) end, "Open 4th terminal", silent),
-    key:new("n", "<Leader>tt5", function() term_move("tabnew", 5) end, "Open 5th terminal", silent),
+    key:new("n", "<Leader>tt1", function() term_wincmd("tabnew", 1) end, "Open 1st terminal", silent),
+    key:new("n", "<Leader>tt2", function() term_wincmd("tabnew", 2) end, "Open 2nd terminal", silent),
+    key:new("n", "<Leader>tt3", function() term_wincmd("tabnew", 3) end, "Open 3rd terminal", silent),
+    key:new("n", "<Leader>tt4", function() term_wincmd("tabnew", 4) end, "Open 4th terminal", silent),
+    key:new("n", "<Leader>tt5", function() term_wincmd("tabnew", 5) end, "Open 5th terminal", silent),
 })
