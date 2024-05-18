@@ -6,7 +6,6 @@ return {
     go = false,
     json = false,
     java = false,
-    jsts = false,
     lua = false,
     markdown = false,
     nvim = false,
