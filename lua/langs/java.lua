@@ -2,6 +2,8 @@ if not Langs.java then return {} end
 
 Treesitter:update({ "java", "groovy", "xml" })
 
+-- TODO: add bindings for nvim-java commands
+
 return {
     {
         "nvim-java/nvim-java",
@@ -9,6 +11,7 @@ return {
             require("java").setup()
             require("lspconfig").jdtls.setup({})
         end,
+        ft = "java",
         dependencies = {
             "nvim-java/lua-async-await",
             "nvim-java/nvim-java-refactor",
