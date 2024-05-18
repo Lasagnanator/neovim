@@ -2,6 +2,7 @@ if not Langs.shell then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update("bash")
 Mason:update({ "bash-language-server", "beautysh" })
 
 require("lspconfig").bashls.setup({
@@ -10,6 +11,6 @@ require("lspconfig").bashls.setup({
     single_file_support = true
 })
 
--- TODO: setup beautysh
+require("conform").formatters_by_ft.sh = { "beautysh" }
 
 return {}

@@ -2,7 +2,7 @@ if not Langs.rust then return {} end
 
 local utils = require("core.utils")
 
-Treesitter:update("rust")
+Treesitter:update({ "rust", "toml" })
 Mason:update({ "rust-analyzer", "codelldb" })
 
 return {

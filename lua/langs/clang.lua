@@ -2,6 +2,7 @@ if not Langs.lua then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update({ "c", "cpp" })
 Mason:update({ "clangd", "codelldb", "cpplint" })
 
 require("lspconfig").clangd.setup({

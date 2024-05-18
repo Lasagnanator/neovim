@@ -1,5 +1,7 @@
 if not Langs.java then return {} end
 
+Treesitter:update({ "java", "groovy", "xml" })
+
 return {
     {
         "nvim-java/nvim-java",

@@ -2,6 +2,7 @@ if not Langs.terraform then return {} end
 
 local utils = require("core.utils")
 
+Treesitter:update("terraform")
 Mason:update({ "terraform-ls", "tflint" })
 
 require("lspconfig").terraform_lsp.setup({
