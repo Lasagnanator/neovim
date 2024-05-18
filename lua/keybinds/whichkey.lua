@@ -6,7 +6,7 @@ return {
             name = "Code",
             w = { name = "Workspace"},
         },
-        e = { name = "Explore" },
+        e = { name = "Explorer" },
         f = { name = "Find" },
         g = {
             name = "Git",
