@@ -32,15 +32,11 @@ Priority = {
 Utils = require("core.utils")
 Class = require("core.classes")
 Treesitter = Class.Treesitter_parsers:new({
-    -- TODO: move languages to appropriate language files
-    "lua",
-    "bash",
     "gitcommit",
     "gitignore",
     "gitattributes",
     "git_config",
     "git_rebase",
-    "norg"
 })
 Mason = Class.Language_tools:new()
 
