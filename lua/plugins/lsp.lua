@@ -2,11 +2,6 @@ return {
     {
         "neovim/nvim-lspconfig", -- Defaults for LSP
     },
-    -- TODO: used only by Rust, remove from there and then uninstall
-    {
-        "lvimuser/lsp-inlayhints.nvim",
-        config = true
-    },
     {
         "ray-x/lsp_signature.nvim", -- Shows signature of function while typing
         opts = {

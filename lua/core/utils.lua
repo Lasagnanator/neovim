@@ -153,11 +153,6 @@ end
 M.on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     require("keybinds.plugins.lsp").on_attach(bufopts):set()
-    -- require("lsp-inlayhints").on_attach(client, bufnr)
-    -- local ok, inlayhints = pcall(require, "lsp-inlayhints")
-    -- if not ok then return end
-    -- inlayhints.on_attach(client, bufnr)
-    -- inlayhints.show()
 end
 
 
