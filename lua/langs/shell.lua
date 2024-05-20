@@ -6,7 +6,7 @@ Treesitter:update("bash")
 Mason:update({ "bash-language-server", "beautysh" })
 
 require("lspconfig").bashls.setup({
-    on_attach = utils.on_attach(),
+    on_attach = utils.on_attach,
     capabilities = utils.set_capabilities(),
     single_file_support = true
 })
