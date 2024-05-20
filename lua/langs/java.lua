@@ -15,9 +15,18 @@ require("lspconfig").gradle_ls.setup({
 return {
     {
         "nvim-java/nvim-java",
-        config = function ()
+        config = function()
             require("java").setup()
-            require("lspconfig").jdtls.setup({})
+            require("lspconfig").jdtls.setup({
+                on_attach = utils.on_attach,
+                capabilities = utils.set_capabilities(),
+                settings = {
+                    java = {
+                        signatureHelp = { enabled = true },
+                        contentProvider = { preferred = "fernflower" } -- NOTE: not sure is mandatory
+                    }
+                },
+            })
         end,
         ft = "java",
         dependencies = {
@@ -32,11 +41,4 @@ return {
             "williamboman/mason.nvim",
         },
     }
-    -- NOTE: use in case nvim-java does not work
-    -- {
-    --     "mfussenegger/nvim-jdtls"
-    -- },
-    -- {
-    --     "simaxme/java.nvim"
-    -- }
 }
