@@ -1,8 +1,6 @@
 return {
     "SmiteshP/nvim-navbuddy",
-    -- TODO: enable with nvim 0.10
-    enabled = false,
-    opts = {
+    opts= {
         lsp = {
             auto_attach = true
         }
