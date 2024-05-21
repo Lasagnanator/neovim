@@ -1,7 +1,6 @@
 return {
     ["<Leader>"] = {
         name = "Leader keys",
-        b = { name = "Buffer" },
         c = {
             name = "Code",
             w = { name = "Workspace"},
@@ -14,7 +13,8 @@ return {
             s = { name = "Signs" },
         },
         h = { name = "Harpoon" },
-        l = { name = "Quickfix" },
+        k = { name = "Buffer" },
+        l = { name = "Text manipulation" },
         m = { name = "Language" },
         n = { name = "Neorg" },
         o = { name = "Open" },
@@ -28,6 +28,7 @@ return {
         },
         u = { name = "Trouble" },
         w = { name = "Window" },
+        x = { name = "Quickfix" },
         ["<Tab>"] = { name = "Tabs" }
     },
     ["]"] = {
