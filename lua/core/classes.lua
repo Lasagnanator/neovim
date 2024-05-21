@@ -122,8 +122,6 @@ function M.Keybind:to_list()
     return { self.mode, self.map, self.action, opts }
 end
 
--- NOTE: not sure if the group of keybinds is gonna be useful, but whatever
-
 ---@class Keybinds_group
 ---@field keybinds Keybind[]|Keybinds_group List of keybinds inside the group
 M.Keybinds_group = {
