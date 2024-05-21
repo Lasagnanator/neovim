@@ -12,7 +12,6 @@ return {
         init = function()
             vim.g.rustaceanvim = {
                 server = {
-                    -- on_attach = utils.on_attach,
                     on_attach = utils.on_attach,
                     capabilities = utils.set_capabilities(),
                 }

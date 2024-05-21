@@ -150,14 +150,15 @@ end
 --<< LSP
 
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     require("keybinds.plugins.lsp").on_attach(bufopts):set()
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 end
 
 
 M.exclude_client = function(client_name)
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     for _, client in pairs(clients) do
         if client.name == client_name then
             vim.lsp.get_client_by_id(client.id).stop()
