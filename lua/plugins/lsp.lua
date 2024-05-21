@@ -4,7 +4,7 @@ return {
     },
     {
         "folke/neodev.nvim",
-        enable = Langs.nvim,
+        enabled = Langs.nvim,
         opts = {}
     },
     {
