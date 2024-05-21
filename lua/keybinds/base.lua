@@ -91,11 +91,11 @@ local base = keys:new({
     key:new({ "n", "x" }, "<C-u>", "<C-u>zz", "Jump half page up and center the line", silent),
     key:new({ "n", "x" }, "<C-f>", "<C-f>zz", "Jump whole page down and center the line", silent),
     key:new({ "n", "x" }, "<C-b>", "<C-b>zz", "Jump whole page up and center the line", silent),
-    key:new( "v", ">", ">gv", "Indent selection", silent),
-    key:new( "v", "<", "<gv", "De-indent selection", silent),
-    key:new( "v", "p", '"_dP', "Substitute selection", silent), -- TODO: add conditional use for last line and last character
-    key:new( "v", "<A-j>", ":move .+1<CR>==", "Move line up", silent),
-    key:new( "v", "<A-k>", ":move .-1<CR>==", "Move line down", silent),
+    key:new("v", ">", ">gv", "Indent selection", silent),
+    key:new("v", "<", "<gv", "De-indent selection", silent),
+    key:new("v", "p", '"_dP', "Substitute selection", silent),  -- TODO: add conditional use for last line and last character
+    key:new("v", "<A-j>", ":move .+1<CR>==", "Move line up", silent),
+    key:new("v", "<A-k>", ":move .-1<CR>==", "Move line down", silent),
     -- WARN: don't remember why, but this doesn't work
     -- key:new( "x", "<A-j>", ":move '>+1<CR>gv-gv", "Move block selection right",  silent),
     -- key:new( "x", "<A-k>", ":move '<-2<CR>gv-gv", "Move block selection left", silent),
