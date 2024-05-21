@@ -13,11 +13,7 @@ return {
             vim.g.rustaceanvim = {
                 server = {
                     -- on_attach = utils.on_attach,
-                    on_attach = function(client, bufnr)
-                        utils.on_attach(client, bufnr)
-                        require("lsp-inlayhints").on_attach(client, bufnr)
-                        require("lsp-inlayhints").show()
-                    end,
+                    on_attach = utils.on_attach,
                     capabilities = utils.set_capabilities(),
                 }
             }

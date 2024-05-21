@@ -1,3 +1,5 @@
+Treesitter:update("norg")
+
 return {
     {
         "nvim-neorg/neorg",

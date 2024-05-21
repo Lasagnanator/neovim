@@ -43,14 +43,4 @@ return {
         "gpanders/nvim-parinfer", -- Manages parenthesis while editing LISP-like files
         ft = { "yuck", "lisp" }
     },
-    {
-        "alvan/vim-closetag", -- Manipulate html tags
-        ft = { "html", "xhtml", "phtml", "markdown", "php" },
-        init = function()
-            -- vim.cmd [[let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.md"]]
-            -- vim.cmd [[let g:closetag_filetypes = "html,xhtml,phtml,markdown"]]
-            vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.md"
-            vim.g.closetag_filetypes = "html,xhtml,phtml,markdown"
-        end
-    },
 }

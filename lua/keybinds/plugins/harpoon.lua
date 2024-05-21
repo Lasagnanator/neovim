@@ -7,7 +7,6 @@ local function term_wincmd(cmd, term)
     require("harpoon.term").gotoTerminal(term)
 end
 
--- TODO: add keybinds for opening in vsplit, hsplit and new tab
 return keys:new({
     -- Files
     key:new("n", "<Leader>ha", require("harpoon.mark").add_file, "Add file to harpoon", silent),

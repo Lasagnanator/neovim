@@ -6,7 +6,7 @@ Treesitter:update({ "c", "cpp" })
 Mason:update({ "clangd", "codelldb", "cpplint" })
 
 require("lspconfig").clangd.setup({
-    on_attach = utils.on_attach(),
+    on_attach = utils.on_attach,
     capabilities = utils.set_capabilities({
         offsetEncoding = "UTF-16",
     }),
