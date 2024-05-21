@@ -1,6 +1,6 @@
 local class          = require("core.classes")
 local key            = class.Keybind
-local key_group      = class.Keybinds_group
+local keys           = class.Keybinds_group
 local silent         = { noremap = true, silent = true }
 
 --<< Leader key
@@ -13,8 +13,7 @@ vim.keymap.set("", "<Esc>", "<Esc>", silent)
 
 -- Buffer
 
-local keys = {
-
+local base = keys:new({
     -- Buffer
     key:new("", "<Leader>bd", "<Cmd>bd!<CR>", "Close current buffer", silent),
     key:new("", "<Leader>bD", function()
@@ -105,12 +104,9 @@ local keys = {
     key:new("t", "<esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
 
     -- Shortcuts
-    key:new("n", "<Leader>os", function ()
+    key:new("n", "<Leader>os", function()
         vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/core/langlist.lua")
     end, "Open language list", silent)
-}
+})
 
--- TODO: Refactor loop key name
-for _, keymap in ipairs(keys) do
-    keymap:set()
-end
+base:set()
