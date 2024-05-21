@@ -84,7 +84,7 @@ end
 --<< WSL
 
 
-function M.is_wsl ()
+function M.is_wsl()
     if os.getenv("WSLENV") or os.getenv("WSL_INTEROP") or os.getenv("WSL_DISTRO_NAME") then
         return true
     else
@@ -167,6 +167,7 @@ M.exclude_client = function(client_name)
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
             local new_client = vim.lsp.get_client_by_id(args.data.client_id)
+            if new_client == nil then return end
             if new_client.name == client_name then
                 new_client.stop()
             end
