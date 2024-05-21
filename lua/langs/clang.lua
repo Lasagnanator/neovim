@@ -13,5 +13,6 @@ require("lspconfig").clangd.setup({
 })
 
 -- TODO: setup codelldb and cpplint
-
+-- cpplint:         args = { "--filter=-legal/copyright", "$FILENAME" }
+-- clang_format:    extra_args = { "--style", "file:" .. os.getenv("HOME") .. "/.config/nvim/files/clang-format" } }
 return {}

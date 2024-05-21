@@ -22,8 +22,28 @@ require("lspconfig").pyright.setup({
     },
 })
 
+-- NOTE: in case I want to use pylsp
+require("lspconfig").pylsp.setup({
+    on_attach = utils.on_attach,
+    capabilities = utils.set_capabilities(),
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = { "E501" }
+                },
+            },
+        }
+    }
+})
+
 require('lint').linters_by_ft.python = { "pylint" }
 
 require("conform").formatters_by_ft.python = { "pyink" }
+
+-- TODO: configure formatters and linters
+-- mypy: extra_args = { "--ignore-missing-imports", "--check-untyped-defs" }
+-- pylint: extra_args = { "--disable=import-error,too-few-public-methods,unused-import,unused-argument" } }
+-- pydocstyle: extra_args = { "--ignore=D10,D203" }
 
 return {}
