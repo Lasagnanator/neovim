@@ -1,4 +1,3 @@
--- WARN: this probably won't work
 local M = {}
 
 local key     = require("core.classes").Keybind
