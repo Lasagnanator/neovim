@@ -15,6 +15,7 @@ function M.on_attach(args)
         key:new("n", "<Leader>cwl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders", args),
         key:new("n", "<Leader>cf", function() vim.lsp.buf.format({ async = true }) end, "Format file", args),
         key:new("n", "<Leader>cs", function() require("telescope.builtin").lsp_references({ include_current_line = true }) end, "LSP references", args),
+        key:new("n", "<Leader>ch", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 }) end, "Toggle inlay hints", args),
         key:new("n", "[e", vim.diagnostic.goto_prev, "Diagnostic", args),
         key:new("n", "]e", vim.diagnostic.goto_next, "Diagnostic", args),
     })
