@@ -1,6 +1,14 @@
 if not Langs.java then return {} end
 
+local utils = require("core.utils")
+
 Treesitter:update({ "java", "groovy", "xml" })
+Mason:update("gradle-language-server")
+
+require("lspconfig").gradle_ls.setup({
+    on_attach = utils.on_attach,
+    capabilities = utils.set_capabilities(),
+})
 
 -- TODO: add bindings for nvim-java commands
 
