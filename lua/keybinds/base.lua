@@ -78,6 +78,7 @@ local base = keys:new({
     key:new("", "[x", "<Cmd>cprev<CR>", "Previous", silent),
 
     -- Buffer actions
+    key:new({ "n", "x" }, "<Leader>zh", "K", "Search in the manual", silent),
     key:new("n", "<S-k>", "k<S-j>", "Join with line above", silent),
     key:new({ "n", "x" }, "<Leader>zy", [["+y]], "Yank to clipboard", silent),
     key:new({ "n", "x" }, "<Leader>zp", [["+p]], "Paste from clipboard", silent),
