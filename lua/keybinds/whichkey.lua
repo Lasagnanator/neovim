@@ -14,7 +14,6 @@ return {
         },
         h = { name = "Harpoon" },
         k = { name = "Buffer" },
-        l = { name = "Text manipulation" },
         m = { name = "Language" },
         n = { name = "Neorg" },
         o = { name = "Open" },
@@ -29,6 +28,7 @@ return {
         u = { name = "Trouble" },
         w = { name = "Window" },
         x = { name = "Quickfix" },
+        z = { name = "Text manipulation" },
         ["<Tab>"] = { name = "Tabs" }
     },
     ["]"] = {

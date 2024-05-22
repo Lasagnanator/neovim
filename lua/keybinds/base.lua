@@ -79,11 +79,11 @@ local base = keys:new({
 
     -- Buffer actions
     key:new("n", "<S-k>", "k<S-j>", "Join with line above", silent),
-    key:new({ "n", "x" }, "<Leader>ly", [["+y]], "Yank to clipboard", silent),
-    key:new({ "n", "x" }, "<Leader>lp", [["+p]], "Paste from clipboard", silent),
-    key:new({ "n", "x" }, "<Leader>lP", [["+P]], "Paste before from clipboard", silent),
-    key:new({ "n", "x" }, "<Leader>ld", [["+d]], "Cut to clipboard", silent),
-    key:new({ "n", "x" }, "<Leader>lD", [["+D]], "Cut line to clipboard", silent),
+    key:new({ "n", "x" }, "<Leader>zy", [["+y]], "Yank to clipboard", silent),
+    key:new({ "n", "x" }, "<Leader>zp", [["+p]], "Paste from clipboard", silent),
+    key:new({ "n", "x" }, "<Leader>zP", [["+P]], "Paste before from clipboard", silent),
+    key:new({ "n", "x" }, "<Leader>zd", [["+d]], "Cut to clipboard", silent),
+    key:new({ "n", "x" }, "<Leader>zD", [["+D]], "Cut line to clipboard", silent),
     key:new({ "n", "x" }, "<C-d>", "<C-d>zz", "Jump half page down and center the line", silent),
     key:new({ "n", "x" }, "<C-u>", "<C-u>zz", "Jump half page up and center the line", silent),
     key:new({ "n", "x" }, "<C-f>", "<C-f>zz", "Jump whole page down and center the line", silent),
