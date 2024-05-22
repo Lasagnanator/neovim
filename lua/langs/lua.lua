@@ -24,7 +24,7 @@ require("lspconfig").lua_ls.setup({
                 enable = false,
             },
             hint = {
-                enable = true
+                enable = false,
             }
         },
     },
