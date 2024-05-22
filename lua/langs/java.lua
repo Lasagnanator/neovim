@@ -25,9 +25,6 @@ return {
             vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
                 pattern = "*.java",
                 callback = function()
-                    -- Test
-                    print("Java detected!")
-
                     -- Code
                     require("jdtls").start_or_attach({
                         cmd = {
@@ -44,13 +41,16 @@ return {
                             -- '-javaagent:' .. vim.fn.stdpath("data") .. '/mason/packages/jdtls/lombok.jar',
                             '-jar',
                             -- vim.fn.glob(vim.fn.stdpath("data") .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
-                            vim.fn.stdpath("data") .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar',
-                            '-configuration', vim.fn.stdpath("data") .. '/nvim/mason/packages/jdtls/config_linux',
-                            '-data', vim.fn.stdpath("data") ..
-                        '/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+                            -- vim.fn.stdpath("data") .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar',
+                            '/home/kraken/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar',
+                            -- '-configuration', vim.fn.stdpath("data") .. '/nvim/mason/packages/jdtls/config_linux',
+                            '-configuration', '/home/kraken/.local/share/nvim/mason/packages/jdtls/config_linux',
+                            '-data',
+                            '/home/kraken/.local/share/nvim/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
                         },
-                        -- root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' }), -- Old
-                        root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }), -- Neovim >=0.10
+                        root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' }), -- Old
+                        -- root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }), -- Neovim >=0.10
+                        on_attach = utils.on_attach,
                         settings = {
                             java = {
                                 signatureHelp = { enabled = true },
