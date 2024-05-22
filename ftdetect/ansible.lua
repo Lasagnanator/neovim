@@ -1,8 +1,9 @@
 local function is_ansible(_, bufnr)
     local content = vim.api.nvim_buf_get_lines(bufnr, 0, 10, false)[1] or ""
-    if vim.regex([[- name:]]):match_str(content) ~= nil
-    or vim.regex([[- hosts:]]):match_str(content) ~= nil
-    or vim.regex([[- tasks:]]):match_str(content) ~= nil
+    if vim.regex([[name:]]):match_str(content) ~= nil
+    or vim.regex([[hosts:]]):match_str(content) ~= nil
+    or vim.regex([[become:]]):match_str(content) ~= nil
+    or vim.regex([[tasks:]]):match_str(content) ~= nil
     then
         return 'yaml.ansible'
     else
