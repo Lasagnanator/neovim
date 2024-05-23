@@ -25,7 +25,13 @@ return {
             vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
                 pattern = "*.java",
                 callback = function()
-                    -- Code
+                    local data = vim.fn.stdpath('data')
+                    -- local jdtls_launcher_explicit = data .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar'
+                    local jdtls_launcher = vim.fn.glob(data .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar')
+                    local lombok = data .. '/mason/packages/jdtls/lombok.jar'
+                    local jdtls_config = data .. '/mason/packages/jdtls/config_linux'
+                    local workspace = data .. '/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+
                     require("jdtls").start_or_attach({
                         cmd = {
                             'java',
@@ -38,18 +44,12 @@ return {
                             '--add-modules=ALL-SYSTEM',
                             '--add-opens', 'java.base/java.util=ALL-UNNAMED',
                             '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-                            -- '-javaagent:' .. vim.fn.stdpath("data") .. '/mason/packages/jdtls/lombok.jar',
-                            '-jar',
-                            -- vim.fn.glob(vim.fn.stdpath("data") .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
-                            -- vim.fn.stdpath("data") .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar',
-                            '/home/kraken/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar',
-                            -- '-configuration', vim.fn.stdpath("data") .. '/nvim/mason/packages/jdtls/config_linux',
-                            '-configuration', '/home/kraken/.local/share/nvim/mason/packages/jdtls/config_linux',
-                            '-data',
-                            '/home/kraken/.local/share/nvim/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+                            '-javaagent:' .. lombok,
+                            '-jar', jdtls_launcher,
+                            '-configuration', jdtls_config,
+                            '-data', workspace
                         },
-                        root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' }), -- Old
-                        -- root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }), -- Neovim >=0.10
+                        root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", 'pom.xml', 'build.gradle' }), -- Neovim >=0.10
                         on_attach = utils.on_attach,
                         settings = {
                             java = {
@@ -70,7 +70,7 @@ return {
                                     },
                                 },
                                 format = {
-                                    enabled = false,
+                                    enabled = true,
                                 },
                             },
                         },
