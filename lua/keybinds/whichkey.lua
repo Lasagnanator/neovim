@@ -26,6 +26,7 @@ return {
             v = { name = "Vertical" },
             x = { name = "Horizontal" },
         },
+        u = { name = "UI" },
         w = { name = "Window" },
         x = { name = "Quickfix" },
         z = { name = "Text manipulation" },
