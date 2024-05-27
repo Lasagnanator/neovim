@@ -7,10 +7,11 @@ Mason:update("ansible-language-server")
 
 require("lspconfig").ansiblels.setup({
     on_attach = function(_, bufnr)
+        utils.on_attach(_, bufnr)
+        -- utils.exclude_client("yamlls")
         vim.cmd("TSBufDisable indent")
         vim.cmd("TSBufDisable highlight")
         vim.cmd("TSBufDisable incremental_selection")
-        utils.on_attach(_, bufnr)
     end,
     capabilities = utils.set_capabilities(),
     settings = {
