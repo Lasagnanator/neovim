@@ -18,6 +18,7 @@ return {
         n = { name = "Neorg" },
         o = { name = "Open" },
         q = { name = "Quit" },
+        r = { name = "Trouble" },
         s = { name = "Session" },
         t = {
             name = "Terminal",
@@ -25,7 +26,6 @@ return {
             v = { name = "Vertical" },
             x = { name = "Horizontal" },
         },
-        u = { name = "Trouble" },
         w = { name = "Window" },
         x = { name = "Quickfix" },
         z = { name = "Text manipulation" },
