@@ -38,5 +38,14 @@ return {
             "neovim/nvim-lspconfig",
             "nvim-treesitter/nvim-treesitter",
         },
+    },
+    {
+        "leoluz/nvim-dap-go",
+        config = function (_, opts)
+            require("dap-go").setup(opts)
+        end,
+        dependencies = {
+            "mfussenegger/nvim-dap"
+        }
     }
 }
