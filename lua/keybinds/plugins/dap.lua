@@ -6,7 +6,7 @@ local M = {}
 
 
 M.debug = keys:new({
-    key:new({ "n", "x" }, "<Leader>db", function() require("dap").toggle_breakpoint() end, "Toggle breakpoint", silent),
+    key:new({ "n", "x" }, "<Leader>ds", function() require("dap").toggle_breakpoint() end, "Toggle breakpoint", silent),
     key:new({ "n", "x" }, "<Leader>dc", function() require("dap").continue() end, "Continue", silent),
     key:new({ "n", "x" }, "<Leader>di", function() require("dap").step_into() end, "Step into function", silent),
     key:new({ "n", "x" }, "<Leader>du", function() require("dap").step_out() end, "Step outside function", silent),
