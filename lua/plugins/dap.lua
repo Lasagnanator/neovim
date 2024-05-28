@@ -20,6 +20,16 @@ return {
             "nvim-neotest/nvim-nio"
         }
     },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        config = function (_, opts)
+            require("nvim-dap-virtual-text").setup(opts)
+        end,
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-treesitter/nvim-treesitter"
+        }
+    },
     -- TODO: eval
     {
         "jay-babu/mason-nvim-dap.nvim",
