@@ -5,7 +5,7 @@ local utils = require("core.utils")
 Treesitter:update("lua")
 Mason:update("lua-language-server")
 
-if Langs.nvim then require("neodev").setup() end
+-- if Langs.nvim then require("neodev").setup() end
 
 require("lspconfig").lua_ls.setup({
     on_attach = utils.on_attach,
@@ -31,4 +31,9 @@ require("lspconfig").lua_ls.setup({
 })
 
 
-return {}
+return {
+    "folke/lazydev.nvim",
+    enabled = Langs.nvim,
+    config = true,
+    ft = "lua",
+}
