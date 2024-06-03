@@ -16,7 +16,10 @@ return {
         k = { name = "Buffer" },
         m = { name = "Language" },
         n = { name = "Neorg" },
-        o = { name = "Open" },
+        o = {
+            name = "Open",
+            t = { name = "Transfer" }
+        },
         q = { name = "Quit" },
         r = { name = "Trouble" },
         s = { name = "Session" },
