@@ -3,7 +3,7 @@ if not Langs.shell then return {} end
 local utils = require("core.utils")
 
 Treesitter:update("bash")
-Mason:update({ "bash-language-server", "beautysh" })
+Mason:update({ "bash-language-server", "shfmt", "beautysh" })
 
 require("lspconfig").bashls.setup({
     on_attach = utils.on_attach,
