@@ -32,6 +32,8 @@ Priority = {
 Utils = require("core.utils")
 Class = require("core.classes")
 Treesitter = Class.Treesitter_parsers:new({
+    "vim",
+    "vimdoc",
     "gitcommit",
     "gitignore",
     "gitattributes",
