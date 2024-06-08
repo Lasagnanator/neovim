@@ -14,6 +14,7 @@ return {
     markdown = false,
     nvim = false,
     nginx = false,
+    perl = false,
     php = false,
     powershell = false,
     python = false,
