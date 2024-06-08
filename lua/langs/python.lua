@@ -23,6 +23,8 @@ require("lspconfig").pyright.setup({
 })
 
 -- NOTE: in case I want to use pylsp
+
+--[[
 require("lspconfig").pylsp.setup({
     on_attach = utils.on_attach,
     capabilities = utils.set_capabilities(),
@@ -36,6 +38,7 @@ require("lspconfig").pylsp.setup({
         }
     }
 })
+--]]
 
 require('lint').linters_by_ft.python = { "pylint" }
 
