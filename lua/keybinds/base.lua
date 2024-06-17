@@ -31,7 +31,7 @@ local base = keys:new({
 
     -- Quit
     key:new("", "<Leader>qd", "<Cmd>qa!<CR>", "Quit whitout saving", silent),
-    key:new("", "<Leader>qq", "<Cmd>wqa<CR>", "Quit and save", silent),
+    key:new("", "<Leader>qq", "<Cmd>wa<CR><Cmd>qa<CR>", "Quit and save", silent),
 
     -- Tabs
     key:new("", "<Leader><Tab>n", "<Cmd>tabnew<CR>", "New", silent),
