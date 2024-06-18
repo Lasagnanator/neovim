@@ -1,17 +1,21 @@
 local function is_ansible(_, bufnr)
     local content = vim.api.nvim_buf_get_lines(bufnr, 0, 5, false) or { "" }
+    local ansible = false
     for _, line in pairs(content) do
         if
-            vim.regex([[.*- name:]]):match_str(line) ~= nil or
+            vim.regex([[.*name:]]):match_str(line) ~= nil or
             vim.regex([[.*hosts:]]):match_str(line) ~= nil or
             vim.regex([[.*become:]]):match_str(line) ~= nil or
             vim.regex([[.*tasks:]]):match_str(line) ~= nil or
             vim.regex([[.*vars_files:]]):match_str(line) ~= nil
         then
+            ansible = true
             return 'yaml.ansible'
         end
     end
-    return 'yaml'
+    if not ansible then
+        return 'yaml'
+    end
 end
 
 vim.filetype.add({

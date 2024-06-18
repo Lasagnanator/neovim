@@ -18,11 +18,12 @@ require("lspconfig").ansiblels.setup({
 })
 
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufRead" }, {
     pattern = { "*.yml", "*.yaml", "*.ansible" },
     callback = function ()
         if vim.bo.ft == "yaml.ansible" then
-            vim.cmd("TSBufDisable indent highlight")
+            vim.cmd("TSBufDisable indent")
+            vim.cmd("TSBufDisable highlight")
         end
     end
 })
