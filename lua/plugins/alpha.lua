@@ -101,7 +101,7 @@ return {
                 button("", "Neogit", "g", ""),
                 button("󰏇", "Explorer", "e", "Oil"),
                 button("", "Word", "w", "Telescope live_grep"),
-                button("", "Quit", "q", "q!")
+                button("󰅙", "Quit", "q", "q!")
             },
         }
 
