@@ -3,7 +3,13 @@ if not Langs.shell then return {} end
 local utils = require("core.utils")
 
 Treesitter:update({ "bash", "awk" })
-Mason:update({ "bash-language-server", "shfmt", "beautysh", "awk-language-server"})
+
+-- Conditional installation for Tumbleweed bug
+if vim.fn.executable("awk-language-server") then
+    Mason:update({ "bash-language-server", "shfmt", "beautysh" })
+else
+    Mason:update({ "bash-language-server", "shfmt", "beautysh", "awk-language-server" })
+end
 
 require("lspconfig").bashls.setup({
     on_attach = utils.on_attach,
