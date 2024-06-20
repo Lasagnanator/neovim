@@ -1,10 +1,11 @@
-Treesitter:update("norg")
-
 return {
     {
+        "vhyrro/luarocks.nvim",
+        config = true,
+        priority = 1000
+    },
+    {
         "nvim-neorg/neorg",
-        ft = "norg",
-        cmd = "Neorg",
         opts = {
             load = {
                 ["core.defaults"] = {},
@@ -43,10 +44,8 @@ return {
                 -- ["external.context"] = {},
             },
         },
-        init = function() require("keybinds.plugins.neorg"):set() end,
-        dependencies = {
-            "vhyrro/luarocks.nvim",
-            config = true
-        },
+        cmd = "Neorg",
+        keys = require("keybinds.plugins.neorg"):to_lazy(),
+        dependencies = { "vhyrro/luarocks.nvim" },
     },
 }
