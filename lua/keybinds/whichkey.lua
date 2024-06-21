@@ -15,7 +15,10 @@ return {
         h = { name = "Harpoon" },
         k = { name = "Buffer" },
         m = { name = "Language" },
-        n = { name = "Neorg" },
+        n = {
+            name = "Neorg",
+            g = { name = "Generate" },
+        },
         o = {
             name = "Open",
             t = { name = "Transfer" }
