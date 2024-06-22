@@ -18,6 +18,8 @@ local excluded_buffers = {
 }
 
 return {
+    -- WARN: Remove plugin if Dropbar is worth
+    enabled = false,
     "utilyre/barbecue.nvim",
     name = "barbecue",
     opts = {

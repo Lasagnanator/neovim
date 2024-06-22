@@ -1,4 +1,6 @@
 return {
+    -- WARN: Remove plugin if Dropbar is worth
+    enabled = false,
     "SmiteshP/nvim-navbuddy",
     opts= {
         lsp = {
