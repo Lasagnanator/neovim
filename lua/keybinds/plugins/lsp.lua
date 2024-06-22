@@ -8,7 +8,7 @@ function M.on_attach(args)
         key:new("n", "<Leader>cr", vim.lsp.buf.rename, "Rename symbol", args),
         key:new("n", "<Leader>cd", function() vim.lsp.buf.definition({ reuse_win = true, }) end, "Goto definition", args),
         key:new("n", "<Leader>cD", function() vim.lsp.buf.declaration({ reuse_win = true, }) end, "Goto declaration", args),
-        key:new("n", "<Leader>ci", vim.lsp.buf.hover, "Open hover", args),
+        key:new("n", "<C-h>", vim.lsp.buf.hover, "Open hover", args),
         key:new("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions", args),
         key:new("n", "<Leader>cwa", vim.lsp.buf.add_workspace_folder, "Add workspace folder", args),
         key:new("n", "<Leader>cwr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder", args),
