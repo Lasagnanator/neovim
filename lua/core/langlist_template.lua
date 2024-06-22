@@ -5,6 +5,7 @@ return {
     docker = false,
     elixir = false,
     fish = false,
+    flutter = false,
     go = false,
     hyprland = false,
     json = false,
