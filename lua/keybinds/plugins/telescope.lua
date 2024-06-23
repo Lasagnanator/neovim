@@ -4,7 +4,7 @@ local silent = { noremap = true, silent = true }
 
 return keys:new({
     key:new("n", "<Leader>fb", require("telescope").extensions.file_browser.file_browser, "Browser", silent),
-    key:new("n", "<Leader>fe", require("telescope.builtin").diagnostics, "Browser", silent),
+    key:new("n", "<Leader>fd", require("telescope.builtin").diagnostics, "Diagnostics", silent),
     key:new("n", "<Leader>ff", require("telescope.builtin").find_files, "Files", silent),
     key:new("n", "<Leader>fh", require("telescope.builtin").help_tags, "Help", silent),
     key:new("n", "<Leader>fk", require("telescope.builtin").buffers, "Buffers", silent),

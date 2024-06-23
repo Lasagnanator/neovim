@@ -12,9 +12,9 @@ local signs  = {
 }
 
 return keys:new({
-    key:new("n", "<Leader>fd", "<Cmd>TodoTelescope<CR>", "To-do", silent),
-    key:new("n", "<Leader>rd", "<Cmd>TodoTrouble<CR>", "To-do", silent),
-    key:new("n", "<Leader>xd", function()
+    key:new("n", "<Leader>fe", "<Cmd>TodoTelescope<CR>", "To-do", silent),
+    key:new("n", "<Leader>re", "<Cmd>TodoTrouble<CR>", "To-do", silent),
+    key:new("n", "<Leader>xe", function()
         vim.ui.select({ "FIX", "TODO", "HACK", "WARN", "PERF", "NOTE", "TEST", "ALL" }, {}, function(input)
             if input == "ALL" then
                 vim.cmd("TodoQuickFix")
