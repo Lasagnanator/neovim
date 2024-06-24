@@ -64,13 +64,14 @@ require("lspconfig").gopls.setup({
 return {
     {
         "ray-x/go.nvim",
-        config = function()
-            require("go").setup()
-        end,
-        event = { "CmdlineEnter" },
+        opts = {
+            lsp_cfg = false,
+            lsp_inlay_hints = {
+                enable = false,
+            },
+        },
         ft = { "go", "gomod", "gosum", "gotmpl", "gowork" },
-        -- build = ":lua require('go.install').update_all_sync()", -- if you need to install/update all binaries
-        dependencies = { -- optional packages
+        dependencies = {
             "ray-x/guihua.lua",
             "neovim/nvim-lspconfig",
             "nvim-treesitter/nvim-treesitter",
