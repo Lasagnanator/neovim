@@ -1,11 +1,9 @@
+if not Langs.neorg then return {} end
+
 return {
     {
-        "vhyrro/luarocks.nvim",
-        config = true,
-        priority = 1000
-    },
-    {
         "nvim-neorg/neorg",
+        lazy = false,
         opts = {
             load = {
                 ["core.defaults"] = {},
@@ -41,11 +39,9 @@ return {
                 },
                 ["core.export"] = {},
                 ["core.summary"] = {},
-                -- ["external.context"] = {},
             },
         },
         cmd = "Neorg",
         keys = require("keybinds.plugins.neorg"):to_lazy(),
-        dependencies = { "vhyrro/luarocks.nvim" },
     },
 }

@@ -13,6 +13,7 @@ return {
     kitty = false,
     lua = false,
     markdown = false,
+    neorg = false,
     nvim = false,
     nginx = false,
     perl = false,
