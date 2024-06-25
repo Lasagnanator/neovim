@@ -1,5 +1,6 @@
 return {
     "folke/noice.nvim",
+    lazy = false,
     opts = {
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -21,10 +22,7 @@ return {
             -- lsp_doc_border = false, -- add a border to hover docs and signature help
         },
     },
-    config = function (_, opts)
-        require("noice").setup(opts)
-        require("keybinds.plugins.noice"):set()
-    end,
+    keys = require("keybinds.plugins.noice"):to_lazy(),
     dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-treesitter/nvim-treesitter",
