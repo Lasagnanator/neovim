@@ -10,15 +10,23 @@ return {
         "someone-stole-my-name/yaml-companion.nvim",
         config = function()
             local config = require("yaml-companion").setup({
-                builtin_matchers = { kubernetes = { enabled = true } },
+                builtin_matchers = {
+                    kubernetes = { enabled = true },
+                    cloud_init = { enabled = true }
+                },
+                -- schemas = require("schemastore").yaml.schemas(),
                 lspconfig = {
                     on_attach = utils.on_attach,
                     capabilities = utils.set_capabilities(),
                     settings = {
                         redhat = { telemetry = { enabled = false } },
                         yaml = {
-                            schemaStore = { enable = false },
-                            schemas = require('schemastore').yaml.schemas(),
+                            schemaStore = {
+                                enable = true,
+                                -- enable = false,
+                                -- url = "",
+                            },
+                            -- schemas = require("schemastore").yaml.schemas(),
                         },
                     },
                 }
