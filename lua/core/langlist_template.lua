@@ -27,6 +27,7 @@ return {
     svelte = false,
     terraform = false,
     tex = false,
+    toml = false,
     vue = false,
     web = false,
     yaml = false,
