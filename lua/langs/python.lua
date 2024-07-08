@@ -5,7 +5,22 @@ local utils = require("core.utils")
 -- List from personal laptop
 -- Mason:update({ "autopep8", "debugpy", "mypy", "pydocstyle", "pylint", "pyright" })
 Treesitter:update("python")
-Mason:update({ "debugpy", "pyink", "pylint", "pyright" })
+Mason:update({ "debugpy", "pyink", "pylint", "basedpyright" --[[ "pyright"  ]]})
+
+require("lspconfig").basedpyright.setup({
+    on_attach = utils.on_attach,
+    capabilities = utils.set_capabilities(),
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = "basic", -- Options: off, basic, strict
+            },
+        },
+    },
+})
 
 require("lspconfig").pyright.setup({
     on_attach = utils.on_attach,
