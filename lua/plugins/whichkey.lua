@@ -3,6 +3,15 @@ return {
     config = function()
         local wk = require("which-key")
         wk.setup({
+            modes = {
+                n = true, -- Normal mode
+                i = false, -- Insert mode
+                x = false, -- Visual mode
+                s = false, -- Select mode
+                o = false, -- Operator pending mode
+                t = false, -- Terminal mode
+                c = false, -- Command mode
+            },
             plugins = {
                 marks = true,
                 registers = false,
@@ -14,6 +23,6 @@ return {
                 }
             },
         })
-        wk.register(require("keybinds.whichkey"))
+        wk.add(require("keybinds.whichkey"))
     end
 }
