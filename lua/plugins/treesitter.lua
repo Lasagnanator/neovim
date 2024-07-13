@@ -7,7 +7,7 @@ local function disabled_langs()
 end
 
 return {
-    "nvim-treesitter/nvim-treesitter",     -- Syntax highlighting
+    "nvim-treesitter/nvim-treesitter", -- Syntax highlighting
     priority = Priority.treesitter,
     main = "nvim-treesitter.configs",
     opts = {
@@ -24,5 +24,11 @@ return {
             enable = true,
             keymaps = require("keybinds.plugins.treesitter").incremental_selection,
         },
+    },
+    dependencies = {
+        {
+            "nushell/tree-sitter-nu",
+            enabled = Langs.nu,
+        }
     },
 }

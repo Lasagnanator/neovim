@@ -16,6 +16,7 @@ return {
     neorg = false,
     nginx = false,
     nix = false,
+    nu = false,
     nvim = false,
     perl = false,
     php = false,
