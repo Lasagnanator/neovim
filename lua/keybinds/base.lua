@@ -74,8 +74,8 @@ local base = keys:new({
     -- Quickfix
     key:new("", "<Leader>xo", "<Cmd>copen<CR>", "Open", silent),
     key:new("", "<Leader>xc", "<Cmd>call setqflist([])<CR>", "Clear", silent),
-    key:new("", "]x", "<Cmd>cnext<CR>", "Next", silent),
-    key:new("", "[x", "<Cmd>cprev<CR>", "Previous", silent),
+    key:new("", "]x", "<Cmd>cnext<CR>", "Quickfix", silent),
+    key:new("", "[x", "<Cmd>cprev<CR>", "Quickfix", silent),
 
     -- Buffer actions
     key:new({ "n", "x" }, "<Leader>zh", "K", "Search in the manual", silent),
