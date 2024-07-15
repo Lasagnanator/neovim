@@ -6,16 +6,6 @@ return {
         local ver = vim.version()
         local alpha = require("alpha")
 
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "AlphaReady",
-            command = "set showtabline=0"
-        })
-
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "AlphaClosed",
-            command = "set showtabline=2"
-        })
-
         local padding = {
             type = "padding",
             val = 2

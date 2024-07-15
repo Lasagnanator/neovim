@@ -43,21 +43,25 @@ return {
             }
         }
     },
-    init = function()
+
+    config = function (_, opts)
         local telescope = require("telescope")
         telescope.load_extension("fzf")
         telescope.load_extension("ui-select")
         telescope.load_extension("file_browser")
+        telescope.load_extension("telescope-tabs")
+        telescope.setup(opts)
         require("keybinds.plugins.telescope"):set()
     end,
     dependencies = {
         {
-            "nvim-telescope/telescope-fzf-native.nvim",     -- fzf integration for Telescope
+            "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
         },
-        "nvim-telescope/telescope-ui-select.nvim",     -- Use Telescope as a selector
+        "nvim-telescope/telescope-ui-select.nvim",
         "nvim-telescope/telescope-live-grep-args.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
+        "LukasPietzschmann/telescope-tabs",
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons"
     },

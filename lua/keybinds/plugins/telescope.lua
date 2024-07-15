@@ -10,4 +10,5 @@ return keys:new({
     key:new("n", "<Leader>fk", require("telescope.builtin").buffers, "Buffers", silent),
     -- key:new("n", "<Leader>fw", require("telescope.builtin").live_grep, "Live grep", silent),
     key:new("n", "<Leader>fw", require("telescope").extensions.live_grep_args.live_grep_args, "Live grep", silent),
+    key:new("n", "<Leader><Tab><Tab>", require("telescope-tabs").list_tabs, "List", silent),
 })
