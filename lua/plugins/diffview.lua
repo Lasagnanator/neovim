@@ -1,3 +1,4 @@
+---@diagnostic disable: different-requires
 return {
     "sindrets/diffview.nvim",     -- Viewer for diffs and merge resolution
     config = function()
@@ -12,11 +13,13 @@ return {
                 },
             },
             keymaps = {
-                disable_defaults = false,     -- Disable the default keymaps
+                disable_defaults = false,
                 view = require("keybinds.plugins.diffview").view:to_list()
             },
         })
         require("keybinds.plugins.diffview").global:set()
+        -- TODO: check if it works at least on Linux
+        vim.opt.fillchars:append({ diff = "╱" })
     end,
     dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
 }
