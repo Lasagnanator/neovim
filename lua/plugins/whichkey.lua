@@ -3,14 +3,12 @@ return {
     config = function()
         local wk = require("which-key")
         wk.setup({
-            modes = {
-                n = true, -- Normal mode
-                i = false, -- Insert mode
-                x = false, -- Visual mode
-                s = false, -- Select mode
-                o = false, -- Operator pending mode
-                t = false, -- Terminal mode
-                c = false, -- Command mode
+            ---@param ctx { mode: string, operator: string }
+            defer = function(ctx)
+                return vim.list_contains({ "v", "V", "<C-V>" }, ctx.mode)
+            end,
+            triggers = {
+                { "<auto>", mode = "nx" },
             },
             plugins = {
                 marks = true,
