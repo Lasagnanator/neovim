@@ -22,6 +22,7 @@ return {
     php = false,
     powershell = false,
     python = false,
+    restapi = false,
     ruby = false,
     rust = false,
     shell = false,
