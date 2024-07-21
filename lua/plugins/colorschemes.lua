@@ -59,6 +59,19 @@ return {
         priority = Priority.colorscheme,
     },
     {
+        "navarasu/onedark.nvim",
+        enabled = isChosenColorscheme("onedark"),
+        opts = {
+            style = "dark", -- dark, darker, cool, deep, warm, warmer, light
+            transparent = false,
+            term_colors = true,
+        },
+        init = function()
+            vim.cmd("colorscheme onedark")
+        end,
+        priority = Priority.colorscheme
+    },
+    {
         "shaunsingh/moonlight.nvim",
         enabled = isChosenColorscheme("moonlight"),
         init = function()
