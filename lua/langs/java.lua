@@ -26,12 +26,15 @@ return {
                 pattern = "*.java",
                 callback = function()
                     local data = vim.fn.stdpath('data')
-                    -- local jdtls_launcher_explicit = data .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar'
-                    local jdtls_launcher = vim.fn.glob(data .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar')
-                    local lombok = data .. '/mason/packages/jdtls/lombok.jar'
+                    local jdtls_launcher = vim.fn.glob(data ..
+                        '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar')
                     local jdtls_config = data .. '/mason/packages/jdtls/config_linux'
+                    local java_debug = vim.fn.glob(data ..
+                        '/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar')
+                    local lombok = data .. '/mason/packages/jdtls/lombok.jar'
                     local workspace = data .. '/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
+                    vim.print(java_debug)
                     require("jdtls").start_or_attach({
                         cmd = {
                             'java',
@@ -76,12 +79,18 @@ return {
                         },
 
                         init_options = {
-                            bundles = {},
+                            bundles = {
+                                java_debug
+                            },
                         },
                     })
                 end
             })
-        end
+        end,
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "mfussenegger/nvim-dap",
+        }
     },
     {
         "simaxme/java.nvim",
