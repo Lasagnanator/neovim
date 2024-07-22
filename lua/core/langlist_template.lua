@@ -21,6 +21,7 @@ return {
     perl = false,
     php = false,
     powershell = false,
+    puppet = false,
     python = false,
     restapi = false,
     ruby = false,
