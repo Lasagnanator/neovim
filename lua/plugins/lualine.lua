@@ -55,7 +55,16 @@ return {
             },
             lualine_x = {
                 {
-                    require("lazy.status").updates,
+                    function() -- Yaml schema name
+                        local schema = require("yaml-companion").get_buf_schema(0)
+                        if schema.result[1].name == "none" then
+                            return ""
+                        end
+                        return schema.result[1].name
+                    end
+                },
+                {
+                    require("lazy.status").updates, -- Plugin updates
                     cond = require("lazy.status").has_updates,
                 },
                 "filetype",
