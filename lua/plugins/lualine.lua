@@ -90,8 +90,5 @@ return {
             },
         },
     },
-    init = function()
-        require("keybinds.plugins.lualine"):set()
-    end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
 }
