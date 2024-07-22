@@ -13,7 +13,8 @@ local excluded_buffers = {
     "alpha",
     "dbui",
     "dbout",
-    "norg"
+    "diff",
+    "undotree",
 }
 
 return {
