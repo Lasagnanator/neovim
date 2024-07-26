@@ -78,8 +78,11 @@ local base = keys:new({
     key:new("", "[x", "<Cmd>cprev<CR>", "Quickfix", silent),
 
     -- Buffer actions
-    key:new({ "n", "x" }, "<Leader>zh", "K", "Search in the manual", silent),
     key:new("n", "<S-k>", "k<S-j>", "Join with line above", silent),
+    key:new("n", "<Leader>zh", "K", "Search in the manual", silent),
+    key:new("n", "<Leader>zga", "<Cmd>call setreg('+', expand('%:p'))<CR>", "Absolute path", silent),
+    key:new("n", "<Leader>zgr", "<Cmd>call setreg('+', expand('%'))<CR>", "Relative path", silent),
+    key:new("n", "<Leader>zgp", "<Cmd>call setreg('+', getcwd())<CR>", "Current directory", silent),
     key:new({ "n", "x" }, "<Leader>zy", [["+y]], "Yank to clipboard", silent),
     key:new({ "n", "x" }, "<Leader>zp", [["+p]], "Paste from clipboard", silent),
     key:new({ "n", "x" }, "<Leader>zP", [["+P]], "Paste before from clipboard", silent),

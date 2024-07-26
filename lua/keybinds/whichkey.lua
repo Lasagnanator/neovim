@@ -26,6 +26,7 @@ return {
     { "<Leader>w",     group = "Window" },
     { "<Leader>x",     group = "Quickfix" },
     { "<Leader>z",     group = "Text manipulation" },
+    { "<Leader>zg",     group = "Paths" },
     { "[",             group = "Prev" },
     { "]",             group = "Next" },
 }
