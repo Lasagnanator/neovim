@@ -12,6 +12,7 @@ return {
     { "<Leader>k",     group = "Buffer" },
     { "<Leader>m",     group = "Language" },
     { "<Leader>n",     group = "Neorg" },
+    { "<Leader>ni",    group = "Index" },
     { "<Leader>ng",    group = "Generate" },
     { "<Leader>o",     group = "Open" },
     { "<Leader>ot",    group = "Transfer" },
