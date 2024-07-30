@@ -27,5 +27,15 @@ return {
             toc_header = "Table of Contents"
         },
         ft = { "markdown" }
+    },
+    {
+        "MeanderingProgrammer/markdown.nvim",
+        main = "render-markdown",
+        opts = {},
+        ft = { "markdown" },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        }
     }
 }
