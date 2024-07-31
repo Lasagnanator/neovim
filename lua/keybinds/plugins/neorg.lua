@@ -4,9 +4,9 @@ local silent   = { noremap = true, silent = true }
 
 return keys:new({
     key:new("n", "<Leader>nic", "<Cmd>Neorg index<CR>", "Current", silent),
-    key:new("n", "<Leader>nit", "<Cmd>tabnew<CR><Cmd>Neorg index<CR>", "Index", silent),
-    key:new("n", "<Leader>niv", "<Cmd>vs<CR><Cmd>Neorg index<CR>", "Index", silent),
-    key:new("n", "<Leader>nix", "<Cmd>sp<CR><Cmd>Neorg index<CR>", "Index", silent),
+    key:new("n", "<Leader>nit", "<Cmd>tabnew<CR><Cmd>Neorg index<CR>", "Tab", silent),
+    key:new("n", "<Leader>niv", "<Cmd>vs<CR><Cmd>Neorg index<CR>", "Vertical", silent),
+    key:new("n", "<Leader>nix", "<Cmd>sp<CR><Cmd>Neorg index<CR>", "Horizontal", silent),
     key:new("n", "<Leader>nq", "<Cmd>Neorg return<CR>", "Close", silent),
     key:new("n", "<Leader>nj", "<Cmd>tabnew<CR><Cmd>Neorg journal<CR>", "Journal", silent),
     key:new("n", "<Leader>nt", "<Cmd>Neorg toc<CR>", "Table of contents", silent),
