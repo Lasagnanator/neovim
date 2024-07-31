@@ -40,6 +40,13 @@ return {
                     { name = "buffer" },
                 })
             })
+            --<< Orgmode
+            cmp.setup.filetype("orgmode", {
+                sources = cmp.config.sources({
+                    { name = "orgmode" },
+                    { name = "luasnip" }
+                })
+            })
             --<< Tex
             cmp.setup.filetype({ "tex", "plaintex" }, {
                 sources = cmp.config.sources({

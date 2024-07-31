@@ -18,6 +18,7 @@ return {
     nix = false,
     nu = false,
     nvim = false,
+    orgmode = false,
     perl = false,
     php = false,
     powershell = false,
