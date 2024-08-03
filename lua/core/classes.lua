@@ -107,8 +107,10 @@ function M.Keybind:bufset()
 end
 
 ---Return a table formatted for a lazy keybind
-function M.Keybind:to_lazy()
+---@param ft? string|string[] keybinds
+function M.Keybind:to_lazy(ft)
     local lazy_keybind = { self.map, self.action, mode = self.mode, desc = self.desc }
+    lazy_keybind.ft = ft or {}
     for opt, value in pairs(self.opts) do
         lazy_keybind[opt] = value
     end
@@ -159,10 +161,12 @@ function M.Keybinds_group:bufset()
 end
 
 ---Return a list of tables formatted for a lazy keybind
-function M.Keybinds_group:to_lazy()
+---@param ft? string|string[] Filetypes for which the buffer should be defined
+function M.Keybinds_group:to_lazy(ft)
     local lazy_keybinds = {}
+    ft = ft or {}
     for _, keybind in pairs(self.keybinds) do
-        table.insert(lazy_keybinds, keybind:to_lazy())
+        table.insert(lazy_keybinds, keybind:to_lazy(ft))
     end
     return lazy_keybinds
 end
