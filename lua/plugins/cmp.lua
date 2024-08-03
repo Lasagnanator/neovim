@@ -41,7 +41,7 @@ return {
                 })
             })
             --<< Orgmode
-            cmp.setup.filetype("orgmode", {
+            cmp.setup.filetype("org", {
                 sources = cmp.config.sources({
                     { name = "orgmode" },
                     { name = "luasnip" }

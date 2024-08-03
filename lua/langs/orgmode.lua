@@ -5,7 +5,6 @@ Treesitter:update("org")
 return {
     {
         'nvim-orgmode/orgmode',
-        event = 'VeryLazy',
         ft = { 'org' },
         config = function()
             require('orgmode').setup({
@@ -17,7 +16,7 @@ return {
     {
         "chipsenkbeil/org-roam.nvim",
         opts = {
-            directory = os.getenv("HOME") .. "~/org",
+            directory = os.getenv("HOME") .. "/org",
         },
         dependencies = {
             "nvim-orgmode/orgmode",
@@ -28,8 +27,19 @@ return {
         config = function()
             require("org-bullets").setup()
         end,
+        ft = { "org" },
         dependencies = {
             "nvim-orgmode/orgmode",
         },
     },
+    {
+        "massix/org-checkbox.nvim",
+        opts = {
+            lhs = "<Leader>mc"
+        },
+        ft = { "org" },
+        dependencies = {
+            "nvim-orgmode/orgmode",
+        },
+    }
 }
