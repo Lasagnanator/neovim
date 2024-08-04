@@ -5,13 +5,34 @@ Treesitter:update("org")
 return {
     {
         'nvim-orgmode/orgmode',
-        ft = { 'org' },
-        config = function()
-            require('orgmode').setup({
-                org_agenda_files = os.getenv("HOME") .. "/org/**/*",
-                org_default_notes_file = os.getenv("HOME") .. "/orgfiles/refile.org",
-            })
-        end,
+        -- TODO: change keybinds
+        -- FIX: auto-folding parts, check nvim-ufo
+        opts = {
+            org_agenda_files = os.getenv("HOME") .. "/org/**/*",
+            org_default_notes_file = os.getenv("HOME") .. "/orgfiles/refile.org",
+            ui = {
+                menu = {
+                    -- NOTE: vim.notify example at https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#menu
+                    handler = function(data)
+                        require("org-modern.menu"):new({
+                            window = {
+                                margin = { 1, 0, 1, 0 },
+                                padding = { 0, 1, 0, 1 },
+                                title_pos = "center",
+                                border = "single",
+                                zindex = 1000,
+                            },
+                            icons = {
+                                separator = "➜",
+                            },
+                        }):open(data)
+                    end,
+                },
+            },
+        },
+        dependencies = {
+            "danilshvalov/org-modern.nvim"
+        }
     },
     {
         "chipsenkbeil/org-roam.nvim",
