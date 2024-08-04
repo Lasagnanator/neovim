@@ -13,6 +13,7 @@ return {
         opts = {
             org_agenda_files = os.getenv("HOME") .. "/org/**/*",
             org_default_notes_file = os.getenv("HOME") .. "/orgfiles/refile.org",
+            org_startup_folded = "inherit",
             ui = {
                 menu = {
                     -- NOTE: vim.notify example at https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#menu
