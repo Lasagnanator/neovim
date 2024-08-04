@@ -1,3 +1,5 @@
+-- NOTE: big WIP, highly unstable
+-- Right now many problems with the interactions with other plugins, like Noice (on confirm of org-roam windows)
 if not Langs.orgmode then return {} end
 
 Treesitter:update("org")
@@ -6,7 +8,8 @@ return {
     {
         'nvim-orgmode/orgmode',
         -- TODO: change keybinds
-        -- FIX: auto-folding parts, check nvim-ufo
+        -- TODO: configure roam
+        -- TODO: fix org-roam confirmation prompts
         opts = {
             org_agenda_files = os.getenv("HOME") .. "/org/**/*",
             org_default_notes_file = os.getenv("HOME") .. "/orgfiles/refile.org",

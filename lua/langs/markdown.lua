@@ -13,6 +13,7 @@ require("lspconfig").marksman.setup({
 require("lint").linters_by_ft.markdown = vim.empty_dict()
 
 return {
+    -- TODO: add Obsidian plugin
     {
         "iamcco/markdown-preview.nvim", -- Preview markdown files in browser
         build = "app/install.sh",
@@ -28,6 +29,7 @@ return {
         },
         ft = { "markdown" }
     },
+    -- TODO: try the other markdown candy plugin
     {
         "MeanderingProgrammer/markdown.nvim",
         main = "render-markdown",
