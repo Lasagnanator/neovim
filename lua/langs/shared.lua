@@ -9,6 +9,17 @@ return {
                 codeblock_highlight = false,
                 dash_highlight = false,
                 quote_highlight = false
+            },
+            norg = {
+                fat_headlines = false,
+                fat_headline_upper_string = "▄",
+                fat_headline_lower_string = "▀"
+            },
+
+            org = {
+                fat_headlines = false,
+                fat_headline_upper_string = "▄",
+                fat_headline_lower_string = "▀"
             }
         },
         ft = { "norg", "org" },
