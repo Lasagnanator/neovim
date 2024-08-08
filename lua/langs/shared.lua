@@ -11,13 +11,14 @@ return {
                 quote_highlight = false
             },
             norg = {
-                fat_headlines = false,
+                bullets = vim.empty_dict(),
+                fat_headlines = true,
                 fat_headline_upper_string = "▄",
                 fat_headline_lower_string = "▀"
             },
 
             org = {
-                fat_headlines = false,
+                fat_headlines = true,
                 fat_headline_upper_string = "▄",
                 fat_headline_lower_string = "▀"
             }
