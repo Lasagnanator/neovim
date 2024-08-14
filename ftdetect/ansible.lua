@@ -24,6 +24,9 @@ vim.filetype.add({
     extension = {
         ansible = "yaml.ansible"
     },
+    filename = {
+        inventory = "confini"
+    },
     pattern = {
         [".*/playbooks/.*%.yml"] = "yaml.ansible",
         [".*/playbooks/.*%.yaml"] = "yaml.ansible",
@@ -33,6 +36,6 @@ vim.filetype.add({
         [".*/roles/.*/handlers/.*%.yaml"] = "yaml.ansible",
         [".*%.yml"] = is_ansible,
         [".*%.yaml"] = is_ansible,
-        ["inventory_?.*"] = "confini"
+        ["inventory_.*"] = "confini"
     }
 })
