@@ -1,4 +1,5 @@
 return {
+    enabled = false,
     "folke/noice.nvim",
     lazy = false,
     opts = {
