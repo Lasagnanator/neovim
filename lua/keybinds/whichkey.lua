@@ -15,6 +15,7 @@ return {
     { "<Leader>ni",    group = "Index" },
     { "<Leader>ng",    group = "Generate" },
     { "<Leader>o",     group = "Open" },
+    { "<Leader>os",    group = "Remote" },
     { "<Leader>ot",    group = "Transfer" },
     { "<Leader>q",     group = "Quit" },
     { "<Leader>r",     group = "Trouble" },

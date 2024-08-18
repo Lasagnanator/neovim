@@ -50,6 +50,7 @@ return {
         telescope.load_extension("ui-select")
         telescope.load_extension("file_browser")
         telescope.load_extension("telescope-tabs")
+        telescope.load_extension("remote-sshfs")
         telescope.setup(opts)
         require("keybinds.plugins.telescope"):set()
     end,

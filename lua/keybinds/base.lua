@@ -106,7 +106,7 @@ local base = keys:new({
     key:new("t", "<esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
 
     -- Shortcuts
-    key:new("n", "<Leader>os", function()
+    key:new("n", "<Leader>oq", function()
         vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/core/langlist.lua")
     end, "Open language list", silent)
 })
