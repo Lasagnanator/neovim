@@ -6,8 +6,10 @@ local function is_ansible(_, bufnr)
             vim.regex([[.*name:]]):match_str(line) ~= nil or
             vim.regex([[.*hosts:]]):match_str(line) ~= nil or
             vim.regex([[.*become:]]):match_str(line) ~= nil or
+            vim.regex([[.*become_user:]]):match_str(line) ~= nil or
             vim.regex([[.*tasks:]]):match_str(line) ~= nil or
             vim.regex([[.*collections:]]):match_str(line) ~= nil or
+            vim.regex([[.*roles:]]):match_str(line) ~= nil or
             vim.regex([[.*vars_files:]]):match_str(line) ~= nil
         then
             matched_lines = matched_lines + 1
