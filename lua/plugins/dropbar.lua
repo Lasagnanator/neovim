@@ -1,6 +1,8 @@
 return {
     {
         "Bekaboo/dropbar.nvim",
+        -- TODO: remove when https://github.com/Bekaboo/dropbar.nvim/issues/177 is fixed
+        commit = "d26bf92",
         lazy = false,
         keys = require("keybinds.plugins.dropbar"):to_lazy(),
         dependencies = {
