@@ -12,6 +12,7 @@ vim.keymap.set("", "<Space>", "<Nop>", silent)
 vim.keymap.set("", "<Esc>", "<Esc>", silent)
 
 local base = keys:new({
+
     -- Buffer
     key:new("", "<Leader>kd", "<Cmd>bp|bd! #<CR>", "Close current buffer", silent),
     key:new("", "<Leader>kD", function()
