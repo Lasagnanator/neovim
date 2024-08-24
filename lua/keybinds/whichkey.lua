@@ -6,6 +6,7 @@ return {
     { "<Leader>d",     group = "Debug" },
     { "<Leader>e",     group = "Explorer" },
     { "<Leader>f",     group = "Find" },
+    { "<Leader>fg",    group = "Git" },
     { "<Leader>g",     group = "Git" },
     { "<Leader>gh",    group = "History" },
     { "<Leader>h",     group = "Harpoon" },
@@ -28,7 +29,7 @@ return {
     { "<Leader>w",     group = "Window" },
     { "<Leader>x",     group = "Quickfix" },
     { "<Leader>z",     group = "Text manipulation" },
-    { "<Leader>zg",     group = "Paths" },
+    { "<Leader>zg",    group = "Paths" },
     { "[",             group = "Prev" },
     { "]",             group = "Next" },
 }
