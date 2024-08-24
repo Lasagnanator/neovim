@@ -11,11 +11,9 @@ vim.g.maplocalleader = " "
 vim.keymap.set("", "<Space>", "<Nop>", silent)
 vim.keymap.set("", "<Esc>", "<Esc>", silent)
 
--- Buffer
-
 local base = keys:new({
     -- Buffer
-    key:new("", "<Leader>kd", "<Cmd>bd!<CR>", "Close current buffer", silent),
+    key:new("", "<Leader>kd", "<Cmd>bp|bd! #<CR>", "Close current buffer", silent),
     key:new("", "<Leader>kD", function()
         local buffers = vim.fn.getbufinfo()
         for _, buffer in pairs(buffers) do
@@ -26,6 +24,7 @@ local base = keys:new({
     end, "Close all background buffers", silent),
     key:new("", "<Leader>ks", "<Cmd>w<CR>", "Save current buffer", silent),
     key:new("", "<Leader>kS", "<Cmd>wa<CR>", "Save all buffers", silent),
+    key:new("", "<Leader>kw", "<Cmd>bd<CR>", "Close current buffer and window", silent),
     key:new("", "]k", "<Cmd>bnext<CR>", "Buffer", silent),
     key:new("", "[k", "<Cmd>bprev<CR>", "Buffer", silent),
 
@@ -94,7 +93,7 @@ local base = keys:new({
     key:new({ "n", "x" }, "<C-b>", "<C-b>zz", "Jump whole page up and center the line", silent),
     key:new("x", ">", ">gv", "Indent selection", silent),
     key:new("x", "<", "<gv", "De-indent selection", silent),
-    key:new("x", "p", '"_dP', "Substitute selection", silent),  -- TODO: add conditional use for last line and last character
+    key:new("x", "p", '"_dP', "Substitute selection", silent), -- TODO: add conditional use for last line and last character
     -- FIXME: not working
     key:new("x", "<A-j>", ":move .+1<CR>==", "Move line up", silent),
     key:new("x", "<A-k>", ":move .-1<CR>==", "Move line down", silent),
