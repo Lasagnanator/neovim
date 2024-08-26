@@ -1,2 +1,2 @@
 --<< Keybinds
-if Langs.restapi then require("keybinds.filetypes.hurl"):bufset() end
+if Langs.hurl then require("keybinds.filetypes.hurl"):bufset() end
