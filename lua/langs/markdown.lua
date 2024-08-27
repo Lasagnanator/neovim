@@ -10,8 +10,6 @@ require("lspconfig").marksman.setup({
     capabilities = utils.set_capabilities(),
 })
 
-require("lint").linters_by_ft.markdown = vim.empty_dict()
-
 return {
     -- TODO: add Obsidian plugin
     {
