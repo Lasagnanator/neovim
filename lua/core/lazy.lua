@@ -21,7 +21,7 @@ if not ok then
 end
 
 --<< Variables
-Colorscheme = "onedark"
+Colorscheme = "tokyonight"
 Priority = {
     colorscheme = 1000,
     treesitter = 900,
