@@ -3,16 +3,17 @@ local function is_ansible(_, bufnr)
     local matched_lines = 0
     for _, line in pairs(content) do
         if
-            vim.regex([[.*name:]]):match_str(line) ~= nil or
-            vim.regex([[.*hosts:]]):match_str(line) ~= nil or
-            vim.regex([[.*become:]]):match_str(line) ~= nil or
-            vim.regex([[.*become_user:]]):match_str(line) ~= nil or
-            vim.regex([[.*tasks:]]):match_str(line) ~= nil or
-            vim.regex([[.*collections:]]):match_str(line) ~= nil or
-            vim.regex([[.*roles:]]):match_str(line) ~= nil or
-            vim.regex([[.*vars:]]):match_str(line) ~= nil or
-            vim.regex([[.*vars_files:]]):match_str(line) ~= nil
+            vim.regex([[^\(-\|\s\)\{2}name:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}hosts:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}become:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}become_user:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}tasks:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}collections:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}roles:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}vars:]]):match_str(line) ~= nil or
+            vim.regex([[^\(-\|\s\)\{2}vars_files:]]):match_str(line) ~= nil
         then
+            vim.notify("Matched line: " .. line)
             matched_lines = matched_lines + 1
         end
     end
