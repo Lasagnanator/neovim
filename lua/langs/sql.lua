@@ -39,6 +39,7 @@ return {
             require("dbee").setup()
         end,
         keys = require("keybinds.plugins.dbee"):to_lazy(),
+        lazy = false,
         build = function()
             -- Install tries to automatically detect the install method.
             -- if it fails, try calling it with one of these parameters:
