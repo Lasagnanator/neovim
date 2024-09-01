@@ -1,3 +1,4 @@
 return {
-    "echasnovski/mini.ai"
+    "echasnovski/mini.ai",
+    config = true,
 }
