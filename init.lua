@@ -1,3 +1,8 @@
+-- Demo Neovim extension inside VSCode
+if vim.g.vscode then
+    return
+end
+
 require("core.settings")
 require("core.langs")
 require("keybinds.base")
