@@ -5,7 +5,7 @@ local M = {}
 function M.on_attach(args)
     return keys:new({
         key:new("n", "<Leader>ci", vim.diagnostic.open_float, "Open description", args),
-        key:new("n", "<Leader>cr", function () return ":IncRename " .. vim.fn.expand("<cword>") end, "Rename symbol", { expr = true }),
+        key:new("n", "<Leader>cr", function () return ":IncRename " end, "Rename symbol", { expr = true }),
         key:new("n", "<Leader>cd", function() vim.lsp.buf.definition({ reuse_win = true, }) end, "Goto definition", args),
         key:new("n", "<Leader>cD", function() vim.lsp.buf.declaration({ reuse_win = true, }) end, "Goto declaration", args),
         key:new("n", "<C-h>", vim.lsp.buf.hover, "Open hover", args),
