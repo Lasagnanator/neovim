@@ -8,7 +8,7 @@ local function oil_wincmd(cmd)
     require("oil").open()
 end
 
-M.general    = keys:new({
+M.global    = keys:new({
     key:new("n", "<Leader>eo", function() require("oil").open() end, "Open explorer", silent),
     -- key:new("n", "<Leader>ef", function() require("oil").open_float() end, "Open explorer", silent),
     key:new("n", "<Leader>ex", function() oil_wincmd("split") end, "Open explorer in horizontal split", silent),

@@ -16,6 +16,6 @@ return {
             keymaps = require("keybinds.plugins.oil").navigation
         })
     end,
-    keys = require("keybinds.plugins.oil").general:to_lazy(),
+    keys = require("keybinds.plugins.oil").global:to_lazy(),
     dependencies = { "nvim-tree/nvim-web-devicons" }
 }
