@@ -10,7 +10,7 @@ end
 return {
     {
         "folke/tokyonight.nvim", -- Tokyonight Neovim theme
-        enabled = isChosenColorscheme("tokyonight"),
+        cond = isChosenColorscheme("tokyonight"),
         opts = {
             style = "night",
             -- transparent = isNeovide(),
@@ -27,7 +27,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        enabled = isChosenColorscheme("catppuccin"),
+        cond = isChosenColorscheme("catppuccin"),
         name = "catppuccin",
         opts = {
             flavour = "macchiato",
@@ -40,7 +40,7 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        enabled = isChosenColorscheme("gruvbox"),
+        cond = isChosenColorscheme("gruvbox"),
         init = function()
             vim.cmd("colorscheme gruvbox")
         end,
@@ -48,7 +48,7 @@ return {
     },
     {
         "maxmx03/fluoromachine.nvim",
-        enabled = isChosenColorscheme("fluoromachine"),
+        cond = isChosenColorscheme("fluoromachine"),
         opts = {
             glow = false,
             theme = "fluoromachine"
@@ -60,7 +60,7 @@ return {
     },
     {
         "navarasu/onedark.nvim",
-        enabled = isChosenColorscheme("onedark"),
+        cond = isChosenColorscheme("onedark"),
         opts = {
             style = "dark", -- dark, darker, cool, deep, warm, warmer, light
             transparent = false,
@@ -73,7 +73,7 @@ return {
     },
     {
         "shaunsingh/moonlight.nvim",
-        enabled = isChosenColorscheme("moonlight"),
+        cond = isChosenColorscheme("moonlight"),
         init = function()
             vim.cmd("colorscheme moonlight")
         end,
@@ -81,7 +81,7 @@ return {
     },
     {
         "wilmanbarrios/palenight.nvim",
-        enabled = isChosenColorscheme("palenight"),
+        cond = isChosenColorscheme("palenight"),
         init = function()
             vim.cmd("colorscheme palenight")
         end,
@@ -89,7 +89,7 @@ return {
     },
     {
         "Mofiqul/dracula.nvim", -- Dracula Neovim theme
-        enabled = isChosenColorscheme("dracula"),
+        cond = isChosenColorscheme("dracula"),
         init = function()
             vim.g.dracula_colors = {
                 bg = "#282A36",
@@ -125,7 +125,7 @@ return {
     },
     {
         "lunarvim/synthwave84.nvim", -- Synthwave '84 Neovim theme
-        enabled = isChosenColorscheme("synthwave84"),
+        cond = isChosenColorscheme("synthwave84"),
         config = true,
         init = function()
             vim.cmd("colorscheme synthwave84")
