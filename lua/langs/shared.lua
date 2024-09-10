@@ -1,7 +1,7 @@
 return {
     {
         "lukas-reineke/headlines.nvim",
-        enabled = Langs.orgmode or Langs.neorg,
+        enabled = Langs.orgmode,
         opts = {
             markdown = {
                 headline_highlights = false,
