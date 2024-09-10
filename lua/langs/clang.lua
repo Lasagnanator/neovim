@@ -1,4 +1,4 @@
-if not Langs.lua then return {} end
+if not Langs.clang then return {} end
 
 local utils = require("core.utils")
 
