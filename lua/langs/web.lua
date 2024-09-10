@@ -15,7 +15,7 @@ require("lspconfig").html.setup({
     capabilities = utils.set_capabilities(),
 })
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
     on_attach = utils.on_attach,
     capabilities = utils.set_capabilities(),
 })
