@@ -3,7 +3,8 @@ local keys = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
 
 return keys:new({
-    key:new("", "<Leader>mb", "<Cmd>Rustc<CR>", "Build", silent),
-    key:new("", "<Leader>mt", "<Cmd>RustTest<CR>", "Test", silent),
-    key:new("", "<Leader>mr", "<Cmd>RustRun<CR>", "Run", silent),
+    key:new("n", "<Leader>mb", "<Cmd>Cargo build<CR>", "Build", silent),
+    key:new("n", "<Leader>mc", "<Cmd>Cargo check<CR>", "Check", silent),
+    key:new("n", "<Leader>mr", "<Cmd>Cargo run<CR>", "Run", silent),
+    key:new("n", "<Leader>mt", "<Cmd>Cargo test<CR>", "Test", silent),
 })
