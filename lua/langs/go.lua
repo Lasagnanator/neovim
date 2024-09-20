@@ -47,7 +47,6 @@ require("lspconfig").gopls.setup({
                 upgrade_dependency = true,
                 vendor = true,
             },
-            -- TODO: check which options should be disabled
             hints = {
                 assignVariableTypes = true,
                 compositeLiteralFields = true,
