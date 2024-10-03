@@ -32,7 +32,6 @@ return {
                 }
             })
             require("lspconfig").yamlls.setup(config)
-            -- TODO: add a keybind for the telescope extension
             require("telescope").load_extension("yaml_schema")
             vim.api.nvim_create_user_command("YamlCurrentSchema", function()
                 local schema = require("yaml-companion").get_buf_schema(0)
