@@ -1,5 +1,5 @@
 local function is_ansible(_, bufnr)
-    local content = vim.api.nvim_buf_get_lines(bufnr, 0, 5, false) or { "" }
+    local content = vim.api.nvim_buf_get_lines(bufnr, 0, 7, false) or { "" }
     local matched_lines = 0
     for _, line in pairs(content) do
         if
