@@ -78,6 +78,7 @@ return {
             })
             cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
                 sources = cmp.config.sources({
+                    { name = "cmp-dbee" },
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "vim-dadbod-completion" },
@@ -109,6 +110,7 @@ return {
             "hrsh7th/cmp-omni",           -- Completion with omnifunc plugins
             "kdheepak/cmp-latex-symbols", -- Completion for LaTeX symbols
             "petertriho/cmp-git",         -- Completion for git informations
+            "MattiasMTS/cmp-dbee",
             {
                 "L3MON4D3/LuaSnip",       -- Snippet engine
                 config = function()
