@@ -13,7 +13,6 @@ local function is_ansible(_, bufnr)
             vim.regex([[^\(-\|\s\)\{2}vars:]]):match_str(line) ~= nil or
             vim.regex([[^\(-\|\s\)\{2}vars_files:]]):match_str(line) ~= nil
         then
-            vim.notify("Matched line: " .. line)
             matched_lines = matched_lines + 1
         end
     end
