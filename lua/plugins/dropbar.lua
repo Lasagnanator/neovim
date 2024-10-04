@@ -1,9 +1,24 @@
 return {
     {
         "Bekaboo/dropbar.nvim",
-        -- TODO: remove when https://github.com/Bekaboo/dropbar.nvim/issues/177 is fixed
-        commit = "d26bf92",
         lazy = false,
+        opts = {
+            menu = {
+                keymaps = {
+                    ["<Tab>"] = function()
+                        local menu = require("dropbar.utils").menu.get_current()
+                        if not menu then
+                            return
+                        end
+                        local cursor = vim.api.nvim_win_get_cursor(menu.win)
+                        local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
+                        if component then
+                            menu:click_on(component, nil, 1, 'l')
+                        end
+                    end,
+                }
+            }
+        },
         keys = require("keybinds.plugins.dropbar"):to_lazy(),
         dependencies = {
             "nvim-tree/nvim-web-devicons",
