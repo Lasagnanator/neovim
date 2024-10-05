@@ -29,7 +29,6 @@ Priority = {
     lsp = 800,
     completion = 700,
 }
-Utils = require("core.utils")
 Class = require("core.classes")
 Treesitter = Class.Treesitter_parsers:new({
     "vim",
