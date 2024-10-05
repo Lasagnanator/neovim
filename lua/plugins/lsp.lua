@@ -4,7 +4,6 @@ return {
     },
     {
         "ray-x/lsp_signature.nvim", -- Shows signature of function while typing
-        event = "LspAttach",
         opts = {
             doc_lines            = 0,
             toggle_key           = require("keybinds.plugins.signature").toggle,
