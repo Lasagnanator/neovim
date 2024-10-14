@@ -1,5 +1,6 @@
 return {
     "ThePrimeagen/harpoon",
+    enabled = false,
     config = function()
         require("harpoon").setup({
             global_settings = {

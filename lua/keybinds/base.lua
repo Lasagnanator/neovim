@@ -103,7 +103,11 @@ local base = keys:new({
     -- key:new( "x", "<A-k>", ":move '<-2<CR>gv-gv", "Move block selection left", silent),
 
     -- Terminal
-    key:new("t", "<esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
+    key:new("t", "<Esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
+    key:new("t", "<A-h>", [[<C-\><C-n><C-w>h]], "Move left from terminal", silent),
+    key:new("t", "<A-j>", [[<C-\><C-n><C-w>j]], "Move down from terminal", silent),
+    key:new("t", "<A-k>", [[<C-\><C-n><C-w>k]], "Move up from terminal", silent),
+    key:new("t", "<A-l>", [[<C-\><C-n><C-w>l]], "Move right from terminal", silent),
 
     -- Shortcuts
     key:new("n", "<Leader>oq", function()
