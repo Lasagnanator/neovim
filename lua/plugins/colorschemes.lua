@@ -72,6 +72,17 @@ return {
         priority = Priority.colorscheme
     },
     {
+        "rebelot/kanagawa.nvim",
+        cond = isChosenColorscheme("kanagawa"),
+        init = function()
+            require("kanagawa").setup({
+                theme = "wave",
+            })
+            vim.cmd("colorscheme kanagawa")
+        end,
+        priority = Priority.colorscheme,
+    },
+    {
         "shaunsingh/moonlight.nvim",
         cond = isChosenColorscheme("moonlight"),
         init = function()
