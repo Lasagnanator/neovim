@@ -62,12 +62,16 @@ return {
         "navarasu/onedark.nvim",
         cond = isChosenColorscheme("onedark"),
         opts = {
-            style = "dark", -- dark, darker, cool, deep, warm, warmer, light
+            style = "darker", -- dark, darker, cool, deep, warm, warmer, light
             transparent = false,
             term_colors = true,
         },
-        init = function()
+        config = function(_, opts)
             vim.cmd("colorscheme onedark")
+            require("onedark").setup(opts)
+            vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator" })
+            vim.api.nvim_set_hl(0, "@lsp.type.operator", { link = "Operator" })
+            vim.api.nvim_set_hl(0, "CursorLineNr", { link = "Function" })
         end,
         priority = Priority.colorscheme
     },
@@ -87,6 +91,7 @@ return {
         cond = isChosenColorscheme("moonlight"),
         init = function()
             vim.cmd("colorscheme moonlight")
+            vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator" })
         end,
         priority = Priority.colorscheme,
     },
