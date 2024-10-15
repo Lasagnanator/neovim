@@ -54,3 +54,12 @@ autocmd("TermOpen", {
         vim.opt_local["relativenumber"] = false
     end
 })
+
+autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = "term://*",
+    callback = function (args)
+        if vim.api.nvim_get_option_value("buftype", { buf = args.buf }) == "terminal" then
+            vim.cmd("startinsert")
+        end
+    end
+})
