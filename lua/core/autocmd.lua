@@ -52,14 +52,20 @@ autocmd("TermOpen", {
     callback = function()
         vim.opt_local["number"] = false
         vim.opt_local["relativenumber"] = false
+        vim.cmd("startinsert")
     end
 })
 
-autocmd({ "BufEnter", "BufWinEnter" }, {
+autocmd("BufEnter", {
     pattern = "term://*",
-    callback = function (args)
-        if vim.api.nvim_get_option_value("buftype", { buf = args.buf }) == "terminal" then
-            vim.cmd("startinsert")
-        end
+    callback = function()
+        vim.cmd("startinsert")
+    end
+})
+
+autocmd("BufLeave", {
+    pattern = "term://*",
+    callback = function()
+        vim.cmd("stopinsert")
     end
 })
