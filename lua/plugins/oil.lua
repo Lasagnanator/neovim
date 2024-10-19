@@ -9,9 +9,12 @@ return {
                 "permissions",
                 "size"
             },
-            constrain_cursor = "name",
+            constrain_cursor = "editable",
             view_options = {
                 show_hidden = true
+            },
+            float = {
+                padding = 4,
             },
             keymaps = require("keybinds.plugins.oil").navigation
         })
