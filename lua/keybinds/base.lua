@@ -25,7 +25,7 @@ local base = keys:new({
     end, "Close all background buffers", silent),
     key:new("", "<Leader>ks", "<Cmd>w<CR>", "Save current buffer", silent),
     key:new("", "<Leader>kS", "<Cmd>wa<CR>", "Save all buffers", silent),
-    key:new("", "<Leader>kw", "<Cmd>bd<CR>", "Close current buffer and window", silent),
+    key:new("", "<Leader>kw", "<Cmd>bd!<CR>", "Close current buffer and window", silent),
     key:new("", "]k", "<Cmd>bnext<CR>", "Buffer", silent),
     key:new("", "[k", "<Cmd>bprev<CR>", "Buffer", silent),
 
