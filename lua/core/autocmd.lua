@@ -49,6 +49,7 @@ autocmd("TextYankPost", {
 })
 
 autocmd("TermOpen", {
+    pattern = "term://*",
     callback = function()
         vim.opt_local["number"] = false
         vim.opt_local["relativenumber"] = false
