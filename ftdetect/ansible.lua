@@ -1,4 +1,19 @@
 local function is_ansible(_, bufnr)
+    local patterns = {
+        ".*/playbooks/.*%.yml",
+        ".*/playbooks/.*%.yaml",
+        ".*/roles/.*/tasks/.*%.yml",
+        ".*/roles/.*/tasks/.*%.yaml",
+        ".*/roles/.*/handlers/.*%.yml",
+        ".*/roles/.*/handlers/.*%.yaml",
+    }
+    local path = vim.api.nvim_buf_get_name(bufnr)
+    for _, pattern in ipairs(patterns) do
+        if string.find(path, pattern) then
+            return "yaml.ansible"
+        end
+    end
+
     local content = vim.api.nvim_buf_get_lines(bufnr, 0, 7, false) or { "" }
     local matched_lines = 0
     for _, line in pairs(content) do
@@ -17,9 +32,9 @@ local function is_ansible(_, bufnr)
         end
     end
     if matched_lines >= 3 then
-        return 'yaml.ansible'
+        return "yaml.ansible"
     else
-        return 'yaml'
+        return "yaml"
     end
 end
 
@@ -31,14 +46,8 @@ vim.filetype.add({
         inventory = "confini"
     },
     pattern = {
+        ["inventory_.*"] = "confini",
         [".*%.yml"] = is_ansible,
         [".*%.yaml"] = is_ansible,
-        [".*/playbooks/.*%.yml"] = "yaml.ansible",
-        [".*/playbooks/.*%.yaml"] = "yaml.ansible",
-        [".*/roles/.*/tasks/.*%.yml"] = "yaml.ansible",
-        [".*/roles/.*/tasks/.*%.yaml"] = "yaml.ansible",
-        [".*/roles/.*/handlers/.*%.yml"] = "yaml.ansible",
-        [".*/roles/.*/handlers/.*%.yaml"] = "yaml.ansible",
-        ["inventory_.*"] = "confini"
     }
 })
