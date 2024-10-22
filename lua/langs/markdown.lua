@@ -10,6 +10,25 @@ require("lspconfig").marksman.setup({
     capabilities = utils.set_capabilities(),
 })
 
+local function set_obsidian_workspaces()
+    local workspaces
+    if utils.is_wsl() then
+        return {
+            {
+                name = "Work",
+                path = "~/obsidian/Work"
+            }
+        }
+    end
+    return {
+        {
+            name = "Notes",
+            path = "~/obsidian/Notes"
+        }
+    }
+end
+
+
 return {
     -- TODO: add Obsidian plugin
     {
@@ -50,6 +69,29 @@ return {
         ft = "markdown",
         config = true,
     },
+    {
+        "epwalsh/obsidian.nvim",
+        enabled = false,
+        version = "*",
+        ft = "markdown",
+        opts = {
+            workspaces = set_obsidian_workspaces(),
+        },
+        config = function(_, opts)
+            if utils.is_wsl() then
+                if vim.fn.executable("wsl-open") == 0 then
+                    vim.notify("Missing wsl-open!")
+                    return
+                end
+            end
+            require("obsidian").setup(opts)
+        end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "hrsh7th/nvim-cmp",
+        }
+    }
     -- WARN: abandoned, maybe change with peek.nvim
     -- {
     --     "iamcco/markdown-preview.nvim", -- Preview markdown files in browser
