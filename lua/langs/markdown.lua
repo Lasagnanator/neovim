@@ -36,7 +36,7 @@ return {
         enabled = true,
         opts = {
             modes = { "n", "i", "no", "c", "v", "V", "" },
-            hybrid_modes = { "i", "v", "V", "" },
+            hybrid_modes = { "n", "i", "v", "V", "" },
 
             -- This is nice to have
             callbacks = {
