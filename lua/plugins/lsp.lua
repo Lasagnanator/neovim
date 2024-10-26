@@ -19,15 +19,26 @@ return {
         }
     },
     {
-        "rachartier/tiny-code-action.nvim",
-        event = "LspAttach",
+        "aznhe21/actions-preview.nvim",
         opts = {
-            backend = "vim",
+            telescope = vim.tbl_extend("force",
+                require("telescope.themes").get_dropdown(),
+                {
+                    layout_strategy = "horizontal",
+                    layout_config = {
+                        horizontal = {
+                            height = 0.9,
+                            width = 0.8
+                        },
+                    },
+                    make_value = nil,
+                    make_entry = nil
+                })
         },
         dependencies = {
-            { "nvim-lua/plenary.nvim" },
-            { "nvim-telescope/telescope.nvim" },
-        },
+            "nvim-telescope/telescope.nvim",
+            "MunifTanjim/nui.nvim" -- Optional
+        }
     },
     "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
     "hrsh7th/cmp-nvim-lsp", -- Completion integration with LSP
