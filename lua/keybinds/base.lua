@@ -111,7 +111,7 @@ local base = keys:new({
 
     -- Shortcuts
     key:new("n", "<Leader>oq", function()
-        vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/core/langlist.lua")
+        vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/configurations/langs.lua")
     end, "Open language list", silent)
 })
 
