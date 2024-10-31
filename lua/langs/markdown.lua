@@ -10,23 +10,7 @@ require("lspconfig").marksman.setup({
     capabilities = utils.set_capabilities(),
 })
 
-local function set_obsidian_workspaces()
-    local workspaces
-    if utils.is_wsl() then
-        return {
-            {
-                name = "Work",
-                path = "~/obsidian/Work"
-            }
-        }
-    end
-    return {
-        {
-            name = "Notes",
-            path = "~/obsidian/Notes"
-        }
-    }
-end
+utils.generate_from_template("obsidian.lua", "Missing default Obsidian configuration, generated from template")
 
 
 return {
@@ -75,7 +59,7 @@ return {
         version = "*",
         ft = "markdown",
         opts = {
-            workspaces = set_obsidian_workspaces(),
+            workspaces = require("configurations.obsidian")
         },
         config = function(_, opts)
             if utils.is_wsl() then
