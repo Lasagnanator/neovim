@@ -81,6 +81,29 @@ M.dump_table = function(node)
 end
 
 
+--<< General
+
+
+function M.generate_from_template(filename, message)
+    local message = message or ("Missing file, generated " .. filename)
+    local template_path = vim.fn.stdpath("config") .. "/lua/templates/".. filename
+    local configuration_path = vim.fn.stdpath("config") .. "/lua/configurations/".. filename
+    local existence_check = io.open(configuration_path, "r")
+    if existence_check == nil then
+        vim.notify(message)
+        local configuration = io.open(configuration_path, "w")
+        local template = io.open(template_path, "r")
+        if configuration ~= nil and template ~= nil then
+            configuration:write(template:read("*a"))
+            configuration:close()
+            template:close()
+        end
+    else
+        existence_check:close()
+    end
+end
+
+
 --<< WSL
 
 
@@ -91,7 +114,6 @@ function M.is_wsl()
         return false
     end
 end
-
 
 --<< MASON
 
