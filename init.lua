@@ -3,6 +3,8 @@ if vim.g.vscode then
     return
 end
 
+vim.fn.mkdir(vim.fn.stdpath("config") .. "/lua/configurations", "p")
+
 require("core.settings")
 require("core.langs")
 require("keybinds.base")
