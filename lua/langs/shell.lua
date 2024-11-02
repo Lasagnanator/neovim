@@ -25,7 +25,7 @@ require("lspconfig").awk_ls.setup({
     single_file_support = true
 })
 
-require("lint").linters_by_ft = { "shellcheck" }
+require("lint").linters_by_ft.sh = { "shellcheck" }
 require("conform").formatters_by_ft.sh = { "shfmt" }
 
 return {}
