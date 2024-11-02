@@ -105,6 +105,35 @@ function M.generate_from_template(filename, message)
 end
 
 
+---Checks if all language dependencies are satisfied, return true when everything is enabled
+---@param current string
+---@param requirements string|string[]
+---@return boolean
+function M.check_dependencies(current, requirements)
+    local required_languages = {}
+    local missing = false
+    local misconfigured = false
+    M.update_list(required_languages, requirements)
+    for _, lang in ipairs(required_languages) do
+        if type(Langs[lang]) ~= "boolean" then
+            misconfigured  = true
+            vim.notify("Language " .. lang .. " does not exist, aborting loading " .. current)
+            goto continue
+        end
+        if not Langs[lang] then
+            missing = true
+            vim.notify(lang .. " needed for " .. current)
+        end
+        ::continue::
+    end
+    if misconfigured or missing then
+        return false
+    else
+        return true
+    end
+end
+
+
 --<< WSL
 
 
