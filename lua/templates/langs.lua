@@ -19,6 +19,7 @@ return {
     nix = false,
     nu = false,
     nvim = false,
+    obsidian = false,
     orgmode = false,
     perl = false,
     php = false,
