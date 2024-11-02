@@ -22,9 +22,7 @@ return {
     },
     {
         "theHamsta/nvim-dap-virtual-text",
-        config = function (_, opts)
-            require("nvim-dap-virtual-text").setup(opts)
-        end,
+        config = true,
         dependencies = {
             "mfussenegger/nvim-dap",
             "nvim-treesitter/nvim-treesitter"
