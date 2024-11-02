@@ -1,5 +1,11 @@
 return {
     {
+        "3rd/image.nvim",
+        opts = {
+            backend = "ueberzug"
+        }
+    },
+    {
         "lukas-reineke/headlines.nvim",
         enabled = Langs.orgmode,
         opts = {
