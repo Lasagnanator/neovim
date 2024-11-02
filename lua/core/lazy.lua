@@ -61,6 +61,7 @@ lazy.setup({
         notify = false,
     },
     change_detection = {
+        enabled = false,
         notify = false,
     },
 })
