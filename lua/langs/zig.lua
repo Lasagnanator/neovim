@@ -10,4 +10,5 @@ require("lspconfig").zls.setup({
     capabilities = utils.set_capabilities(),
 })
 
+-- TODO: evaluate https://github.com/NTBBloodbath/zig-tools.nvim
 return {}

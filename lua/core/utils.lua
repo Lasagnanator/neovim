@@ -84,6 +84,7 @@ end
 --<< General
 
 
+-- TODO: docstring
 function M.generate_from_template(filename, message)
     local message = message or ("Missing file, generated " .. filename)
     local template_path = vim.fn.stdpath("config") .. "/lua/templates/".. filename

@@ -1,5 +1,6 @@
 local spectre_keys = require("keybinds.plugins.spectre")
 
+-- TODO: Check grug-far as an alternative
 return {
     "nvim-pack/nvim-spectre",
     opts = {
