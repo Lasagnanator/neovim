@@ -94,7 +94,7 @@ local base = keys:new({
     key:new({ "n", "x" }, "<C-b>", "<C-b>zz", "Jump whole page up and center the line", silent),
     key:new("x", ">", ">gv", "Indent selection", silent),
     key:new("x", "<", "<gv", "De-indent selection", silent),
-    key:new("x", "p", 'P', "Substitute selection", silent), -- TODO: add conditional use for last line and last character
+    key:new("x", "p", 'P', "Substitute selection", silent),
     -- FIXME: not working
     key:new("x", "<A-j>", ":move .+1<CR>==", "Move line up", silent),
     key:new("x", "<A-k>", ":move .-1<CR>==", "Move line down", silent),
