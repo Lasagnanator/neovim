@@ -28,6 +28,7 @@ return {
     python = false,
     ruby = false,
     rust = false,
+    scala = false,
     shell = false,
     sql = false,
     svelte = false,
