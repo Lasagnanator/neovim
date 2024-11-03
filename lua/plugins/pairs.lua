@@ -41,6 +41,7 @@ return {
     },
     {
         "gpanders/nvim-parinfer", -- Manages parenthesis while editing LISP-like files
+        cond = false,
         ft = { "yuck", "lisp" }
     },
 }
