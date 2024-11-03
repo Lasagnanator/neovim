@@ -4,26 +4,31 @@ local utils = require("core.utils")
 
 Treesitter:update("lua")
 Mason:update("lua-language-server")
-
-require("lspconfig").lua_ls.setup({
-    on_attach = utils.on_attach,
-    capabilities = utils.set_capabilities(),
-    settings = {
-        Lua = {
-            telemetry = {
-                enable = false,
+After:add(function()
+    require("lspconfig").lua_ls.setup({
+        on_attach = utils.on_attach,
+        capabilities = utils.set_capabilities(),
+        settings = {
+            Lua = {
+                telemetry = {
+                    enable = false,
+                },
+                hint = {
+                    enable = false,
+                }
             },
-            hint = {
-                enable = false,
-            }
         },
-    },
-})
+    })
+end)
 
-
+---@type LazySpec
 return {
     "folke/lazydev.nvim",
-    enabled = Langs.nvim,
-    config = true,
+    cond = Langs.nvim,
+    opts = {
+        library = {
+            "lazy.nvim"
+        }
+    },
     ft = "lua",
 }

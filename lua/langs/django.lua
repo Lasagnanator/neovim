@@ -8,8 +8,9 @@ end
 
 Treesitter:update("htmldjango")
 Mason:update({ "djlint" })
-
-require("lint").linters_by_ft.htmldjango = { "djlint" }
+After:add(function()
+    require("lint").linters_by_ft.htmldjango = { "djlint" }
+end)
 
 
 return {}

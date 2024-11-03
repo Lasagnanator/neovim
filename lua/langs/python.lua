@@ -4,20 +4,21 @@ local utils = require("core.utils")
 
 Treesitter:update("python")
 Mason:update({ "debugpy", "basedpyright", "black" })
-
-require("lspconfig").basedpyright.setup({
-    on_attach = utils.on_attach,
-    capabilities = utils.set_capabilities(),
-    settings = {
-        basedpyright = {
-            analysis = {
-                typeCheckingMode = "recommended",
+After:add(function()
+    require("lspconfig").basedpyright.setup({
+        on_attach = utils.on_attach,
+        capabilities = utils.set_capabilities(),
+        settings = {
+            basedpyright = {
+                analysis = {
+                    typeCheckingMode = "recommended",
+                }
             }
         }
-    }
-})
+    })
 
-require("conform").formatters_by_ft.python = { "black" }
+    require("conform").formatters_by_ft.python = { "black" }
+end)
 
 -- TODO: configure Molten
 -- TODO: check dependencies on launch

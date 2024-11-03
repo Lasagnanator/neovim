@@ -43,6 +43,8 @@ Treesitter = class.Treesitter_parsers:new({
     "git_rebase",
 })
 Mason = class.Language_tools:new()
+After = class.Delayed_execution:new()
+
 
 --<< Keybind
 require("keybinds.lazy"):set()

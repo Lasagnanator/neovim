@@ -8,7 +8,7 @@ end
 local utils = require("core.utils")
 utils.generate_from_template("obsidian.lua", "Missing default Obsidian configuration, generated from template")
 
-local function set_vaults_events()
+local function set_vault_events()
     local configuration = require("configurations.obsidian")
     local events = {}
     for _, vault in ipairs(configuration) do
@@ -42,7 +42,7 @@ return {
             end
             require("obsidian").setup(opts)
         end,
-        event = set_vaults_events(),
+        event = set_vault_events(),
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",

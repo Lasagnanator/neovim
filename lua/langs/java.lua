@@ -4,11 +4,12 @@ local utils = require("core.utils")
 
 Treesitter:update({ "java", "groovy", "xml" })
 Mason:update({ "jdtls", "java-debug-adapter", "java-test", "gradle-language-server" })
-
-require("lspconfig").gradle_ls.setup({
-    on_attach = utils.on_attach,
-    capabilities = utils.set_capabilities(),
-})
+After:add(function()
+    require("lspconfig").gradle_ls.setup({
+        on_attach = utils.on_attach,
+        capabilities = utils.set_capabilities(),
+    })
+end)
 
 return {
     {
@@ -26,6 +27,7 @@ return {
                     local lombok = data .. '/mason/packages/jdtls/lombok.jar'
                     local workspace = data .. '/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
+                    vim.print(java_debug)
                     require("jdtls").start_or_attach({
                         cmd = {
                             'java',

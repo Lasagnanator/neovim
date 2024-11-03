@@ -4,11 +4,12 @@ local utils = require("core.utils")
 
 Treesitter:update({ "markdown", "markdown_inline" })
 Mason:update("marksman")
-
-require("lspconfig").marksman.setup({
-    on_attach = utils.on_attach,
-    capabilities = utils.set_capabilities(),
-})
+After:add(function()
+    require("lspconfig").marksman.setup({
+        on_attach = utils.on_attach,
+        capabilities = utils.set_capabilities(),
+    })
+end)
 
 return {
     {
@@ -39,7 +40,7 @@ return {
     {
         "tadmccorkle/markdown.nvim",
         opts = {
-            on_attach = function ()
+            on_attach = function()
                 require("keybinds.filetypes.markdown").tools:bufset()
             end
         },
