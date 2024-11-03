@@ -27,10 +27,8 @@ end
 Colorscheme = "tokyonight"
 Priority = {
     colorscheme = 1000,
-    treesitter = 900,
-    neodev = 850,
-    lsp = 800,
     completion = 700,
+    treesitter = 900,
 }
 local class = require("core.classes")
 Treesitter = class.Treesitter_parsers:new({
