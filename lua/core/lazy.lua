@@ -32,8 +32,8 @@ Priority = {
     lsp = 800,
     completion = 700,
 }
-Class = require("core.classes")
-Treesitter = Class.Treesitter_parsers:new({
+local class = require("core.classes")
+Treesitter = class.Treesitter_parsers:new({
     "vim",
     "vimdoc",
     "gitcommit",
@@ -42,7 +42,7 @@ Treesitter = Class.Treesitter_parsers:new({
     "git_config",
     "git_rebase",
 })
-Mason = Class.Language_tools:new()
+Mason = class.Language_tools:new()
 
 --<< Keybind
 require("keybinds.lazy"):set()
