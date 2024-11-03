@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
     {
         "neovim/nvim-lspconfig", -- Defaults for LSP
@@ -38,6 +39,12 @@ return {
         dependencies = {
             "nvim-telescope/telescope.nvim",
             "MunifTanjim/nui.nvim" -- Optional
+        }
+    },
+    {
+        "folke/neoconf.nvim",
+        opts = {
+            local_settings = ".nvim/neoconf.json"
         }
     },
     "b0o/schemastore.nvim", -- JSON schemas downloader for JSON and YAML LSPs
