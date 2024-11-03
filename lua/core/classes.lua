@@ -180,4 +180,36 @@ function M.Keybinds_group:to_list()
 end
 
 
+---List of function to be executed later
+---@class Delayed_execution
+---@field funcs function[]
+M.Delayed_execution = {
+    funcs = {}
+}
+
+---Class constructor
+---@param funcs? function[]
+---@return Delayed_execution
+function M.Delayed_execution:new(funcs)
+    local obj = {}
+    setmetatable(obj, self)
+    self.__index = self
+    obj.funcs = funcs or {}
+    return obj
+end
+
+---Add a function to run later
+---@param fn function
+function M.Delayed_execution:add(fn)
+    table.insert(self.funcs, fn)
+end
+
+---Run the stored functions
+function M.Delayed_execution:exec()
+    for _, fn in ipairs(self.funcs) do
+        fn()
+    end
+end
+
+
 return M
