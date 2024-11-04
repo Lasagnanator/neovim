@@ -1,8 +1,13 @@
+---@type LazySpec
 return {
     {
         "3rd/image.nvim",
+        cond = Langs.jupyter,
         opts = {
-            backend = "ueberzug"
+           backend = "ueberzug"
+        },
+        dependencies = {
+            "leafo/magick"
         }
     },
     {

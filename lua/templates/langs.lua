@@ -13,6 +13,7 @@ return {
     json = false,
     java = false,
     jinja = false,
+    jupyter = false,
     kitty = false,
     lua = false,
     markdown = false,

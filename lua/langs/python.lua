@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 if not Langs.python then return {} end
 
 local utils = require("core.utils")
@@ -20,12 +21,14 @@ After:add(function()
     require("conform").formatters_by_ft.python = { "black" }
 end)
 
--- TODO: configure Molten
--- TODO: check dependencies on launch
--- TODO: test with real Jupyter notebook
+---@type LazySpec
 return {
+    -- TODO: configure Molten
+    -- TODO: check dependencies on launch
+    -- TODO: test with real Jupyter notebook
     {
         "benlubas/molten-nvim",
+        cond = Langs.jupyter,
         version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
         build = ":UpdateRemotePlugins",
         init = function()
