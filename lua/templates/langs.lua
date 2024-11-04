@@ -2,7 +2,7 @@ return {
     ansible = false,
     clang = false,
     caddy = false,
-    django = true,
+    django = false,
     docker = false,
     elixir = false,
     fish = false,
