@@ -3,26 +3,27 @@ if not Langs.scala then return {} end
 local utils = require("core.utils")
 
 Treesitter:update("scala")
-
-require("dap").configurations.scala = {
-    {
-        type = "scala",
-        request = "launch",
-        name = "RunOrTest",
-        metals = {
-            runType = "runOrTestFile",
-            --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+After:add(function()
+    require("dap").configurations.scala = {
+        {
+            type = "scala",
+            request = "launch",
+            name = "RunOrTest",
+            metals = {
+                runType = "runOrTestFile",
+                --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+            },
         },
-    },
-    {
-        type = "scala",
-        request = "launch",
-        name = "Test Target",
-        metals = {
-            runType = "testTarget",
+        {
+            type = "scala",
+            request = "launch",
+            name = "Test Target",
+            metals = {
+                runType = "testTarget",
+            },
         },
-    },
-}
+    }
+end)
 
 return {
     {
