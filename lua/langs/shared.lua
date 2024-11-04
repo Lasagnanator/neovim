@@ -12,7 +12,7 @@ return {
     },
     {
         "lukas-reineke/headlines.nvim",
-        enabled = Langs.orgmode,
+        cond = Langs.orgmode,
         opts = {
             markdown = {
                 headline_highlights = false,
@@ -41,7 +41,7 @@ return {
     },
     {
         "dhruvasagar/vim-table-mode",
-        enabled = Langs.org or Langs.markdown,
+        cond = Langs.org or Langs.markdown,
         keys = require("keybinds.plugins.tablemode"):to_lazy({ "markdown", "norg", "org" })
     }
 }
