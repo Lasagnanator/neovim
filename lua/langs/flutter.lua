@@ -1,4 +1,4 @@
-if not Langs.flutter then return {} end
+if not Langs.flutter.enabled then return {} end
 
 Treesitter:update("dart")
 

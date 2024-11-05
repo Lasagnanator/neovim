@@ -1,4 +1,5 @@
-if not Langs.shell then return {} end
+---@diagnostic disable: missing-fields
+if not Langs.shell.enabled then return {} end
 
 local utils = require("core.utils")
 
@@ -22,7 +23,8 @@ After:add(function()
         single_file_support = true
     })
 
-    require("lint").linters_by_ft.sh = { "shellcheck" }
+    -- TODO: remove, duplicate errors with bashls
+    -- require("lint").linters_by_ft.sh = { "shellcheck" }
     require("conform").formatters_by_ft.sh = { "shfmt" }
 end)
 

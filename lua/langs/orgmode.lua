@@ -1,6 +1,6 @@
 -- NOTE: big WIP, highly unstable
 -- Right now many problems with the interactions with other plugins, like Noice (on confirm of org-roam windows)
-if not Langs.orgmode then return {} end
+if not Langs.orgmode.enabled then return {} end
 
 Treesitter:update("org")
 

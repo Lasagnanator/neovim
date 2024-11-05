@@ -2,7 +2,7 @@
 return {
     {
         "3rd/image.nvim",
-        cond = Langs.jupyter,
+        cond = Langs.jupyter.enabled,
         opts = {
            backend = "ueberzug"
         },
@@ -12,7 +12,7 @@ return {
     },
     {
         "lukas-reineke/headlines.nvim",
-        cond = Langs.orgmode,
+        cond = Langs.orgmode.enabled,
         opts = {
             markdown = {
                 headline_highlights = false,
@@ -41,7 +41,7 @@ return {
     },
     {
         "dhruvasagar/vim-table-mode",
-        cond = Langs.org or Langs.markdown,
+        cond = Langs.orgmode.enabled or Langs.markdown.enabled,
         keys = require("keybinds.plugins.tablemode"):to_lazy({ "markdown", "norg", "org" })
     }
 }

@@ -1,4 +1,4 @@
-if not Langs.docker then return {} end
+if not Langs.docker.enabled then return {} end
 
 local utils = require("core.utils")
 

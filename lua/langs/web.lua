@@ -1,4 +1,4 @@
-if not Langs.web then return {} end
+if not Langs.web.enabled then return {} end
 
 local utils = require("core.utils")
 

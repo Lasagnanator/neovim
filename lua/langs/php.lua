@@ -1,4 +1,4 @@
-if not Langs.php then return {} end
+if not Langs.php.enabled then return {} end
 
 local utils = require("core.utils")
 

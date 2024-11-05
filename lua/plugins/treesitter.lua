@@ -28,7 +28,7 @@ return {
     dependencies = {
         {
             "nushell/tree-sitter-nu",
-            enabled = Langs.nu,
+            enabled = Langs.nu.enabled,
         }
     },
 }

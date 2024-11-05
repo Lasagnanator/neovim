@@ -1,4 +1,4 @@
-if not Langs.rust then return {} end
+if not Langs.rust.enabled then return {} end
 
 local utils = require("core.utils")
 

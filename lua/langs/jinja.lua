@@ -1,4 +1,4 @@
-if not Langs.jinja then return {} end
+if not Langs.jinja.enabled then return {} end
 
 local utils = require("core.utils")
 

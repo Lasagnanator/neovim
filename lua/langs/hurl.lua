@@ -1,4 +1,4 @@
-if not Langs.hurl then return {} end
+if not Langs.hurl.enabled then return {} end
 
 Treesitter:update("hurl")
 

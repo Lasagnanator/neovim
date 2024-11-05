@@ -1,4 +1,4 @@
-if not Langs.elixir then return {} end
+if not Langs.elixir.enabled then return {} end
 
 -- TODO: configure
 

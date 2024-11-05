@@ -1,6 +1,6 @@
-if not Langs.obsidian then return {} end
+if not Langs.obsidian.enabled then return {} end
 
-if not Langs.markdown then
+if not Langs.markdown.enabled then
     vim.notify("Enable markdown language to work with Obsidian")
     return {}
 end

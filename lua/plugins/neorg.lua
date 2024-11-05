@@ -1,4 +1,4 @@
-if not Langs.neorg then return {} end
+if not Langs.neorg.enabled then return {} end
 
 return {
     {

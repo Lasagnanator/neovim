@@ -1,4 +1,4 @@
-if not Langs.perl then return {} end
+if not Langs.perl.enabled then return {} end
 
 local utils = require("core.utils")
 

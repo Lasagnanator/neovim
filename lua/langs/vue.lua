@@ -1,4 +1,4 @@
-if not Langs.vue then return {} end
+if not Langs.vue.enabled then return {} end
 
 local utils = require("core.utils")
 

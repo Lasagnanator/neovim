@@ -1,4 +1,4 @@
-if not Langs.puppet then return {} end
+if not Langs.puppet.enabled then return {} end
 
 local utils = require("core.utils")
 

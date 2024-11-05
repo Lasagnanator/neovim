@@ -1,4 +1,4 @@
-if not Langs.markdown then return {} end
+if not Langs.markdown.enabled then return {} end
 
 local utils = require("core.utils")
 

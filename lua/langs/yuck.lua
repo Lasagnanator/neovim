@@ -1,4 +1,4 @@
-if not Langs.yuck then return {} end
+if not Langs.yuck.enabled then return {} end
 
 return {
     "elkowar/yuck.vim",     -- .yuck file syntax highlighting

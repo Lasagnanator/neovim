@@ -1,4 +1,4 @@
-if not Langs.yaml then return {} end
+if not Langs.yaml.enabled then return {} end
 
 local utils = require("core.utils")
 

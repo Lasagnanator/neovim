@@ -1,4 +1,4 @@
-if not Langs.tex then return {} end
+if not Langs.tex.enabled then return {} end
 
 return {
     {

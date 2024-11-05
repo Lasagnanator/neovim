@@ -1,2 +1,2 @@
 --<< Keybinds
-if Langs.powershell then require("keybinds.filetypes.powershell"):bufset() end
+if Langs.powershell.enabled then require("keybinds.filetypes.powershell"):bufset() end

@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-if not Langs.python then return {} end
+if not Langs.python.enabled then return {} end
 
 local utils = require("core.utils")
 
@@ -28,7 +28,7 @@ return {
     -- TODO: test with real Jupyter notebook
     {
         "benlubas/molten-nvim",
-        cond = Langs.jupyter,
+        cond = Langs.jupyter.enabled,
         version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
         build = ":UpdateRemotePlugins",
         init = function()

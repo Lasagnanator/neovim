@@ -1,4 +1,4 @@
-if not Langs.sql then return {} end
+if not Langs.sql.enabled then return {} end
 
 local utils = require("core.utils")
 

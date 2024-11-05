@@ -1,4 +1,4 @@
-if not Langs.toml then return {} end
+if not Langs.toml.enabled then return {} end
 
 local utils = require("core.utils")
 

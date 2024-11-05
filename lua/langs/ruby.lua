@@ -1,4 +1,4 @@
-if not Langs.ruby then return {} end
+if not Langs.ruby.enabled then return {} end
 
 local utils = require("core.utils")
 

@@ -1,10 +1,6 @@
-if not Langs.ansible then return {} end
+if not Langs.ansible.enabled then return {} end
 
 local utils = require("core.utils")
-
-if not utils.check_dependencies("ansible", "jinja") then
-    return {}
-end
 
 Treesitter:update("yaml")
 Mason:update("ansible-language-server")

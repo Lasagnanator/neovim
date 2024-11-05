@@ -1,4 +1,4 @@
-if not Langs.go then return {} end
+if not Langs.go.enabled then return {} end
 
 local utils = require("core.utils")
 

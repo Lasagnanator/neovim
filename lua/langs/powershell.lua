@@ -1,4 +1,4 @@
-if not Langs.powershell then return {} end
+if not Langs.powershell.enabled then return {} end
 
 local utils = require("core.utils")
 

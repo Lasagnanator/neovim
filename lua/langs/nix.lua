@@ -1,4 +1,4 @@
-if not Langs.nix then return {} end
+if not Langs.nix.enabled then return {} end
 
 local utils = require("core.utils")
 

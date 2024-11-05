@@ -1,4 +1,4 @@
-if not Langs.java then return {} end
+if not Langs.java.enabled then return {} end
 
 local utils = require("core.utils")
 

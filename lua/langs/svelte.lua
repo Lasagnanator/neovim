@@ -1,4 +1,4 @@
-if not Langs.svelte then return {} end
+if not Langs.svelte.enabled then return {} end
 
 local utils = require("core.utils")
 

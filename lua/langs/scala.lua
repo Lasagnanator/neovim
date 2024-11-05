@@ -1,4 +1,4 @@
-if not Langs.scala then return {} end
+if not Langs.scala.enabled then return {} end
 
 local utils = require("core.utils")
 

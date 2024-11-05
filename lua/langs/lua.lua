@@ -1,4 +1,4 @@
-if not Langs.lua then return {} end
+if not Langs.lua.enabled then return {} end
 
 local utils = require("core.utils")
 
@@ -24,7 +24,7 @@ end)
 ---@type LazySpec
 return {
     "folke/lazydev.nvim",
-    cond = Langs.nvim,
+    cond = Langs.nvim.enabled,
     opts = {
         library = {
             "lazy.nvim"

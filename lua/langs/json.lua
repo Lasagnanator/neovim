@@ -1,4 +1,4 @@
-if not Langs.json then return {} end
+if not Langs.json.enabled then return {} end
 
 local utils = require("core.utils")
 

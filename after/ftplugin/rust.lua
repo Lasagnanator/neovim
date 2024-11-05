@@ -1,2 +1,2 @@
 --<< Keybinds
-if Langs.rust then require("keybinds.filetypes.rust"):bufset() end
+if Langs.rust.enabled then require("keybinds.filetypes.rust"):bufset() end
