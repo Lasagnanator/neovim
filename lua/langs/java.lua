@@ -27,7 +27,6 @@ return {
                     local lombok = data .. '/mason/packages/jdtls/lombok.jar'
                     local workspace = data .. '/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-                    vim.print(java_debug)
                     require("jdtls").start_or_attach({
                         cmd = {
                             'java',
