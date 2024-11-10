@@ -5,7 +5,7 @@ local M      = {}
 
 
 M.global = keys:new({
-    key:new("n", "<Leader>or", "<Cmd>Spectre<CR>", "Open dashboard", silent)
+    key:new("n", "<Leader>or", "<Cmd>Spectre<CR>", "Open Spectre", silent)
 })
 
 M.buffer = {
