@@ -6,7 +6,7 @@ local utils = require("core.utils")
 Treesitter:update({ "bash", "awk" })
 local mason_tools = { "bash-language-server", "shfmt", "shellcheck" }
 -- Conditional installation for Tumbleweed bug
-if not vim.fn.executable("awk-language-server") then
+if vim.fn.executable("awk-language-server") == 0 then
     table.insert(mason_tools, "awk-language-server")
 end
 Mason:update(mason_tools)
