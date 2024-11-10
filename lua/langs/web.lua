@@ -33,6 +33,7 @@ return {
     {
         "alvan/vim-closetag", -- Manipulate html tags
         ft = { "html", "xhtml", "phtml", "markdown", "php" },
+        enabled = false, -- TODO: Check that is still needed after pairs rework
         init = function()
             -- vim.cmd [[let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.md"]]
             -- vim.cmd [[let g:closetag_filetypes = "html,xhtml,phtml,markdown"]]

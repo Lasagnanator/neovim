@@ -42,8 +42,7 @@ return {
     },
     java = {
         enabled = false,
-        -- TODO: uncomment and copy to Scala after adding language
-        -- dependencies = { "xml" }
+        dependencies = { "xml" }
     },
     jinja = {
         enabled = false,
@@ -136,6 +135,9 @@ return {
     web = {
         enabled = false,
         dependencies = { "json" }
+    },
+    xml = {
+        enabled = false,
     },
     yaml = {
         enabled = false,
