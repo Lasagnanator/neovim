@@ -5,5 +5,4 @@ return {
         vim.g.undotree_SetFocusWhenToggle = 1
     end,
     keys = require("keybinds.plugins.undotree"):to_lazy(),
-    lazy = false,
 }

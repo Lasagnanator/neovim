@@ -29,7 +29,6 @@ local symbols = {
 
 return {
     "isakbm/gitgraph.nvim",
-    lazy = false,
     opts = {
         -- symbols = symbols,
         hooks = {

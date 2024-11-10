@@ -15,5 +15,4 @@ return {
         word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
     },
     keys = require("keybinds.plugins.gitsigns"):to_lazy(),
-    lazy = false,
 }
