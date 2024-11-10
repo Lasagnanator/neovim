@@ -9,6 +9,9 @@ return {
     clang = {
         enabled = false,
     },
+    d2 = {
+        enabled = false,
+    },
     django = {
         enabled = false,
         dependencies = { "jinja", "python" }
