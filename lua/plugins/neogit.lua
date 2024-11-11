@@ -1,10 +1,11 @@
+---@type LazyPluginSpec
 return {
     "NeogitOrg/neogit",
-    lazy = false,
     opts = {
         disable_hint = true,
         graph_style = "unicode",
-        console_timeout = 0,
+        console_timeout = 100,
+        auto_close_console = false,
         commit_editor = {
             spell_check = false,
         },
@@ -12,6 +13,6 @@ return {
     keys = require("keybinds.plugins.neogit"):to_lazy(),
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "ibhagwan/fzf-lua",
+        "nvim-telescope/telescope.nvim",
     }
 }
