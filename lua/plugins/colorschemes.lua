@@ -104,6 +104,18 @@ return {
         priority = Priority.colorscheme,
     },
     {
+        "loctvl842/monokai-pro.nvim",
+        cond = isChosenColorscheme("monokai"),
+        opts = {
+            filter = "pro",
+        },
+        config = function(_, opts)
+            require("monokai-pro").setup(opts)
+            vim.cmd("colorscheme monokai-pro")
+        end,
+        priority = Priority.colorscheme
+    },
+    {
         "Mofiqul/dracula.nvim", -- Dracula Neovim theme
         cond = isChosenColorscheme("dracula"),
         init = function()
