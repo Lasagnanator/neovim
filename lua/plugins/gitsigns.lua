@@ -1,5 +1,7 @@
+---@type LazyPluginSpec
 return {
     "lewis6991/gitsigns.nvim", -- Git decorations
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
         signs      = {
             add          = { text = "+" },
