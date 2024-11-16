@@ -17,6 +17,7 @@ local excluded_buffers = {
     "undotree",
 }
 
+---@type LazyPluginSpec
 return {
     "nvim-lualine/lualine.nvim", -- Custom statusline written in Lua
     opts = {
@@ -91,5 +92,7 @@ return {
             },
         },
     },
+    event = { "VeryLazy" },
+    keys = require("keybinds.plugins.lualine"):to_lazy(),
     dependencies = { "nvim-tree/nvim-web-devicons" },
 }
