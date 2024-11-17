@@ -53,13 +53,14 @@ return {
                         :replace_map_cr(function(_) return '<C-c>2xi<CR><C-c>O' end)
                 }
             end
-        end
+        end,
+        event = { "InsertEnter", "CmdLineEnter" },
     },
     {
         "kylechui/nvim-surround",
         version = "*",
         config = true,
-        event = "VeryLazy", -- check
+        event = { "InsertEnter", "CmdLineEnter" },
     },
     {
         -- WARN: tastes have chaged, try to replicate Emacs for lisp development
