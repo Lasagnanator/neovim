@@ -83,6 +83,9 @@ return {
         enabled = false,
         dependencies = { "markdown" }
     },
+    ocaml = {
+        enabled = false,
+    },
     orgmode = {
         enabled = false,
     },
