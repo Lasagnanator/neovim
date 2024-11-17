@@ -24,7 +24,6 @@ end)
 ---@type LazySpec
 return {
     -- TODO: configure Molten
-    -- TODO: check dependencies on launch
     -- TODO: test with real Jupyter notebook
     {
         "benlubas/molten-nvim",
