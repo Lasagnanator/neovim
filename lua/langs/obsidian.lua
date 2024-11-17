@@ -43,6 +43,7 @@ return {
             require("obsidian").setup(opts)
         end,
         event = set_vault_events(),
+        keys = require("keybinds.filetypes.obsidian"):to_lazy(),
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
