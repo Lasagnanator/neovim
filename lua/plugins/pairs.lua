@@ -1,14 +1,14 @@
 ---@type LazySpec
 return {
+    opts = {
+        enable_check_bracket_line = false,
+    },
     {
         "windwp/nvim-autopairs", -- Close pairs automatically
-        opts = {
-            fastwrap = {}
-        },
         config = function(_, config)
-            local npairs = require 'nvim-autopairs'
-            local Rule = require 'nvim-autopairs.rule'
-            local cond = require 'nvim-autopairs.conds'
+            local npairs = require("nvim-autopairs")
+            local Rule = require("nvim-autopairs.rule")
+            local cond = require("nvim-autopairs.conds")
 
             npairs.setup(config)
 
