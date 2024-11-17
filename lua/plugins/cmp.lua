@@ -23,6 +23,7 @@ return {
                 sources = cmp.config.sources({ -- Sources for all files
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
+                    { name = "path" },
                     { name = "omni" },
                 }, {
                     { name = "buffer" },
@@ -84,6 +85,10 @@ return {
                     { name = "vim-dadbod-completion" },
                 })
             })
+
+
+            --<< COMMAND LINE CONFIGURATION
+
             --<< Use buffer source for `/` and `?`
             cmp.setup.cmdline({ "/", "?" }, {
                 mapping = cmp.mapping.preset.cmdline(),
