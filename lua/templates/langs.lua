@@ -31,6 +31,9 @@ return {
     go = {
         enabled = false,
     },
+    haskell = {
+        enabled = false,
+    },
     hurl = {
         enabled = false,
     },
