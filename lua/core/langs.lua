@@ -1,11 +1,14 @@
 local utils = require("core.utils")
 local list_path = vim.fn.stdpath("config") .. "/lua/configurations/langs.lua"
 
+
+--<< Generate template if missing
 utils.generate_from_template("langs.lua", "Missing list file, generating new one from template")
 
+
+--<< Load defaults and configuration
 local default_config = require("templates.langs")
 local local_config = require("configurations.langs")
-
 local updated = false
 
 for lang, default in pairs(default_config) do
@@ -13,27 +16,31 @@ for lang, default in pairs(default_config) do
         local_config[lang] = default
         updated = true
     end
+    if default.dependencies ~= nil and
+        utils.diff_list(default.dependencies, local_config[lang].dependencies)
+    then
+        updated = true
+    end
 end
 
+
+--<< Update list if something changed in the template
 if updated then
     vim.notify("Found differences with template, updating language list")
     local lang_list = {}
     local sorted_list = {}
 
-    -- ipairs?
     for lang, config in pairs(default_config) do
         lang_list[lang] = config
         table.insert(sorted_list, lang)
     end
     table.sort(sorted_list)
-    -- utils.dump_table(sorted_list)
 
     for lang, config in pairs(lang_list) do
         config.enabled = local_config[lang].enabled or false
     end
 
     local updated_list = "return {\n"
-    -- for lang, config in pairs(lang_list) do
     for _, lang in ipairs(sorted_list) do
         updated_list = updated_list ..
             "    " .. lang .. " = " .. "{\n" ..
@@ -60,7 +67,7 @@ if updated then
 end
 
 
--- Pre-flight checks
+--<< Pre-flight checks
 for lang, config in pairs(local_config) do
     if config.enabled and config.dependencies ~= nil then
         local ok = true

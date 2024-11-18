@@ -84,6 +84,39 @@ end
 --<< General
 
 
+---Compares two lists, return true if lists are different.
+---Does not consider order when confronting lists.
+---@param table_one any
+---@param table_two any
+---@return boolean
+function M.diff_list(table_one, table_two)
+    if table_one == nil then
+        if table_two == nil then
+            return true
+        else
+            return false
+        end
+    end
+    local compared = {}
+    for _, value in ipairs(table_one) do
+        compared[value] = false
+    end
+    for _, value in ipairs(table_two) do
+        if compared[value] ~= nil then
+            compared[value] = true
+        else
+            return true
+        end
+    end
+    for _, found in pairs(compared) do
+        if not found then
+            return true
+        end
+    end
+    return false
+end
+
+
 -- TODO: docstring
 function M.generate_from_template(filename, message)
     local message = message or ("Missing file, generated " .. filename)
