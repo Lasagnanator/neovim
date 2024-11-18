@@ -1,4 +1,4 @@
-if not Langs.haskell then return {} end
+if not Langs.haskell.enabled then return {} end
 
 local utils = require("core.utils")
 

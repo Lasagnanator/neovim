@@ -1,4 +1,4 @@
-if not Langs.ocaml then return {} end
+if not Langs.ocaml.enabled then return {} end
 
 local utils = require("core.utils")
 
