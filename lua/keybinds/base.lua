@@ -109,6 +109,10 @@ local base = keys:new({
     key:new("t", "<A-k>", [[<C-\><C-n><C-w>k]], "Move up from terminal", silent),
     key:new("t", "<A-l>", [[<C-\><C-n><C-w>l]], "Move right from terminal", silent),
 
+    -- System
+    key:new("n", "<Leader>cc", "<Cmd>LspInfo<CR>", "Open info panel", silent),
+    key:new("n", "<Leader>cy", "<Cmd>LspRestart<CR>", "Restart LSPs", silent),
+
     -- Shortcuts
     key:new("n", "<Leader>oq", function()
         vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/configurations/langs.lua")
