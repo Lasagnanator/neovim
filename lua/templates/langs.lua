@@ -128,6 +128,10 @@ return {
         enabled = false,
         dependencies = { "json", "web" }
     },
+    tailwind = {
+        enabled = false,
+        dependencies = { "web" }
+    },
     terraform = {
         enabled = false,
     },
