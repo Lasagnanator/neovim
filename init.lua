@@ -11,7 +11,7 @@ require("keybinds.base")
 require("core.lazy")
 require("core.autocmd")
 
-if require("core.utils").is_wsl() then
+if vim.fn.has("wsl") == 1 then
     require("win.wslclip")
 end
 

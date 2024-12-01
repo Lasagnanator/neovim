@@ -34,7 +34,7 @@ return {
             }
         },
         config = function(_, opts)
-            if utils.is_wsl() then
+            if vim.fn.has("wsl") == 1 then
                 if vim.fn.executable("wsl-open") == 0 then
                     vim.notify("Missing wsl-open!")
                     return

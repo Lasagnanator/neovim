@@ -170,6 +170,7 @@ end
 --<< WSL
 
 
+---@deprecated
 function M.is_wsl()
     if os.getenv("WSLENV") or os.getenv("WSL_INTEROP") or os.getenv("WSL_DISTRO_NAME") then
         return true
