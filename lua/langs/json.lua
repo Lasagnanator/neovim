@@ -1,8 +1,9 @@
+---@diagnostic disable: missing-fields
 if not Langs.json.enabled then return {} end
 
 local utils = require("core.utils")
 
-Treesitter:update("json")
+Treesitter:update({ "json", "jsonc" })
 Mason:update({ "json-lsp", "jsonlint" })
 After:add(function()
     require("lspconfig").jsonls.setup({
