@@ -9,6 +9,9 @@ return {
     clang = {
         enabled = false,
     },
+    csharp = {
+        enabled = false,
+    },
     d2 = {
         enabled = false,
     },
