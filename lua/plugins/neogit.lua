@@ -11,6 +11,7 @@ return {
         },
     },
     keys = require("keybinds.plugins.neogit"):to_lazy(),
+    cmd = { "Neogit" },
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
