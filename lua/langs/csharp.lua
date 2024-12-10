@@ -4,18 +4,22 @@ if not Langs.csharp.enabled then return {} end
 local utils = require("core.utils")
 
 Treesitter:update("c_sharp")
-local mason_tools = { "netcorebg" }
-if vim.fn.has("win32") == 1 then
-    table.insert(mason_tools, "omnisharp")
-else
-    table.insert(mason_tools, "omnisharp-mono")
-end
-Mason:update(mason_tools)
-After:add(function ()
+Mason:update({ "omnisharp", "netcoredbg" })
+After:add(function()
     require("lspconfig").omnisharp.setup({
         on_attach = utils.on_attach,
-        capabilities = utils.set_capabilities()
+        capabilities = utils.set_capabilities(),
+        cmd = { "omnisharp" },
+        handlers = {
+            ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+            ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+            ["textDocument/references"] = require('omnisharp_extended').references_handler,
+            ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
+        }
     })
 end)
 
-return {}
+return {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    ft = { "cs" }
+}
