@@ -31,7 +31,6 @@ After:add(function()
                 directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
                 semanticTokens = true,
                 analyses = {
-                    fieldalignment = true,
                     nilness = true,
                     unusedparams = true,
                     unusedwrite = true,
