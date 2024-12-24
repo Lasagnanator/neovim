@@ -59,7 +59,7 @@ return {
                     require("lazy.status").updates, -- Plugin updates
                     cond = require("lazy.status").has_updates,
                 },
-                -- TODO: add JSON schema component
+                -- TODO: add JSON schema component, impossible ATM
                 {
                     function() -- Yaml schema name
                         local schema = require("yaml-companion").get_buf_schema(0)
