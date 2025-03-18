@@ -37,6 +37,10 @@ return {
     haskell = {
         enabled = false,
     },
+    htmx = {
+        enabled = false,
+        dependencies = { "web" }
+    },
     hurl = {
         enabled = false,
     },
