@@ -16,15 +16,17 @@ return {
         "OXY2DEV/markview.nvim",
         cond = true,
         opts = {
-            modes = { "n", "i", "no", "c", "v", "V", "" },
-            hybrid_modes = { "n", "i", "v", "V", "" },
+            preview = {
+                modes = { "n", "i", "no", "c", "v", "V", "" },
+                hybrid_modes = { "n", "i", "v", "V", "" },
 
-            -- This is nice to have
-            callbacks = {
-                on_enable = function(_, win)
-                    vim.wo[win].conceallevel = 2;
-                    vim.wo[win].concealcursor = "nc";
-                end
+                -- This is nice to have
+                callbacks = {
+                    on_enable = function(_, win)
+                        vim.wo[win].conceallevel = 2;
+                        vim.wo[win].concealcursor = "nc";
+                    end
+                }
             }
         },
         ft = "markdown",
