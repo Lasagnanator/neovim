@@ -1,5 +1,5 @@
 return {
-    "nvim-tree/nvim-tree.lua",     -- File navigation
+    "nvim-tree/nvim-tree.lua", -- File navigation
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         --<< Settings
@@ -26,6 +26,12 @@ return {
                     ignore = {},
                 }
             },
+            renderer = {
+                group_empty = true
+            },
+            update_focused_file = {
+                enable = true,
+            }
         })
         --<< Keys
         require("keybinds.plugins.nvimtree").global:set()
