@@ -30,7 +30,10 @@ return {
             },
             indent = {
                 enable = true,
-                style = colors.indent
+                style = colors.indent,
+                exclude_filetypes = {
+                    undotree = true
+                },
             }
         })
     end,
