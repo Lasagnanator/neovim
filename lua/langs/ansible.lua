@@ -11,7 +11,7 @@ After:add(function()
         settings = {
             ansible = {
                 validation = {
-                    lint = { enabled = false }
+                    lint = { enabled = true }
                 },
             },
         },
