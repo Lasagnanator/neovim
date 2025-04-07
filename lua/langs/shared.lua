@@ -43,5 +43,14 @@ return {
         "dhruvasagar/vim-table-mode",
         cond = Langs.orgmode.enabled or Langs.markdown.enabled,
         keys = require("keybinds.plugins.tablemode"):to_lazy({ "markdown", "norg", "org" })
+    },
+    {
+        "alvan/vim-closetag", -- Manipulate html tags
+        ft = { "html", "xhtml", "phtml", "markdown", "php", "xml" },
+        cond = Langs.web.enabled or Langs.xml.enabled,
+        init = function()
+            vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.md,*.xml"
+            vim.g.closetag_filetypes = "html,xhtml,phtml,markdown,xml"
+        end
     }
 }
