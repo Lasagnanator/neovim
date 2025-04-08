@@ -8,13 +8,14 @@ return {
             },
         },
         engine = (function ()
-            if vim.fn.executable("sg") == 1 then
+            if vim.fn.executable("ast-grep") == 1 then
                 return "astgrep"
             else
                 return "ripgrep"
             end
         end)(),
         windowCreationCommand = "tab split",
+        keymaps = require("keybinds.plugins.grug-far").keymaps
     },
     cmd = "GrugFar"
 }
