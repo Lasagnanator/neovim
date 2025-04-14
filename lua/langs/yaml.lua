@@ -48,8 +48,10 @@ return {
             "nvim-telescope/telescope.nvim"
         }
     },
+    -- NOTE: not working very well
     {
         "anasinnyk/nvim-k8s-crd",
+        enabled = false,
         event = { "BufEnter *.yaml" },
         dependencies = { "neovim/nvim-lspconfig" },
         config = function()
