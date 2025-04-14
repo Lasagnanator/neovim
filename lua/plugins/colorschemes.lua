@@ -92,6 +92,7 @@ return {
         init = function()
             vim.cmd("colorscheme moonlight")
             vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator" })
+            vim.api.nvim_set_hl(0, "WinBar", { bg = "" })
         end,
         priority = Priority.colorscheme,
     },
