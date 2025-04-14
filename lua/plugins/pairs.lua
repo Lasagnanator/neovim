@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+    -- XXX: ???
     opts = {
         enable_check_bracket_line = false,
     },

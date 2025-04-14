@@ -1,3 +1,4 @@
+-- PERF: delete candidate
 return {
     "kevinhwang91/nvim-ufo",
     config = function()

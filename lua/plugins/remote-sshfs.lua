@@ -1,3 +1,5 @@
+-- PERF: delete candidate
+
 ---@diagnostic disable: different-requires
 return {
     "nosduco/remote-sshfs.nvim",

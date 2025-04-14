@@ -1,3 +1,4 @@
+-- PERF: try to change with a project manager
 return {
     "Shatur/neovim-session-manager", -- Automatic session manager
     config = function()

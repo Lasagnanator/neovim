@@ -1,5 +1,5 @@
+-- PERF: delete candidate
 return {
-
     "christoomey/vim-tmux-navigator",
     cmd = {
         "TmuxNavigateLeft",

@@ -1,3 +1,4 @@
+-- PERF: delete candidate
 local symbols = {
     merge_commit = '',
     commit = '',

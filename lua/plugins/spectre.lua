@@ -1,6 +1,7 @@
 local spectre_keys = require("keybinds.plugins.spectre")
 
 -- TODO: Check grug-far as an alternative
+-- PERF: delete candidate
 
 ---@type LazyPluginSpec
 return {
