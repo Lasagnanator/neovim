@@ -7,15 +7,10 @@ return {
                 path = "ast-grep"
             },
         },
-        engine = (function ()
-            if vim.fn.executable("ast-grep") == 1 then
-                return "astgrep"
-            else
-                return "ripgrep"
-            end
-        end)(),
+        engine = "ripgrep",
         windowCreationCommand = "tab split",
         keymaps = require("keybinds.plugins.grug-far").keymaps
     },
-    cmd = "GrugFar"
+    cmd = "GrugFar",
+    keys = require("keybinds.plugins.grug-far").global:to_lazy()
 }

@@ -5,6 +5,9 @@ local silent = { noremap = true, silent = true }
 
 M = {}
 
+M.global = keys:new({
+    key:new('n', '<Leader>og', '<Cmd>GrugFar<CR>', "Open GrugFar", silent),
+})
 
 M.keymaps = {
     replace = { n = '<localleader>mr' },
