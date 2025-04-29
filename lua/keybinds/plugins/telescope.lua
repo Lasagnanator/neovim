@@ -6,7 +6,13 @@ return keys:new({
     key:new("n", "<Leader>ef", require("telescope").extensions.file_browser.file_browser, "Browser", silent),
     key:new("n", "<Leader>fd", require("telescope.builtin").diagnostics, "Diagnostics", silent),
     key:new("n", "<Leader>ff", require("telescope.builtin").find_files, "Files", silent),
-    key:new("n", "<Leader>fh", require("telescope.builtin").help_tags, "Help", silent),
+    key:new("n", "<Leader>fh", function()
+        require("telescope.builtin").find_files({
+            hidden = true,
+            no_ignore = true
+        })
+    end, "Files", silent),
+    key:new("n", "<Leader>fH", require("telescope.builtin").help_tags, "Help", silent),
     key:new("n", "<Leader>fk", require("telescope.builtin").buffers, "Buffers", silent),
     -- key:new("n", "<Leader>fw", require("telescope.builtin").live_grep, "Live grep", silent),
     key:new("n", "<Leader>fw", require("telescope").extensions.live_grep_args.live_grep_args, "Live grep", silent),
