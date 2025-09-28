@@ -92,6 +92,8 @@ local base = keys:new({
     key:new({ "n", "x" }, "<C-u>", "<C-u>zz", "Jump half page up and center the line", silent),
     key:new({ "n", "x" }, "<C-f>", "<C-f>zz", "Jump whole page down and center the line", silent),
     key:new({ "n", "x" }, "<C-b>", "<C-b>zz", "Jump whole page up and center the line", silent),
+    key:new("n", "<A-.>", ">>", "Indent line", silent),
+    key:new("n", "<A-,>", "<<", "De-indent line", silent),
     key:new("x", ">", ">gv", "Indent selection", silent),
     key:new("x", "<", "<gv", "De-indent selection", silent),
     key:new("x", "p", 'P', "Substitute selection", silent),
