@@ -7,7 +7,7 @@ vim.fn.mkdir(vim.fn.stdpath("config") .. "/lua/configurations", "p")
 
 require("core.settings")
 -- require("core.langs")
--- require("keybinds.base")
+require("keybinds.base")
 -- require("core.lazy")
 -- require("core.autocmd")
 
