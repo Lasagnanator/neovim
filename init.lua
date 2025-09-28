@@ -1,4 +1,4 @@
--- Demo Neovim extension inside VSCode
+-- Do not do anything if launched from VSCode
 if vim.g.vscode then
     return
 end
