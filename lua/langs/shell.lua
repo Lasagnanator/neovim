@@ -15,6 +15,11 @@ After:add(function()
         on_attach = utils.on_attach,
         capabilities = utils.set_capabilities(),
         cmd = { "bash-language-server", "start" },
+        filetypes = {
+            "sh",
+            "bash",
+            "zsh"
+        }
     })
 
     require("lspconfig").awk_ls.setup({
@@ -26,6 +31,7 @@ After:add(function()
     -- TODO: remove, duplicate errors with bashls
     -- require("lint").linters_by_ft.sh = { "shellcheck" }
     require("conform").formatters_by_ft.sh = { "shfmt" }
+    require("conform").formatters_by_ft.bash = { "shfmt" }
 end)
 
 return {}
