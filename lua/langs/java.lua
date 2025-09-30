@@ -15,8 +15,9 @@ return {
     {
         "mfussenegger/nvim-jdtls",
         config = function()
-            vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-                pattern = "*.java",
+            -- NOTE: Filetype might be a sufficient trigger
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "Filetype" }, {
+                pattern = "java",
                 callback = function()
                     local data = vim.fn.stdpath('data')
                     local jdtls_launcher = vim.fn.glob(data ..
@@ -69,7 +70,6 @@ return {
                                 },
                             },
                         },
-
                         init_options = {
                             bundles = {
                                 java_debug
