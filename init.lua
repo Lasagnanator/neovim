@@ -5,12 +5,12 @@ end
 
 vim.fn.mkdir(vim.fn.stdpath("config") .. "/lua/configurations", "p")
 
+require("core.globals")
 require("core.settings")
 require("keybinds.base")
-require("core.langs")
-require("core.globals")
-require("core.lazy")
 require("core.autocmd")
+require("core.langs")
+require("core.lazy")
 
 -- if vim.fn.has("wsl") == 1 then
 --     require("win.wslclip")
