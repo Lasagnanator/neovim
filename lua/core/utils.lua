@@ -291,7 +291,7 @@ M.set_capabilities = function(overwrite)
     --     dynamicRegistration = false,
     --     lineFoldingOnly = true
     -- }
-    return require('blink.cmp').get_lsp_capabilities(overwrite_capabilities)
+    return require("blink.cmp").get_lsp_capabilities(overwrite_capabilities)
 end
 
 
