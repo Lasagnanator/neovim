@@ -286,23 +286,12 @@ end
 ---@return unknown
 M.set_capabilities = function(overwrite)
     local overwrite_capabilities = overwrite or {}
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    local capabilities = {}
-    local function merge_capabilities(original, merge)
-        local merged = original
-        for cap_key, cap_value in pairs(merge) do
-            merged[cap_key] = cap_value
-        end
-        return merged
-    end
-    local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-    capabilities = merge_capabilities(capabilities, cmp_capabilities)
-    capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true
-    }
-    capabilities = merge_capabilities(capabilities, overwrite_capabilities)
-    return capabilities
+    -- NOTE: needed?
+    -- overwrite_capabilities.textDocument.foldingRange = {
+    --     dynamicRegistration = false,
+    --     lineFoldingOnly = true
+    -- }
+    return require('blink.cmp').get_lsp_capabilities(overwrite_capabilities)
 end
 
 
