@@ -282,8 +282,8 @@ end
 
 
 ---Define capabilities of a client
----@param overwrite table
----@return unknown
+---@param overwrite? table
+---@return table
 M.set_capabilities = function(overwrite)
     local overwrite_capabilities = overwrite or {}
     -- NOTE: needed?
