@@ -22,12 +22,13 @@ end
 
 --<< Pre-flight checks
 local dependencies = require("core.langs_dependencies")
+local disaligned = false
 for lang, deps in pairs(dependencies) do
     if local_config[lang] == true then
         for _, dep in ipairs(deps) do
             if local_config[dep] == false then
-                updated = true
-                vim.notify("Dependency " .. dep .. "for " .. lang .. "not enabled, correcting.")
+                local disaligned = true
+                vim.notify("Dependency " .. dep .. " for " .. lang .. " not enabled, fixing configuration.")
                 local_config[dep] = true
             end
         end
@@ -36,18 +37,19 @@ end
 
 
 --<< Update list if something changed in the template
-if updated then
-    vim.notify("Found differences with template, updating language list")
+if updated or disaligned then
+    if updated then
+        vim.notify("Found differences with template, updating language list")
+    end
     local lang_list = {}
     for lang, enabled in pairs(local_config) do
         lang_list[lang] = enabled
-        -- table.insert(lang_list, lang)
     end
     table.sort(lang_list)
 
     local new_list = "return {"
-    for _, lang in pairs(lang_list) do
-        new_list = new_list .. "\n    " .. lang .. " = " .. tostring(local_config[lang]) .. ","
+    for lang, value in pairs(lang_list) do
+        new_list = new_list .. "\n    " .. lang .. " = " .. tostring(value) .. ","
     end
     new_list = new_list .. "\n}"
 
