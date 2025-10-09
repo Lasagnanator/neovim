@@ -4,4 +4,5 @@ local silent = { noremap = true, silent = true }
 
 return keys:new({
     key:new("n", "<Leader>ff", function () require("fzf-lua").files() end, "Files", silent),
+    key:new("n", "<Leader>fw", function () require("fzf-lua").live_grep() end, "Files", silent),
 })
