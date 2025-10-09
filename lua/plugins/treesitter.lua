@@ -5,17 +5,9 @@ return {
     lazy = false,
     branch = "main",
     build = ":TSUpdate",
-    opts = {
-        ensure_installed = Treesitter.parsers,
-        highlight = {
-            enable = true,
-        },
-        indent = {
-            enable = true,
-        },
-        incremental_selection = {
-            enable = true,
-            keymaps = require("keybinds.plugins.treesitter").incremental_selection,
-        },
-    },
+    config = function ()
+        local ts = require("nvim-treesitter")
+        ts.setup()
+        ts.install(Treesitter.parsers)
+    end
 }
