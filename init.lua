@@ -12,9 +12,10 @@ require("core.autocmd")
 require("core.langs")
 require("core.lazy")
 
--- if vim.fn.has("wsl") == 1 then
---     require("win.wslclip")
--- end
+
+if vim.fn.has("wsl") == 1 then
+    require("win.wslclip")
+end
 
 -- if vim.g.neovide then
 --     require("core.gui")
