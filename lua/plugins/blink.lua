@@ -1,3 +1,7 @@
+local excluded_filetypes = {
+    "oil"
+}
+
 ---@type LazySpec
 return {
 	"saghen/blink.cmp",
@@ -5,10 +9,10 @@ return {
 	---@module "blink.cmp"
 	---@type blink.cmp.Config
 	opts = {
+        enabled = function() return not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) end,
 		keymap = {
 			preset = "none",
 			["<C-space>"] = { "show", "hide", "fallback" },
-			["<Esc>"] = { "hide", "fallback" },
 			["<C-e>"] = { "show_documentation", "hide_documentation", "fallback" },
 			["<CR>"] = { "select_and_accept", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
