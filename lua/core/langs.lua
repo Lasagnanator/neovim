@@ -27,7 +27,7 @@ for lang, deps in pairs(dependencies) do
     if local_config[lang] == true then
         for _, dep in ipairs(deps) do
             if local_config[dep] == false then
-                local disaligned = true
+                disaligned = true
                 vim.notify("Dependency " .. dep .. " for " .. lang .. " not enabled, fixing configuration.")
                 local_config[dep] = true
             end
