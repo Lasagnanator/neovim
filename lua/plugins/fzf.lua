@@ -6,5 +6,5 @@ return {
 	init = function()
 		require("fzf-lua").register_ui_select()
 	end,
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-mini/mini.icons" },
 }
