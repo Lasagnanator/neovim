@@ -9,8 +9,9 @@ require("core.globals")
 require("core.settings")
 require("keybinds.base")
 require("core.autocmd")
-require("core.langs")
+require("core.langs_list")
 require("core.lazy")
+require("core.langs")
 
 
 if vim.fn.has("wsl") == 1 then

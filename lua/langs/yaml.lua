@@ -1,7 +1,3 @@
-if not Langs.yaml then
-	return {}
-end
-
 Treesitter:update("yaml")
 Mason:update("yaml-language-server")
 
@@ -16,4 +12,3 @@ vim.api.nvim_create_user_command("YamlCurrentSchema", function()
 	end
 end, {})
 
-return {}
