@@ -19,8 +19,8 @@ return {
 			["<C-j>"] = { "select_next", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
-			["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
-			["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+			["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+			["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 		},
 		appearance = {
 			nerd_font_variant = "mono",
