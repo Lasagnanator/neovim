@@ -10,13 +10,5 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         opts = { ensure_installed = Mason.tools },
         dependencies = { "williamboman/mason.nvim" },
-        init = function ()
-            vim.api.nvim_create_augroup("mason", { clear = true })
-            vim.api.nvim_create_autocmd("VimEnter", {
-                desc = "Install missing tools with Mason",
-                group = "mason",
-                command = "MasonToolsInstall"
-            })
-        end
     },
 }

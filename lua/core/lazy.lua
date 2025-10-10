@@ -31,7 +31,7 @@ require("keybinds.lazy"):set()
 lazy.setup({
     spec = {
         { import = "plugins" },
-        { import = "plugins.langs" }
+        { import = "langs" }
     },
     install = {
         colorscheme = { Colorscheme },
