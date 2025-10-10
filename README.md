@@ -9,8 +9,9 @@ Why __click and drag__ on a word to delete it when you can simply __4jfr;daw__?
 - gcc or LLVM
 - make
 - rg
-- fd-find
-- fzf?
+- fd
+- fzf
+- tree-sitter-cli
 
 ## Language tools
 
