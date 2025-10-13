@@ -1,10 +1,3 @@
-if not Langs.yaml then
-    return {}
-end
-
-Treesitter:update("yaml")
-Mason:update("yaml-language-server")
-
 vim.lsp.enable("yamlls")
 
 vim.api.nvim_create_user_command("YamlCurrentSchema", function()
@@ -15,5 +8,3 @@ vim.api.nvim_create_user_command("YamlCurrentSchema", function()
         print("Current schema: " .. schema)
     end
 end, {})
-
-return {}

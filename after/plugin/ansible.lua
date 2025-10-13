@@ -1,9 +1,3 @@
-if not Langs.ansible then
-    return {}
-end
-
-Mason:update({ "ansible-language-server", "ansible-lint" })
-
 vim.lsp.enable("ansiblels")
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufRead" }, {
@@ -14,5 +8,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufRead" }, {
 		end
 	end,
 })
-
-return {}
