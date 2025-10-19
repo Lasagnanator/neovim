@@ -13,13 +13,13 @@ require("core.autocmd")
 require("core.langs")
 require("core.lazy")
 
---<< WSL integration
-if vim.fn.has("wsl") == 1 then
-    require("win.wslclip")
-end
-
 --<< Set colorscheme
 local ok, _ = pcall(vim.cmd.colorscheme, Colorscheme)
 if not ok then
     vim.notify("Colorscheme " .. Colorscheme .. " not found!", vim.log.levels.WARN)
+end
+
+--<< WSL integration
+if vim.fn.has("wsl") == 1 then
+    require("win.wslclip")
 end
