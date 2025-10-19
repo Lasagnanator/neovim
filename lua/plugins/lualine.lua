@@ -15,6 +15,7 @@ local excluded_buffers = {
 ---@type LazySpec
 return {
 	"nvim-lualine/lualine.nvim", -- Custom statusline written in Lua
+    branch = "master",
 	opts = {
 		options = {
 			icons_enabled = true,

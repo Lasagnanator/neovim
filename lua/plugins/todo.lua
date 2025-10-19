@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
 	"folke/todo-comments.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+    branch = "main",
 	opts = {
 		highlight = {
 			keyword = "bg",
@@ -10,4 +10,5 @@ return {
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	keys = require("keybinds.plugins.todo"):to_lazy(),
+	dependencies = { "nvim-lua/plenary.nvim" },
 }

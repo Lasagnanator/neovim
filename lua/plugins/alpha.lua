@@ -1,6 +1,7 @@
+---@type LazySpec
 return {
 	"goolord/alpha-nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	branch = "main",
 	config = function()
 		local dashboard = require("dashboards." .. Dashboard)
 		local ver = vim.version()
@@ -49,7 +50,11 @@ return {
 			callback = function()
 				local stats = require("lazy").stats()
 				local time = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-				alpha.default_config.layout[4].val[2].val = stats.loaded .. " " .. dashboard.mods_text .. " " .. stats.count
+				alpha.default_config.layout[4].val[2].val = stats.loaded
+					.. " "
+					.. dashboard.mods_text
+					.. " "
+					.. stats.count
 				alpha.default_config.layout[4].val[3].val = dashboard.time_text .. " " .. time .. " ms"
 				pcall(vim.cmd.AlphaRedraw)
 			end,
@@ -129,4 +134,5 @@ return {
 		})
 		require("keybinds.plugins.alpha"):set()
 	end,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 }

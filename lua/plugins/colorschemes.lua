@@ -6,7 +6,7 @@ end
 return {
 	{
 		"folke/tokyonight.nvim",
-		release = "*",
+		version = "*",
 		opts = {
 			style = "night", -- night, storm, day, moon
 			styles = {
@@ -21,7 +21,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		release = "*",
+		version = "*",
 		opts = {
 			flavour = "macchiato", -- latte, frappe, macchiato, mocha
 			transparent_background = isNeovide(),

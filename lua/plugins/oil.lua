@@ -18,7 +18,7 @@ return {
 		},
 		keymaps = require("keybinds.plugins.oil").navigation,
 	},
-	keys = require("keybinds.plugins.oil").global:to_lazy(),
 	lazy = false,
+	keys = require("keybinds.plugins.oil").global:to_lazy(),
 	dependencies = { "nvim-mini/mini.icons" },
 }
