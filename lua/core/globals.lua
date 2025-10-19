@@ -1,10 +1,9 @@
 --<< GLOBAL VARIABLES >>--
 
---<< Imports
 local class = require("core.classes")
+local utils = require("core.utils")
 
---<< Variables
-Colorscheme = "tokyonight"
+--<< Constants
 Priority = {
     colorscheme = 1000,
     completion = 700,
@@ -21,3 +20,7 @@ Treesitter = class.Treesitter_parsers:new({
 })
 Mason = class.Language_tools:new()
 After = class.Delayed_execution:new()
+
+--<< Generate and require variables
+utils.generate_from_template("globals.lua", "Missing global variables file, generating new one with default values")
+require("configurations.globals")
