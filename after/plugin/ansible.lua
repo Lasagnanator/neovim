@@ -1,10 +1,12 @@
-vim.lsp.enable("ansiblels")
+if Langs.ansible then
+	vim.lsp.enable("ansiblels")
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufRead" }, {
-	pattern = { "*.yml", "*.yaml", "*.ansible" },
-	callback = function(args)
-		if vim.api.nvim_get_option_value("ft", { buf = args.buf }) == "yaml.ansible" then
-			vim.treesitter.stop()
-		end
-	end,
-})
+	vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "BufRead" }, {
+		pattern = { "*.yml", "*.yaml", "*.ansible" },
+		callback = function(args)
+			if vim.api.nvim_get_option_value("ft", { buf = args.buf }) == "yaml.ansible" then
+				vim.treesitter.stop()
+			end
+		end,
+	})
+end
