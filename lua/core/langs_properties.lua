@@ -27,32 +27,32 @@ return {
 	nvim = {
 		dependencies = { "lua" },
 	},
-    python = {
-        mason = { "debugpy", "basedpyright", "black" },
-        treesitter = { "python" }
-    },
+	python = {
+		mason = { "debugpy", "basedpyright", "black" },
+		treesitter = { "python" },
+	},
 	rust = {
 		dependencies = { "toml" },
-        mason = { "codelldb" },
-        treesitter = { "rust" }
+		mason = { "codelldb" },
+		treesitter = { "rust" },
 	},
-    shell = {
-        mason = { "bash-language-server", "shfmt", "shellcheck", "awk-language-server" },
-        treesitter = { "bash", "awk" }
-    },
-    toml = {
-        mason = { "taplo" },
-        treesitter = { "toml" }
-    },
-    web = {
-        dependencies = { "json" },
-        mason = { "css-lsp", "html-lsp", "typescript-language-server", "eslint-lsp", "prettierd" },
-        treesitter = { "html", "css", "javascript", "typescript" },
-    },
-    xml = {
-        mason = { "lemminx", "xmlformatter" },
-        treesitter = { "xml" }
-    },
+	shell = {
+		mason = { "bash-language-server", "shfmt", "shellcheck", "awk-language-server" },
+		treesitter = { "bash", "awk" },
+	},
+	toml = {
+		mason = { "taplo" },
+		treesitter = { "toml" },
+	},
+	web = {
+		dependencies = { "json" },
+		mason = { "css-lsp", "html-lsp", "typescript-language-server", "eslint-lsp", "prettierd" },
+		treesitter = { "html", "css", "javascript", "typescript" },
+	},
+	xml = {
+		mason = { "lemminx", "xmlformatter" },
+		treesitter = { "xml" },
+	},
 	yaml = {
 		mason = { "yaml-language-server" },
 		treesitter = { "yaml" },
