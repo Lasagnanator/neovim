@@ -7,6 +7,9 @@ return {
 		mason = { "docker-compose-language-service", "dockerfile-language-server", "hadolint" },
 		treesitter = { "dockerfile" },
 	},
+	flutter = {
+		treesitter = { "dart" },
+	},
 	go = {
 		mason = { "gopls", "delve", "gofumpt", "gomodifytags", "goimports", "impl" },
 		treesitter = { "go", "gomod", "gosum", "gotmpl", "gowork" },
