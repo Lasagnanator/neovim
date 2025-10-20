@@ -1,5 +1,6 @@
 return {
     ansible = false,
+    docker = false,
     go = false,
     java = false,
     jinja = false,

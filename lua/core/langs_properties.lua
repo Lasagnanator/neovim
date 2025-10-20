@@ -3,6 +3,10 @@ return {
 		dependencies = { "jinja", "yaml" },
 		mason = { "ansible-language-server", "ansible-lint" },
 	},
+	docker = {
+		mason = { "docker-compose-language-service", "dockerfile-language-server", "hadolint" },
+		treesitter = { "dockerfile" },
+	},
 	go = {
 		mason = { "gopls", "delve", "gofumpt", "gomodifytags", "goimports", "impl" },
 		treesitter = { "go", "gomod", "gosum", "gotmpl", "gowork" },
