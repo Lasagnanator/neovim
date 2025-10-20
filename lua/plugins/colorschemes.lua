@@ -1,7 +1,3 @@
-local function isNeovide()
-	return not vim.g.neovide == true -- Negation should handle undefined case better
-end
-
 ---@type LazySpec
 return {
 	{
@@ -14,7 +10,7 @@ return {
 				floats = "normal",
 			},
 			sidebars = { "qf", "help" },
-			transparent = isNeovide(),
+			transparent = vim.g.neovide,
 		},
 		priority = Priority.colorscheme,
 	},
@@ -24,7 +20,7 @@ return {
 		version = "*",
 		opts = {
 			flavour = "macchiato", -- latte, frappe, macchiato, mocha
-			transparent_background = isNeovide(),
+			transparent_background = vim.g.neovide,
 		},
 		priority = Priority.colorscheme,
 	},
@@ -40,7 +36,7 @@ return {
 		opts = {
 			theme = "fluoromachine", -- fluoromachine, retrowave, delta
 			glow = false,
-			transparent = isNeovide(),
+			transparent = vim.g.neovide,
 		},
 		priority = Priority.colorscheme,
 	},
@@ -67,7 +63,7 @@ return {
 		branch = "master",
 		opts = {
 			theme = "wave", -- wave, dragon, lotus
-			transparent = isNeovide(),
+			transparent = vim.g.neovide,
 		},
 		priority = Priority.colorscheme,
 	},
@@ -104,7 +100,7 @@ return {
             styles = {
                 comment = { italic = true },
             },
-            transparent_background = isNeovide(),
+            transparent_background = vim.g.neovide,
 		},
 		priority = Priority.colorscheme,
 	},
@@ -115,7 +111,7 @@ return {
 		opts = {
 			show_end_of_buffer = true,
 			italic_comment = true,
-			transparent_bg = isNeovide(),
+			transparent_bg = vim.g.neovide,
 		},
 		priority = Priority.colorscheme,
 	},
