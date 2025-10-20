@@ -42,6 +42,16 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			per_filetype = {
+				org = { "orgmode" },
+			},
+			providers = {
+				orgmode = {
+					name = "Orgmode",
+					module = "orgmode.org.autocompletion.blink",
+					fallbacks = { "buffer" },
+				},
+			},
 		},
 		fuzzy = {
 			implementation = "prefer_rust_with_warning",
