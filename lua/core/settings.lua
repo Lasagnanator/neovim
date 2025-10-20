@@ -29,6 +29,7 @@ local settings = {
     modeline       = true,
     showmode       = false,
     showtabline    = 0,
+    winborder      = "rounded",
     termguicolors  = true,
     splitbelow     = true,
     splitright     = true,
