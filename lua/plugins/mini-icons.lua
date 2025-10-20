@@ -5,4 +5,5 @@ return {
 	opts = {
 		style = "glyph",
 	},
+	event = "VeryLazy",
 }

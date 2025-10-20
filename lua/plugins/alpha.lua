@@ -134,5 +134,4 @@ return {
 		})
 		require("keybinds.plugins.alpha"):set()
 	end,
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 }

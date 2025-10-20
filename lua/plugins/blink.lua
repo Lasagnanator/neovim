@@ -57,6 +57,7 @@ return {
 			implementation = "prefer_rust_with_warning",
 		},
 	},
+	event = { "BufReadPre", "BufNewFile" },
 	opts_extend = { "sources.default" },
 	dependencies = { "rafamadriz/friendly-snippets" },
 }

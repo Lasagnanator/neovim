@@ -28,6 +28,7 @@ return {
     {
         "theHamsta/nvim-dap-virtual-text",
         config = true,
+		event = { "LspAttach" },
         dependencies = {
             "mfussenegger/nvim-dap",
             "nvim-treesitter/nvim-treesitter"
