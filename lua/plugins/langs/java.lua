@@ -6,7 +6,15 @@ end
 return {
 	"nvim-java/nvim-java",
 	version = "*",
-    config = function ()
-        require("java").setup()
-    end
+	config = function()
+		local utils = require("core.utils")
+
+		require("java").setup()
+
+		require("lspconfig").jdtls.setup({
+			on_attach = utils.on_attach,
+			capabilities = utils.set_capabilities(),
+		})
+	end,
+	dependencies = { "mfussenegger/nvim-dap" },
 }
