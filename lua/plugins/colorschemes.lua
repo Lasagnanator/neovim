@@ -48,7 +48,7 @@ return {
 		"navarasu/onedark.nvim",
 		branch = "master",
 		opts = {
-			style = "darker", -- dark, darker, cool, deep, warm, warmer, light
+			style = "dark", -- dark, darker, cool, deep, warm, warmer, light
 			term_colors = true,
 			transparent = false,
 		},
