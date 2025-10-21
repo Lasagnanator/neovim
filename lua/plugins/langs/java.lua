@@ -9,7 +9,11 @@ return {
 	config = function()
 		local utils = require("core.utils")
 
-		require("java").setup()
+		require("java").setup({
+			jdk = {
+				auto_install = false,
+			},
+		})
 
 		require("lspconfig").jdtls.setup({
 			on_attach = utils.on_attach,
