@@ -51,8 +51,8 @@ local base = keys:new({
     key:new({ "n", "x" }, "<Leader>wV", "<Cmd>set splitright! | vs | set splitright!<CR>",
         "Split window vertically without moving", silent),
     key:new("", "<Leader>ww", "<Cmd>set wrap!<CR>", "Toggle line wrap", silent),
-    key:new({ "n", "x" }, "<Leader>wx", "<Cmd>sp<CR>", "Split window horizontally", silent),
-    key:new({ "n", "x" }, "<Leader>wX", "<Cmd>set splitbelow! | sp | set splitbelow!<CR>",
+    key:new({ "n", "x" }, "<Leader>ws", "<Cmd>sp<CR>", "Split window horizontally", silent),
+    key:new({ "n", "x" }, "<Leader>wS", "<Cmd>set splitbelow! | sp | set splitbelow!<CR>",
         "Split window horizontally without moving", silent),
     key:new("n", "<Leader>w=", "<Cmd>wincmd =<CR>", "Divide space evenly", silent),
 
@@ -107,7 +107,6 @@ local base = keys:new({
 
     -- System
     key:new("n", "<Leader>cc", "<Cmd>LspInfo<CR>", "Open info panel", silent),
-    -- TODO: move to LSP keybinds
     key:new("n", "<Leader>cy", "<Cmd>LspRestart<CR>", "Restart LSPs", silent),
 
     -- Shortcuts
