@@ -89,8 +89,9 @@ return {
 			val = (function()
 				local options = {
 					button("", "Files", "f", "FzfLua files"),
-					button("󰏇", "Explorer", "e", "Oil"),
 					button("", "Word", "w", "FzfLua live_grep"),
+					button("󰏇", "Explorer", "e", "Oil"),
+					button("", "Git", "g", "Neogit"),
 					button("󰅙", "Quit", "q", "q!"),
 				}
 				if Langs.neorg then
@@ -132,6 +133,7 @@ return {
 				footer,
 			},
 		})
+
 		require("keybinds.plugins.alpha"):set()
 	end,
 }
