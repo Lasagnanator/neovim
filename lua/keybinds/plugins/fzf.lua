@@ -7,4 +7,5 @@ return keys:new({
     key:new("n", "<Leader>fw", function() require("fzf-lua").live_grep() end, "Live grep", silent),
     key:new("n", "<Leader>fk", function() require("fzf-lua").buffers() end, "Buffers", silent),
     key:new("n", "<Leader>f?", function() require("fzf-lua").helptags() end, "Buffers", silent),
+    key:new("n", "<Leader><Tab><Tab>", function() require("fzf-lua").tabs() end, "Buffers", silent),
 })
