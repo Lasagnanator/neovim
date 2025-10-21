@@ -5,7 +5,10 @@ return {
 	opts = {
 		highlight = {
 			keyword = "bg",
-			pattern = [[.*<(KEYWORDS)]],
+			pattern = {
+                [[<(KEYWORDS):]],
+                [[<(KEYWORDS)\s]],
+            },
 		},
 	},
 	event = { "BufReadPre", "BufNewFile" },
