@@ -14,7 +14,7 @@ local excluded_buffers = {
 
 ---@type LazySpec
 return {
-	"nvim-lualine/lualine.nvim", -- Custom statusline written in Lua
+	"nvim-lualine/lualine.nvim",
     branch = "master",
 	opts = {
 		options = {
@@ -88,7 +88,7 @@ return {
 			},
 		},
 	},
-	event = { "VeryLazy" },
+    lazy = false,
 	keys = require("keybinds.plugins.lualine"):to_lazy(),
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-mini/mini.icons" },
 }
