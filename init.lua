@@ -11,6 +11,7 @@ require("core.settings")
 require("keybinds.base")
 require("core.autocmd")
 require("core.langs")
+require("core.lsp")
 require("core.lazy")
 
 --<< Set colorscheme

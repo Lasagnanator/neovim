@@ -1,6 +1,5 @@
 return {
 	on_attach = function(client, bufnr)
-		require("core.utils").on_attach(client, bufnr)
 		if not client.server_capabilities.semanticTokensProvider then
 			local semantic = client.config.capabilities.textDocument.semanticTokens
 			client.server_capabilities.semanticTokensProvider = {
