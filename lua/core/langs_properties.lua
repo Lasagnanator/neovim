@@ -79,4 +79,8 @@ return {
         mason = { "yaml-language-server" },
         treesitter = { "yaml" },
     },
+    zig = {
+        treesitter = { "zig" },
+        mason = { "zls", "codelldb" },
+    },
 }

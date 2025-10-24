@@ -21,4 +21,5 @@ return {
     web = false,
     xml = false,
     yaml = false,
+    zig = false,
 }
