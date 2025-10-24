@@ -5,6 +5,6 @@ return {
     branch = "main",
     ft = "qf",
     dependencies = {
-        "nvim-treesitter/nvim-treesitter"
-    }
+        "nvim-treesitter/nvim-treesitter",
+    },
 }

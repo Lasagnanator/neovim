@@ -1,12 +1,12 @@
 ---@type LazySpec
 return {
     -- TODO: configure
-	{
-		"mfussenegger/nvim-dap",
+    {
+        "mfussenegger/nvim-dap",
         branch = "master",
-		event = { "LspAttach" },
-		keys = require("keybinds.plugins.dap").debug:to_lazy(),
-	},
+        event = { "LspAttach" },
+        keys = require("keybinds.plugins.dap").debug:to_lazy(),
+    },
     -- TODO: configure
     {
         "rcarriga/nvim-dap-ui",
@@ -14,24 +14,24 @@ return {
             icons = {
                 collapsed = "",
                 current_frame = "",
-                expanded = ""
+                expanded = "",
             },
         },
         event = { "LspAttach" },
         keys = require("keybinds.plugins.dap").ui:to_lazy(),
         dependencies = {
             "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio"
-        }
+            "nvim-neotest/nvim-nio",
+        },
     },
     -- TODO: configure and evaluate usefulness
     {
         "theHamsta/nvim-dap-virtual-text",
         config = true,
-		event = { "LspAttach" },
+        event = { "LspAttach" },
         dependencies = {
             "mfussenegger/nvim-dap",
-            "nvim-treesitter/nvim-treesitter"
-        }
+            "nvim-treesitter/nvim-treesitter",
+        },
     },
 }

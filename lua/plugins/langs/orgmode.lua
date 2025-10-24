@@ -1,32 +1,30 @@
-if not Langs.orgmode then
-	return {}
-end
+if not Langs.orgmode then return {} end
 
 ---@type LazySpec
 return {
-	{
-		"nvim-orgmode/orgmode",
-		version = "*",
-		opts = {
-			org_agenda_files = os.getenv("HOME") .. "/org/**/*",
-			org_default_notes_file = os.getenv("HOME") .. "/orgfiles/refile.org",
+    {
+        "nvim-orgmode/orgmode",
+        version = "*",
+        opts = {
+            org_agenda_files = os.getenv("HOME") .. "/org/**/*",
+            org_default_notes_file = os.getenv("HOME") .. "/orgfiles/refile.org",
             mappings = {
-                prefix = "<Leader>l"
-            }
-		},
-		event = "VeryLazy",
-		ft = "org",
-	},
-	{
-		"chipsenkbeil/org-roam.nvim",
+                prefix = "<Leader>l",
+            },
+        },
+        event = "VeryLazy",
+        ft = "org",
+    },
+    {
+        "chipsenkbeil/org-roam.nvim",
         enabled = false,
         branch = "main",
-		opts = {
-			directory = os.getenv("HOME") .. "/org",
-		},
-		dependencies = {
-			"nvim-orgmode/orgmode",
-		},
-		event = "VeryLazy",
-	},
+        opts = {
+            directory = os.getenv("HOME") .. "/org",
+        },
+        dependencies = {
+            "nvim-orgmode/orgmode",
+        },
+        event = "VeryLazy",
+    },
 }

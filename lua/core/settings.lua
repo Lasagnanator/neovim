@@ -2,38 +2,38 @@
 
 --<< Options
 local settings = {
-    number         = true,
+    number = true,
     relativenumber = true,
-    numberwidth    = 5,
-    scrolloff      = 4,
-    signcolumn     = "yes",
-    cursorline     = true,
-    cursorlineopt  = "both",
-    hlsearch       = false,
-    smartcase      = true,
-    ignorecase     = true,
-    autoindent     = true,
-    expandtab      = true,
-    shiftwidth     = 4,
-    tabstop        = 4,
-    softtabstop    = 4,
-    smarttab       = false,
-    foldenable     = true,
-    foldmethod     = "manual",
-    foldlevel      = 99,
+    numberwidth = 5,
+    scrolloff = 4,
+    signcolumn = "yes",
+    cursorline = true,
+    cursorlineopt = "both",
+    hlsearch = false,
+    smartcase = true,
+    ignorecase = true,
+    autoindent = true,
+    expandtab = true,
+    shiftwidth = 4,
+    tabstop = 4,
+    softtabstop = 4,
+    smarttab = false,
+    foldenable = true,
+    foldmethod = "manual",
+    foldlevel = 99,
     foldlevelstart = 99,
-    conceallevel   = 2,
-    wrap           = false,
-    linebreak      = true,
-    breakindent    = true,
-    modeline       = true,
-    showmode       = false,
-    showtabline    = 0,
-    winborder      = "rounded",
-    termguicolors  = true,
-    splitbelow     = true,
-    splitright     = true,
-    undofile       = true,
+    conceallevel = 2,
+    wrap = false,
+    linebreak = true,
+    breakindent = true,
+    modeline = true,
+    showmode = false,
+    showtabline = 0,
+    winborder = "rounded",
+    termguicolors = true,
+    splitbelow = true,
+    splitright = true,
+    undofile = true,
 }
 
 for k, v in pairs(settings) do
@@ -41,7 +41,7 @@ for k, v in pairs(settings) do
 end
 
 --<< Variables
-vim.opt.fillchars:append { diff = "╱" }
+vim.opt.fillchars:append({ diff = "╱" })
 
 --<< Fix for missing highlight groups
 -- TODO: check if still needed

@@ -1,14 +1,14 @@
-local key    = require("core.classes").Keybind
-local keys   = require("core.classes").Keybinds_group
+local key = require("core.classes").Keybind
+local keys = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
-local M      = {}
+local M = {}
 
 local function oil_wincmd(cmd)
     vim.cmd(cmd)
     require("oil").open()
 end
 
-M.global    = keys:new({
+M.global = keys:new({
     key:new("n", "<Leader>eb", function() require("oil").open() end, "Open explorer", silent),
     key:new("n", "<Leader>eo", function() require("oil").open_float() end, "Open explorer in floating window", silent),
     key:new("n", "<Leader>es", function() oil_wincmd("split") end, "Open explorer in horizontal split", silent),

@@ -2,7 +2,7 @@
 return {
     "monaqa/dial.nvim",
     version = "*",
-    config = function ()
+    config = function()
         local augend = require("dial.augend")
         require("dial.config").augends:register_group({
             default = {
@@ -14,10 +14,10 @@ return {
                 augend.constant.alias.bool,
                 augend.constant.alias.alpha,
                 augend.constant.alias.Alpha,
-                augend.semver.alias.semver
-            }
+                augend.semver.alias.semver,
+            },
         })
     end,
-	event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     keys = require("keybinds.plugins.dial"):to_lazy(),
 }

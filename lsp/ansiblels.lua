@@ -1,9 +1,9 @@
 return {
-	settings = {
-		ansible = {
-			validation = {
-				lint = { enabled = true },
-			},
-		},
-	},
+    settings = {
+        ansible = {
+            validation = {
+                lint = { enabled = true },
+            },
+        },
+    },
 }

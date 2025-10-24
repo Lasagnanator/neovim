@@ -5,9 +5,7 @@ return {
         local wk = require("which-key")
         wk.setup({
             ---@param ctx { mode: string, operator: string }
-            defer = function(ctx)
-                return vim.list_contains({ "v", "V", "<C-V>" }, ctx.mode)
-            end,
+            defer = function(ctx) return vim.list_contains({ "v", "V", "<C-V>" }, ctx.mode) end,
             triggers = {
                 { "<auto>", mode = "nx" },
             },
@@ -15,14 +13,13 @@ return {
                 marks = false,
                 registers = false,
                 spelling = {
-                    enabled = false
+                    enabled = false,
                 },
                 presets = {
-                    enabled = false
-                }
+                    enabled = false,
+                },
             },
         })
         wk.add(require("keybinds.whichkey"))
-    end
-
+    end,
 }

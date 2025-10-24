@@ -1,8 +1,7 @@
-local key    = require("core.classes").Keybind
-local keys   = require("core.classes").Keybinds_group
+local key = require("core.classes").Keybind
+local keys = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
 local M = {}
-
 
 M.debug = keys:new({
     key:new({ "n", "x" }, "<Leader>ds", function() require("dap").toggle_breakpoint() end, "Toggle breakpoint", silent),

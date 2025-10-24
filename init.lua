@@ -1,7 +1,5 @@
 -- Don't do anything if launched from VSCode
-if vim.g.vscode then
-    return
-end
+if vim.g.vscode then return end
 
 vim.fn.mkdir(vim.fn.stdpath("config") .. "/lua/configurations", "p")
 
@@ -16,11 +14,7 @@ require("core.lazy")
 
 --<< Set colorscheme
 local ok, _ = pcall(vim.cmd.colorscheme, Colorscheme)
-if not ok then
-    vim.notify("Colorscheme " .. Colorscheme .. " not found!", vim.log.levels.WARN)
-end
+if not ok then vim.notify("Colorscheme " .. Colorscheme .. " not found!", vim.log.levels.WARN) end
 
 --<< WSL integration
-if vim.fn.has("wsl") == 1 then
-    require("win.wslclip")
-end
+if vim.fn.has("wsl") == 1 then require("win.wslclip") end

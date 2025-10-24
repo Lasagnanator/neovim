@@ -1,4 +1,4 @@
 if Langs.json then
-	vim.lsp.enable("jsonls")
-	require("lint").linters_by_ft.json = { "jsonlint" }
+    vim.lsp.enable("jsonls")
+    require("lint").linters_by_ft.json = { "jsonlint" }
 end

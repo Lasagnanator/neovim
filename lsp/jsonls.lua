@@ -1,9 +1,9 @@
 return {
-	settings = {
-		json = {
+    settings = {
+        json = {
             -- FIXME: install schemastore or change configuration
-			-- schemas = require("schemastore").json.schemas(),
-			validate = { enable = true },
-		},
-	},
+            -- schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+        },
+    },
 }

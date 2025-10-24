@@ -1,14 +1,14 @@
-local key    = require("core.classes").Keybind
-local keys   = require("core.classes").Keybinds_group
+local key = require("core.classes").Keybind
+local keys = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
-local signs  = {
+local signs = {
     FIX = "FIX,FIXME,BUG,FIXIT,ISSUE",
     TODO = "TODO",
     HACK = "HACK",
     WARN = "WARN, WARNING, XXX",
     PERF = "PERF,PERFORMANCE,OPTIM,OPTIMIZE",
     NOTE = "NOTE,INFO",
-    TEST = "TEST,TESTING,PASSED,FAILED"
+    TEST = "TEST,TESTING,PASSED,FAILED",
 }
 
 return keys:new({

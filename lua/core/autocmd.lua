@@ -11,11 +11,11 @@ autocmd("TextYankPost", {
     callback = function()
         vim.cmd("silent!")
         vim.highlight.on_yank({ timeout = 150 })
-    end
+    end,
 })
 
 --<< Terminal
-local au_teminal = augroup('terminal_buf', { clear = true })
+local au_teminal = augroup("terminal_buf", { clear = true })
 autocmd("TermOpen", {
     desc = "Set specific options for terminal buffers",
     group = au_teminal,
@@ -24,21 +24,17 @@ autocmd("TermOpen", {
         vim.opt_local["number"] = false
         vim.opt_local["relativenumber"] = false
         vim.cmd("startinsert")
-    end
+    end,
 })
 autocmd("BufEnter", {
     desc = "Start insert mode when entering a terminal buffer",
     group = au_teminal,
     pattern = "term://*",
-    callback = function()
-        vim.cmd("startinsert")
-    end
+    callback = function() vim.cmd("startinsert") end,
 })
 autocmd("BufLeave", {
     desc = "Stop insert mode when exiting a terminal buffer",
     group = au_teminal,
     pattern = "term://*",
-    callback = function()
-        vim.cmd("stopinsert")
-    end
+    callback = function() vim.cmd("stopinsert") end,
 })

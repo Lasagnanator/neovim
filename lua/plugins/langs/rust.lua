@@ -1,6 +1,4 @@
-if not Langs.rust then
-    return {}
-end
+if not Langs.rust then return {} end
 
 ---@type LazySpec
 return {
@@ -12,12 +10,12 @@ return {
                 server = {
                     on_attach = require("core.utils").on_attach,
                     capabilities = require("core.utils").set_capabilities(),
-                }
+                },
             }
         end,
     },
     {
         "saecki/crates.nvim",
-        ft = "toml"
+        ft = "toml",
     },
 }

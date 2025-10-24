@@ -1,12 +1,11 @@
 local M = {}
 
-
 --<< Treesitter parsers
 
 ---@class Treesitter_parsers
 ---@field parsers string[]
 M.Treesitter_parsers = {
-    parsers = {}
+    parsers = {},
 }
 
 ---Create new instance of class *Treesitter_parsers*
@@ -22,9 +21,7 @@ end
 
 ---Add a new parser to the list
 ---@param element string|string[]
-function M.Treesitter_parsers:update(element)
-    self.parsers = require("core.utils").update_list(self.parsers, element)
-end
+function M.Treesitter_parsers:update(element) self.parsers = require("core.utils").update_list(self.parsers, element) end
 
 --<< List of tools that Mason needs to install
 
@@ -47,9 +44,7 @@ end
 
 ---Add a new tool to the list
 ---@param element string|string[]
-function M.Language_tools:update(element)
-    self.tools = require("core.utils").update_list(self.tools, element)
-end
+function M.Language_tools:update(element) self.tools = require("core.utils").update_list(self.tools, element) end
 
 --<< Keybinds
 
@@ -64,7 +59,7 @@ M.Keybind = {
     map = "",
     action = "",
     desc = "",
-    opts = {}
+    opts = {},
 }
 
 ---Creates new instance of class *keymap*
@@ -87,9 +82,7 @@ function M.Keybind:new(mode, map, action, desc, opts)
 end
 
 ---Return the type of the object
-function M.Keybind:type()
-    return "Keybind"
-end
+function M.Keybind:type() return "Keybind" end
 
 ---Set a keybind
 function M.Keybind:set()
@@ -110,9 +103,7 @@ end
 ---@param ft? string|string[] keybinds
 function M.Keybind:to_lazy(ft)
     local lazy_keybind = { self.map, self.action, mode = self.mode, desc = self.desc }
-    if ft ~= nil then
-        lazy_keybind.ft = ft
-    end
+    if ft ~= nil then lazy_keybind.ft = ft end
     for opt, value in pairs(self.opts) do
         lazy_keybind[opt] = value
     end
@@ -129,7 +120,7 @@ end
 ---@class Keybinds_group
 ---@field keybinds Keybind[]|Keybinds_group List of keybinds inside the group
 M.Keybinds_group = {
-    keybinds = {}
+    keybinds = {},
 }
 
 ---Creates new instance of a *group of keybinds*
@@ -144,9 +135,7 @@ function M.Keybinds_group:new(keybinds)
 end
 
 ---Return the type of the object
-function M.Keybinds_group:type()
-    return "Binds_group"
-end
+function M.Keybinds_group:type() return "Binds_group" end
 
 ---Set all the keys declared in the group
 function M.Keybinds_group:set()
@@ -181,12 +170,11 @@ function M.Keybinds_group:to_list()
     return list_keybinds
 end
 
-
 ---List of function to be executed later
 ---@class Delayed_execution
 ---@field funcs function[]
 M.Delayed_execution = {
-    funcs = {}
+    funcs = {},
 }
 
 ---Class constructor
@@ -202,9 +190,7 @@ end
 
 ---Add a function to run later
 ---@param fn function
-function M.Delayed_execution:add(fn)
-    table.insert(self.funcs, fn)
-end
+function M.Delayed_execution:add(fn) table.insert(self.funcs, fn) end
 
 ---Run the stored functions
 function M.Delayed_execution:exec()
@@ -212,6 +198,5 @@ function M.Delayed_execution:exec()
         fn()
     end
 end
-
 
 return M

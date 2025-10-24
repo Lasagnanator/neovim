@@ -10,9 +10,7 @@ return keys:new({
     key:new("", "<Leader>mt", "<Cmd>GoModTidy<CR>", "Tidy", silent),
     key:new("", "<Leader>mg", function()
         vim.ui.input({ prompt = "Package URL" }, function(input)
-            if input ~= nil and input ~= "" then
-                vim.cmd("GoGet " .. input)
-            end
+            if input ~= nil and input ~= "" then vim.cmd("GoGet " .. input) end
         end)
     end, "Get", silent),
 })

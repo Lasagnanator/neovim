@@ -1,5 +1,5 @@
 vim.filetype.add({
     extension = {
-        cnf = "cfg"
-    }
+        cnf = "cfg",
+    },
 })

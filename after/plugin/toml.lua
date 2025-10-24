@@ -1,3 +1,1 @@
-if Langs.toml then
-	vim.lsp.enable("taplo")
-end
+if Langs.toml then vim.lsp.enable("taplo") end

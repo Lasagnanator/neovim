@@ -15,5 +15,5 @@ return {
     keys = require("keybinds.plugins.neogit"):to_lazy(),
     dependencies = {
         "nvim-lua/plenary.nvim",
-    }
+    },
 }

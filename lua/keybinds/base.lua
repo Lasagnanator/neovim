@@ -1,10 +1,10 @@
-local class          = require("core.classes")
-local key            = class.Keybind
-local keys           = class.Keybinds_group
-local silent         = { noremap = true, silent = true }
+local class = require("core.classes")
+local key = class.Keybind
+local keys = class.Keybinds_group
+local silent = { noremap = true, silent = true }
 
 --<< Leader key
-vim.g.mapleader      = " "
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 --<< Unbind some keys
@@ -18,9 +18,7 @@ local base = keys:new({
     key:new("", "<Leader>kD", function()
         local buffers = vim.fn.getbufinfo()
         for _, buffer in pairs(buffers) do
-            if #buffer.windows < 1 then
-                vim.api.nvim_buf_delete(buffer.bufnr, {})
-            end
+            if #buffer.windows < 1 then vim.api.nvim_buf_delete(buffer.bufnr, {}) end
         end
     end, "Close all background buffers", silent),
     key:new("", "<Leader>ks", "<Cmd>w<CR>", "Save current buffer", silent),
@@ -48,12 +46,22 @@ local base = keys:new({
     key:new("", "<Leader>wq", "<Cmd>q!<CR>", "Close current window", silent),
     key:new("", "<Leader>wr", "<Cmd>w<CR><Cmd>e<CR>", "Save and reload buffer", silent),
     key:new({ "n", "x" }, "<Leader>wv", "<Cmd>vs<CR>", "Split window vertically", silent),
-    key:new({ "n", "x" }, "<Leader>wV", "<Cmd>set splitright! | vs | set splitright!<CR>",
-        "Split window vertically without moving", silent),
+    key:new(
+        { "n", "x" },
+        "<Leader>wV",
+        "<Cmd>set splitright! | vs | set splitright!<CR>",
+        "Split window vertically without moving",
+        silent
+    ),
     key:new("", "<Leader>ww", "<Cmd>set wrap!<CR>", "Toggle line wrap", silent),
     key:new({ "n", "x" }, "<Leader>ws", "<Cmd>sp<CR>", "Split window horizontally", silent),
-    key:new({ "n", "x" }, "<Leader>wS", "<Cmd>set splitbelow! | sp | set splitbelow!<CR>",
-        "Split window horizontally without moving", silent),
+    key:new(
+        { "n", "x" },
+        "<Leader>wS",
+        "<Cmd>set splitbelow! | sp | set splitbelow!<CR>",
+        "Split window horizontally without moving",
+        silent
+    ),
     key:new("n", "<Leader>w=", "<Cmd>wincmd =<CR>", "Divide space evenly", silent),
 
     -- Window movement and managment
@@ -95,7 +103,7 @@ local base = keys:new({
     key:new("n", "<A-,>", "<<", "De-indent line", silent),
     key:new("x", ">", ">gv", "Indent selection", silent),
     key:new("x", "<", "<gv", "De-indent selection", silent),
-    key:new("x", "p", 'P', "Substitute selection", silent),
+    key:new("x", "p", "P", "Substitute selection", silent),
     -- TODO: add binds for moving lines up and down
 
     -- Terminal
@@ -110,9 +118,13 @@ local base = keys:new({
     key:new("n", "<Leader>cy", "<Cmd>LspRestart<CR>", "Restart LSPs", silent),
 
     -- Shortcuts
-    key:new("n", "<Leader>oq", function()
-        vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/configurations/langs.lua")
-    end, "Open language list", silent)
+    key:new(
+        "n",
+        "<Leader>oq",
+        function() vim.cmd(":tabnew " .. vim.fn.stdpath("config") .. "/lua/configurations/langs.lua") end,
+        "Open language list",
+        silent
+    ),
 })
 
 base:set()
