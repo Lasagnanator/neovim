@@ -38,6 +38,10 @@ return {
     nvim = {
         dependencies = { "lua" },
     },
+    ocaml = {
+        treesitter = { "ocaml", "ocaml_interface" },
+        mason = { "ocamlearlybird" },
+    },
     python = {
         mason = { "debugpy", "basedpyright", "black" },
         treesitter = { "python" },

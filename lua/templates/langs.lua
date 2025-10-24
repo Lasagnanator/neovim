@@ -10,6 +10,7 @@ return {
     lua = false,
     markdown = false,
     nvim = false,
+    ocaml = false,
     orgmode = false,
     python = false,
     rust = false,
