@@ -6,6 +6,7 @@ return {
     java = false,
     jinja = false,
     json = false,
+    latex = false,
     lua = false,
     markdown = false,
     nvim = false,
