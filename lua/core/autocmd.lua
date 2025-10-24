@@ -14,9 +14,8 @@ autocmd("TextYankPost", {
     end
 })
 
-
+--<< Terminal
 local au_teminal = augroup('terminal_buf', { clear = true })
-
 autocmd("TermOpen", {
     desc = "Set specific options for terminal buffers",
     group = au_teminal,
@@ -27,7 +26,6 @@ autocmd("TermOpen", {
         vim.cmd("startinsert")
     end
 })
-
 autocmd("BufEnter", {
     desc = "Start insert mode when entering a terminal buffer",
     group = au_teminal,
@@ -36,7 +34,6 @@ autocmd("BufEnter", {
         vim.cmd("startinsert")
     end
 })
-
 autocmd("BufLeave", {
     desc = "Stop insert mode when exiting a terminal buffer",
     group = au_teminal,
