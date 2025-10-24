@@ -55,6 +55,10 @@ return {
         mason = { "bash-language-server", "shfmt", "shellcheck", "awk-language-server" },
         treesitter = { "bash", "awk" },
     },
+    svelte = {
+        mason = { "svelte-language-server" },
+        treesitter = { "svelte" },
+    },
     toml = {
         mason = { "taplo" },
         treesitter = { "toml" },

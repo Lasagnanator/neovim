@@ -15,6 +15,7 @@ return {
     python = false,
     rust = false,
     shell = false,
+    svelte = false,
     toml = false,
     web = false,
     xml = false,
