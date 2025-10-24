@@ -16,6 +16,7 @@ return {
     rust = false,
     shell = false,
     svelte = false,
+    tailwind = false,
     toml = false,
     web = false,
     xml = false,

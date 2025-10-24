@@ -59,6 +59,9 @@ return {
         mason = { "svelte-language-server" },
         treesitter = { "svelte" },
     },
+    tailwind = {
+        mason = { "tailwindcss-language-server" },
+    },
     toml = {
         mason = { "taplo" },
         treesitter = { "toml" },
