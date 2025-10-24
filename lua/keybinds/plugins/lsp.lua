@@ -22,8 +22,8 @@ function M.on_attach(args)
             args
         ),
         key:new("n", "<C-h>", vim.lsp.buf.hover, "Open hover", args),
-        key:new("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions", args),
-        key:new("x", "<Leader>ca", vim.lsp.buf.range_code_action, "Code actions", args),
+        key:new("n", "<Leader>ca", function() require("fzf-lua").lsp_code_actions() end, "Code actions", args),
+        key:new("x", "<Leader>ca", function() require("fzf-lua").lsp_code_actions() end, "Code actions", args),
         key:new("n", "<Leader>cf", function() require("conform").format({ async = true }) end, "Format file", args),
         key:new("n", "<Leader>cs", function() require("fzf-lua").lsp_references() end, "LSP references", args),
         key:new(
