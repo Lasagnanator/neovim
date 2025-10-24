@@ -31,6 +31,10 @@ return {
         mason = { "lua-language-server", "stylua" },
         treesitter = { "lua" },
     },
+    markdown = {
+        mason = { "marksman" },
+        treesitter = { "markdown", "markdown_inline" },
+    },
     nvim = {
         dependencies = { "lua" },
     },

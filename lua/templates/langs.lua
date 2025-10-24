@@ -7,6 +7,7 @@ return {
     jinja = false,
     json = false,
     lua = false,
+    markdown = false,
     nvim = false,
     orgmode = false,
     python = false,
