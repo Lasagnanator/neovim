@@ -35,6 +35,10 @@ return {
         mason = { "marksman" },
         treesitter = { "markdown", "markdown_inline" },
     },
+    nginx = {
+        mason = { "nginx-language-server" },
+        treesitter = { "nginx" }
+    },
     nvim = {
         dependencies = { "lua" },
     },

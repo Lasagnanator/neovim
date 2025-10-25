@@ -9,6 +9,7 @@ return {
     latex = false,
     lua = false,
     markdown = false,
+    nginx = false,
     nvim = false,
     ocaml = false,
     orgmode = false,
