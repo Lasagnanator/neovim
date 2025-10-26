@@ -1,4 +1,4 @@
-if Langs.toml then
+if Langs.web then
     vim.lsp.enable("cssls")
     vim.lsp.enable("html")
     vim.lsp.enable("ts_ls")
