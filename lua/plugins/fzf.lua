@@ -25,7 +25,7 @@ return {
         })
         require("fzf-lua").register_ui_select()
     end,
+    lazy = false,
     keys = require("keybinds.plugins.fzf"):to_lazy(),
-    cmd = "FzfLua",
     dependencies = { "nvim-mini/mini.icons" },
 }
