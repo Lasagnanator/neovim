@@ -16,7 +16,13 @@ return {
     },
     java = {
         dependencies = { "xml" },
-        mason = { "gradle-language-server" },
+        mason = {
+            "jdtls",
+            "java-debug-adapter",
+            "java-test",
+            -- "vscode-spring-boot-tools",
+            "gradle-language-server",
+        },
         treesitter = { "java", "groovy" },
     },
     jinja = {
