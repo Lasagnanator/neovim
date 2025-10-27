@@ -49,8 +49,12 @@ return {
         dependencies = { "lua" },
     },
     ocaml = {
-        treesitter = { "ocaml", "ocaml_interface" },
         mason = { "ocamlearlybird" },
+        treesitter = { "ocaml", "ocaml_interface" },
+    },
+    php = {
+        mason = { "phpactor" },
+        treesitter = { "php", "phpdoc" },
     },
     python = {
         mason = { "debugpy", "basedpyright", "black" },
@@ -90,7 +94,7 @@ return {
         treesitter = { "yaml" },
     },
     zig = {
-        treesitter = { "zig" },
         mason = { "zls", "codelldb" },
+        treesitter = { "zig" },
     },
 }

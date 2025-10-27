@@ -13,6 +13,7 @@ return {
     nvim = false,
     ocaml = false,
     orgmode = false,
+    php = false,
     python = false,
     rust = false,
     shell = false,
