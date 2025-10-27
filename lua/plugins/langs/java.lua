@@ -6,7 +6,6 @@ return {
         "mfussenegger/nvim-jdtls",
         config = function()
             local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-
             vim.lsp.config("jdtls", {
                 cmd = {
                     "java",
@@ -33,16 +32,9 @@ return {
                     java = {
                         signatureHelp = { enabled = true },
                         extendedClientCapabilities = require("jdtls").extendedClientCapabilities,
-                        -- TODO: Understand this keys effect
-                        -- maven = {
-                        --     downloadSources = true,
-                        -- },
-                        -- referencesCodeLens = {
-                        --     enabled = true,
-                        -- },
-                        -- references = {
-                        --     includeDecompiledSources = true,
-                        -- },
+                        maven = {
+                            downloadSources = true,
+                        },
                         inlayHints = {
                             parameterNames = {
                                 enabled = "all", -- literals, all, none
@@ -51,10 +43,22 @@ return {
                         format = {
                             enabled = true,
                         },
+                        bundles = {
+                            require("spring_boot").java_extensions(),
+                        },
                     },
                 },
             })
             vim.lsp.enable("jdtls")
         end,
+    },
+    {
+        -- BUG: probably not working as intended since I see no difference with or without
+        "JavaHello/spring-boot.nvim",
+        config = true,
+        dependencies = {
+            "mfussenegger/nvim-jdtls",
+            "ibhagwan/fzf-lua",
+        },
     },
 }

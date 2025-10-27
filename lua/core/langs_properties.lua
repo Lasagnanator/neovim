@@ -20,7 +20,7 @@ return {
             "jdtls",
             "java-debug-adapter",
             "java-test",
-            -- "vscode-spring-boot-tools",
+            "vscode-spring-boot-tools",
             "gradle-language-server",
         },
         treesitter = { "java", "groovy" },
