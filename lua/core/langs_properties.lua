@@ -14,6 +14,9 @@ return {
         mason = { "gopls", "delve", "gofumpt", "gomodifytags", "goimports", "impl" },
         treesitter = { "go", "gomod", "gosum", "gotmpl", "gowork" },
     },
+    htmx = {
+        mason = { "htmx-lsp" }
+    },
     java = {
         dependencies = { "xml" },
         mason = {

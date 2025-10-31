@@ -3,6 +3,7 @@ return {
     docker = false,
     flutter = false,
     go = false,
+    htmx = false,
     java = false,
     jinja = false,
     json = false,
