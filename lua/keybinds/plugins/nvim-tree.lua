@@ -8,6 +8,7 @@ function M.on_attach(bufnr)
     return keys:new({
         key:new("n", "}", require("nvim-tree.api").tree.change_root_to_node, "nvim-tree: CD", opts),
         key:new("n", "{", require("nvim-tree.api").tree.change_root_to_parent, "nvim-tree: Up", opts),
+        key:new("n", "<C-s>", require("nvim-tree.api").node.open.horizontal, "nvim-tree: Up", opts),
     })
 end
 

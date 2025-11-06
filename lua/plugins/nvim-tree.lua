@@ -13,6 +13,7 @@ return {
             vim.keymap.set('n', '<C-]>', '', { buffer = bufnr })
             vim.keymap.del('n', '<C-[>', { buffer = bufnr })
             vim.keymap.del('n', '<C-]>', { buffer = bufnr })
+            vim.keymap.del('n', '<C-x>', { buffer = bufnr })
             -- Set keybinds
             require("keybinds.plugins.nvim-tree").on_attach(bufnr):set()
         end
