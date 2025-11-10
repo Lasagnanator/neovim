@@ -12,6 +12,7 @@ return {
     markdown = false,
     nginx = false,
     nvim = false,
+    obsidian = false,
     ocaml = false,
     orgmode = false,
     php = false,
