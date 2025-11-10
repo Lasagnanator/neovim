@@ -17,7 +17,6 @@ return {
     },
     {
         "chipsenkbeil/org-roam.nvim",
-        enabled = false,
         branch = "main",
         opts = {
             directory = os.getenv("HOME") .. "/org",
