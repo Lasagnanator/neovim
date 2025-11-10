@@ -5,8 +5,6 @@ return {
     opts = {
         disable_hint = true,
         graph_style = "unicode",
-        console_timeout = 100,
-        auto_close_console = false,
         commit_editor = {
             spell_check = false,
         },
