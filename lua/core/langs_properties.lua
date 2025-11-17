@@ -3,6 +3,10 @@ return {
         dependencies = { "jinja", "yaml" },
         mason = { "ansible-language-server", "ansible-lint" },
     },
+    csharp = {
+        mason = { "omnisharp", "netcoredbg" },
+        treesitter = { "c_sharp" },
+    },
     docker = {
         mason = { "docker-compose-language-service", "dockerfile-language-server", "hadolint" },
         treesitter = { "dockerfile" },

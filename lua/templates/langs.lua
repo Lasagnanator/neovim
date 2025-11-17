@@ -1,5 +1,6 @@
 return {
     ansible = false,
+    csharp = false,
     docker = false,
     flutter = false,
     go = false,
