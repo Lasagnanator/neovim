@@ -4,6 +4,7 @@ return {
         "williamboman/mason.nvim",
         version = "*",
         opts = { registries = { "github:mason-org/mason-registry" } },
+        opts_extend = { "registries" },
         lazy = false,
         keys = require("keybinds.plugins.mason"):to_lazy(),
     },

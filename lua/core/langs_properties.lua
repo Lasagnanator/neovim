@@ -4,7 +4,7 @@ return {
         mason = { "ansible-language-server", "ansible-lint" },
     },
     csharp = {
-        mason = { "omnisharp", "netcoredbg" },
+        mason = { "roslyn", "netcoredbg" },
         treesitter = { "c_sharp" },
     },
     docker = {
