@@ -19,7 +19,7 @@ return {
         treesitter = { "go", "gomod", "gosum", "gotmpl", "gowork" },
     },
     htmx = {
-        mason = { "htmx-lsp" }
+        mason = { "htmx-lsp" },
     },
     java = {
         dependencies = { "xml" },
@@ -50,7 +50,7 @@ return {
     },
     nginx = {
         mason = { "nginx-language-server" },
-        treesitter = { "nginx" }
+        treesitter = { "nginx" },
     },
     nvim = {
         dependencies = { "lua" },
@@ -63,9 +63,16 @@ return {
         mason = { "phpactor" },
         treesitter = { "php", "phpdoc" },
     },
+    puppet = {
+        dependencies = { "ruby" },
+        treesitter = { "puppet" },
+    },
     python = {
         mason = { "debugpy", "basedpyright", "black" },
         treesitter = { "python" },
+    },
+    ruby = {
+        treesitter = { "ruby" },
     },
     rust = {
         dependencies = { "toml" },
