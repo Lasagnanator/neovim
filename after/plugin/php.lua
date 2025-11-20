@@ -1,3 +1,1 @@
-if Langs.php then
-    vim.lsp.enable("phpactor")
-end
+if Langs.php then vim.lsp.enable("phpactor") end

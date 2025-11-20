@@ -3,6 +3,7 @@ if not Langs.csharp then return {} end
 ---@type LazySpec
 return {
     "seblyng/roslyn.nvim",
+    branch = "main",
     ---@module "roslyn.config"
     ---@type RoslynNvimConfig
     opts = {},

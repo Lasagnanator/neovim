@@ -1,6 +1,6 @@
 return {
     {
         name = "Notes",
-        path = "~/obsidian/Notes"
-    }
+        path = "~/obsidian/Notes",
+    },
 }

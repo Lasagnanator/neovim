@@ -1,3 +1,1 @@
-if Langs.htmx then
-    vim.lsp.enable("htmx")
-end
+if Langs.htmx then vim.lsp.enable("htmx") end

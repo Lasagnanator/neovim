@@ -1,7 +1,7 @@
-local key    = require("core.classes").Keybind
-local keys   = require("core.classes").Keybinds_group
+local key = require("core.classes").Keybind
+local keys = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
-local M      = {}
+local M = {}
 
 function M.on_attach(bufnr)
     local opts = { buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -13,7 +13,13 @@ function M.on_attach(bufnr)
 end
 
 M.global = keys:new({
-    key:new("n", "<Leader>ee", function() require("nvim-tree.api").tree.toggle({ focus = false }) end, "Open tree", silent),
+    key:new(
+        "n",
+        "<Leader>ee",
+        function() require("nvim-tree.api").tree.toggle({ focus = false }) end,
+        "Open tree",
+        silent
+    ),
     key:new("n", "<Leader>ew", require("nvim-tree.api").tree.focus, "Focus tree", silent),
 })
 
