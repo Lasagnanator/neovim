@@ -19,6 +19,7 @@ return {
     php = false,
     puppet = false,
     python = false,
+    qml = false,
     ruby = false,
     rust = false,
     shell = false,
