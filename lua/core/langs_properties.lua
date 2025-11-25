@@ -71,7 +71,7 @@ return {
         mason = { "debugpy", "basedpyright", "black" },
         treesitter = { "python" },
     },
-    qmlls = {
+    qml = {
         mason = { "qmlls" },
         treesitter = { "qmldir", "qmljs" },
     },
