@@ -63,6 +63,9 @@ return {
         mason = { "phpactor" },
         treesitter = { "php", "phpdoc" },
     },
+    powershell = {
+        mason = { "powershell-editor-services" }
+    },
     puppet = {
         dependencies = { "ruby" },
         treesitter = { "puppet" },

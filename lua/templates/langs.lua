@@ -17,6 +17,7 @@ return {
     ocaml = false,
     orgmode = false,
     php = false,
+    powershell = false,
     puppet = false,
     python = false,
     qml = false,
