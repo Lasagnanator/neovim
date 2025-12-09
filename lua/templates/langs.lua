@@ -5,6 +5,7 @@ return {
     flutter = false,
     go = false,
     htmx = false,
+    http = false,
     java = false,
     jinja = false,
     json = false,
