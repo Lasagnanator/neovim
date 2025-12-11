@@ -108,10 +108,10 @@ local base = keys:new({
 
     -- Terminal
     key:new("t", "<Esc>", [[<C-\><C-n>]], "Normal esc behaviour in terminal", silent),
-    key:new("t", "<A-h>", [[<C-\><C-n><C-w>h]], "Move left from terminal", silent),
-    key:new("t", "<A-j>", [[<C-\><C-n><C-w>j]], "Move down from terminal", silent),
-    key:new("t", "<A-k>", [[<C-\><C-n><C-w>k]], "Move up from terminal", silent),
-    key:new("t", "<A-l>", [[<C-\><C-n><C-w>l]], "Move right from terminal", silent),
+    key:new("t", "<A-h>", [[<Cmd>wincmd h<CR>]], "Move left from terminal", silent),
+    key:new("t", "<A-j>", [[<Cmd>wincmd j<CR>]], "Move down from terminal", silent),
+    key:new("t", "<A-k>", [[<Cmd>wincmd k<CR>]], "Move up from terminal", silent),
+    key:new("t", "<A-l>", [[<Cmd>wincmd l<CR>]], "Move right from terminal", silent),
 
     -- System
     key:new("n", "<Leader>cc", "<Cmd>LspInfo<CR>", "Open info panel", silent),
