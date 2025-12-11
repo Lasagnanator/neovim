@@ -71,6 +71,7 @@ return {
         treesitter = { "puppet" },
     },
     python = {
+        dependencies = { "toml" },
         mason = { "debugpy", "basedpyright", "black" },
         treesitter = { "python" },
     },
