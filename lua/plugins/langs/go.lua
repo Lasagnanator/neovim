@@ -24,4 +24,12 @@ return {
             "mfussenegger/nvim-dap",
         },
     },
+    {
+        "TheNoeTrevino/no-go.nvim",
+        opts = {
+            identifiers = { "err", "error" },
+        },
+        ft = "go",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
 }
