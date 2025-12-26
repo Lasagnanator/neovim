@@ -19,9 +19,11 @@ local settings = {
     softtabstop = 4,
     smarttab = false,
     foldenable = true,
-    foldmethod = "manual",
+    foldmethod = "expr",
     foldlevel = 99,
-    foldlevelstart = 99,
+    foldexpr = "v:lua.vim.treesitter.foldexpr()",
+    foldtext = "",
+    foldcolumn = "0",
     conceallevel = 2,
     wrap = false,
     linebreak = true,
@@ -41,7 +43,10 @@ for k, v in pairs(settings) do
 end
 
 --<< Variables
-vim.opt.fillchars:append({ diff = "╱" })
+vim.opt.fillchars:append({
+    diff = "╱",
+    fold = " ",
+})
 
 --<< Fix for missing highlight groups
 -- TODO: check if still needed
