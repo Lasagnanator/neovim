@@ -28,6 +28,7 @@ return {
     svelte = false,
     tailwind = false,
     toml = false,
+    typst = false,
     web = false,
     xml = false,
     yaml = false,

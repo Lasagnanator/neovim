@@ -102,6 +102,10 @@ return {
         mason = { "taplo" },
         treesitter = { "toml" },
     },
+    typst = {
+        mason = { "tinymist" },
+        treesitter = { "typst" },
+    },
     web = {
         dependencies = { "json" },
         mason = { "css-lsp", "html-lsp", "typescript-language-server", "eslint-lsp", "prettierd" },
