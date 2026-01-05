@@ -26,6 +26,7 @@ return {
     },
     {
         "TheNoeTrevino/no-go.nvim",
+        enabled = false,
         opts = {
             identifiers = { "err", "error" },
         },
