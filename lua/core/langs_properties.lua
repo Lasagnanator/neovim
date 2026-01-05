@@ -38,7 +38,7 @@ return {
     },
     json = {
         mason = { "json-lsp", "jsonlint" },
-        treesitter = { "json", "jsonc" },
+        treesitter = { "json" },
     },
     lua = {
         mason = { "lua-language-server", "stylua" },
