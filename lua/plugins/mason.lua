@@ -3,7 +3,18 @@ return {
     {
         "williamboman/mason.nvim",
         version = "*",
-        opts = { registries = { "github:mason-org/mason-registry" } },
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = "",
+                    package_pending = "➜",
+                    package_uninstalled = "",
+                },
+            },
+        },
+        registries = {
+            registries = { "github:mason-org/mason-registry" },
+        },
         opts_extend = { "registries" },
         lazy = false,
         keys = require("keybinds.plugins.mason"):to_lazy(),
