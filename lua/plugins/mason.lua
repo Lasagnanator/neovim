@@ -11,8 +11,6 @@ return {
                     package_uninstalled = "",
                 },
             },
-        },
-        registries = {
             registries = { "github:mason-org/mason-registry" },
         },
         opts_extend = { "registries" },
