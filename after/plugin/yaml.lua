@@ -1,4 +1,4 @@
-if Langs.toml then
+if Langs.yaml then
     vim.lsp.enable("yamlls")
 
     vim.api.nvim_create_user_command("YamlCurrentSchema", function()
