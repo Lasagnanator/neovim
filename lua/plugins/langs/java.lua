@@ -43,19 +43,19 @@ return {
                         format = {
                             enabled = true,
                         },
-                        bundles = {
-                            require("spring_boot").java_extensions(),
-                        },
+                        bundles = {},
                     },
                 },
             })
-            vim.lsp.enable("jdtls")
         end,
     },
     {
         -- BUG: probably not working as intended since I see no difference with or without
         "JavaHello/spring-boot.nvim",
-        config = true,
+        config = function ()
+            require("spring_boot").setup({})
+            vim.list_extend(vim.lsp.config.jdtls.settings.java.bundles, require("spring_boot").java_extensions())
+        end,
         dependencies = {
             "mfussenegger/nvim-jdtls",
             "ibhagwan/fzf-lua",
