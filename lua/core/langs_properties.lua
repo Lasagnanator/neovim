@@ -64,7 +64,7 @@ return {
         treesitter = { "php", "phpdoc" },
     },
     powershell = {
-        mason = { "powershell-editor-services" }
+        mason = { "powershell-editor-services" },
     },
     puppet = {
         dependencies = { "ruby" },
@@ -97,6 +97,11 @@ return {
     },
     tailwind = {
         mason = { "tailwindcss-language-server" },
+    },
+    terraform = {
+        dependencies = { "json" },
+        mason = { "terraform-ls", "tflint" },
+        treesitter = { "terraform" },
     },
     toml = {
         mason = { "taplo" },

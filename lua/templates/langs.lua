@@ -28,6 +28,7 @@ return {
     shell = false,
     svelte = false,
     tailwind = false,
+    terraform = false,
     toml = false,
     typst = false,
     web = false,
