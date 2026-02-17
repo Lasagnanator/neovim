@@ -73,7 +73,7 @@ return {
     python = {
         dependencies = { "toml" },
         mason = { "debugpy", "basedpyright", "black" },
-        treesitter = { "python" },
+        treesitter = { "python", "rst" },
     },
     qml = {
         mason = { "qmlls" },
