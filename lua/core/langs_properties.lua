@@ -88,7 +88,14 @@ return {
         treesitter = { "rust" },
     },
     shell = {
-        mason = { "bash-language-server", "shfmt", "shellcheck", "awk-language-server", "fish-lsp" },
+        mason = {
+            "bash-language-server",
+            "shfmt",
+            "shellcheck",
+            "awk-language-server",
+            "fish-lsp",
+            "systemd-lsp",
+        },
         treesitter = { "bash", "awk", "fish" },
     },
     svelte = {
