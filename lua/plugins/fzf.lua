@@ -21,6 +21,14 @@ return {
                 prompt = "> ",
                 no_header = true,
                 no_header_i = true,
+                actions = {
+                    ["default"] = actions.file_edit,
+                    ["ctrl-s"] = actions.file_split,
+                    ["ctrl-v"] = actions.file_vsplit,
+                    ["ctrl-t"] = actions.file_tabedit,
+                    ["ctrl-q"] = actions.file_sel_to_qf,
+                    ["alt-q"] = { fn = actions.file_sel_to_qf, prefix = "select-all" },
+                },
             },
         })
         require("fzf-lua").register_ui_select()
