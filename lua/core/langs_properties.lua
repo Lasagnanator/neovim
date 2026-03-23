@@ -52,6 +52,9 @@ return {
         mason = { "nginx-language-server" },
         treesitter = { "nginx" },
     },
+    nix = {
+        treesitter = { "nix" }
+    },
     nvim = {
         dependencies = { "lua" },
     },
