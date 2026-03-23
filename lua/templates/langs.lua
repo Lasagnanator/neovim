@@ -14,6 +14,7 @@ return {
     lua = false,
     markdown = false,
     nginx = false,
+    nix = false,
     nvim = false,
     obsidian = false,
     ocaml = false,
