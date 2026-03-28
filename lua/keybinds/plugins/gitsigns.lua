@@ -3,7 +3,8 @@ local keys = require("core.classes").Keybinds_group
 local silent = { noremap = true, silent = true }
 
 return keys:new({
-    key:new("n", "<Leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame", silent),
+    key:new("n", "<Leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", "Toggle inline blame", silent),
+    key:new("n", "<Leader>gB", "<CMD>Gitsigns blame_line<CR>", "Line blame", silent),
     key:new("n", "<Leader>gr", "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk", silent),
     key:new("n", "<Leader>gs", "<CMD>Gitsigns select_hunk<CR>", "Select hunk", silent),
     key:new("n", "<Leader>gi", "<CMD>Gitsigns toggle_signs<CR>", "Toggle signs", silent),
