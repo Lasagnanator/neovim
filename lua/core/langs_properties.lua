@@ -53,7 +53,7 @@ return {
         treesitter = { "nginx" },
     },
     nix = {
-        treesitter = { "nix" }
+        treesitter = { "nix" },
     },
     nvim = {
         dependencies = { "lua" },
@@ -110,7 +110,13 @@ return {
     },
     terraform = {
         dependencies = { "json" },
-        mason = { "terraform-ls", "tflint" },
+        mason = (function()
+            if vim.fn.executable("tofu") then
+                return { "tofu-ls" }
+            else
+                return { "terraform-ls", "tflint" }
+            end
+        end)(),
         treesitter = { "terraform" },
     },
     toml = {
