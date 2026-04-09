@@ -16,7 +16,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        name = "catppuccin-nvim",
+        name = "catppuccin",
         version = "*",
         opts = {
             flavour = "macchiato", -- latte, frappe, macchiato, mocha
