@@ -75,7 +75,7 @@ return {
     },
     python = {
         dependencies = { "toml" },
-        mason = { "debugpy", "basedpyright", "black" },
+        mason = { "ty", "ruff", "debugpy" },
         treesitter = { "python", "rst" },
     },
     qml = {
