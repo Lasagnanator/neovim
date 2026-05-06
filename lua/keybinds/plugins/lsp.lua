@@ -4,7 +4,6 @@ local M = {}
 
 function M.on_attach(args)
     return keys:new({
-        key:new("n", "<Leader>cz", "<Cmd>LspInfo<CR>", "Open description", args),
         key:new("n", "<Leader>ci", vim.diagnostic.open_float, "Open description", args),
         key:new("n", "<Leader>cr", function() return ":IncRename " end, "Rename symbol", { expr = true }),
         key:new(

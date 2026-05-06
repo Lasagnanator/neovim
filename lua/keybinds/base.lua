@@ -114,8 +114,8 @@ local base = keys:new({
     key:new("t", "<A-l>", [[<Cmd>wincmd l<CR>]], "Move right from terminal", silent),
 
     -- System
-    key:new("n", "<Leader>cc", "<Cmd>LspInfo<CR>", "Open info panel", silent),
-    key:new("n", "<Leader>cy", "<Cmd>LspRestart<CR>", "Restart LSPs", silent),
+    key:new("n", "<Leader>cc", "<Cmd>checkhealth vim.lsp<CR>", "Open info panel", silent),
+    key:new("n", "<Leader>cy", "<Cmd>lsp restart<CR>", "Restart LSPs", silent),
 
     -- Shortcuts
     key:new(
