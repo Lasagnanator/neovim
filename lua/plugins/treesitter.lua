@@ -7,7 +7,7 @@ return {
         ts.setup()
         ts.install(Treesitter.parsers)
         local au_treesitter = vim.api.nvim_create_augroup("treesitter", { clear = true })
-        vim.api.nvim_create_autocmd("Filetype", {
+        vim.api.nvim_create_autocmd("FileType", {
             desc = "Start treesitter functions",
             group = au_treesitter,
             callback = function(args)
