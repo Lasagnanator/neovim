@@ -63,7 +63,7 @@ return {
         treesitter = { "ocaml", "ocaml_interface" },
     },
     php = {
-        mason = { "phpactor" },
+        mason = { "phpantom_lsp" },
         treesitter = { "php", "phpdoc" },
     },
     powershell = {
