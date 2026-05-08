@@ -44,7 +44,24 @@ return {
                 org = { "orgmode" },
             },
             providers = {
+                lsp = {
+                    min_keyword_length = 1,
+                    score_offset = 1,
+                },
+                snippets = {
+                    min_keyword_length = 2,
+                    score_offset = 2,
+                },
+                path = {
+                    min_keyword_length = 2,
+                    score_offset = 3,
+                },
+                buffer = {
+                    min_keyword_length = 3,
+                    score_offset = 4,
+                },
                 orgmode = {
+                    score_offset = 1,
                     name = "Orgmode",
                     module = "orgmode.org.autocompletion.blink",
                     fallbacks = { "buffer" },
