@@ -48,6 +48,9 @@ vim.opt.fillchars:append({
     fold = " ",
 })
 
+--<< New UI
+require("vim._core.ui2").enable()
+
 --<< Fix for missing highlight groups
 -- TODO: check if still needed
 vim.api.nvim_set_hl(0, "@text.emphasis", { link = "Italic" })
