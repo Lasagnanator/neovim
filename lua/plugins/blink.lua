@@ -42,7 +42,6 @@ return {
             default = { "lsp", "path", "snippets", "buffer" },
             providers = {
                 lsp = {
-                    min_keyword_length = 1,
                     score_offset = 1,
                 },
                 snippets = {
@@ -50,7 +49,6 @@ return {
                     score_offset = 2,
                 },
                 path = {
-                    min_keyword_length = 2,
                     score_offset = 3,
                 },
                 buffer = {
