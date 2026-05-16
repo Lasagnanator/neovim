@@ -15,15 +15,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("LspProgress", {
-  callback = function(ev)
-    local value = ev.data.params.value
-    vim.api.nvim_echo({ { value.message or "done" } }, false, {
-      id = "lsp." .. ev.data.client_id,
-      kind = "progress",
-      source = "vim.lsp",
-      title = value.title,
-      status = value.kind ~= "end" and "running" or "success",
-      percent = value.percentage,
-    })
-  end,
+    callback = function(ev)
+        local value = ev.data.params.value
+        vim.api.nvim_echo({ { value.message or "done" } }, false, {
+            id = "lsp." .. ev.data.client_id,
+            kind = "progress",
+            source = "vim.lsp",
+            title = value.title,
+            status = value.kind ~= "end" and "running" or "success",
+            percent = value.percentage,
+        })
+    end,
+})
+
+--<< User commands
+vim.api.nvim_create_user_command("LspLog", function(_)
+    local state_path = vim.fn.stdpath("state")
+    local log_path = vim.fs.joinpath(state_path, "lsp.log")
+    vim.cmd(string.format("tabnew %s", log_path))
+end, {
+    desc = "Show LSP log",
 })
