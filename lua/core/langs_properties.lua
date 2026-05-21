@@ -7,6 +7,9 @@ return {
         mason = { "roslyn", "netcoredbg" },
         treesitter = { "c_sharp" },
     },
+    datastar = {
+        dependencies = { "web" }
+    },
     docker = {
         mason = { "docker-compose-language-service", "dockerfile-language-server", "hadolint" },
         treesitter = { "dockerfile" },
