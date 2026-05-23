@@ -51,9 +51,9 @@ return {
         init = function()
             -- TODO: check if still needed or if it can be integrated within plugin configuration
             if Colorscheme == "onedark" then
-                vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator" })
-                vim.api.nvim_set_hl(0, "@lsp.type.operator", { link = "Operator" })
-                vim.api.nvim_set_hl(0, "CursorLineNr", { link = "Function" })
+                vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator", update = true })
+                vim.api.nvim_set_hl(0, "@lsp.type.operator", { link = "Operator", update = true })
+                vim.api.nvim_set_hl(0, "CursorLineNr", { link = "Function", update = true })
             end
         end,
         priority = Priority.colorscheme,
@@ -78,9 +78,9 @@ return {
                 vim.g.moonlight_italic_functions = true
 
                 -- TODO: check if still needed
-                vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator" })
-                vim.api.nvim_set_hl(0, "WinBar", { bold = true })
-                vim.api.nvim_set_hl(0, "WinBarNC", { bold = true, fg = "NvimLightGrey4" })
+                vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Operator", update = true })
+                vim.api.nvim_set_hl(0, "WinBar", { bold = true, update = true })
+                vim.api.nvim_set_hl(0, "WinBarNC", { bold = true, fg = "NvimLightGrey4", update = true })
             end
         end,
         priority = Priority.colorscheme,
