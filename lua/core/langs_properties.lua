@@ -8,11 +8,15 @@ return {
         treesitter = { "c_sharp" },
     },
     datastar = {
-        dependencies = { "web" }
+        dependencies = { "web" },
     },
     docker = {
         mason = { "docker-compose-language-service", "dockerfile-language-server", "hadolint" },
         treesitter = { "dockerfile" },
+    },
+    elixir = {
+        mason = { "expert" },
+        treesitter = { "elixir" },
     },
     flutter = {
         treesitter = { "dart" },
