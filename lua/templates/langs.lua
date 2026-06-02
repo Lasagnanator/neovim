@@ -4,6 +4,7 @@ return {
     d2 = false,
     datastar = false,
     docker = false,
+    elixir = false,
     flutter = false,
     go = false,
     htmx = false,
