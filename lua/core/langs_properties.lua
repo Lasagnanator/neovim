@@ -1,7 +1,7 @@
 return {
     ansible = {
         dependencies = { "jinja", "yaml" },
-        mason = { "ansible-language-server", "ansible-lint" },
+        mason = { "ansible-language-server" },
     },
     csharp = {
         mason = { "roslyn", "netcoredbg" },
