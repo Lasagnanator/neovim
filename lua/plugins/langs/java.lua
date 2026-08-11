@@ -52,7 +52,8 @@ return {
     {
         -- BUG: probably not working as intended since I see no difference with or without
         "JavaHello/spring-boot.nvim",
-        config = function ()
+        enabled = false,
+        config = function()
             require("spring_boot").setup({})
             vim.list_extend(vim.lsp.config.jdtls.settings.java.bundles, require("spring_boot").java_extensions())
         end,
