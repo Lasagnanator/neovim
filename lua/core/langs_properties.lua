@@ -4,6 +4,7 @@ return {
         mason = { "ansible-language-server" },
     },
     csharp = {
+        dependencies = { "json", "xml" },
         mason = { "roslyn", "netcoredbg" },
         treesitter = { "c_sharp" },
     },
@@ -102,7 +103,7 @@ return {
             "bash-language-server",
             "shfmt",
             "shellcheck",
-            "awk-language-server",
+            -- "awk-language-server",
             "fish-lsp",
             "systemd-lsp",
         },
