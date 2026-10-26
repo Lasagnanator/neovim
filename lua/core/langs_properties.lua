@@ -26,6 +26,10 @@ return {
         mason = { "gopls", "delve", "gofumpt", "gomodifytags", "goimports", "impl" },
         treesitter = { "go", "gomod", "gosum", "gotmpl", "gowork" },
     },
+    helm = {
+        mason = { "helm-ls" },
+        treesitter = { "helm" },
+    },
     htmx = {
         mason = { "htmx-lsp" },
     },

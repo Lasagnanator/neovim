@@ -7,6 +7,7 @@ return {
     elixir = false,
     flutter = false,
     go = false,
+    helm = false,
     htmx = false,
     java = false,
     jinja = false,
